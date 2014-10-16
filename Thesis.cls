@@ -326,7 +326,7 @@
 \addcontentsline{toc}{chapter}{#1}}
 \renewcommand\tableofcontents{
 \btypeout{Table of Contents}
-\addtotoc{Contents}
+\addtotoc{Indice general}
 \begin{spacing}{1}{
     \setlength{\parskip}{1pt}
     \if@twocolumn
