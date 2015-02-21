@@ -25,13 +25,14 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[11pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
+\documentclass[10pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
 
-\graphicspath{{Pictures/}{Figures/}{Figures/Cap_3/}{Figures/Cap_4}{Figures/Cap_5}} % Specifies the directory where pictures are stored
+\graphicspath{{Figures/}} % Specifies the directory where pictures are stored
 
-\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
-\usepackage{subfig}
+\usepackage[square, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
 \usepackage[spanish]{babel}
+\usepackage{subfig}
+\usepackage{titlesec}
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
 
@@ -55,6 +56,11 @@
 \hypersetup{pdfsubject=\subjectname}
 \hypersetup{pdfauthor=\authornames}
 \hypersetup{pdfkeywords=\keywordnames}
+
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{black}}
+  {\chaptertitlename\ \thechapter}{20pt}{}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -143,6 +149,7 @@ Fecha:\\
 %----------------------------------------------------------------------------------------
 
 \addtotoc{Resumen} % Add the "Abstract" page entry to the Contents
+
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
 \Large{ESCRIBIR UN ABSTRACT RE ZARPADO}\ldots
@@ -193,6 +200,14 @@ Fecha:\\
 \textbf{STZ} & \textbf{S}hear \textbf{T}ransformation \textbf{Z}one \\
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
+
+% STZ : zona de transformación de tensión cortante
+% SB : bandas de corte
+% shear strain : deformación cortante
+% nanovidrio, nanopartículas, nanoporos
+% BMG : vidrios metálicos masivos
+% uniaxial : uniaxial
+% compressive strain : deformación por compresión
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
