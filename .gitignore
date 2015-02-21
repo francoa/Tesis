@@ -6,5 +6,7 @@ main.lot
 main.out
 main.toc
 main.pdf
+main.bbl
+main.bgl
 *.*~
 */*.*~
