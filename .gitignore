@@ -8,5 +8,9 @@ main.toc
 main.pdf
 main.bbl
 main.bgl
+main.blg
+main.synctex.gz
+texput.log
+titlesec.sty
 *.*~
 */*.*~
