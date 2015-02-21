@@ -176,7 +176,7 @@
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 \newcommand*{\authorx}{Franco \textsc{Ardiani}}
-\newcommand*{\authory}{Andr\'es \textsc{Manelli}}
+\newcommand*{\authory}{Andrés \textsc{Manelli}}
 %----------------------------------------------------------------------------------------
 %	DOCUMENT VARIABLES
 %	Fill in the lines below to update the thesis template
