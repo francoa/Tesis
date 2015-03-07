@@ -12,5 +12,9 @@ main.blg
 main.synctex.gz
 texput.log
 titlesec.sty
+*.backup
+*.*.backup
+*/*.backup
+*/*.*.backup
 *.*~
 */*.*~
