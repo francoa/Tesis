@@ -16,5 +16,7 @@ titlesec.sty
 *.*.backup
 */*.backup
 */*.*.backup
+*.log
+*.*.log
 *.*~
 */*.*~

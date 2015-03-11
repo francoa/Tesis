@@ -14,24 +14,37 @@
 Amorphous metals, i.e. without defined crystal structure; are increasingly used in modern life, showing great potential as advanced engineering materials, due to some of its characteristic properties such as high hardness and moldability, high resilience, high mechanical strength and high wear resistance, among others. All these properties allow obtaining parts with complex shapes and high strength, which increases their chances for industrial application. However, many details of the mechanical behavior are still unknown, and the currently used models and theories are far from predictive.
 One of the possibilities to determine constitutive parameters, and thus study the response of these materials, is by using atomistic calculations. In this paper we present results obtained with molecular dynamics (MD) simulations, of an amorphous metal (CuZr). In particular, constitutive parameters such as elasticity modulus, are determined for samples at different temperatures and subjected to both tension and compression. The results obtained are relevant for understanding the mechanical behavior of the material, such as stress-strain and temperature-strain relationships. Additionally, it is possible to observe, under uniaxial tension, the nucleation and growth of a void due to high stress and strain rate values.
 
-\section{INTRODUCTION}
-Solid materials without an ordered structure, i.e. amorphous, are generally called "glasses". Particular cases of great scientific and technological interest are metallic glasses, which are metallic alloys with mechanical properties that outperform the most common crystalline alloys (\cite{luborsky83}, \cite{greer95}). It is known that metals easily form crystals when cooled (\cite{callister95}, \cite{smith96}). However, using a sufficiently fast cooling rate and controlling the composition of the alloy it is possible to obtain amorphous structures (\cite{liebermann93}), with the elasticity of polymers and the resistance of metals (\cite{telford04}), also having high strength and moldability. All these properties enable the creation of parts with complex shapes and high resistance, which further increases their chances of industrial applications. Thanks to the above properties, these materials have received great interest as structural materials in recent years (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), including, for example, amorphous structural steels (\cite{lu04}), biomedical materials (\cite{zberg09}) or even aerospace materials (\cite{peker93}), to name a few.
+\section{INTRODUCCION}
+Los materiales sólidos sin una estructura ordenada , es decir, amorfos, son llamados generalmente "vidrios". Algunos casos particulares de gran interés científico y tecnológico son los vidrios metálicos, que son aleaciones metálicas con propiedades mecánicas que sobrepasan en prestaciones a las aleaciones cristalinas más comunes (\cite{luborsky83}, \cite{greer95}). Se sabe que los metales forman fácilmente cristales cuando son enfriados (\cite{callister95}, \cite{smith96}). Sin embargo, usando una velocidad de enfriamiento suficientemente elevada y controlando la composición de la aleación, es posible obtener estructuras amorfas (\cite{liebermann93}), con la elasticidad de los polímeros y la resistencia de los metales (\cite{telford04}), teniendo también alta resistencia y moldeabilidad. Estas propiedades en su conjunto hacen posible la creación de partes de forma compleja y de alta resistencia, lo que además incrementa sus posibilidades de ser utilizados en aplicaciones industriales. Gracias a las propiedades citadas, estos materiales han sido de mucho interés como materiales estructurales en años recientes (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), incluyendo, por ejemplo, metales amorfos estructurales (\cite{lu04}), materiales biomédicos (\cite{zberg09}) o hasta incluso materiales aeroespaciales (\cite{peker93}), por nombrar algunos.
 
-Metallic glasses can generally be classified as conventional metallic glasses or bulk metallic glasses (BMG) (\cite{wang04}, \cite{miller07}). BMG have recently been employed as matrix phase in composite materials, thus improving the various original properties of the dispersed phase such as mechanical, magnetic properties, etc. (\cite{telford04}, \cite{lu11}). In the particular case of metallic glasses under plastic strain, with the appearance of shear bands, it is customary to address the problem through a focus on nanoscale behavior (\cite{ogata06}, \cite{guan10}), or through an approach using continuum mechanics (\cite{malvern69}).
+%Solid materials without an ordered structure, i.e. amorphous, are generally called "glasses". Particular cases of great scientific and technological interest are metallic glasses, which are metallic alloys with mechanical properties that outperform the most common crystalline alloys (\cite{luborsky83}, \cite{greer95}). It is known that metals easily form crystals when cooled (\cite{callister95}, \cite{smith96}). However, using a sufficiently fast cooling rate and controlling the composition of the alloy it is possible to obtain amorphous structures (\cite{liebermann93}), with the elasticity of polymers and the resistance of metals (\cite{telford04}), also having high strength and moldability. All these properties enable the creation of parts with complex shapes and high resistance, which further increases their chances of industrial applications. Thanks to the above properties, these materials have received great interest as structural materials in recent years (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), including, for example, amorphous structural steels (\cite{lu04}), biomedical materials (\cite{zberg09}) or even aerospace materials (\cite{peker93}), to name a few.
 
-Molecular dynamics (MD) simulations are often used to study nanoscale properties (\cite{allen87}). MD simulations are a very powerful technique that allows solving, using classical mechanics, problems with many bodies, given an interaction between atoms. One advantage of MD is that strain, stress, temperature, speed, etc. are all known in detail (\cite{allen87}). From this information large number of phenomena can be studied, such as phase changes, heat transfer, creation and movement of dislocations, defects, etc.. MD is a very versatile tool for studying the properties of materials, and has even been used to predict mechanical behavior of materials prior to  experiments, as in the case of aluminum twinned nanocrystals (\cite{chen03}). MD simulations reproduce the atomic motion and therefore employ time steps of 1 fs (\cite{allen87}). If modeling a sample up to 10\% strain during 1 million steps of 1 fs, the strain rate will be 108 /s, which is suitable for simulating deformation by high power lasers, but far from the majority of mechanical tests in laboratories. As a result, extrapolation to low strain rates has to be done carefully (\cite{bringa05}).
+Los vidrios metálicos son clasificados en general como vidrios metálicos convencionales o vidrios metálicos masivos (BMG) (\cite{wang04}, \cite{miller07}). Los BMG han sido recientemente empleados como fase matriz en materiales compuestos, mejorando varias de las propiedades originales de la fase dispersa como las propiedades mecánicas, magnéticas, etc. (\cite{telford04}, \cite{lu11}). En el caso particular de vidrios metálicos bajo deformación plástica, con la aparición de bandas de corte, de costumbre se abarca el problema con un enfoque en el comportamiento a nivel nano (\cite{ogata06}, \cite{guan10}), o mediante una aproximación usando mecánica del continuo (\cite{malvern69}).
 
-There are numerous molecular dynamics simulations of amorphous materials. The simulations of metallic glasses in particular have increased due to the presence of suitable interaction potentials for the CuZr system (\cite{ogata06}, \cite{arman10}, \cite{guan10}). In this paper we present atomic-scale simulations of CuZr metallic glasses subjected to tension and compression, and analyze their response as a function of their temperature.
+%Metallic glasses can generally be classified as conventional metallic glasses or bulk metallic glasses (BMG) (\cite{wang04}, \cite{miller07}). BMG have recently been employed as matrix phase in composite materials, thus improving the various original properties of the dispersed phase such as mechanical, magnetic properties, etc. (\cite{telford04}, \cite{lu11}). In the particular case of metallic glasses under plastic strain, with the appearance of shear bands, it is customary to address the problem through a focus on nanoscale behavior (\cite{ogata06}, \cite{guan10}), or through an approach using continuum mechanics (\cite{malvern69}).
 
-\section{SIMULATION DETAILS}
-In this paper, simulations were carried out using the LAMMPS software (\cite{plimpton95}), which is free and open source, has an excellent manual, and is computationally efficient in the simulation of systems with large numbers of atoms.
+Las simulaciones de dinámica molecular (MD) son usadas frecuentemente para estudiar propiedades a escala nano (\cite{allen87}). Las simulaciones de MD son una técnica muy poderosa que permite resolver, usando mecánica clásica, problemas con muchos cuerpos, dada una interacción entre átomos. Una ventaja de MD es que la deformación, el esfuerzo, la temperatura, la velocidad, etc. son todas conocidas en detalle (\cite{allen87}). Con esta información un gran número de fenómenos pueden estudiarse, como cambios de fase, transferencia de calor, creación y movimiento de dislocaciones, defectos, etc.. MD es una herramienta muy versátil para el estudio de las propiedades de materiales, y hasta ha sido utilizada para predecir el comportamiento mecánico de materiales previamente a los experimentos, como en el caso de maclas de aluminio (\cite{chen03}). Las simulaciones de MD reproducen el movimiento atómico y por lo tanto emplean pasos de tiempo de 1 fs (\cite{allen87}). Si modelamos una muestra hasta 10\% de deformación durante 1 millón de pasos de 1 fs, la velocidad de deformación será de $10^8$/s, que es adecuada para simular la deformación bajo láser de alta potencia, pero está lejos de serla para la mayoría de ensayos mecánicos en laboratorios. Como resultado, la extrapolación de resultados a bajas velocidades de deformación, debe realizarse cuidadosamente (\cite{bringa05}).
 
-The Cu$_{46}$Zr$_{54}$ sample used is prismatic, with a total of about 160k atoms, obtained with a quenching rate of 1012 K/s, and it has already been described by \cite{arman10}, in their study effect of shock waves in BMGs was studied. The experimental glass transition temperature (Tg) of this metallic glass is 696 K, and the experimental shear modulus (G) is 30 GPa (\cite{johnson05}). We include a simulation case at T=900 K, above Tg, to see if the mechanical behavior is significantly different. To describe the interactions between atoms, an embedded atom method (EAM) potential (\cite{daw84}) is adopted, which has already been used in other BMGs studies (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
+%Molecular dynamics (MD) simulations are often used to study nanoscale properties (\cite{allen87}). MD simulations are a very powerful technique that allows solving, using classical mechanics, problems with many bodies, given an interaction between atoms. One advantage of MD is that strain, stress, temperature, speed, etc. are all known in detail (\cite{allen87}). From this information large number of phenomena can be studied, such as phase changes, heat transfer, creation and movement of dislocations, defects, etc.. MD is a very versatile tool for studying the properties of materials, and has even been used to predict mechanical behavior of materials prior to  experiments, as in the case of aluminum twinned nanocrystals (\cite{chen03}). MD simulations reproduce the atomic motion and therefore employ time steps of 1 fs (\cite{allen87}). If modeling a sample up to 10\% strain during 1 million steps of 1 fs, the strain rate will be 108 /s, which is suitable for simulating deformation by high power lasers, but far from the majority of mechanical tests in laboratories. As a result, extrapolation to low strain rates has to be done carefully (\cite{bringa05}).
 
-We use 3D periodic boundary conditions, suitable for high strain rates (\cite{bringa05}). All atomic coordinates are scaled every step, according to the desired strain rate, which in this case was 10$^{9}$ /s. Before starting mechanical strain simulations, we first perform energy minimization using conjugate gradient, and then use zero-pressure conditions and constant temperature to equilibrate the sample to the desired temperature T. Table 1 lists the volumes and initial sample densities for the different cases.
+Existen múltiples simulaciones de MD de metales amorfos. Las simulaciones de vidrios metálicos en particular se incrementaron por la presencia de potenciales de interacción adecuados para el sistema CuZr (\cite{ogata06}, \cite{arman10}, \cite{guan10}). En esta sección presentamos simulaciones de nivel atómico de un vidrio metálico CuZr sujeto a tracción y compresión, y analizamos sus respuestas como función de la temperatura.
+
+%There are numerous molecular dynamics simulations of amorphous materials. The simulations of metallic glasses in particular have increased due to the presence of suitable interaction potentials for the CuZr system (\cite{ogata06}, \cite{arman10}, \cite{guan10}). In this paper we present atomic-scale simulations of CuZr metallic glasses subjected to tension and compression, and analyze their response as a function of their temperature.
+
+\section{DETALLES DE LAS SIMULACIONES}
+
+%In this paper, simulations were carried out using the LAMMPS software (\cite{plimpton95}), which is free and open source, has an excellent manual, and is computationally efficient in the simulation of systems with large numbers of atoms.
+
+La muestra Cu$_{46}$Zr$_{54}$ usada es prismática, con un total de alrededor de 160k átomos, creada con una velocidad de enfriamiento de $10^12$ K/s, y ya ha sido descrita por \cite{arman10}. En su trabajo, se estudiaron los efectos de ondas de choque en BMGs. La temperatura experimental de transición vitrea (Tg) de este vidrio metálico es 696 K, y su módulo de cizalla experimental (G) es 30 GPa (\cite{johnson05}). Se incluye un caso de simulación a 900 K, sobre Tg, para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) (\cite{daw84}) fue adoptado, que ya ha sido usado en otros estudios sobre BMGs (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
+
+%The Cu$_{46}$Zr$_{54}$ sample used is prismatic, with a total of about 160k atoms, obtained with a quenching rate of 1012 K/s, and it has already been described by \cite{arman10}, in their study effect of shock waves in BMGs was studied. The experimental glass transition temperature (Tg) of this metallic glass is 696 K, and the experimental shear modulus (G) is 30 GPa (\cite{johnson05}). We include a simulation case at T=900 K, above Tg, to see if the mechanical behavior is significantly different. To describe the interactions between atoms, an embedded atom method (EAM) potential (\cite{daw84}) is adopted, which has already been used in other BMGs studies (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
+
+Usamos condiciones de borde periódicas en 3D, válidas para altas velocidades de deformación (\cite{bringa05}). Todas las coordenadas atómicas son escaladas a cada paso, de acuerdo con la velocidad de deformación deseada, que en este caso es de $10^9$ /s. Antes de iniciar las deformaciones mecánicas, se realiza primero una minimización de energía usando el gradiente conjugado, y luego usamos condiciones de presión cero y temperatura constante para equilibrar la muestra a la temperatura buscada T. La Tabla \ref{C3:tb:initprops} presenta los volúmenes y densidades iniciales para los diferentes casos.
+
+%We use 3D periodic boundary conditions, suitable for high strain rates (\cite{bringa05}). All atomic coordinates are scaled every step, according to the desired strain rate, which in this case was 10$^{9}$ /s. Before starting mechanical strain simulations, we first perform energy minimization using conjugate gradient, and then use zero-pressure conditions and constant temperature to equilibrate the sample to the desired temperature T. Table 1 lists the volumes and initial sample densities for the different cases.
 
 \begin{table}[htp]
-\caption{Initial volumes and densities at different simulated temperatures.}
+\caption{Volúmenes y densidades iniciales a diferentes temperaturas simuladas.}
 \begin{center}
 \begin{tabular}{*{3}{c}}
 Temperatura [$K$] & Volumen [$nm^{3}$] & Densidad [$\frac{g}{cm^{3}}$ \\
@@ -44,40 +57,47 @@ Temperatura [$K$] & Volumen [$nm^{3}$] & Densidad [$\frac{g}{cm^{3}}$ \\
 \label{C3:tb:initprops}
 \end{table}
 
-\section{RESULTS}
-Below we present results for purely uniaxial strain, which is appropriate for the comparison with results of experiments at very high strain rates, where lateral strains can be neglected.
-Figure 1 (a) shows our results for von Mises stress versus strain at all the simulated temperatures. After the purely elastic deformation that occurs up to about 2\% strain, there is a decrease in von Mises tension, suggestive of plasticity. In addition, due to the high strain rates and large stress, there is a void nucleation in the sample under tension, as shown in Figure 2, which leads to large stress fluctuations after about 15\% strain.
+\section{RESULTADOS}
+
+En el texto que continúa, presentamos resultados para tensión exclusivamente uniaxial, la cual es apropiada para la comparación con resultados de experimentos a una velocidad de deformación muy elevada, en donde las deformaciones laterales pueden despreciarse. La Figura \ref{C3:fg:sStrain} \subref{C3:fg:sStrainTen} muestra nuestros resultados para tensión de von Mises versus deformación a todas las temperaturas simuladas. Luego de la deformación puramente elástica que ocurre hasta alrededor de 2\% de deformación, existe un decremento en la tensión de von Mises, lo que sugiere la presencia de plasticidad. Además, dadas la grandes velocidades de deformación y las grandes deformaciones, se nuclea un poro en la muestra bajo tracción, como vemos en la Figura \ref{C3:fg:voidSeq}, que lleva a grandes fluctuaciones de la tensión luego de aproximadamente 15\% de deformación.
+
+%Below we present results for purely uniaxial strain, which is appropriate for the comparison with results of experiments at very high strain rates, where lateral strains can be neglected.
+%Figure 1 (a) shows our results for von Mises stress versus strain at all the simulated temperatures. After the purely elastic deformation that occurs up to about 2\% strain, there is a decrease in von Mises tension, suggestive of plasticity. In addition, due to the high strain rates and large stress, there is a void nucleation in the sample under tension, as shown in Figure 2, which leads to large stress fluctuations after about 15\% strain.
 
 \begin{figure}[htp]
 \centering
-\subfloat[Tension]{
+\subfloat[Tracción]{
 	\includegraphics[width=8cm]{Cap_3/stress_strain_TEN.png}
 	\label{C3:fg:sStrainTen}}
-\subfloat[Compression]{
+\subfloat[Compresión]{
 	\includegraphics[width=8cm]{Cap_3/stress_strain_COMP.png}
 	\label{C3:fg:sStrainComp}}
-\caption{Stress-strain curves at different temperatures. (a) Tension (b) Compression. In tension, there are huge stress fluctuations starting with void nucleation near 15\% strain.}
-\label{figure:msd_Cu}
+\caption{Curvas de esfuerzo-deformación a diferentes temperaturas. Bajo tracción existen grandes fluctuaciones del esfuerzo que comienzan cuando se nuclea un poro a aproximadamente 15\% de deformación.}
+\label{figure:sStrain}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/void_sequence.png}
-\caption{Void nucleation in tension at temperature of 900 K. (a) $\epsilon$ = 0.137 (b) $\epsilon$ = 0.141 (c) $\epsilon$ = 0.145 (d) $\epsilon$ =0.149. Colors represent von Mises stress, red being high and blue low stress. Similar void nucleation is observed at lower temperatures.}
+\caption{Nucleación de un poro bajo tracción a 900 K. (a) $\epsilon$ = 0.137 (b) $\epsilon$ = 0.141 (c) $\epsilon$ = 0.145 (d) $\epsilon$ =0.149. Los colores representan la tensión de von Mises, rojo siendo alta tensión y azul baja tensión. Una nucleación similar es observada a temperaturas más bajas.}
 \label{C3:fg:voidSeq}
 \end{figure}
 
-We calculate mechanical properties, and propose the following simple functional form as an approximation for the thermal behavior:
+Calculamos las propiedades mecánicas y proponemos la siguiente forma funcional como aproximación del comportamiento térmico:
+
+%We calculate mechanical properties, and propose the following simple functional form as an approximation for the thermal behavior:
 
 \begin{eqnarray}
 y = A_{1}\cdot \mathrm{e}^{\frac{-T}{T_{0}}}
 \label{C3:eq:thermalFit}
 \end{eqnarray}
+
+donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente usada para fenómenos activados termicamente. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos los valores para los coeficientes de la Ecuación \ref{C3:eq:thermalFit} obtenidos de las curvas mostradas en las Figuras \ref{C3:fg:youngVsT}-\ref{C3:fg:peakVMises1218VsT}. Puede verse que las regresiones son razonables. El coeficiente de correlación ($R^2$) es mayor a 0.9 en todos los casos, haciendo razonable nuestra aproximación funcional simple. Por supuesto, un estudio más detallado incluyendo muchos más valores de temperatura es necesario para verdaderamente poner a prueba las aproximaciones.
 	
-where $A_{1}$ and $T_{0}$ are parameters. This functional form is often used for thermally activated phenomena. In Tables 2-3 we present the values for the coefficients of equation (1) obtained from the curves shown in Figures 3-6. It can be seen that the fits are reasonable. The correlation coefficient (R2) is greater than 0.9 in all cases, thus making our simple functional fit reasonable. Of course, further studies including many more temperature values are needed to truly test the fits. 
+%where $A_{1}$ and $T_{0}$ are parameters. This functional form is often used for thermally activated phenomena. In Tables 2-3 we present the values for the coefficients of equation (1) obtained from the curves shown in Figures 3-6. It can be seen that the fits are reasonable. The correlation coefficient (R2) is greater than 0.9 in all cases, thus making our simple functional fit reasonable. Of course, further studies including many more temperature values are needed to truly test the fits. 
 
 \begin{table}[htp]
-\caption{Fit coefficients for tension.}
+\caption{Coeficientes de la regresión para tracción.}
 \begin{center}
 \begin{tabular}{*{4}{c}}
 Tracción & Parámetros & Valor & $R^{2}$ \\
@@ -95,7 +115,7 @@ Yield Stress & A & 0.0604 $\pm$ 0.004 & 0.952 \\
 \end{table}
 
 \begin{table}[htp]
-\caption{Fit coefficients for compression.}
+\caption{Coeficientes de la regresión para compresión.}
 \begin{center}
 \begin{tabular}{*{4}{c}}
 Compresión & Parámetros & Valor & $R^{2}$ \\
@@ -112,7 +132,9 @@ Yield Stress & A & 0.123 $\pm$ 0.01 & 0.930 \\
 \label{C3:tb:initPropsComp}
 \end{table}
 
-As expected, the elastic modulus, peak von Mises stress and yield stress, all decrease with increasing temperature. We obtained a smooth behavior even when T is above Tg, as seen in Figures 3-6.
+Como es de esperarse, el módulo de elasticidad, la tensión máxima de von Mises y la tensión de fluencia, todos decrecen con el aumento de la temperatura. Obtenemos un comportamiento suave incluso cuando T supera a Tg, como puede verse en las Figuras \ref{C3:fg:youngVsT}-\ref{C3:fg:peakVMises1218VsT}.
+
+%As expected, the elastic modulus, peak von Mises stress and yield stress, all decrease with increasing temperature. We obtained a smooth behavior even when T is above Tg, as seen in Figures 3-6.
 
 \begin{figure}[htp]
 \centering
