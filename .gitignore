@@ -20,3 +20,4 @@ titlesec.sty
 *.*.log
 *.*~
 */*.*~
+Figures/*/*-eps-converted-to.pdf
