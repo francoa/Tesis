@@ -197,7 +197,7 @@ De acuerdo a un estudio en nanocables de vidrio metalico (\cite{xiao12}), la pre
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/All_300K_6pstrain_sacale100-280_Trac.png}
-\caption[Vista de la muestra a $\epsilon$=6\%, bajo tracción uniaxial, a T=300 K.]{Vista de la muestra a $\epsilon$=6\%, bajo tracción uniaxial, a T=300 K. Los colores representan la tensión de von Mises, siendo el color rojo para esfuerzos grandes y el color azul para esfuerzos pequeños, en una escala RGB. El rango de esfuerzos varia de 100 GPa a 280 GPa. No se observan SB. La visualización fue realizada con VMD (Humphrey et al., 1996). Resultados similares se observan a otras temperaturas simuladas.}
+\caption[Vista de la muestra a $\epsilon$=6\%, bajo tracción uniaxial, a T=300 K.]{Vista de la muestra a $\epsilon$=6\%, bajo tracción uniaxial, a T=300 K. Los colores representan la tensión de von Mises, siendo el color rojo para esfuerzos grandes y el color azul para esfuerzos pequeños, en una escala RGB. El rango de esfuerzos varia de 100 GPa a 280 GPa. No se observan SB. La visualización fue realizada con VMD \citep{humphrey96}. Resultados similares se observan a otras temperaturas simuladas.}
 \label{C3:fg:sampleTen}
 \end{figure}
 
@@ -216,14 +216,23 @@ La figura \ref{C3:fg:sampleComp} muestra que, de igual manera que en la muestra 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/All_300K_6pstrain_sacale100-400_Comp.png}
-\caption[Vista de la muestra a $\epsilon$=6\%, bajo compresión uniaxial, a T=300 K.]{Vista de la muestra a $\epsilon$=6\%, bajo compresión uniaxial, a T=300 K. Los colores representan la tensión de von Mises, siendo el color rojo para esfuerzos grandes y el color azul para esfuerzos pequeños, en una escala RGB. El rango de esfuerzos varia de 100 GPa a 400 GPa. No se observan SB. La visualización fue realizada con VMD (Humphrey et al., 1996). Resultados similares se observan a otras temperaturas simuladas.}
+\caption[Vista de la muestra a $\epsilon$=6\%, bajo compresión uniaxial, a T=300 K.]{Vista de la muestra a $\epsilon$=6\%, bajo compresión uniaxial, a T=300 K. Los colores representan la tensión de von Mises, siendo el color rojo para esfuerzos grandes y el color azul para esfuerzos pequeños, en una escala RGB. El rango de esfuerzos varia de 100 GPa a 400 GPa. No se observan SB. La visualización fue realizada con VMD \citep{humphrey96}. Resultados similares se observan a otras temperaturas simuladas.}
 \label{C3:fg:sampleComp}
 \end{figure}
 
 \subsection{Bandas de corte}
 \label{ss:BC}
 
-T
+Como se mencionó previamente, es posible observar bandas de corte graficando la deformación atómica de la muestra. Para esto se utiliza la herramienta Ovito, la cual utiliza el procedimiento descripto en \cite{shimizu07} para calcular la deformación atómica. La figura \ref{C3:fg:SBs} muestra el resultado.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=10cm]{Cap_3/ShearBand.png}
+\caption[Corte de la muestra a $\epsilon$=14\%, bajo compresión uniaxial, a T=300 K.]{Corte de la muestra a $\epsilon$=14\%, bajo compresión uniaxial, a T=300 K. Los colores representan la deformación atómica, siendo el color rojo grandes deformaciones y el color azul pequeñas deformaciones, en una escala RGB. El rango de deformación varia de 0.02 a 0.15. La visualización fue realizada con Ovito \citep{stukowski10}. Se eliminan los efectos de la deformación homogénea para poder apreciar mejor la deformación heterogénea producto de las bandas de corte.}
+\label{C3:fg:SBs}
+\end{figure}
+
+Es posible apreciar que las bandas de corte se forman con una dirección predominantemente diagonal, a prácticamente $45º$. Las bandas de corte representan deformación heterogénea, lo cual puede llevar a la falla frágil del material. Esto es algo importante a tener en cuenta ya que puede reducir considerablemente la vida útil del material. En capítulos subsiguientes trataremos algunos métodos para retardar la propagación de bandas de corte.
 
 \subsection{Simulación de la muestra con condiciones de frontera libres.}
 
