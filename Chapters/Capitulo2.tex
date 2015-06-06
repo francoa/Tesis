@@ -15,9 +15,9 @@
 
 Las simulaciones en computadora han abierto la posibilidad a estudiar sistemas, y verificar modelos bajo condiciones que son imposibles (o muy difíciles) de conseguir experimentalmente. También han permitido incrementar la complejidad de los modelos usados y realizar comparaciones directas con fenómenos naturales, una vez que el modelo ha sido validado.
 
-Con la llegada de computadoras más potentes, aparece una nueva opción a considerar entre teoría y experimentos: los experimentos simulados. El modelo sobre el cual se realiza esta simulación sigue siendo teórico, pero todos los cálculos son llevadoa cabo por la computadora. Es muy importante por supuesto, definir las condiciones de simulación de tal manera que represente una situación fisicamente posible, y no obtener resultados absurdos.
+Con la llegada de computadoras más potentes, aparece una nueva opción a considerar entre teoría y experimentos: los experimentos simulados. El modelo sobre el cual se realiza esta simulación sigue siendo teórico, pero todos los cálculos son llevados a cabo por la computadora. Es muy importante por supuesto, definir las condiciones de simulación de tal manera que represente una situación físicamente posible, y no obtener resultados absurdos.
 
-Tanto el modelo como las condiciones de simulación y los elementos que componen el experimento simulado se encuentran en el marco de algún paquete de software que mediante algoritmos específicos resuelven el problema y nos entregan ciertos resultados. En este caso particular se hace uso de simulaciones de Dinámica Molecular (apropiadas para estudiar fenómenos en escala nano) mediante el paquete LAMMPS [REF], que es de código abierto y gratuito.
+Tanto el modelo como las condiciones de simulación y los elementos que componen el experimento simulado se encuentran en el marco de algún paquete de software que mediante algoritmos específicos resuelven el problema y nos entregan ciertos resultados. En este caso particular se hace uso de simulaciones de Dinámica Molecular (apropiadas para estudiar fenómenos en escala nano) mediante el paquete LAMMPS \citep{plimpton95}, que es de código abierto y gratuito.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -26,14 +26,64 @@ Tanto el modelo como las condiciones de simulación y los elementos que componen
 \section{Introducción a MD}
 \label{S2_2}
 
+Las simulaciones de MD integran en el tiempo las ecuaciones de movimiento de Newton para un grupo de $N$ átomos, dadas por:
+
+\begin{equation}
+\mathbf{F_{i}} = m_{i}\mathbf{a_{i}}
+\end{equation}
+
+donde $m_{i}$ es la masa de cada átomo y $\mathbf{a_{i}}$ es su aceleración, dada por $\frac{d^{2}\mathbf{r_{i}}}{dt^{2}}$. Esto quiere decir que el resultado final de una simulación de MD es uno sólo y está determinado por las posiciones y velocidades iniciales (los errores de redondeo propios del cálculo numérico hacen que las soluciones diverjan de todas maneras). Vale la pena aclarar que si bien en sistemas pequeños, dos condiciones iniciales diferentes pueden llevar a soluciones muy distintas. En sistemas con un gran número de átomos las soluciones deberían ser estadísticamente comparables.
+
+El estado termodinámico del sistema está definido por ciertos parámetros como la temperatura, la presión, el número de partículas, etc. El estado microscópico del sistema queda definido por las posiciones $p_{i}$ y los momentos atómicos $q_{i}$ y lo llamamos \textbf{espacio de fase}. Las posiciones y los momentos son considerados coordenadas de un espacio $6N$-dimensional ($\Omega$), en el que un punto cualquiera se denomina $P$ y describe el estado del sistema. 
+
+Todas las configuraciones posibles que tienen diferente estado microscópico pero tienen idéntico estado macroscópico o termodinámico se denomina \textbf{ensamble estadístico}. En una simulación de MD, se aplican restricciones o condiciones externas, que determinan el tipo de ensamble, es decir, las sucesivos valores de velocidad y posición que obtenemos en cada paso de la simulación, son configuraciones diferentes del mismo ensamble.
+
+Las propiedades termodinámicas se calculan como promedios de ciertas funciones que aplican sobre la configuración del sistema (un \textbf{observable} $\mathbf{\mathcal{A}}(p_{i},q_{i})$) sobre todas las configuraciones posibles.
+
+\begin{equation}
+\langle \mathbf{\mathcal{A}} \rangle _{ens}
+\end{equation}
+
+Esto resulta extremadamente difícil dado el número enorme de configuraciones posibles. Otra forma de calcular el promedio de este observable, es considerar el promedio en el tiempo del mismo, es decir, considerando que los puntos $P_{i}$ de salida de la simulación forman una trayectoria $\mathbf{\Gamma}(t)$ en el espacio de fase, puede calcularse el promedio en el tiempo, como una función de $\mathbf{\Gamma}(t)$:
+
+\begin{equation}
+\langle \mathbf{\mathcal{A}} \rangle _{t} = \frac{1}{\tau} \sum_{\tau = 1}^{\tau_{obs}} \mathbf{\mathcal{A}}(\Gamma (t))
+\end{equation}
+
+donde $\tau_{obs}$ es el número de pasos de la simulación.
+
+Si bien estos dos promedios se definen de diferente manera, la \textbf{hipótesis egódica} nos dice que los dos son iguales. Definimos un sistema \textbf{ergódico} como un sistema para el cual, sobre un conjunto $V$ de $\Omega$, el Promedio de Tiempo\footnotemark{} de una función $\mathbf{\mathcal{A}}$ a lo largo de una trayectoria $\mathbf{\Gamma}(t)$ es igual al Promedio de Fase\footnotemark{} de $\mathbf{\mathcal{A}}$ en casi todas partes\footnotemark.
+
+\footnotetext{$\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt = \bar{\mathbf{\mathcal{A}}}(P)$ se llama Promedio de Tiempo de $\mathbf{\mathcal{A}}$ a lo largo de la trayectoria que pasa por $P$}
+\footnotetext{El teorema de Birkhoff dice: Sea $V$ un subconjunto del Espacio de Fase $\Omega$ invariante bajo una trasformación $T:V\rightarrow{}V$ y que tiene un volumen generalizado finito. Sea  $\mathbf{\mathcal{A}}$ =  $\mathbf{\mathcal{A}}(P)$, una función de fase, definida para todos los puntos de $V$ e integrable sobre $V$. Entonces el límite $\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt$ existe para casi todos los puntos de $V$}
+\footnotetext{$\frac{1}{\mu{}(V)} \int_{V} \mathbf{\mathcal{A}}(p) dV$ se llama Promedio de Fase de $\mathbf{\mathcal{A}}$ sobre $V$ y es el promedio de la función $\mathbf{\mathcal{A}}$, calculado sobre el conjunto invariante $V$}
+
+Esto quiere decir que podemos calcular propiedades termodinámicas a partir del Promedio de Tiempo de la propiedad de interés, sin tener que calcular el promedio del ensamble. La idea es que con tiempos suficientemente grandes, el sistema pasa por un número de estados suficientemente grande para considerar estos dos promedios iguales.
+
+\begin{equation}
+\langle \mathbf{\mathcal{A}} \rangle _{t} = \langle \mathbf{\mathcal{A}} \rangle _{ens}
+\end{equation}
+
+Existen diferentes ensambles, como por ejemplo:
+
+\begin{description}
+	\item[Ensamble Microcanónico $(N,V,E)$] Se fija el número de partículas, el volumen y la energía total.
+	\item[Ensamble Canónico $(N,V,T)$] Se fija el número de partículas, el volumen y la temperatura.
+	\item[Ensamble Macrocanónico $(\mu,V,T)$] Se fija el potencial químico, el volumen y la temperatura.
+	\item[Ensamble Isotérmico-Isobárico $(N,P,T)$] Se fija el número de partículas, la presión y la temperatura.
+	\item[Ensamble Isobárico-Isoentálpico $(N,P,H)$] Se fija el número de partículas, la presión y la entalpía.
+\end{description}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
 
-\section{Potenciales, Termostatos, etc etc}
+\section{Termostatos y Barostatos}
 \label{S2_3}
 
 
+
+POTENCIALES
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
