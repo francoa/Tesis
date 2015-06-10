@@ -79,25 +79,59 @@ Existen diferentes ensambles, como por ejemplo:
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
-
-\section{Termostatos y Barostatos}
+\section{Potenciales Interatómicos}
 \label{S2_3}
 
+El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciónes \ref{eq:pot},\ref{eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
+
+\begin{eqnarray}
+V(\mathbf{r}_{1},...,\mathbf{r}_{2})
+\label{eq:pot}\\
+\mathbf{F}_{i} = -\nabla_{\mathbf{r}_{i}}V(\mathbf{r}_{1},...,\mathbf{r}_{2})
+\label{eq:potfza}
+\end{eqnarray}
+
+Existen numerosos potenciales utilizados actualmente, algunos más generales que otros y con diferente formulación. Para sistemas complejos, los potenciales se generan en forma tabular, y no se tiene una expresión analítica del mismo, debiendo usarse el que corresponda a nuestra composición y parámetros de simulación.
+
+Se nombran dos ejemplos a continuación: el potencial \textit{Lennard-Jones} y el \textit{Modelo de Átomo Embebido (EAM)}. El último es el que se utiliza en todas las simulaciones de MD del presente trabajo.
+
+\subsection{Potencial Lennard-Jones}
+\label{SS2_3_1}
+
+El potencial Lennard-Jones es un modelo simple que describe la interacción entre dos 	átomos neutrales, y su expresión matemática se ve en la Ecuación \ref{eq:LJ}. El valor $\varepsilon$ es la profundidad del pozo de energía potencial, $\sigma$ es la distancia a la cual el potencial es cero, $r_{m}$ es la distancia para la cual se obtiene el mínimo de energía potencial y $r$ es la distancia entre los átomos. A $r_{m}$, el potencial vale $-\varepsilon$.
+
+\begin{equation}
+V_{LJ}=
+4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^{6} \right] = 
+\varepsilon \left[ \left( \frac{r_{m}}{r} \right)^{12} -2 \left( \frac{r_{m}}{r} \right)^{6} \right]
+\label{eq:LJ}
+\end{equation}
+
+El término con $r^{-12}$ es un término de repulsión asociado a la repulsión de Pauli\footnotemark{} y el término con $r^{-6}$ representa la atracción de largo alcance (fuerzas de van der Waals\footnotemark). Podemos ver gráficamente el potencial en la Figura \ref{C2:fg:LJ}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=10cm]{Cap_2/LJ.png}
+\caption[Potencial de Lennard-Jones]{Gráfica del potencial Lennard-Jones normalizado a $\varepsilon$ y $\sigma$}
+\label{C2:fg:LJ}
+\end{figure}
+
+\subsection{Modelo de Átomo Embebido}
+\label{SS2_3_2}
 
 
-POTENCIALES
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-
-\section{Modelo mecánico}
+\section{Termostatos y Barostatos}
 \label{S2_4}
 
 
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
-
+%\section{Modelo mecánico}
 \section{Modelo numérico}
 \label{S2_5}
 
