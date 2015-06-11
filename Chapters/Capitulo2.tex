@@ -119,7 +119,18 @@ El término con $r^{-12}$ es un término de repulsión asociado a la repulsión 
 \subsection{Modelo de Átomo Embebido}
 \label{SS2_3_2}
 
+En este método, la energía potencial es función de una suma de funciones de la separación entre un átomo y sus vecinos. La energía potencial de un átomo $i$ está dada por la Ecuación \ref{C2:eq:EAM}
 
+\begin{equation}
+V_{i} = F_{\alpha}\left(\sum_{i\neq j} \rho_{\beta} (r_{ij}) \right) + \frac{1}{2} \sum_{i\neq j} \phi_{\alpha\beta}(r_{ij})
+\label{C2:eq:EAM}
+\end{equation}
+
+donde $r_{ij}$ es la distancia entre los átomos $i$ y $j$, $\phi_{\alpha\beta}$ es una función potencial entre pares de átomos, $\rho_{\beta}$ es la contribución a la densidad de carga electrónica del átomo $j$ de tipo $\beta$ en la ubicación del átomo $i$ y $F_{\alpha}$ es una función que representa la energía requerida para colocar el átomo $i$ de tipo $\alpha$ en la nube de electrones.
+
+Al definir las funciones $\phi_{\alpha\beta}(r_{ij})$, $F_{\alpha}(\rho)$ y $\rho_{\beta} (r_{ij})$ se establece el modelo para un material en particular. En el caso de nuestras simulaciones, se tiene una aleación metálica de dos componentes, lo que implica definir siete funciones: tres funciones potenciales ($\phi_{\alpha\alpha}$, $\phi_{\alpha\beta}$, $\phi_{\beta\beta}$), dos funciones integradoras ($F_{\alpha}$, $F_{\beta}$) y dos funciones de contribución a la densidad de carga electrónica ($\rho_{\alpha}$, $\rho_{\beta}$).
+
+Las funciones se encuentran en forma tabular en un archivo de formato \textit{setfl} \citep{setfl} que es leído por lammps al indicarlo en el script de entrada. El archivo que utilizamos en nuestras simulaciones fue creado por H.W.Sheng \citep{cheng09}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
