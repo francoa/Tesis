@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for ITERATOR in {0..400000..5000}
+do
+	FILEIN="Compression_porous_9_"$ITERATOR".lammpstrj"
+	FILEOUT="dataset_muestraPorosa/MuestraPorosa_"$ITERATOR".lammpstrj"
+	awk 'BEGIN{} {if (NR<=8){print $1 " " $2 " " $3 " " $4 " " $5 " " $6;} else if (NR==9){print $1 " " $2 " " $3 " " $4 " " $5 " " $12 " " $13;} else{print $1 " " $2 " " $3 " " $10 " " $11;}}' $FILEIN > $FILEOUT
+done

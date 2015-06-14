@@ -39,21 +39,37 @@ cmake -DOVITO_BUILD_DOCUMENTATION=ON \
 make -j4
 \end{lstlisting}
 
-
 \section{Análisis de archivos de LAMMPS}
 \label{AB_2}
 
-Abrimos ovito desde la terminal. A continuación nos aparece una ventana como la de la figura \ref{AB:fg:ovitoScreen}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=10cm]{Cap_5/spheres2.png}
-  \caption[Imágenes de la muestra]{Imágenes de la muestra.}
-  \label{C5:fg:sint}
-\end{figure}
+Para esta sección hemos realizado un video explicativo. El mismo puede observarse \href{www.github.com}{aquí???}.
 
 \section{Automatización}
 \label{AB_3}
 
-Instrucciones de scripts acá
+Una herramienta poderosa para automatizar el cálculo es utilizar scripts. En la carpeta \textit{bin} de ovito hay un ejecutable (\textit{ovito}) y un script bash (\textit{\href{http://www.ovito.org/manual/python/introduction/running.html}{ovitos}}). Este último sirve para interpretar scripts escritos en lenguaje \textit{python}. 
+
+En el \href{www.github.com}{sitio web???} de la Tesis es posible encontrar un script de ejemplo llamado \textit{Ovito\_scriptDePrueba.py}. El mismo importa archivos de una simulación de una muestra porosa presentes en la carpeta \textit{datasets}, y luego calcula la porosidad y el número de átomos con un \textit{atomic strain} superior a 0.2 a lo largo de la simulación. Estos cálculos se presentan en 2 columnas en un archivo de salida llamado \textit{Ovito\_scriptDePrueba.out}, el cual puede ser utilizado posteriormente para graficar con gnuplot.
+
+\begin{lstlisting}
+ ovitos Ovito_scriptDePrueba.py
+ gnuplot
+ plot 'Ovito_scriptDePrueba.out' using 1:2 with lines
+ plot 'Ovito_scriptDePrueba.out' using 1:3 with lines
+\end{lstlisting}
+
+Para armar el dataset presente en el sitio web, fue necesario adecuar los archivos de salida de LAMMPS para que éstos no tuvieran un tamaño tan grande. Se les quitó todos los campos calculados por LAMMPS excepto los campos de posición, id y tipo. Esto fue realizado mediante un script \textit{bash}, utilizando el comando \textit{awk}. Estos scripts serán explicados con mayor detalle en el apéndice \ref{AC}???.
+
+\begin{lstlisting}
+#!/bin/bash
+
+for ITERATOR in {0..400000..5000}
+do
+	FILEIN="Compression_porous_9_"$ITERATOR".lammpstrj"
+	FILEOUT="dataset_muestraPorosa/MuestraPorosa_"$ITERATOR".lammpstrj"
+	awk 'BEGIN{} {if (NR<=8){print $1 " " $2 " " $3 " " $4 " " $5 " " $6;} else if (NR==9)\
+	  {print $1 " " $2 " " $3 " " $4 " " $5 " " $12 " " $13;} else{print $1 " " $2 " " $3 \
+	  " " $10 " " $11;}}' $FILEIN > $FILEOUT
+done
+\end{lstlisting}
 
