@@ -82,13 +82,13 @@ Existen diferentes ensambles, como por ejemplo:
 \section{Potenciales Interatómicos}
 \label{S2_3}
 
-El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciónes \ref{eq:pot},\ref{eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
+El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciónes \ref{C2:eq:pot},\ref{C2:eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
 
 \begin{eqnarray}
 V(\mathbf{r}_{1},...,\mathbf{r}_{2})
-\label{eq:pot}\\
+\label{C2:eq:pot}\\
 \mathbf{F}_{i} = -\nabla_{\mathbf{r}_{i}}V(\mathbf{r}_{1},...,\mathbf{r}_{2})
-\label{eq:potfza}
+\label{C2:eq:potfza}
 \end{eqnarray}
 
 Existen numerosos potenciales utilizados actualmente, algunos más generales que otros y con diferente formulación. Para sistemas complejos, los potenciales se generan en forma tabular, y no se tiene una expresión analítica del mismo, debiendo usarse el que corresponda a nuestra composición y parámetros de simulación.
@@ -135,21 +135,101 @@ Las funciones se encuentran en forma tabular en un archivo de formato \textit{se
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
-\section{Termostatos y Barostatos}
+\section{Integración de las Ecuaciones de Movimiento}
 \label{S2_4}
 
+Existen diferentes algoritmos para la resolución numérica de las ecuaciones de movimiento de las partículas simuladas. En general, todos los métodos parten de la expansión en serie de Taylor de la posición y velocidad en función del tiempo. Esto, junto con la implementación computacional el algoritmo, hacen que siempre estén presentes dos errores: un error de truncamiento de la expansión en serie de Taylor, y un error de redondeo al usar un número finito de posiciones decimales.
+
+Si bien los dos errores son inevitables, el error de truncamiento es propio del algoritmo y no podemos cambiar \textit{su orden}, mientras que el error de redondeo varía según la manera en que se haya implementado las operaciones matemáticas a nivel informático. Para $\Delta{}t$ grandes, predomina el error de truncamiento, mientras que para $\Delta{}t$ tendiendo a cero, predominan los errores de redondeo.
+
+En este apartado describiremos los métodos \textbf{Verlet} \ref{S2_4_1} y \textbf{Velocity Verlet} \ref{S2_4_2}. Este último es el usado por Lammps para nuestras simulaciones.
+
+\subsection{Integración Verlet}
+\label{S2_4_1}
+
+Expandimos en primer lugar en serie de Taylor la posición para $t+\Delta{}t$ y $t-\Delta{}t$:
+
+\begin{eqnarray}
+\mathbf{r}(t+\Delta{}t) = \mathbf{r}(t)+\frac{d\mathbf{r}(t)}{dt} \Delta{}t + \frac{1}{2} \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \frac{1}{3!} \frac{d^{3}\mathbf{r}(t)}{dt^{3}} \Delta{}t^{3} + \mathcal{O}(\Delta{}t^{4})
+\label{C2:eq:VerletTaylor1} \\
+\mathbf{r}(t-\Delta{}t) = \mathbf{r}(t)-\frac{d\mathbf{r}(t)}{dt} \Delta{}t + \frac{1}{2} \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} - \frac{1}{3!} \frac{d^{3}\mathbf{r}(t)}{dt^{3}} \Delta{}t^{3} + \mathcal{O}(\Delta{}t^{4})
+\label{C2:eq:VerletTaylor2}
+\end{eqnarray}
+
+Sumando las expresiones \ref{C2:eq:VerletTaylor1} y \ref{C2:eq:VerletTaylor2} y restando $\mathbf{r}(t-\Delta{}t)$ en ambos miembros obtenemos:
+
+\begin{equation}
+\mathbf{r}(t+\Delta{}t) = 2\mathbf{t} - \mathbf{r}(t-\Delta{}t) + \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \mathcal{O}(t^{4})
+\label{C2:eq:VerletPos}
+\end{equation}
+
+La aceleración es calculada mediante el potencial visto anteriormente como
+
+\begin{equation}
+\mathbf{a}(t) = \frac{d^{2}\mathbf{r}(t)}{dt^{2}} = -\frac{1}{m}\nabla{}V(\mathbf{r}(t))
+\end{equation}
+
+Una desventaja de este método es que las velocidades no se calculan directamente, y en general se obtienen de una aproximación por diferencias finitas según:
+
+\begin{equation}
+\mathbf{v}(t) = \frac{\mathbf{r}(t+\Delta{}t) - \mathbf{r}(t-\Delta{}t)}{2\Delta{}t}
+\end{equation}
+
+con lo cual el error deja de ser de $\mathcal{O}(\Delta{}t^{4})$ para ser de $\mathcal{O}(\Delta{}t^{2})$. Otro problema es que para calcular las posiciones en un paso de tiempo, son necesarias las posiciones de dos pasos de tiempo atrás, por lo que el algoritmo requiere una inicialización de dos pasos. Esto último se resuelve en el método que se describe en el siguiente apartado.
+
+\subsection{Integración Velocity Verlet}
+\label{S2_4_2}
+
+Partimos de la expansión en serie de Taylor de la posición y la velocidad en $t+\Delta{}t$:
+
+\begin{eqnarray}
+\mathbf{r}(t+\Delta{}t) = \mathbf{r}(t)+\frac{d\mathbf{r}(t)}{dt} \Delta{}t + \frac{1}{2} \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \mathcal{O}(\Delta{}t^{3})
+\label{C2:eq:VelVerletTaylor1} \\
+\mathbf{v}(t+\Delta{}t) = \mathbf{v}(t)+\mathbf{a}(t)\Delta{}t + \frac{1}{2}\frac{d\mathbf{a}(t)}{dt} \Delta{}t^{2} + \mathcal{O}(\Delta{}t^{3})
+\label{C2:eq:VelVerletTaylor2}
+\end{eqnarray}
+
+La ecuación \ref{C2:eq:VelVerletTaylor2} puede reescribirse partiendo de la expansión en serie de Taylor de la aceleración:
+
+\begin{eqnarray}
+\mathbf{a}(t+\Delta{}t) = \mathbf{a}(t)+\frac{d\mathbf{a}(t)}{dt} \Delta{}t + \mathcal{O}(\Delta{}t^{2})
+\label{C2:eq:tayloracc1} \\
+\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t) = 2\mathbf{a}(t)+\frac{d\mathbf{a}(t)}{dt} \Delta{}t + \mathcal{O}(\Delta{}t^{2})
+\label{C2:eq:tayloracc2} \\
+\frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] = \mathbf{a}(t)\Delta{}t+\frac{1}{2}\frac{d\mathbf{a}(t)}{dt} \Delta{}t^{2} + \mathcal{O}(\Delta{}t^{2})
+\label{C2:eq:tayloracc3}
+\end{eqnarray}
+
+Introduciendo la Ecuación \ref{C2:eq:tayloracc3} en la Ecuación \ref{C2:eq:VelVerletTaylor2}, obtenemos:
+
+\begin{equation}
+\mathbf{v}(t+\Delta{}t) = \frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] + \mathcal{O}(\Delta{}t^{2})
+\label{C2:eq:VelVerletTaylor3}
+\end{equation}
+
+Ahora podemos realizar la integración siguiendo los pasos a continuación:
+
+\begin{enumerate}
+	\item Calcular la velocidad en el paso de tiempo medio $t+\frac{\Delta{}t}{2}$
+	\begin{equation}
+	\mathbf{v}\left(t+\frac{\Delta{}t}{2}\right) = \mathbf{v}(t) + \frac{1}{2}\mathbf{a}(t)\Delta{}t
+	\end{equation}
+	\item Calcular las posiciones en el paso de tiempo $\Delta{}t$
+	\begin{equation}
+	\mathbf{r}(t+\Delta{}t) = \mathbf{r}(t) + \mathbf{v}\left(t+\frac{\Delta{}t}{2}\right)\Delta{}t
+	\end{equation}
+	\item Calcular las aceleraciones a partir del potencial
+	\begin{equation}
+	\mathbf{a}(t+\Delta{}t) = -\frac{1}{m}\nabla{}V\left(\mathbf{r}(t+\Delta{}t)\right)
+	\end{equation}
+	\item Actualizar las velocidades
+	\begin{equation}
+	\mathbf{v}(t+\Delta{}t) = \mathbf{v}\left(t+\frac{\Delta{}t}{2}\right) + \frac{1}{2}\mathbf{a}\left(t + \Delta{}t\right)\Delta{}t
+	\end{equation}
+\end{enumerate}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 5
 %----------------------------------------------------------------------------------------
-%\section{Modelo mecánico}
-\section{Modelo numérico}
+\section{Termostatos y Barostatos}
 \label{S2_5}
-
-
-%-----------------------------------
-%	SUBSECTION
-%-----------------------------------
-
-\subsection{EDO que resulve LAMMPS}
-\label{S2_5_1}
