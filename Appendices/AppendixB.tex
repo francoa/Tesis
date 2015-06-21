@@ -42,14 +42,14 @@ make -j4
 \section{Análisis de archivos de LAMMPS}
 \label{AB_2}
 
-Para esta sección hemos realizado un video explicativo. El mismo puede observarse \href{www.github.com}{aquí???}.
+Para esta sección hemos realizado un video explicativo. El mismo puede observarse \href{https://youtu.be/iGieWcpcQmQ}{aquí}.
 
 \section{Automatización}
 \label{AB_3}
 
 Una herramienta poderosa para automatizar el cálculo es utilizar scripts. En la carpeta \textit{bin} de ovito hay un ejecutable (\textit{ovito}) y un script bash (\textit{\href{http://www.ovito.org/manual/python/introduction/running.html}{ovitos}}). Este último sirve para interpretar scripts escritos en lenguaje \textit{python}. 
 
-En el \href{www.github.com}{sitio web???} de la Tesis es posible encontrar un script de ejemplo llamado \textit{Ovito\_scriptDePrueba.py}. El mismo importa archivos de una simulación de una muestra porosa presentes en la carpeta \textit{datasets}, y luego calcula la porosidad y el número de átomos con un \textit{atomic strain} superior a 0.2 a lo largo de la simulación. Estos cálculos se presentan en 2 columnas en un archivo de salida llamado \textit{Ovito\_scriptDePrueba.out}, el cual puede ser utilizado posteriormente para graficar con gnuplot.
+En el \href{https://github.com/francoa/Tesis/tree/master/Resources}{sitio web} de la Tesis es posible encontrar un script de ejemplo llamado \textit{Ovito\_scriptDePrueba.py}. El mismo importa archivos de una simulación de una muestra porosa presentes en la carpeta \textit{datasets}, y luego calcula la porosidad y el número de átomos con un \textit{atomic strain} superior a 0.2 a lo largo de la simulación. Estos cálculos se presentan en 2 columnas en un archivo de salida llamado \textit{Ovito\_scriptDePrueba.out}, el cual puede ser utilizado posteriormente para graficar con gnuplot.
 
 \begin{lstlisting}
  ovitos Ovito_scriptDePrueba.py

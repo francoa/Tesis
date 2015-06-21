@@ -6,19 +6,139 @@
 
 \lhead{Anexo A. \emph{LAMMPS}} % This is for the header on each page - perhaps a shortened title
 
-\href{lammps.sandia.gov}{LAMMPS} es un simulador de Dinámica Molecular diseñado por los laboratorios Sandia
+\href{lammps.sandia.gov}{LAMMPS} es un simulador de Dinámica Molecular diseñado por los laboratorios Sandia. Es el software que hemos utilizado para realizar las simulaciones, y en este apéndice indicaremos cómo instalarlo en un sistema operativo tipo Linux y comenzar a utilizarlo.
 
 \section{Instalación}
 \label{AA_1}
 
-Instrucciones de instalación acá
+Debe descargar la última \href{http://lammps.sandia.gov/download.html#tar}{versión estable de LAMMPS}. También es posible trabajar con la versión de desarrollo disponible en la misma página o en los repositorios SVN de lammps, pero no trataremos esta opción.
 
-\section{Automatización}
+\subsection{Determinar el tipo de instalación}
+\label{AA_1_1}
+
+Antes que nada, debemos reconocer el tipo de instalación con el que vamos a proceder. En las carpetas \textit{\{LAMMPS ROOT\}/src/MAKE} y \textit{\{LAMMPS ROOT\}/src/MAKE/MACHINES} (siendo \textit{\{LAMMPS ROOT\}} la dirección de la carpeta generada al descomprimir el archivo descargado) hay distintas opciones de instalación. La opción a elegir dependerá de la computadora en la que trabajemos y los paquetes y compiladores que tengamos instalados.
+
+Las dos opciones más comunes son \textit{Makefile.mpi} y \textit{Makefile.serial}. Cualquiera de éstas opciones debería funcionar en la mayoría de las computadoras con sistemas operativos Linux. Para la primer opción, es necesario contar con MPI (Message Passing Interface). La primer opción es también la más recomendada, ya que con MPI podemos aprovechar la existencia de múltiples núcleos en nuestra computadora.
+
+Determinar el tipo de instalación nos es útil para saber si existe algún prerequisito de instalación. En este caso, optaremos por la instalación con MPI. Debemos preinstalar MPI para poder contar con el comando mpirun y con el compilador mpicxx (o mpicc o mpic++). Una opción es instalando \href{https://www.open-mpi.org/}{Open MPI}.
+
+\subsection{Elegir los paquetes a instalar}
+\label{AA_1_2}
+
+A continuación debemos elegir los paquetes a instalar. En la carpeta \textit{\{LAMMPS ROOT\}/src} ejecutamos el siguiente comando:
+
+\begin{lstlisting}
+ make ps
+\end{lstlisting}
+
+Esto nos dará una lista de los paquetes disponibles y si están incluidos o no en la instalación. Deberemos investigar y decidir qué paquetes nos conviene agregar a la instalación. Para el presente caso dejamos la configuración por default.
+
+Para conocer otros comandos disponibles para esta etapa, ejecutar:
+
+\begin{lstlisting}
+ make package
+\end{lstlisting}
+
+\subsection{Adaptación del Makefile}
+\label{AA_1_3}
+
+Antes de la instalación, es necesario verificar que el Makefile elegido en la sección \ref{AA_1_1} está configurado correctamente. Abrimos el archivo y revisamos que no se esté incluyendo una librería FFT.
+
+Pueden realizarse varias modificaciones más. Para ello es necesario recurrir al \href{http://lammps.sandia.gov/doc/}{manual}.
+
+\subsection{Creación del ejecutable}
+\label{AA_1_4}
+
+Finalmente, ejecutamos:
+
+\begin{lstlisting}
+ make mpi
+\end{lstlisting}
+
+Esto creará un ejecutable \textit{lmp\_mpi} que deberemos trasladar a \textit{/usr/local/bin/}.
+
+\section{Scripts de entrada}
 \label{AA_2}
 
-Instrucciones de scripts acá
+En la \href{https://github.com/francoa/Tesis/tree/master/Resources}{página web de la Tesis} es posible encontrar un script de ejemplo llamado \textit{Lammps\_scriptDePrueba.txt}. En éste se toma una muestra de CuZr y se genera una muestra porosa, la cual es posteriormente deformada. La explicación puede seguirse en conjunto con el contenido del \href{http://lammps.sandia.gov/doc/Section_commands.html#cmd_3}{manual}.
 
-\section{Datos de salida}
-\label{AA_3}
+\begin{lstlisting}
+##(1) Inicializacion
+ 
+  clear
+  echo both
+  units		metal
+  boundary	p p p
+  
+  atom_style	atomic
+  neighbor	2.0 bin
+  neigh_modify	every 1 delay 2 check yes
+\end{lstlisting}
 
-Instrucciones para análisis de datos de salida -> herramientas estadísticas.
+En la inicialización se setean parámetros que necesitan ser definidos antes de crear o importar los átomos. Del manual de LAMMPS, los comandos relevantes en esta etapa son \textit{units, dimension, newton, processors, boundary, atom\_style, atom\_modify}.
+
+\begin{lstlisting}
+##(2) Definicion de atomo
+  
+  lattice	fcc  3.303 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
+  read_data     Cu_Zr_160K.dat
+  mass 1 63.550
+  mass 2 91.220
+\end{lstlisting}
+
+En esta etapa se cargan los átomos para la simulación. Del manual de LAMMPS, hay dos formas de definir átomos: importarlos de un archivo mediante el comando \textit{read\_data o read\_restart}, crear átomos en una estructura cristalina mediante los comandos \textit{lattice, region, create\_box, create\_atoms}.
+
+Luego de esta etapa, se setean el resto de parámetros necesarios para llevar a cabo la simulación: velocidades iniciales, potenciales utilizados, paso de tiempo, restricciones en temperatura, presión o volumen (fixes), archivos de salida, etc. 
+
+Finalmente, el comando \textit{run} indica que debe realizarse la simulación.
+
+Para ejecutar el script, debe utilizarse el siguiente comando:
+
+\begin{lstlisting}
+mpirun -np 8 lmp_mpi < Lammps_scriptDePrueba.txt 
+\end{lstlisting}
+
+Donde el número 8 debe ser reemplazado por el número de núcleos que se tengan en la computadora. El script en la página web de la Tesis sirve sólo a efectos informativos. Éste no podrá ser ejecutado ya que no hemos incluído los archivos de átomos y potenciales.
+
+\subsection{Configuración de los archivos de salida}
+\label{AA_2_1}
+
+Un punto importante a tener en cuenta es la correcta configuración de los archivos de salida. Una simulación de LAMMPS genera dos tipos de archivos de salida: un archivo de \textit{log} de la simulación y muchos archivos \textit{dump}.
+
+El archivo \textit{log} nos provee información acerca de la ejecución del script así como del desarrollo de la simulación, aunque sólo en términos de la muestra global y no de cada átomo en particular. Si ocurre un error en la ejecución, es a este archivo al cual se debe acudir. Para configurar el formato de este archivo usamos los comandos \textit{thermo}:
+
+\begin{lstlisting}
+thermo 100
+thermo_style custom step temp ke pe etotal press pxx pyy pzz pxy pxz pyz ly lx lz v_vonm
+thermo_modify	lost warn norm yes
+\end{lstlisting}
+
+La primer línea indica la cantidad de pasos de tiempo (timesteps) que deben transcurrir para tener una nueva entrada en el archivo \textit{log}. En la segunda línea configuramos cómo será cada entrada. Para ello nos servimos mayoritariamente de palabras clave predefinidas, aunque también podemos definir cálculos nosotros mismos. Por ejemplo, para que en cada entrada se registre la tensión de Von Mises creamos la variable \textit{vonm} que se incluye en el comando thermo (\textit{v\_vonm}).
+
+\begin{lstlisting}
+variable p2 equal "-pxx/10000"
+variable p3 equal "-pyy/10000"
+variable p4 equal "-pzz/10000"
+variable p11 equal "-pxy/10000"
+variable p13 equal "-pyz/10000"
+variable p12 equal "-pxz/10000"
+variable vonm equal "sqrt(((v_p2-v_p3)^2+(v_p3-v_p4)^2+(v_p4-v_p2)^2+6*(v_p11^2+v_p12^2+v_p13^2))/2)"
+\end{lstlisting}
+
+Los archivos \textit{dump} proveen únicamente información del desarrollo de la simulación. A diferencia del archivo \textit{log}, en éstos archivos la información se presenta átomo por átomo. En el siguiente comando se indican, entre otras cosas, la cantidad de pasos de tiempo entre dos archivos \textit{dump} distintos, el nombre de los archivos, las propiedades que se deben registrar, etc.
+
+\begin{lstlisting}
+ dump OUT1 all custom 1000 300_loading_sinterized_*.lammpstrj x y z c_ccoord c_cpe c_cke vx vy vz id \
+	type c_cstr[1] c_cstr[2] c_cstr[3] c_cstr[4] c_cstr[5] c_cstr[6] v_vonMises
+\end{lstlisting}
+
+Al igual que con el comando \textit{thermo}, podemos definir variables para el cómputo de propiedades que no estén contempladas.
+
+\begin{lstlisting}
+compute cke all ke/atom
+compute cpe all pe/atom
+compute cstr all stress/atom NULL pair
+compute ccoord all coord/atom 3.0
+variable vonMises atom ((sqrt((c_cstr[1])^2+(c_cstr[2])^2+(c_cstr[3])^2-(c_cstr[1]*c_cstr[2]+ \
+	c_cstr[1]*c_cstr[3]+c_cstr[2]*c_cstr[3])+3*(c_cstr[4]^2+c_cstr[5]^2+c_cstr[6]^2)))/10000)
+\end{lstlisting}

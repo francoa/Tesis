@@ -12,7 +12,7 @@ node = import_file("../Dataset/dataset_muestraPorosa/MuestraPorosa_0.lammpstrj")
 ## 1 modificador surface mesh
 mod_surfaceMesh = ConstructSurfaceModifier(radius = 2.5)
 node.modifiers.append(mod_surfaceMesh)
-## 1 modificador atomic strain
+## 2 modificador atomic strain
 mod_atomicStrain = AtomicStrainModifier(
 	cutoff = 5.0,
 	eliminate_cell_deformation = True
@@ -23,7 +23,7 @@ node.modifiers.append(mod_atomicStrain)
 # Obtener numero de particulas
 numofParticles = node.source.data['Position'].size
 
-# Calculo de numero de atomos superando umbral
+# Funcion de calculo de numero de atomos superando umbral
 def atomic_strain(shearStrain,umbral):
 	conteo = 0
 	for i in shearStrain:

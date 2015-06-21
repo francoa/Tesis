@@ -1,0 +1,187 @@
+##(1) Inicializacion
+
+clear
+echo both
+units		metal
+boundary	p p p
+
+atom_style	atomic
+neighbor	2.0 bin
+neigh_modify	every 1 delay 2 check yes
+
+
+##(2) Definicion de atomo
+
+lattice		fcc  3.303 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
+
+read_data     Cu_Zr_160K.dat
+
+mass 1 63.550
+mass 2 91.220
+
+
+##(3) Potenciales
+
+pair_style	eam/alloy
+pair_coeff	* *  ZrCu_lammps.eam Cu Zr  
+
+
+##(4) Velocidad incial
+
+velocity	all create 680.0 482748 dist gaussian
+
+
+##(5) Computos
+
+compute cke all ke/atom
+compute cpe all pe/atom
+compute cstr all stress/atom NULL pair
+compute ccoord all coord/atom 3.0
+variable p2 equal "-pxx/10000"
+variable p3 equal "-pyy/10000"
+variable p4 equal "-pzz/10000"
+variable p11 equal "-pxy/10000"
+variable p13 equal "-pyz/10000"
+variable p12 equal "-pxz/10000"
+variable vonm equal "sqrt(((v_p2-v_p3)^2+(v_p3-v_p4)^2+(v_p4-v_p2)^2+6*(v_p11^2+v_p12^2+v_p13^2))/2)" ######Von Mises Stress
+variable vonMises atom ((sqrt((c_cstr[1])^2+(c_cstr[2])^2+(c_cstr[3])^2-(c_cstr[1]*c_cstr[2]+c_cstr[1]*c_cstr[3]+c_cstr[2]*c_cstr[3])+3*(c_cstr[4]^2+c_cstr[5]^2+c_cstr[6]^2)))/10000)
+
+thermo 100
+thermo_style custom step temp ke pe etotal press pxx pyy pzz pxy pxz pyz ly lx lz v_vonm
+thermo_modify	lost warn norm yes
+
+
+##(6) Modificacion geometrica
+
+replicate 4 1 1
+
+region		box  block 0. 150. 0. 150. 0. 150. units box
+
+region sph1 sphere 0. 25. 25. 25. units box
+region sph2 sphere 150. 25. 25. 25. units box
+region sph3 sphere 25. 0. 25. 25. units box
+region sph4 sphere 25. 150. 25. 25. units box
+region sph5 sphere 25. 25. 0. 25. units box
+region sph6 sphere 25. 25. 150. 25. units box
+region sph7 sphere 0. 25. 75. 25. units box
+region sph8 sphere 150. 25. 75. 25. units box
+region sph9 sphere 25. 0. 75. 25. units box
+region sph10 sphere 25. 150. 75. 25. units box
+region sph11 sphere 75. 25. 0. 25. units box
+region sph12 sphere 75. 25. 150. 25. units box
+region sph13 sphere 0. 25. 125. 25. units box
+region sph14 sphere 150. 25. 125. 25. units box
+region sph15 sphere 25. 0. 125. 25. units box
+region sph16 sphere 25. 150. 125. 25. units box
+region sph17 sphere 125. 25. 0. 25. units box
+region sph18 sphere 125. 25. 150. 25. units box
+region sph19 sphere 0. 75. 25. 25. units box
+region sph20 sphere 150. 75. 25. 25. units box
+region sph21 sphere 75. 0. 25. 25. units box
+region sph22 sphere 75. 150. 25. 25. units box
+region sph23 sphere 25. 75. 0. 25. units box
+region sph24 sphere 25. 75. 150. 25. units box
+region sph25 sphere 0. 75. 75. 25. units box
+region sph26 sphere 150. 75. 75. 25. units box
+region sph27 sphere 75. 0. 75. 25. units box
+region sph28 sphere 75. 150. 75. 25. units box
+region sph29 sphere 75. 75. 0. 25. units box
+region sph30 sphere 75. 75. 150. 25. units box
+region sph31 sphere 0. 75. 125. 25. units box
+region sph32 sphere 150. 75. 125. 25. units box
+region sph33 sphere 75. 0. 125. 25. units box
+region sph34 sphere 75. 150. 125. 25. units box
+region sph35 sphere 125. 75. 0. 25. units box
+region sph36 sphere 125. 75. 150. 25. units box
+region sph37 sphere 0. 125. 25. 25. units box
+region sph38 sphere 150. 125. 25. 25. units box
+region sph39 sphere 125. 0. 25. 25. units box
+region sph40 sphere 125. 150. 25. 25. units box
+region sph41 sphere 25. 125. 0. 25. units box
+region sph42 sphere 25. 125. 150. 25. units box
+region sph43 sphere 0. 125. 75. 25. units box
+region sph44 sphere 150. 125. 75. 25. units box
+region sph45 sphere 125. 0. 75. 25. units box
+region sph46 sphere 125. 150. 75. 25. units box
+region sph47 sphere 75. 125. 0. 25. units box
+region sph48 sphere 75. 125. 150. 25. units box
+region sph49 sphere 0. 125. 125. 25. units box
+region sph50 sphere 150. 125. 125. 25. units box
+region sph51 sphere 125. 0. 125. 25. units box
+region sph52 sphere 125. 150. 125. 25. units box
+region sph53 sphere 125. 125. 0. 25. units box
+region sph54 sphere 125. 125. 150. 25. units box
+region sph55 sphere 57. 57. 96. 25. units box
+region sph56 sphere 95. 98. 75. 25. units box
+region sph57 sphere 47. 56. 43. 25. units box
+region sph58 sphere 43. 107. 96. 25. units box
+region sph59 sphere 109. 49. 58. 25. units box
+region sph60 sphere 51. 107. 46. 25. units box
+region sph61 sphere 108. 48. 108. 25. units box
+
+region reg1 union 61 sph1 sph2 sph3 sph4 sph5 sph6 sph7 sph8 sph9 sph10 sph11 sph12 sph13 sph14 sph15 sph16 sph17 sph18 sph19 sph20 sph21 sph22 sph23 sph24 sph25 sph26 sph27 sph28 sph29 sph30 sph31 sph32 sph33 sph34 sph35 sph36 sph37 sph38 sph39 sph40 sph41 sph42 sph43 sph44 sph45 sph46 sph47 sph48 sph49 sph50 sph51 sph52 sph53 sph54 sph55 sph56 sph57 sph58 sph59 sph60 sph61
+
+region		reg intersect 2 reg1 box
+
+group           grp1 region reg 
+group		subs subtract all grp1
+delete_atoms    group subs
+change_box      all x final 0 150. y final 0 150. z final 0 150. boundary p p p units box
+
+
+##(7) Sinterizado
+
+reset_timestep	0
+
+dump OUT1 all custom 1000 Minimize_*.lammpstrj x y z vx vy vz id type
+restart	        11000 Restart_Minimize.* 
+min_modify line quadratic
+
+variable a loop 10
+label loop
+
+fix EQUILIBRATE   all box/relax iso 200. nreset 200
+minimize 0.0 0.0 10000 1000000
+unfix EQUILIBRATE
+
+fix fix1 all temp/rescale 1 680.0 680.0 1.0 1.0
+fix fix2 all nve
+run 1000
+unfix fix1
+unfix fix2
+
+next a
+jump porous_sample.txt loop 
+
+undump OUT1
+
+
+##(8) Llevar la muestra al equilibrio
+
+dump OUT1 all custom 500 Minimize_*.lammpstrj x y z vx vy vz id type
+velocity	all scale 300.0
+
+fix fix1 all temp/rescale 1 300.0 300.0 1.0 1.0
+fix fix2 all nph aniso 3200.0 0.0 0.30 drag 1.50
+run 500
+
+unfix fix1
+unfix fix2
+
+undump OUT1
+
+
+##(9) Carga
+
+reset_timestep	0
+
+fix	INTEGRATE_FIX  all nve
+
+dump OUT1 all custom 1000 300_loading_sinterized_*.lammpstrj x y z c_ccoord c_cpe c_cke vx vy vz id type c_cstr[1] c_cstr[2] c_cstr[3] c_cstr[4] c_cstr[5] c_cstr[6] v_vonMises
+restart	        50000 Restart_Loading.* 
+thermo 100
+fix DEFORM_FIX   all deform 1 z erate -0.001
+timestep	0.001
+run 200000
+
+undump OUT1
