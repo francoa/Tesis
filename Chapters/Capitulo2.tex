@@ -233,3 +233,38 @@ Ahora podemos realizar la integración siguiendo los pasos a continuación:
 %----------------------------------------------------------------------------------------
 \section{Termostatos y Barostatos}
 \label{S2_5}
+
+Si bien en las simulaciones básicas de MD se utiliza el ensamble microcanónico (NVE), para representar ciertos experimentos se necesita mantener constante otra variable que no sea la energía. Por ejemplo, una reacción química que se realiza en atmósfera libre sucede a presión constante y usamos el ensamble NPT; una reacción biológica puede ocurrir a temperatura constante y usaríamos el ensamble NVT.
+
+Existen diversos métodos para mantener estos parámetros estables:
+
+\begin{description}
+	\item[Estocásticos] Se obliga a una variable del sistema a seguir cierta distribución estadística.
+	\item[De acoplamiento fuerte] Se aplica una escala a una variable del sistema para llegar al valor exacto de la propiedad derivada.
+	\item[De acoplamiento débil] Se aplica una escala a una variable del sistema para establecer la tendencia de cambio hacia el valor deseado.
+	\item[De extensión de la dinámica del sistema] Se agregan grados de libertad adicionales.
+\end{description}
+
+Se explicará en el apartado siguiente un método usado en nuestras simulaciones para establecer la temperatura deseada mientras se simula con el ensamble NVE.
+
+\subsection{Re-escalado de velocidades}
+\label{S2_5_1}
+Este método (en inglés \textit{velocity rescaling}) corresponde a un acoplamiento fuerte. Se calcula un factor $\lambda$ que multiplica a todas las velocidades de traslación del sistema. No se escalan las rotaciones. La temperatura del sistema se calcula según:
+
+\begin{equation}
+\sum_{i=1}^{N}\frac{|\mathbf{p}_{i}|}{2m_{i}} = \frac{k_{b}T}{2}(3N-N_{c})
+\end{equation}
+
+donde $N_{c}$ son las restricciones y $3N-N_{c} = N_{gl}$ el número de grados de libertad. Entonces:
+
+\begin{equation}
+T = \sum_{i=1}^{N}\frac{m_{i}v_{i}^{2}}{N_{gl}k_{b}}
+\end{equation}
+
+Si multiplicamos las velocidades por un factor $\lambda$ para generar un salto $\Delta{}T$, calculamos $\lambda$ como sigue:
+
+\begin{eqnarray}
+\Delta{}T = \sum_{i=1}^{N}\frac{m_{i}(\lambda{}v_{i})^{2}}{N_{gl}k_{b}} - \sum_{i=1}^{N}\frac{m_{i}v_{i}^{2}}{N_{gl}k_{b}}\\
+\Delta{}T = (\lambda{}^{2}-1)T(t)\\
+\lambda{} = \sqrt{\frac{T_{0}}{T(t)}}
+\end{eqnarray} 
