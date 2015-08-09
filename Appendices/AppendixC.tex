@@ -1,9 +1,75 @@
 % Appendix Template
 
-\chapter{SCRIPTS DE SHELL} % Main appendix title
+\chapter{SCRIPTS DE CONSOLA Y AWK} % Main appendix title
 
 \label{AC} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
 
-\lhead{Anexo C. \emph{SCRIPTS DE SHELL}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+\lhead{Anexo C. \emph{SCRIPTS DE CONSOLA Y AWK}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
-ASD
+Una herramienta muy potente de los sistemas operativos tipo UNIX son los scripts de consola o \textit{shell scripts}. En el presente
+capítulo se resumirán las capacidades y ventajas que posee esta herramienta, y además se introducirá una herramienta apropiada para
+el procesamiento rápido de datos y la modificación de archivos llamada \textit{awk}.
+
+\section{SHELL SCRIPTS}
+
+Los scripts de consola son programas que pueden ser ejecutados en terminales o consolas de comandos de sistemas operativos tipo UNIX.
+La programación de scripts de consola no presenta grandes ventajas, especialmente si se lo compara con algunos de los lenguajes de programación
+más actuales. Sin embargo, los comandos de consola UNIX pueden ser directamente utilizados en un shell script, lo cual permite la automatización
+de tareas que de otro modo serían repetitivas y engorrosas. Básicamente, el aprendizaje de la programación de scripts de consola va de la mano
+con el aprendizaje del uso del sistema operativo UNIX a través de la terminal. ??? REVISAR TODO EL PARRAFO
+
+\subsection{PROGRAMACION BASICA}
+
+Para comenzar, es preciso crear un archivo en el cual escribiremos el código. Dicho archivo no requiere ninguna extensión en particular,
+únicamente debe tener permisos de ejecución. Los siguientes tres comandos sirven a este fin:
+\begin{lstlisting}
+ echo e > shellScriptFile
+ ls -la | grep shellScriptFile
+ chmod +x shellScriptFile
+\end{lstlisting}
+
+El comando \textit{echo} envía a la salida estándar lo que se le pasa por argumento. El argumento, en el caso de ejemplo, es la letra $e$.
+Al usar el símbolo $>$ se está redirigiendo la salida estándar a un archivo nuevo (que será creado automáticamente) llamado \textit{shellScriptFile}.
+Dicho archivo contendrá únicamente la letra $e$.
+
+El comando \textit{ls} devuelve una lista de las carpetas y archivos presentes. La opción \textit{-la} permite obtener mayor información, como por
+ejemplo los permisos de lectura, escritura y ejecución para cada grupo de usuarios. El símbolo $|$ es lo que se denomina \textit{pipe}, y sirve
+para utilizar la salida de un comando como entrada de otro. En este caso, la salida de \textit{ls} será enviada al comando \textit{grep}, que es un
+comando de búsqueda. De esta manera, el comando completo \textit{ls -la $|$ grep shellScriptFile} devolverá información completa para todos los
+archivos o directorios que se llamen o contengan dentro de su nombre el texto shellScriptFile.
+
+Por último, el comando \textit{chmod} nos permite cambiar los permisos a un archivo. Al escribir \textit{+x} como argumento estamos indicando
+que queremos que el archivo \textit{shellScriptFile} pueda ser ejecutado por todos los usuarios existentes en el sistema.
+
+Estos cuatro comandos (echo, ls, grep y chmod), son comandos de consola UNIX. Por ende pueden ser utilizados en un shell script. Tomemos como
+ejemplo el siguiente script:
+\begin{lstlisting}
+ #!/bin/bash
+ echo $1
+\end{lstlisting}
+
+Para indicar al sistema que se trata de un shell script, debemos incluir el identificador \textit{\#!}, seguido por la dirección del interpretador
+de comandos. \textit{Bash y sh} son las opciones más comúnes. 
+
+La línea de código \textit{echo \$1} indicaría que se imprimirá en consola \textit{\$1}.
+Sin embargo cuando se ejecuta el script (comando de ejecución :\textit{./shellScriptFile}), lo único que resulta es una línea en blanco. 
+Esto es porque el símbolo \$ es
+un símbolo reservado. Con él estamos indicando que queremos el valor de la variable. Por ejemplo \textit{echo var} imprimirá en la pantalla
+el texto \textit{var}, mientras que \textit{echo \$var} imprimirá en la pantalla el valor almacenado en la variable llamada \textit{var}.
+
+¿Qué significa entonces la variable 1? El símbolo \$ seguido por un número indica una variable que almacena los argumentos del script. Es decir, si
+se ejecuta el script mediante \textit{./shellScriptFile textoRandom} se leerá en pantalla la palabra \textit{textoRandom}. Un script con el
+siguiente llamado : \textit{./script abc 123 xyz} almacenará ``abc'' en la variable \$1, 123 en la variable \$2, ``xyz'' en la variable \$3 y
+así sucesivamente.
+
+Otros comandos útiles son \textit{cd} para desplazarse de una carpeta a otra del sistema de archivos, \textit{pwd} para mostrarnos
+en qué carpeta estamos ubicados actualmente, \textit{mkdir} para crear una carpeta, \textit{cp, mv y rm} para copiar, mover o eliminar
+archivos y/o carpetas. Se recomienda profundizar sobre éste tema e incrementar el conocimiento de comandos de linux. Muy útil suele ser revisar
+las entradas del manual, utilizando el comando \textit{man}, seguido por el nombre del comando del cual queremos obtener información.
+
+\subsection{EXPRESIONES CONDICIONALES Y LOOPS}
+
+
+
+
+\section{AWK}
