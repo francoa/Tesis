@@ -11,16 +11,71 @@
 %----------------------------------------------------------------------------------------
 
 \section{Introducción}
+\label{S4_1}
 
 Para controlar y por consiguiente mejorar la dinámica de la plasticidad, la composición de los vidrios metálicos ha sido modificada de diferentes maneras. Particularmente, la inclusión de nanopartículas cristalinas provee obstáculos a la propagación y crecimiento de SBs, que frecuentemente se nuclean tienen origen en la interfaz entre el BMG y la nanopartícula. Ésto se traduce en una deformación más reducida y homogénea en régimen plástico. Sin embargo, para asegurar efectos perdurables, las inclusiones deberían ser estables en el tiempo, es decir, no difundir en el material amorfo circundante perdiendo así la transición nítida entre cristal y amorfo.
 
-Se muestran resultados para inclusiones de cobre cristalino con estructura de cubo centrada en las caras (FCC). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, analizamos la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
+En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (FCC) y nanopartículas de cobre-circonio con estructura B2. Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
+
+En principio, se estudia la estabilidad de la inclusión de CuZr (B2), ya que no es generada automáticamente (ver \ref{S4_2}). Luego se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento.
 
 \section{Detalles de la Simulación}
+\label{S4_2}
 
 Analizamos inclusiones esféricas de cobre FCC. Una región de 2 nm de radio es eliminada de la muestra en una posición central, la cual fue luego llenada con la red cristalina correspondiente, es decir, una red cristalina FCC con una constante de red de 0.3615 nm. Luego de creados los átomos de Cu en la región esférica, la configuración fue minimizada, luego equilibrada a presión cero por algunos ps, luego calentada (o enfriada) para alcanzar la temperatura final deseada (\textit{T$_{f}$}) durante 4 ps y fue finalmente recocida y templada a \textit{T$_{f}$} por 1 ns.
 
 En esta sección nos centramos en la estabilidad de las nanopartículas a diferentes temperaturas, aunque mostraos algunos casos de sometimiento a tracción y compresión uniaxial. Una velocidad de deformación homogénea de 10$^{9}$/s es aplicada. La Difusividad en todos los casos se calcula ajustando los desplazamientos cuadráticos medios (en inglés Mean Squared Displacements o MSD), $\langle r^{2}\rangle$, obtenidos de LAMMPS.
+
+\section{Creación de un cristal de CuZr de estructura B2}
+\label{S4_3}
+
+Para incrustar estas partículas es necesario reemplazar átomos de la muestra original (estudiada en el capítulo \ref{C3}) por átomos ordenados del material buscado. LAMMPS permite el llenado directo de una región con estructura FCC, pero no así con estructura B2. Es por eso que es necesario  primero crear una pequeña muestra con la estructura buscada de donde tomar el grupo de átomos necesario (en este caso, una esfera) y colocarlo en una región del mismo tamaño en la muestra original.
+
+Creamos para esto un cubo cristalino aislado de 15 celdas unitarias de ancho para verificar el procedimiento, con una constante de celda de 3.50 \AA{}, tomado según \cite{inoue04}. Es este paso se utilizan condiciones de borde periódicas en las tres direcciones. Se realiza un proceso de minimizado de energía y relajación a presión cero. Se crean las velocidades iniciales para lograr una temperatura de 1100 K (\textit{T$_{B2}$}), según \cite{pauly10}, quien indica una temperatura de fase B2 estable entre 988 K y 1200 K. 
+
+Se equilibra la muestra a presión cero y \textit{T$_{B2}$} en 100 ps, seguido de un recocido a \textit{T$_{B2}$} por 150 ps para ser enfriada rápidamente a 300 K a 10$^{12}$ K/s para igualar la velocidad de enfriamiento de la matriz. Los parámetros de la estructura obtenida se muestran en la Tabla \ref{C4:tb:b2CrystalParameters}.
+%We first create an isolated small cubic crystal of 15 lattices wide to verify the procedure with an initial lattice constant of 3.50 \AA{}, according to \cite{inoue04}. Periodic boundaries in all directions are used in this step. This crystal is then minimized and relaxed at zero pressure. Initial velocities are created for a temperature of 1100 K (\textit{T$_{B2}$}), according to \cite{pauly10} who indicates B2 stable phase temperature between 988 K and 1200 K.
+%Equilibration to zero pressure is then performed at \textit{T$_{B2}$} in 100 ps, followed by annealing at \textit{T$_{B2}$} for 150 ps and a quenching to 300 K at 10$^{12}$ K/s to match sample quenching rate. Final parameters of the created structure are shown in Table \ref{table:b2CrystalParameters}.
+
+\begin{table}[htp]
+\caption{Parámetros obtenidos para el cristal CuZr (B2)}
+\begin{center}
+\begin{tabular}{*{2}{c}}
+\hline
+Velocidad de enfriamiento [K/s] & 10$^{12}$ \\
+\hline
+Número de átomos & 6750 \\
+\hline
+Constante de celda [\AA] & 3.283 \\
+\hline
+Energía total (eV) & -34012.8 \\
+\hline
+Energía de cohesión (eV) & -5.04 \\
+\hline
+\end{tabular}
+\end{center}
+\label{C4:tb:b2CrystalParameters}
+\end{table}
+
+Luego realizamos un recocido de 100 ps a 300 K utilizando el ensamble $NVE$ de una esfera de 2 nm extraida del cristal obtenido. La Figura \ref{C4:fg:B2CuZr_Formation} \subref{C4:fg:B2Crystal} muestra el cristal resultante y la Figura \ref{C4:fg:B2CuZr_Formation} \subref{C4:fg:B2CrystalTest} muestra la evolución de la energía de cohesión en el tiempo. Es posible que la pendiente negativa en los primeros 20 ps a 25 ps sea consecuencia de una elección no óptima de la densidad inicial del cristal. Al observar que la energía se conserva en el tiempo, concluimos que la partícula así formada es estable y puede incluirse en la matriz de BMG.
+
+%We then run a 100 ps annealing at 300 K with nve time integration of a 2 nm radius sphere cutted off the obtained cluster.
+%Fgure \ref{figure:B2CuZr_Formation} \subref{figure:B2Crystal} shows the resulting crystal and figure \ref{figure:B2CuZr_Formation} \subref{figure:B2CrystalTest} shows the evolution of cohesive energy in time. The negative slope in the firsts 20-25 ps may be consequence of a not optimal initial density of the cluster. We observe that the energy is conserved and we conclude this cluster is stable to be included in the BMG sample.
+
+\begin{figure}[htp]
+\centering
+\subfloat[Cristal resultante de CuZr (B2) (corte en imágen inferior)]{
+	\includegraphics[width=5cm]{Cap_4/B2_FreeBoundaries.png}
+	\label{C4:fg:B2Crystal}}
+\quad
+\subfloat[Energía de cohersión vs tiempo para el cristal de CuZr generado]{
+	\includegraphics[width=10cm]{Cap_4/B2CrystalTest_FreeBoundariesSphere.pdf}
+	\label{C4:fg:B2CrystalTest}}
+\caption{Formación del cristal CuZr (B2)}
+\label{C4:fg:B2CuZr_Formation}
+\end{figure}
+
+%After obtaining the initial-step configuration with this inclusion, we heat (or cool) the sample to \textit{T$_{f}$} and run an annealing for $1\,ns$, like we did with FCC-Copper inclusions.
 
 \section{Resultados}
 
