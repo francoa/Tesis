@@ -1,9 +1,183 @@
 % Appendix Template
 
-\chapter{SCRIPTS DE SHELL} % Main appendix title
+\chapter{SCRIPTS DE CONSOLA Y AWK} % Main appendix title
 
 \label{AC} % Change X to a consecutive letter; for referencing this appendix elsewhere, use \ref{AppendixX}
 
-\lhead{Anexo C. \emph{SCRIPTS DE SHELL}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
+\lhead{Anexo C. \emph{SCRIPTS DE CONSOLA Y AWK}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
-ASD
+Una herramienta muy potente de los sistemas operativos tipo UNIX son los scripts de consola o \textit{shell scripts}. En el presente
+capítulo se resumirán las capacidades y ventajas que posee esta herramienta, y además se introducirá una herramienta apropiada para
+el procesamiento rápido de datos y la modificación de archivos llamada \textit{awk}.
+
+\section{SHELL SCRIPTS}
+
+Los scripts de consola son programas que pueden ser ejecutados en terminales o consolas de comandos de sistemas operativos tipo UNIX.
+La programación de scripts de consola no presenta grandes ventajas, especialmente si se lo compara con algunos de los lenguajes de programación
+más actuales. Sin embargo, los comandos de consola UNIX pueden ser directamente utilizados en un shell script, lo cual permite la automatización
+de tareas que de otro modo serían repetitivas y engorrosas. Básicamente, el aprendizaje de la programación de scripts de consola va de la mano
+con el aprendizaje del uso del sistema operativo UNIX a través de la terminal. ??? REVISAR TODO EL PARRAFO
+
+\subsection{PROGRAMACION BASICA}
+
+Para comenzar, es preciso crear un archivo en el cual escribiremos el código. Dicho archivo no requiere ninguna extensión en particular,
+únicamente debe tener permisos de ejecución. Los siguientes tres comandos sirven a este fin:
+\begin{lstlisting}
+ echo e > shellScriptFile
+ ls -la | grep shellScriptFile
+ chmod +x shellScriptFile
+\end{lstlisting}
+
+El comando \textit{echo} envía a la salida estándar lo que se le pasa por argumento. El argumento, en el caso de ejemplo, es la letra $e$.
+Al usar el símbolo $>$ se está redirigiendo la salida estándar a un archivo nuevo (que será creado automáticamente) llamado \textit{shellScriptFile}.
+Dicho archivo contendrá únicamente la letra $e$.
+
+El comando \textit{ls} devuelve una lista de las carpetas y archivos presentes. La opción \textit{-la} permite obtener mayor información, como por
+ejemplo los permisos de lectura, escritura y ejecución para cada grupo de usuarios. El símbolo $|$ es lo que se denomina \textit{pipe}, y sirve
+para utilizar la salida de un comando como entrada de otro. En este caso, la salida de \textit{ls} será enviada al comando \textit{grep}, que es un
+comando de búsqueda. De esta manera, el comando completo \textit{ls -la $|$ grep shellScriptFile} devolverá información completa para todos los
+archivos o directorios que se llamen o contengan dentro de su nombre el texto shellScriptFile.
+
+Por último, el comando \textit{chmod} nos permite cambiar los permisos a un archivo. Al escribir \textit{+x} como argumento estamos indicando
+que queremos que el archivo \textit{shellScriptFile} pueda ser ejecutado por todos los usuarios existentes en el sistema.
+
+Estos cuatro comandos (echo, ls, grep y chmod), son comandos de consola UNIX. Por ende pueden ser utilizados en un shell script. Tomemos como
+ejemplo el siguiente script:
+\begin{lstlisting}
+ #!/bin/bash
+ echo $1
+\end{lstlisting}
+
+Para indicar al sistema que se trata de un shell script, debemos incluir el identificador \textit{\#!}, seguido por la dirección del interpretador
+de comandos. \textit{Bash y sh} son las opciones más comúnes. 
+
+La línea de código \textit{echo \$1} indicaría que se imprimirá en consola \textit{\$1}.
+Sin embargo cuando se ejecuta el script (comando de ejecución :\textit{./shellScriptFile}), lo único que resulta es una línea en blanco. 
+Esto es porque el símbolo \$ es
+un símbolo reservado. Con él estamos indicando que queremos el valor de la variable. Por ejemplo \textit{echo var} imprimirá en la pantalla
+el texto \textit{var}, mientras que \textit{echo \$var} imprimirá en la pantalla el valor almacenado en la variable llamada \textit{var}.
+
+¿Qué significa entonces la variable 1? El símbolo \$ seguido por un número indica una variable que almacena los argumentos del script. Es decir, si
+se ejecuta el script mediante \textit{./shellScriptFile textoRandom} se leerá en pantalla la palabra \textit{textoRandom}. Un script con el
+siguiente llamado : \textit{./script abc 123 xyz} almacenará ``abc'' en la variable \$1, 123 en la variable \$2, ``xyz'' en la variable \$3 y
+así sucesivamente.
+
+Otros comandos útiles son \textit{cd} para desplazarse de una carpeta a otra del sistema de archivos, \textit{pwd} para mostrarnos
+en qué carpeta estamos ubicados actualmente, \textit{mkdir} para crear una carpeta, \textit{cp, mv y rm} para copiar, mover o eliminar
+archivos y/o carpetas. Se recomienda profundizar sobre éste tema e incrementar el conocimiento de comandos de linux. Muy útil suele ser revisar
+las entradas del manual, utilizando el comando \textit{man}, seguido por el nombre del comando del cual queremos obtener información.
+
+\subsection{EXPRESIONES CONDICIONALES Y LOOPS}
+
+Las expresiones condicionales y loops o bucles forman parte de prácticamente todos los lenguajes de programación. Los lenguajes de shell script
+no son la excepción. Suele resultar más engorroso utilizarlos que en otros lenguajes, ya que las expresiones de comparación son diferentes
+y un espacio mal ubicado puede hacer fallar el programa.
+\begin{lstlisting}
+#!/bin/bash
+let cond=1
+let cond2=2
+if [ $1 -le $cond ];
+then
+        echo "menor a 1"
+elif [ $1 -gt $cond2 ];
+then
+        echo "mayor a 2"
+else
+        echo "entre 1 y 2"
+fi
+\end{lstlisting}
+\begin{lstlisting}
+#!/bin/bash
+i=$1
+while [ $i -le $2 ];
+do
+        echo $i
+        let i=i+1
+done
+\end{lstlisting}
+
+La ubicación de los espacios parece caprichosa, pero es necesario que se dejen los espacios como se presentan aquí. Por ejemplo, el comando
+\textit{let}
+permite asignar un valor numérico a una variable. Si en vez de \textit{let cond=1} se hubiese escrito \textit{let cond = 1} el interpretador
+hubiese arrojado error. Otro ejemplo se da en las expresiones de decisión condicional (\textit{if then else}) y  en las expresiones de terminación
+de bucles: si se hubiese escrito \textit{if [\$1 -le \$cond]} el interpretador hubiese arrojado error por no dejar espacios entre variables y
+corchetes.
+
+Las expresiones de comparación no se basan en símbolos, como en la mayoría de los lenguajes de programación. En la tabla~\ref{AC:tbl:comp}
+se muestran las expresiones.
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{*{2}{c}}
+\hline
+-eq&	igual (equal)\\ \hline
+-ne&	desigual (not equal to)\\ \hline
+-lt&	menor a (less than)\\ \hline
+-le&	menor o igual a (less than or equal to)\\ \hline
+-gt&	mayor a (greater than)\\ \hline
+-ge&	mayor o igual a (greater than or equal to)\\ \hline
+\end{tabular}
+\end{center}
+\caption[Expresiones de comparación en shell script.]{Expresiones de comparación en shell script.}
+\label{AC:tbl:comp}
+\end{table}
+
+\section{AWK}
+
+Awk es una excelente herramienta para procesar tablas de datos, y una vez que se aprende el lenguaje que utiliza awk resulta más sencillo de
+aplicar y más rápida que otras herramientas.
+
+La estructura básica de un comando awk desde consola es la siguiente:
+\begin{lstlisting}
+awk 'BEGIN { print "START" }
+	   { print $1      }
+     END   { print "STOP"  }' file
+\end{lstlisting}
+
+Donde se aplica el comando al archivo \textit{file}. En la porción de \textit{BEGIN} deben incluirse todas las inicializaciones de variables
+y configuraciones necesarias (por ejemplo, la definición de los separadores de campos \textit{FS}). En la porción de \textit{END} normalmente
+se incluyen comandos de escritura. En la porción intermedia se realiza todo el procesamiento de los datos.
+\begin{lstlisting}
+ awk 'BEGIN {}
+      {
+      counter=0
+	for(i=1;i<=10;i++) {
+	    if(i!=NR) {
+		counter+=i
+	    }
+	}
+	print counter;
+      } 
+      {
+      counter=0
+	for(i=1;i<=10;i++) {
+	    if(i!=NR) {
+		counter+=$i
+	    }
+	}
+	print counter;
+      }
+      END {}' archivoDePrueba
+\end{lstlisting}
+
+En el código presentado, es posible apreciar que es un lenguaje similar a C. Los bucles y expresiones condicionales se realizan de igual manera que
+en C. La gran diferencia reside en que, por defecto, awk ejecuta las porciones de código entre corchetes (aquellas que no están precedidas ni por 
+BEGIN ni por END) tantas veces como número de registros (filas) haya en el archivo de entrada. Es decir que con un archivo que contenga 10 filas, ejecutará
+10 veces las porciones de código intermedias. Esto permite iterar fácilmente a través de todo el archivo y acceder de forma sencilla al valor de
+las columnas o campos. A éstos valores se accede haciendo uso del símbolo \$. \$1 dará acceso al valor del primer campo o columna.
+
+Además del signo \$, hay palabras que están reservadas. Presentamos algunas en la tabla~\ref{AC:tbl:awkReserved}.
+\begin{table}[htp]
+\begin{center}
+\begin{tabular}{*{2}{c}}
+\hline
+FS&	Separador de campos o columnas (Field Separator)\\ \hline
+NF&	Número de campos (Number of Fields)\\ \hline
+RS&	Separador de registros o filas (Record Separator)\\ \hline
+NR&	Número de registro actual (Number of input record)\\ \hline
+OFS&	Separador de campos en la salida (Output field separator)\\ \hline
+ORS&	Separador de registros en la salida (Output record separator)\\ \hline
+\end{tabular}
+\end{center}
+\caption[Expresiones reservadas en awk.]{Expresiones reservadas en awk.}
+\label{AC:tbl:awkReserved}
+\end{table}
