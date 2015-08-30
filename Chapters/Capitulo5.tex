@@ -32,8 +32,8 @@
 % de prevenir o retrasar su propagación. En los metales cristalinos se procede de forma similar al trabar las dislocaciones.
 
 Los vidrios metálicos con porosidad han sido objeto de mucho estudio en los últimos años \citep{guan13,wang10}, en un esfuerzo
-por mejorar el entendimiento de su mecánica de deformación. El comportamiento en el
-régimen elastoplástico puede ser controlado mediante la introducción de poros.
+por mejorar el entendimiento de su mecánica de deformación. La existencia de poros en el vidrio metálico puede servir para 
+controlar el comportamiento en el régimen elastoplástico.
 
 Las grandes deformaciones normalmente se deben, como se ha visto en capítulos anteriores, al colapso de zonas de transformación de
 tensión cortante (STZ) que dan lugar a una o varias bandas de corte (SB), las cuales pueden provocar la falla frágil del material debido a la
@@ -46,7 +46,7 @@ una deformación más homogénea. Ultimamente, se ha suscitado un gran interés 
 
 En el presente capítulo fabricamos muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad
 (similar a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}) mediante el sinterizado de nanopartículas.
-Las simulaciones con dinámica molecular nos permitirán analizar los polyedros de Voronoi, las tensiones y deformaciones atómicas,
+Luego se realizan simulaciones con dinámica molecular que nos permitirán analizar los polyedros de Voronoi, las tensiones y deformaciones atómicas,
 así como también la forma en que la porosidad inicial afecta la deformación resultante de la muestra.
 
 % En un trabajo previo hemos determinado los parámetros constitutivos del vidrio metálico Cu$_{46}$ Zr$_{54}$ como
@@ -90,30 +90,56 @@ así como también la forma en que la porosidad inicial afecta la deformación r
   \label{C5:fg:sint}
 \end{figure}
 
-Para la preparación de la muestra porosa, hemos tomado como punto de partida la misma muestra utilizada con anterioridad (capítulo \ref{C3}).
+Puesto que en el presente capítulo buscamos simular una muestra porosa, primero es necesario preparar dicha muestra. Para ello,
+trataremos de \textbf{sinterizar} partículas de material, monitoreando constantemente la fracción de volumen sólido (SVF
+por sus siglas en inglés). El sinterizado es un proceso durante el cual se aplica simultáneamente calor y presión a un polvo
+del material para lograr una pieza maciza, fuerte y resistente. La temperatura debe ser inferior al punto de fusión del material,
+caso contrario la visosidad disminuiría demasiado, imposibilitando la formación de la pieza.
+
+Hemos tomado como punto de partida la misma muestra utilizada con anterioridad (capítulo \ref{C3}).
 % y descripta por \cite{arman10}. Se trata de una muestra prismática Cu$_{46}$ Zr$_{54}$ con un total de 160000 átomos y obtenida
 % mediante una velocidad de enfriamiento de 10$^{12}$ K/s. La temperatura de transición vítrea experimental (T$_{g}$) de este vidrio metálico
 % es de 696 K, y el módulo de cizalladura (o módulo de elasticidad transversal G) es 30 GPa \citep{johnson05}. 
 Para describir las interacciones
-entre los átomos, usamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}. Usamos condiciones de frontera periódicas en las
-tres caras, lo cual es apropiado para altas velocidades de deformación \citep{bringa05}. De esta forma, podemos simular un BMG (de mayor tamaño)
-y evitar concentración de tensiones en las fronteras.
+entre los átomos, usamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}. Al igual que las otras simulaciones, 
+usamos condiciones de frontera periódicas en las
+tres caras, lo cual es apropiado para altas velocidades de deformación \citep{bringa05} y para simular BMGs de mayor tamaño,
+evitando concentración de tensiones en las fronteras.
 
-Tomamos la muestra original y la replicamos a modo de obtener una muestra aproximadamente cúbica, de 15 nm de lado. Luego, seleccionamos puntos
-al azar dentro de la muestra para hacer de centro de las esferas (de 2.5 nm de radio), y removimos todo el material al exterior de dichas esferas
-para simular el sinterizado de nanopartículas esféricas de material. La figura~\ref{C5:fg:sint} \subref{C5:fg:inicial} muestra el resultado de estas acciones. Esta
-nueva muestra tiene 77888 átomos.
+Primeramente tomamos la muestra original y la replicamos a modo de obtener una muestra aproximadamente cúbica, de 15 nm de lado. 
+Luego, seleccionamos puntos
+al azar dentro de la muestra para hacer de centro de las esferas (de 2.5 nm de radio), y removimos todo el material al exterior de dichas esferas,
+quedando preparadas las nanopartículas esféricas de material. La figura~\ref{C5:fg:sint} \subref{C5:fg:inicial} muestra el resultado de estas
+acciones. Esta nueva muestra tiene 77888 átomos.
 
-El procedimiento para simular el sinterizado fue de relajar la muestra a una temperatura constante de 650K, justo debajo de la temperatura
-de transición vítrea, y volúmen constante durante unos pocos ps, y luego aplicar hasta 10 ps de presión compresiva (400 bar). Estos dos pasos
-fueron repetidos hasta lograr las porosidades deseadas. Luego, relajamos la muestra una vez más mediante el siguiente procedimiento: temple a 
-temperatura cero mediante una velocidad de enfriamiento de $6.5 \cdot 10^{14} K/s$, aplicación de un baróstato para llegar a presión
-cero, calentamiento a la misma velocidad que la velocidad de enfriamiento para llegar a la temperatura de simulacion (300K) y,
-finalmente, aplicación de un baróstato durante 5 ps para reducir la presión a cero mientras se mantiene la temperatura constante. La 
-figura~\ref{C5:fg:sint} \subref{C5:fg:sinterizado} exhibe una de las muestras obtenidas mediante el proceso que se ha explicado.
+El procedimiento para simular el sinterizado fue el siguiente:
+
+\begin{itemize}
+ \item Relajación de la muestra a volúmen constante y temperatura constante de 650K, justo debajo de la temperatura
+de transición vítrea, durante unos pocos ps.
+ \item Aplicación de hasta 10 ps de presión compresiva (400 bar).
+ \item Se repitieron los dos pasos anteriores hasta lograr las porosidades deseadas.
+ \item Para finalizar, se realiza una nueva relajación de la muestra:
+ \begin{itemize}
+  \item Temple a temperatura cero mediante una velocidad de enfriamiento de $6.5 \cdot 10^{14} K/s$.
+  \item Disminución de la presión a cero.
+  \item Calentamiento a $6.5 \cdot 10^{14} K/s$ para llegar a la temperatura de simulacion (300K).
+  \item Reducción de la presión a cero, manteniendo la temperatura constante.
+ \end{itemize}
+\end{itemize}
+
+La figura~\ref{C5:fg:sint} \subref{C5:fg:sinterizado} exhibe una de las muestras obtenidas mediante el proceso que se ha explicado.
+
+%El procedimiento para simular el sinterizado fue de relajar la muestra a volúmen constante y temperatura constante de 650K, justo debajo de la temperatura
+%de transición vítrea, durante unos pocos ps, y luego aplicar hasta 10 ps de presión compresiva (400 bar). Estos dos pasos
+%fueron repetidos hasta lograr las porosidades deseadas. Luego, relajamos la muestra una vez más mediante el siguiente procedimiento: temple a 
+%temperatura cero mediante una velocidad de enfriamiento de $6.5 \cdot 10^{14} K/s$, aplicación de un baróstato para llegar a presión
+%cero, calentamiento a la misma velocidad que la velocidad de enfriamiento para llegar a la temperatura de simulacion (300K) y,
+%finalmente, aplicación de un baróstato durante 5 ps para reducir la presión a cero mientras se mantiene la temperatura constante. La 
+%figura~\ref{C5:fg:sint} \subref{C5:fg:sinterizado} exhibe una de las muestras obtenidas mediante el proceso que se ha explicado.
 
 Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%). Estas muestras estabilizadas fueron luego utilizadas
-para realizar carga uniaxial de compresión y tracción. Todas las coordenadas atómicas fueron recalculadas cada paso, en relación con la
+para realizar carga uniaxial de compresión y tracción. Todas las coordenadas atómicas fueron recalculadas a cada paso, en relación con la
 velocidad de deformación requerida, la cual fue de $10^9 /s$, valor apropiado para experimentos de choque compresivo.
 
 %----------------------------------------------------------------------------------------
@@ -261,20 +287,20 @@ de los poros. Debe ser mencionado que la posición relativa entre átomos que se
 %	SECTION 4
 %----------------------------------------------------------------------------------------
 
-\section{Conclusiones}
-\label{S5_4}
+%\section{Conclusiones}
+%\label{S5_4}
 
-Se realizaron simulaciones de Dinámica Molecular (MD) en una muestra porosa del vidrio metálico Cu$_{46}$ Zr$_{54}$, aplicando esfuerzos
-de compresión y tracción. Los resultados bajo deformación fueron comparables a aquellos encontrados en la literatura \citep{yuan14} para
-la compresión de muestras porosas de monocristales de cobre. Esto puede ser considerado como una validación del proceso de sinterizado 
-utilizado para la preparación de las muestras.
+%Se realizaron simulaciones de Dinámica Molecular (MD) en una muestra porosa del vidrio metálico Cu$_{46}$ Zr$_{54}$, aplicando esfuerzos
+%de compresión y tracción. Los resultados bajo deformación fueron comparables a aquellos encontrados en la literatura \citep{yuan14} para
+%la compresión de muestras porosas de monocristales de cobre. Esto puede ser considerado como una validación del proceso de sinterizado 
+%utilizado para la preparación de las muestras.
 
-Con carga compresiva, los poros facilitan la plasticidad actuando como concentradores de tensiones, pero también retrasan
-la formación de zonas de transformación de tensión cortante (STZs) y su posible unión en una banda de corte (SB), para el material lejano a los poros.
-Los resultados también exhiben un endurecimiento de la muestra al cerrarse los poros, similarmente a lo que ocurre en el caso no poroso.
+%Con carga compresiva, los poros facilitan la plasticidad actuando como concentradores de tensiones, pero también retrasan
+%la formación de zonas de transformación de tensión cortante (STZs) y su posible unión en una banda de corte (SB), para el material lejano a los poros.
+%Los resultados también exhiben un endurecimiento de la muestra al cerrarse los poros, similarmente a lo que ocurre en el caso no poroso.
 
-Con carga de tracción y deformación puramente uniaxial, los poros no cierran y concentran flujo plástico alrededor de ellos, a su vez
-que también impiden la formación de STZs y bandas de corte.
+%Con carga de tracción y deformación puramente uniaxial, los poros no cierran y concentran flujo plástico alrededor de ellos, a su vez
+%que también impiden la formación de STZs y bandas de corte.
 
 % Estudios futuros incluirán un análisis de Voronoi profundizado y la simulación de muestras más grandes con topologías de porosidad diferentes.
 
