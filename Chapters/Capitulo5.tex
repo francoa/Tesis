@@ -14,109 +14,95 @@
 \section{Introducción}
 \label{S5_1}
 
-% Un vidrio metálico (MG), también llamado ``metal amorfo'', es una aleación metálica que posee una estructura amorfa,
-% en oposición a la estructura cristalina que normalmente presentan los metales. Esto puede lograrse mediante varias técnicas,
-% la mayoría de las cuales incluyen altas velocidades de temple, peque\~nos volúmenes y el control de la composición del
-% material \citep{liebermann93}. Como resultado, estos materiales cuentan con algunas ventajas con respecto a los metales cristalinos:
-% mejor elasticidad combinada con una alta resistencia, dureza y moldeabilidad \citep{telford04}.
-
-% Existen dos enfoques principales para simular vidrios metálicos sometidos a deformación plástica: haciendo foco en el comportamiento
-% a escala nanométrica \citep{ogata06,guan10} o utilizando mecánica del continuo \citep{malvern69}. Para el primer enfoque, las simulaciones
-% con dinámica molecular (MD) son frecuentemente utilizadas \citep{allen87}. La dinámica molecular puede resolver problemas en los cuales
-% interactuan muchos cuerpos (átomos), mediante la aplicación de un potencial entre pares de átomos. Así, este enfoque es útil para el
-% estudio de propiedades a escala nanométrica, tal como la deformación, la tensión, la temperatura, etc.
-
-% Las simulaciones con dinámica molecular también son útiles para identificar procesos pláticos en BMGs. La plasticidad comienza con la
-% formación de zonas de transformación de tensión cortante (STZ), las cuales se nuclean, formando bandas de corte \citep{ogata06,shimizu07} a medida que la
-% deformación aumenta. Las bandas de corte (SB) pueden provocar la falla frágil del material debido a la deformación heterogénea. De allí la importancia
-% de prevenir o retrasar su propagación. En los metales cristalinos se procede de forma similar al trabar las dislocaciones.
-
-Los vidrios metálicos con porosidad han sido objeto de mucho estudio en los últimos años \citep{guan13,wang10}, en un esfuerzo
-por mejorar el entendimiento de su mecánica de deformación. La existencia de poros en el vidrio metálico puede servir para 
-controlar el comportamiento en el régimen elastoplástico.
-
-Las grandes deformaciones normalmente se deben, como se ha visto en capítulos anteriores, al colapso de zonas de transformación de
-tensión cortante (STZ) que dan lugar a una o varias bandas de corte (SB), las cuales pueden provocar la falla frágil del material debido a la
-deformación heterogénea. De allí la importancia de prevenir o retrasar su propagación.
-
-La adición de poros en metales cristalinos reduce, como es sabido, el movimiento de dislocaciones y modifica la
-deformación plástica resultante. De igual manera, los poros en vidrios metálicos limitan la propagación de bandas de corte y permiten
-una deformación más homogénea. Ultimamente, se ha suscitado un gran interés al respecto, y varias opciones han sido exploradas
+En capítulos anteriores se ha explicado que las grandes deformaciones en vidrios metálicos se deben, normalmente,
+al colapso de zonas de transformación de tensión cortante (STZ) que dan lugar a una o varias bandas de corte (SB).
+Estas bandas de corte pueden provocar la falla frágil del material debido a la deformación heterogénea.
+Para evitar la falla frágil es necesario controlar la deformación del material, es decir, el comportamiento en el régimen elastoplástico.
+Se han estudiado varias formas de lograr eso, y una de ellas ha sido la de obtener muestras de vidrio metálico con porosidad 
 \citep{guan13,wang10,schuh07,liontas14}.
 
-En el presente capítulo fabricamos muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad
-(similar a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}) mediante el sinterizado de nanopartículas.
-Luego se realizan simulaciones con dinámica molecular que nos permitirán analizar los polyedros de Voronoi, las tensiones y deformaciones atómicas,
-así como también la forma en que la porosidad inicial afecta la deformación resultante de la muestra.
+En el presente capítulo, se estudiarán algunas características de los vidrios metálicos con porosidad. En la sección~\ref{S5_2} se explicará
+brevemente la fundamentación detrás del control de la deformación a través de la adición de poros.
+Luego, en la sección~\ref{S5_3}, se detallará el procedimiento utilizado para fabricar muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad
+(similar a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}). Finalmente, en la sección~\ref{S5_4},
+se presentarán resultados de simulaciones
+realizadas con dinámica molecular. Las simulaciones de la muestra sometida a esfuerzos uniaxiales nos permitirán analizar los polyedros
+de Voronoi, las tensiones y deformaciones atómicas, así como también la forma en que la porosidad inicial afecta la deformación resultante
+de la muestra.
 
-% En un trabajo previo hemos determinado los parámetros constitutivos del vidrio metálico Cu$_{46}$ Zr$_{54}$ como
-% una función de la temperatura. Ahora presentamos resultados para un vidrio metálico de igual composición, pero
-% fabricado mediante el sinterizado de nanopartículas de BMG, lo cual resulta en muestras con porosidad, similar
-% a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}. Para llevar a cabo las simulaciones atomísticas
-% hemos utilizado el enfoque de Dinámica Molecular (MD), y el estudio incluye análisis de los polyedros de Voronoi, tensiones
-% y deformaciones atómicas. Analizamos de qué forma depende la deformación en la fracción de volumen sólido (SVF), y cómo la deformación
-% se distribuye a lo largo de la muestra en función de la porosidad inicial.
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
 
-% Una deformación más homogénea puede ser lograda mediante el agregado de nanoinclusiones al material. Ultimamente, se ha suscitado
-% un gran interés al respecto, y varias opciones han sido exploradas \citep{guan13,wang10,schuh07,liontas14}. Siguiendo trabajo previo, en el
-% presente trabajo fabricamos muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad (similar a las muestras de ``nanovidrios'' en otros
-% experimentos y simulaciones \citep{adibi13,albe13}) mediante el sinterizado de nanopartículas. Las simulaciones con dinámica molecular
-% nos permitirán analizar los polyedros de Voronoi, las tensiones y deformaciones atómicas, así como también la forma en que la porosidad inicial
-% afecta la deformación resultante de la muestra.
+\section{Porosidad en Metales Cristalinos}
+\label{S5_2}
+
+En los metales cristalinos la deformación plástica está relacionada al concepto de dislocaciones. Las dislocaciones son imperfecciones lineales en
+la red cristalina \citep{askeland98}, que distorsionan la perfección de la red. El movimiento de las dislocaciones (proceso llamado
+\textit{deslizamiento}) es el que provoca la deformación plástica del material (véase figura~\ref{C5:fg:dislocaciones}).
+
+\begin{figure}[h!]
+\centering
+  \includegraphics[width=10cm]{Cap_5/deslizamiento.png}
+  \caption[Deslizamiento de un plano de átomos sobre otro plano adyacente]{Deslizamiento de un plano de átomos sobre otro plano adyacente
+  (de \cite{shackelford04}, p. 203).}
+  \label{C5:fg:dislocaciones}
+\end{figure}
+
+El deslizamiento se da más fácilmente en redes cristalinas perfectas, puesto que una red con estas características se encuentra en un nivel
+de energía bajo. Dicha condición implica que es más sencillo romper el enlace entre los átomos, lo cual a su vez significa que se facilita
+la aparición de dislocaciones y el deslizamiento de éstas a través del material dada la aplicación de un esfuerzo al material.
+
+En cambio, cuando la red tiene imperfecciones, el deslizamiento se ve dificultado. Una imperfección en la red implica un estado de energía
+interna más alto, ya que los átomos en torno a dicha imperfección se encuentran ya sea en tensión o compresión, y por ello es necesario un
+esfuerzo externo mayor para superar esta ``barrera''.
+
+Estos conceptos sirven de fundamento del endurecimiento por solución (dónde se agregan átomos de otro material en una red) y el endurecimiento
+por deformación (se busca generar un ``bosque de dislocaciones'' que trabe el deslizamiento), entre otras técnicas de aumento de la resistencia
+del material. 
+
+Entre estas técnicas se incluye la adición de porosidad al material, motivo de estudio del presente capítulo. Se supone que, de igual manera
+que en los metales, los poros en vidrios metálicos limitan la propagación de bandas de corte y permiten
+una deformación más homogénea.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
-\section{Detalles de Simulación y Preparación de la Muestra Porosa}
-\label{S5_2}
-
-% Para este trabajo, las simulaciones con dinámica molecular fueron realizadas mediante el uso del programa LAMMPS \citep{plimpton95},
-% el cual es gratuito y de código libre, tiene un muy buen manual y es computacionalmente eficiente para la simulación de sistemas
-% con gran número de átomos. Por otro lado, el análisis de Voronoi y las imágenes de la muestra fueron realizadas con el programa Ovito
-% \citep{stukowski10}, y otras figuras fueron graficadas con Gnuplot. Ambos programas son gratuitos y de código libre.
-
-\begin{figure}[h!]
-  \centering
-  \begin{tabular} {c}
-     \subfloat[Anterior al proceso de sinterizado]{
-	\includegraphics[width=10cm]{Cap_5/spheres2.png}
-	\label{C5:fg:inicial}}\\
-     \subfloat[Posterior al proceso de sinterizado (porosidad 13\%)]{
-	\includegraphics[width=10cm]{Cap_5/spheres3.png}
-	\label{C5:fg:sinterizado}}
-  \end{tabular}
-  \caption[Imágenes de la muestra]{Imágenes de la muestra.}
-  \label{C5:fg:sint}
-\end{figure}
+\section{Preparación de la Muestra Porosa}
+\label{S5_3}
 
 Puesto que en el presente capítulo buscamos simular una muestra porosa, primero es necesario preparar dicha muestra. Para ello,
 trataremos de \textbf{sinterizar} partículas de material, monitoreando constantemente la fracción de volumen sólido (SVF
-por sus siglas en inglés). El sinterizado es un proceso durante el cual se aplica simultáneamente calor y presión a un polvo
-del material para lograr una pieza maciza, fuerte y resistente. La temperatura debe ser inferior al punto de fusión del material,
-caso contrario la visosidad disminuiría demasiado, imposibilitando la formación de la pieza.
+por sus siglas en inglés), para así detener el proceso cuando se haya alcanzado la porosidad deseada.
 
-Hemos tomado como punto de partida la misma muestra utilizada con anterioridad (capítulo \ref{C3}).
-% y descripta por \cite{arman10}. Se trata de una muestra prismática Cu$_{46}$ Zr$_{54}$ con un total de 160000 átomos y obtenida
-% mediante una velocidad de enfriamiento de 10$^{12}$ K/s. La temperatura de transición vítrea experimental (T$_{g}$) de este vidrio metálico
-% es de 696 K, y el módulo de cizalladura (o módulo de elasticidad transversal G) es 30 GPa \citep{johnson05}. 
-Para describir las interacciones
-entre los átomos, usamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}. Al igual que las otras simulaciones, 
-usamos condiciones de frontera periódicas en las
-tres caras, lo cual es apropiado para altas velocidades de deformación \citep{bringa05} y para simular BMGs de mayor tamaño,
-evitando concentración de tensiones en las fronteras.
+El sinterizado es un proceso durante el cual se aplica simultáneamente calor y presión a un polvo
+del material para lograr una pieza maciza, fuerte y resistente. La temperatura debe ser inferior al punto de fusión del material,
+caso contrario la viscosidad disminuiría demasiado debido al derretimiento del material, imposibilitando la formación de la pieza.
+
+Para la simulación del sinterizado haremos uso, nuevamente, del software LAMPPS. Hemos tomado como punto de partida la misma muestra
+de cobre circonio utilizada con anterioridad (capítulo \ref{C3}). Utilizamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}
+para describir las interacciones entre los átomos y condiciones de frontera periódicas en las tres caras (apropiado para altas velocidades
+de deformación -\cite{bringa05}- y para simular BMGs de mayor tamaño).
 
 Primeramente tomamos la muestra original y la replicamos a modo de obtener una muestra aproximadamente cúbica, de 15 nm de lado. 
 Luego, seleccionamos puntos
 al azar dentro de la muestra para hacer de centro de las esferas (de 2.5 nm de radio), y removimos todo el material al exterior de dichas esferas,
-quedando preparadas las nanopartículas esféricas de material. La figura~\ref{C5:fg:sint} \subref{C5:fg:inicial} muestra el resultado de estas
+quedando preparadas las nanopartículas esféricas de material. La figura~\ref{C5:fg:sintInicial} muestra el resultado de estas
 acciones. Esta nueva muestra tiene 77888 átomos.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=10cm]{Cap_5/spheres2.png}
+  \caption[Nanopartículas esféricas de material]{Imágen de las nanopartículas esféricas de material.}
+  \label{C5:fg:sintInicial}
+\end{figure}
 
 El procedimiento para simular el sinterizado fue el siguiente:
 
 \begin{itemize}
- \item Relajación de la muestra a volúmen constante y temperatura constante de 650K, justo debajo de la temperatura
-de transición vítrea, durante unos pocos ps.
+ \item Relajación de la muestra a volúmen constante y temperatura constante de 650K (justo debajo de la temperatura
+de transición vítrea) durante unos pocos ps.
  \item Aplicación de hasta 10 ps de presión compresiva (400 bar).
  \item Se repitieron los dos pasos anteriores hasta lograr las porosidades deseadas.
  \item Para finalizar, se realiza una nueva relajación de la muestra:
@@ -128,17 +114,22 @@ de transición vítrea, durante unos pocos ps.
  \end{itemize}
 \end{itemize}
 
-La figura~\ref{C5:fg:sint} \subref{C5:fg:sinterizado} exhibe una de las muestras obtenidas mediante el proceso que se ha explicado.
+\begin{figure}[h!]
+  \centering
+  \begin{tabular} {c}
+     \subfloat[Porosidad 3.3\% HACER ???]{
+	\includegraphics[width=7.3cm]{Cap_5/spheres3.png}} \\
+     \subfloat[Porosidad 5.8\% HACER ???]{
+	\includegraphics[width=7.3cm]{Cap_5/spheres3.png}} \\
+     \subfloat[Porosidad 13.1\%]{
+	\includegraphics[width=7.3cm]{Cap_5/spheres3.png}}
+  \end{tabular}
+  \caption[Muestra sinterizada]{Imágenes de la muestra sinterizada.}
+  \label{C5:fg:sint}
+\end{figure}
 
-%El procedimiento para simular el sinterizado fue de relajar la muestra a volúmen constante y temperatura constante de 650K, justo debajo de la temperatura
-%de transición vítrea, durante unos pocos ps, y luego aplicar hasta 10 ps de presión compresiva (400 bar). Estos dos pasos
-%fueron repetidos hasta lograr las porosidades deseadas. Luego, relajamos la muestra una vez más mediante el siguiente procedimiento: temple a 
-%temperatura cero mediante una velocidad de enfriamiento de $6.5 \cdot 10^{14} K/s$, aplicación de un baróstato para llegar a presión
-%cero, calentamiento a la misma velocidad que la velocidad de enfriamiento para llegar a la temperatura de simulacion (300K) y,
-%finalmente, aplicación de un baróstato durante 5 ps para reducir la presión a cero mientras se mantiene la temperatura constante. La 
-%figura~\ref{C5:fg:sint} \subref{C5:fg:sinterizado} exhibe una de las muestras obtenidas mediante el proceso que se ha explicado.
-
-Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%). Estas muestras estabilizadas fueron luego utilizadas
+Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%, veáse figura~\ref{C5:fg:sint}).
+Estas muestras estabilizadas fueron luego utilizadas
 para realizar carga uniaxial de compresión y tracción. Todas las coordenadas atómicas fueron recalculadas a cada paso, en relación con la
 velocidad de deformación requerida, la cual fue de $10^9 /s$, valor apropiado para experimentos de choque compresivo.
 
@@ -147,7 +138,7 @@ velocidad de deformación requerida, la cual fue de $10^9 /s$, valor apropiado p
 %----------------------------------------------------------------------------------------
 
 \section{Resultados}
-\label{S5_3}
+\label{S5_4}
 
 A continuación presentamos resultados para deformación puramente uniaxial, la cual es adecuada para realizar comparaciones con resultados de
 experimentos a altas velocidades de deformación, donde las deformaciones laterales pueden ser despreciadas.
@@ -213,7 +204,7 @@ podemos concluir que a mayor porosidad, se necesita menor esfuerzo para cerrar l
 pero esto ocurre a mayores deformaciones.
 
 En tracción las muestras se comportan diferentemente. Como ya se ha dicho los poros no se cierran en tracción, como sí lo hacían en compresión.
-Mediante el análisis de algunas imágenes de la muestra, como las que aparecen en la figura~\ref{C5:fg:ss_tens},
+Mediante el análisis de algunas imágenes de la muestra, como las que aparecen en la figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} o \ref{C5:fg:ss_tens_13},
 observamos que los poros crecen a una velocidad aproximadamente constante a medida que la deformación de la muestra aumenta. 
 Las figuras~\ref{C5:fg:pzz2} \subref{C5:fg:PzzTens} y \ref{C5:fg:stress} \subref{C5:fg:stressTens} también muestran lo que parece ser flujo plástico: particularmente a 13\% porosidad,
 pero similarmente a otras porosidades, luego de un cierto punto, la deformación aumenta mientras la presión se mantiene constante o
@@ -236,24 +227,79 @@ incluso disminuye.
 \begin{figure}[h!]
   \centering
   \begin{tabular}{c}
-    \includegraphics[width=8cm]{Cap_5/13_0strain.png} \\
-    \includegraphics[width=8cm]{Cap_5/13_5strain_comp.png}\includegraphics[width=8cm]{Cap_5/13_12strain_comp.png} \\
+    \subfloat[Porosidad 3\%, sin deformación ???]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
+    \subfloat[Porosidad 3\%, deformación 5\% ???]{\includegraphics[width=8cm]{Cap_5/13_5strain_comp.png}}
+    \subfloat[Porosidad 3\%, deformación 12\% ???]{\includegraphics[width=8cm]{Cap_5/13_12strain_comp.png}}\\
   \end{tabular}
-  \caption[Coloreado de una sección de la muestra con porosidad 13\% según la deformación cortante.]{Coloreado de una sección de la muestra con
-  porosidad 13\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o mayor.
+  \caption[Coloreado de una sección de la muestra con porosidad 3\% según la deformación cortante para compresión.]{Coloreado de una sección de la muestra con
+  porosidad 3\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o mayor.
   (a) Estado inicial de la muestra (b) 5\% deformación por compresión (c) 12\% deformación por compresión.}
-  \label{C5:fg:ss_comp}
+  \label{C5:fg:ss_comp_3}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
   \begin{tabular}{c}
-    \includegraphics[width=8cm]{Cap_5/13_6strain_tens.png}\includegraphics[width=8cm]{Cap_5/13_20strain_tens.png} \\
+    \subfloat[Porosidad 6\%, sin deformación ???]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
+    \subfloat[Porosidad 6\%, deformación 5\% ???]{\includegraphics[width=8cm]{Cap_5/13_5strain_comp.png}}
+    \subfloat[Porosidad 6\%, deformación 12\% ???]{\includegraphics[width=8cm]{Cap_5/13_12strain_comp.png}}\\
   \end{tabular}
-  \caption[Coloreado de una sección de la muestra con porosidad 13\% según la deformación cortante.]{Coloreado de una sección de la muestra con
+  \caption[Coloreado de una sección de la muestra con porosidad 6\% según la deformación cortante para compresión.]{Coloreado de una sección de la muestra con
+  porosidad 6\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o mayor.
+  (a) Estado inicial de la muestra (b) 5\% deformación por compresión (c) 12\% deformación por compresión.}
+  \label{C5:fg:ss_comp_6}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{c}
+    \subfloat[Porosidad 13\%, sin deformación]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
+    \subfloat[Porosidad 13\%, deformación 5\%]{\includegraphics[width=8cm]{Cap_5/13_5strain_comp.png}}
+    \subfloat[Porosidad 13\%, deformación 12\%]{\includegraphics[width=8cm]{Cap_5/13_12strain_comp.png}}\\
+  \end{tabular}
+  \caption[Coloreado de una sección de la muestra con porosidad 13\% según la deformación cortante para compresión.]{Coloreado de una sección de la muestra con
+  porosidad 13\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o mayor.
+  (a) Estado inicial de la muestra (b) 5\% deformación por compresión (c) 12\% deformación por compresión.}
+  \label{C5:fg:ss_comp_13}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{c}
+    \subfloat[Porosidad 3\%, sin deformación ???]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
+    \subfloat[Porosidad 3\%, deformación 6\% ???]{\includegraphics[width=8cm]{Cap_5/13_6strain_tens.png}}
+    \subfloat[Porosidad 3\%, deformación 20\% ???]{\includegraphics[width=8cm]{Cap_5/13_20strain_tens.png}}\\
+  \end{tabular}
+  \caption[Coloreado de una sección de la muestra con porosidad 3\% según la deformación cortante para tracción.]{Coloreado de una sección de la muestra con
+  porosidad 3\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o
+  mayor. (a) 6\% deformación por tracción (b) 20\% deformación por tracción.}
+  \label{C5:fg:ss_tens_3}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{c}
+    \subfloat[Porosidad 6\%, sin deformación ???]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
+    \subfloat[Porosidad 6\%, deformación 6\% ???]{\includegraphics[width=8cm]{Cap_5/13_6strain_tens.png}}
+    \subfloat[Porosidad 6\%, deformación 20\% ???]{\includegraphics[width=8cm]{Cap_5/13_20strain_tens.png}}\\
+  \end{tabular}
+  \caption[Coloreado de una sección de la muestra con porosidad 6\% según la deformación cortante para tracción.]{Coloreado de una sección de la muestra con
+  porosidad 6\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o
+  mayor. (a) 6\% deformación por tracción (b) 20\% deformación por tracción.}
+  \label{C5:fg:ss_tens_6}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{c}
+    \subfloat[Porosidad 13\%, sin deformación]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
+    \subfloat[Porosidad 13\%, deformación 5\%]{\includegraphics[width=8cm]{Cap_5/13_6strain_tens.png}}
+    \subfloat[Porosidad 13\%, deformación 12\%]{\includegraphics[width=8cm]{Cap_5/13_20strain_tens.png}}\\
+  \end{tabular}
+  \caption[Coloreado de una sección de la muestra con porosidad 13\% según la deformación cortante para tracción.]{Coloreado de una sección de la muestra con
   porosidad 13\% según la deformación cortante. El coloreado fue hecho usando Ovito, el color azul siendo 0.1 o menor y el color rojo 0.3 o
   mayor. (a) 6\% deformación por tracción (b) 20\% deformación por tracción.}
-  \label{C5:fg:ss_tens}
+  \label{C5:fg:ss_tens_13}
 \end{figure}
 
 La figura~\ref{C5:fg:tip3} muestra curvas de polyedros de Voronoi versus deformación. El análisis por teselado de Voronoi es una técnica para
@@ -263,22 +309,22 @@ son de gran importancia.
 
 La figura~\ref{C5:fg:tip3} \subref{C5:fg:tip3Comp} presenta las curvas de polyedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
 de los átomos tipo 3, la cual sucede luego de una fase constante. Se ha pensado en este fenómeno como un indicador del inicio de la plasticidad
-\citep{arman10}. Sin embargo, nuestras curvas muestran un resultado contraintuitivo, ya que la plasticidad comienza antes en las muestras con menor
+\citep{arman10}. Sin embargo, nuestras curvas muestran un resultado contrario a la intuición, ya que la plasticidad comienza antes en las muestras con menor
 porosidad de acuerdo a nuestro análisis. Esto podría ser considerado como un indicador de que hay otros factores o procesos en juego que afectan
 los resultados.
 
-Las figuras~\ref{C5:fg:ss_comp}-(b) y (c) presentan la evolución de la deformación cortante en la muestra, para esfuerzos de compresión.
+Las figuras~\ref{C5:fg:ss_comp_3}, \ref{C5:fg:ss_comp_6} y \ref{C5:fg:ss_comp_13} presentan la evolución de la deformación cortante en la muestra, para esfuerzos de compresión.
 Salta inmediatamente a la vista que los poros actúan como concentradores de tensiones, pero también representan un obstáculo para la
 propagación de bandas de corte \citep{wang10}. Las bandas de corte nuclean diagonalmente en el espacio entre poros, y la deformación atómica
 se acumula a lo largo de estas direcciones principales por el resto de la simulación, como puede observarse en la imágen de la muestra a 
-deformación 12\%. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como a apreciado
+deformación 12\%. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como ha apreciado
 \cite{yuan14} y puede verse en la figura~\ref{C5:fg:pzz2} \subref{C5:fg:PzzComp}.
 
 La figura~\ref{C5:fg:tip3} \subref{C5:fg:tip3Tens} muestra las curvas de poledros de Voronoi para esfuerzos de tracción. En esta imágen, los átomos de tipo 3
 prácticamente no varían en las muestras con porosidad, lo que implicaría que no hay formación de STZs.
 Para la muestra no porosa, el número de átomos tipo 3 se vuelve aproximadamente constante luego de que se ha nucleado el poro. Esto
 nos llevó a pensar que, dada las condiciones de las muestras, se facilita el movimiento de los átomos alrededor de los poros, lo cual evita
-la formación de STZs fuera de los alrededores de los poros. Para apoyar esta idea, en las figuras~\ref{C5:fg:ss_tens}-(b) y (c) presentamos
+la formación de STZs fuera de los alrededores de los poros. Para apoyar esta idea, en las figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} y \ref{C5:fg:ss_tens_13} presentamos
 la muestra coloreada con la deformación cortante. Es evidente que la deformación cortante se concentra principalmente alrededor
 de los poros. Debe ser mencionado que la posición relativa entre átomos que se encuentran lejanos de los poros se mantiene aproximadamente igual.
 
