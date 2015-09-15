@@ -15,6 +15,7 @@
 %One of the possibilities to determine constitutive parameters, and thus study the response of these materials, is by using atomistic calculations. In this paper we present results obtained with molecular dynamics (MD) simulations, of an amorphous metal (CuZr). In particular, constitutive parameters such as elasticity modulus, are determined for samples at different temperatures and subjected to both tension and compression. The results obtained are relevant for understanding the mechanical behavior of the material, such as stress-strain and temperature-strain relationships. Additionally, it is possible to observe, under uniaxial tension, the nucleation and growth of a void due to high stress and strain rate values.
 
 \section{Introducción}
+\label{S3_1}
 %Los materiales sólidos sin una estructura ordenada, es decir, amorfos, son llamados generalmente "vidrios". Algunos casos particulares de gran interés científico y tecnológico son los vidrios metálicos, que son aleaciones metálicas con propiedades mecánicas que sobrepasan en prestaciones a las aleaciones cristalinas más comunes (\cite{luborsky83}, \cite{greer95}). Se sabe que los metales forman fácilmente cristales cuando son enfriados (\cite{callister95}, \cite{smith96}). Sin embargo, usando una velocidad de enfriamiento suficientemente elevada y controlando la composición de la aleación, es posible obtener estructuras amorfas (\cite{liebermann93}), con la elasticidad de los polímeros y la resistencia de los metales (\cite{telford04}), teniendo también alta resistencia y moldeabilidad. Estas propiedades en su conjunto hacen posible la creación de partes de forma compleja y de alta resistencia, lo que además incrementa sus posibilidades de ser utilizados en aplicaciones industriales. Gracias a las propiedades citadas, estos materiales han sido de mucho interés como materiales estructurales en años recientes (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), incluyendo, por ejemplo, metales amorfos estructurales (\cite{lu04}), materiales biomédicos (\cite{zberg09}) o hasta incluso materiales aeroespaciales (\cite{peker93}), por nombrar algunos.
 
 %Solid materials without an ordered structure, i.e. amorphous, are generally called "glasses". Particular cases of great scientific and technological interest are metallic glasses, which are metallic alloys with mechanical properties that outperform the most common crystalline alloys (\cite{luborsky83}, \cite{greer95}). It is known that metals easily form crystals when cooled (\cite{callister95}, \cite{smith96}). However, using a sufficiently fast cooling rate and controlling the composition of the alloy it is possible to obtain amorphous structures (\cite{liebermann93}), with the elasticity of polymers and the resistance of metals (\cite{telford04}), also having high strength and moldability. All these properties enable the creation of parts with complex shapes and high resistance, which further increases their chances of industrial applications. Thanks to the above properties, these materials have received great interest as structural materials in recent years (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), including, for example, amorphous structural steels (\cite{lu04}), biomedical materials (\cite{zberg09}) or even aerospace materials (\cite{peker93}), to name a few.
@@ -33,14 +34,16 @@
 
 %En esta sección presentamos simulaciones de nivel atómico (utilizando dinámica molecular) de un vidrio metálico CuZr sujeto a tracción y compresión, y analizamos sus respuestas como función de la temperatura.
 
-En este apartado se realiza un análisis del comportamiento mecánico de una muestra Cu$_{46}$Zr$_{54}$ bajo diferentes modos de carga y temperaturas. Primeramente se presentan las propiedaddes generales e iniciales de la muestra, así como los parámetros de las simulaciones. Luego se muestran los resultados en distintas curvas y tablas para diferentes propiedades como la curva esfuerzo-deformación, el módulo de Young, la tensión máxima de von Mises y la tensión de von Mises a una determinada deformación.
-Se incluyen imágenes de la muestra con una escala de color según la tensión de von Mises, para observar gráficamente la distribución de tensiones.
+La ciencia de los materiales cuenta con muchos experimentos que, a lo largo de los años, se han utilizado para conocer las propiedades mecánicas, térmicas, eléctricas, etc., de los materiales. Las propiedades mecánicas son, tal vez, las más estudiadas, debido a que en la mayoría de las situaciones los materiales se encontrarán bajo solicitaciones mecánicas, es decir, bajo la acción de fuerzas externas. Algunos de los ensayos más usuales son el ensayo de tracción, de compresión, de flexión, de fatiga, de dureza, etc..  
+
+En este apartado se realizará un análisis del comportamiento mecánico de una muestra de vidrio metálico durante ensayos de tracción y compresión, a diferentes temperaturas. Primeramente, en la sección~\ref{S3_2}, se detallarán los parámetros de las simulaciones. Luego, en la sección~\ref{S3_3}, se mostrarán los resultados obtenidos a través de curvas y tablas para diferentes propiedades, tales como la curva esfuerzo-deformación, el módulo de Young, la tensión máxima de von Mises y la tensión de von Mises a una determinada deformación.
+Se incluirán imágenes de la muestra con una escala de color según la tensión de von Mises, para observar gráficamente la distribución de tensiones.
 
 \section{Detalles de las simulaciones}
-
+\label{S3_2}
 %In this paper, simulations were carried out using the LAMMPS software (\cite{plimpton95}), which is free and open source, has an excellent manual, and is computationally efficient in the simulation of systems with large numbers of atoms.
 
-La muestra Cu$_{46}$Zr$_{54}$ usada es prismática, con un total de alrededor de 160k átomos, creada con una velocidad de enfriamiento de $10^{12}$ K/s, y ya ha sido descrita por \cite{arman10}. En su trabajo, se estudiaron los efectos de ondas de choque en BMGs. La temperatura experimental de transición vitrea (Tg) de este vidrio metálico es 696 K, y su módulo de cizalla experimental (G) es 30 GPa (\cite{johnson05}). Se incluye un caso de simulación a 900 K, sobre Tg, para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) (\cite{daw84}) fue adoptado, que ya ha sido usado en otros estudios sobre BMGs (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
+Se incluye un caso de simulación a 900 K, sobre Tg, para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) (\cite{daw84}) fue adoptado, que ya ha sido usado en otros estudios sobre BMGs (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
 
 %The Cu$_{46}$Zr$_{54}$ sample used is prismatic, with a total of about 160k atoms, obtained with a quenching rate of 1012 K/s, and it has already been described by \cite{arman10}, in their study effect of shock waves in BMGs was studied. The experimental glass transition temperature (Tg) of this metallic glass is 696 K, and the experimental shear modulus (G) is 30 GPa (\cite{johnson05}). We include a simulation case at T=900 K, above Tg, to see if the mechanical behavior is significantly different. To describe the interactions between atoms, an embedded atom method (EAM) potential (\cite{daw84}) is adopted, which has already been used in other BMGs studies (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
 
@@ -64,6 +67,7 @@ Temperatura [$K$] & Volumen [$nm^{3}$] & Densidad [$\frac{g}{cm^{3}}]$ \\ \hline
 \end{table}
 
 \section{Resultados}
+\label{S3_3}
 
 En el texto que continúa, presentamos resultados para tensión exclusivamente uniaxial, la cual es apropiada para la comparación con resultados de experimentos a una velocidad de deformación muy elevada, en donde las deformaciones laterales pueden despreciarse. La Figura \ref{C3:fg:sStrain} \subref{C3:fg:sStrainTen} muestra nuestros resultados para tensión de von Mises versus deformación a todas las temperaturas simuladas. Luego de la deformación puramente elástica que ocurre hasta alrededor de 2\% de deformación, existe un decremento en la tensión de von Mises, lo que sugiere la presencia de plasticidad. Además, dadas la grandes velocidades de deformación y las grandes deformaciones, se nuclea un poro en la muestra bajo tracción, como vemos en la Figura \ref{C3:fg:voidSeq}, que lleva a grandes fluctuaciones de la tensión luego de aproximadamente 15\% de deformación.
 
@@ -198,7 +202,7 @@ La figura \ref{C3:fg:sampleTen} muestra la tensión de von Mises atómica para l
 
 %Figure 7 shows atomic von Mises stress for the complete sample in the case of tension at T=300K. Despite the evidence of plastic behavior in stress-strain curves, we do not observe evidence of shear bands.
 
-De acuerdo a un estudio en nanocables de vidrio metalico (\cite{xiao12}), la presencia de bandas de corte depende fuertemente de la velocidad de enfriamiento del vidrio. En este caso, para las velocidades de enfriamiento utilizadas en la creación de nuestra muestra, no se deberian observar bandas de corte, como se observa en la figura \ref{C3:fg:sampleTen}. Sin embargo, en secciones posteriores (\ref{ss:BC}) se observarán trazos de bandas de corte graficando la deformación atómica en lugar del esfuerzo atomico.
+De acuerdo a un estudio en nanocables de vidrio metalico (\cite{xiao12}), la presencia de bandas de corte depende fuertemente de la velocidad de enfriamiento del vidrio. En este caso, para las velocidades de enfriamiento utilizadas en la creación de nuestra muestra, no se deberian observar bandas de corte, como se observa en la figura \ref{C3:fg:sampleTen}. Sin embargo, en secciones posteriores (\ref{S3_3_1}) se observarán trazos de bandas de corte graficando la deformación atómica en lugar del esfuerzo atomico.
 
 %According to a recent study in metallic glass nanowires (\cite{xiao12}), the presence of shear bands strongly depends on the quenching rate of the glass. In this case, for the quenching rates used in the creation of our sample, shear bands should not be observed, as shown in Figure 7.
 
@@ -229,7 +233,7 @@ La figura \ref{C3:fg:sampleComp} muestra que, de igual manera que en la muestra 
 \end{figure}
 
 \subsection{Bandas de corte}
-\label{ss:BC}
+\label{S3_3_1}
 
 Como se mencionó previamente, es posible observar bandas de corte graficando la deformación atómica de la muestra. Para esto se utiliza la herramienta Ovito, la cual utiliza el procedimiento descripto en \cite{shimizu07} para calcular la deformación atómica. La figura \ref{C3:fg:SBs} muestra el resultado.
 
@@ -243,6 +247,7 @@ Como se mencionó previamente, es posible observar bandas de corte graficando la
 Es posible apreciar que las bandas de corte se forman con una dirección predominantemente diagonal, a prácticamente $45º$. Las bandas de corte representan deformación heterogénea, lo cual puede llevar a la falla frágil del material. Esto es algo importante a tener en cuenta ya que puede reducir considerablemente la vida útil del material. En capítulos subsiguientes trataremos algunos métodos para retardar la propagación de bandas de corte.
 
 \subsection{Simulación de la muestra con condiciones de frontera libres.}
+\label{S3_3_2}
 
 Para verificar la dependencia con las condiciones de borde, se realizaron simulaciones con condiciones de frontera laterales libres, como se muestra en la figura \ref{C3:fg:libres}. Bajo tracción hay una pequeña disminución de la sección transversal de la muestra, como era de esperar. Esto puede ser observado en la figura \ref{C3:fg:cross}. Tambien podemos observar que la forma de la sección transversal cambia de rectangular a elíptica, debido a un efecto de minimización de la energía de superficie.
 
@@ -276,7 +281,7 @@ Estas simulaciones son similares a aquellas realizadas sobre nanocables de vidri
 \label{C3:fg:cross}
 \end{figure}
 
-\section{Conclusiones}
+%\section{Conclusiones}
 
 
 %Atomistic simulations of bulk metallic glasses (BMGs) mechanical behavior under tension and compression were performed using molecular dynamics (MD) simulations. The increase of sample temperature produces a considerable decrease of the samples elastic modulus. The same applies to maximum von Mises stress. It is observed that the elastic modules are practically the same under tension or compression at different temperatures, but the maximum stress in compression is much higher. The behavior with temperature can be adjusted reasonably well with an exponential decay with temperature, typical of thermal activated phenomena.
