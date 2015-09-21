@@ -79,35 +79,48 @@ Luego realizamos un recocido de 100 ps a 300 K utilizando el ensamble $NVE$ de u
 
 \section{Resultados}
 
+En esta sección analizamos la estabilidad de nanopartículas a diferentes temperaturas, hasta temperaturas cercanas a la transición vítrea. En una primer parte, se presentan los resultados de la estabilidad de la nanopartícula y la difusividad calculada. Para tener un mismo parámetro de comparación, se utilizar los resultados obtenidos para la inclusión de Cu-FCC. Se eligen con esa información el rango de temperaturas y la ventana de tiempo tenida en cuenta. Luego se presenta la respuesta de la muesta ante esfuerzos de carga uniaxiales tanto de tracción como de compresión.
+
 \subsection{Estabilidad de la Inclusión}
 
-En esta sección analizamos la estabilidad de nanopartículas a diferentes temperaturas, hasta temperaturas cercanas a la transición vítrea.
+La información obtenida de los MSD para los átomos de la inclusión se obtienen de simulaciones a diferentes temperaturas. Como podemos ver en la Figura \ref{C4:fg:msd_Cu_FCC} \subref{C4:fg:msd10_400_FCC}, para la nanopartícula de Cu-FCC, luego de un transitorio inicial los MSD se vuelven casi constantes, conduciendo a una difusividad cercana a cero, como es de esperar para una inclusión solida estable.
 
-La información obtenida de los MSD para los átomos de la inclusión se obtienen de simulaciones a diferentes temperaturas. Como podemos ver en la Figura \ref{C4:fg:msd_Cu} \subref{C4:fg:msd10_400}, luego de un transitorio inicial, los MSD se vuelven casi constantes, conduciendo a una difusividad cercana a cero, como es de esperar para una inclusión solida estable.
+Esto indicaría que las inclusiones de Cu-FCC son de hecho estables en condiciones de operación normal para BMGs. Sin embargo, las simulaciones de MD cubren en general un corto periodo de tiempo de sólo algunos ns, y nos centramos ahora en temperaturas más elevadas para una mejor evaluación de la estabilidad de la nanopartícula. Elegimos entonces el rango de temperaturas para T $ \geq 500$ K (tanto para el caso de Cu-FCC como para el caso de CuZr-B2).
 
-Esto indicaría que las inclusiones son de hecho estables en condiciones de operación normal para BMGs. Sin embargo, las simulaciones de MD cubren en general un corto periodo de tiempo de sólo algunos ns, y nos centramos ahora en temperaturas más elevadas para una mejor evaluación de la estabilidad de la nanopartícula.
+Los datos de MSD representan una media de todos los átomos de la nanopartícula, pero podrían existir grandes diferencias entre los átomos del núcleo y la superficie de la inclusión. Es por ésto que calculamos los MSD de los átomos de Cu en una región de corona esférica de un espesor de 0.8 nm y radio interno de 1.2 nm. Puede verse en la Figura \ref{C4:fg:FCCdiff_shell_comp} que, luego de un transitorio de unos 0.6 ns, las pendientes de los MSD son prácticamente iguales para la corona y la nanopartícula en su totalidad. Elegimos entonces la ventana temporal para t $ \geq 0.6 $ ns.
 
-Usamos entonces la información para T $ \geq 500$ K (Figura \ref{C4:fg:msd_Cu} \subref{C4:fg:msd500_800}), y obtenemos difusividades que se muestran en la Tabla \ref{C4:tb:FCC_Diff_Fit_Restults}, usando la ecuación de Einstein $\langle r^{2}\rangle = 6Dt$, para tiempos superiores a 0.6 ns, cuando hay una pendiente estable.
+Las curvas de MSD para el caso de Cu-FCC se ven entonces en las Figuras \ref{C4:fg:msd_Cu_FCC} \subref{C4:fg:msd10_400_FCC} y \ref{C4:fg:msd_Cu_FCC} \subref{C4:fg:msd500_800_FCC} y para el caso de CuZr-B2 en las Figuras \ref{C4:fg:msd_CuZr_B2} \subref{C4:fg:msd10_400_B2} y \ref{C4:fg:msd_CuZr_B2} \subref{C4:fg:msd500_800_B2}.
 
-Estos resultados representan una media de todas los átomos de la nanopartícula, pero podrían existir grandes diferencias entre los átomos del núcleo y la superficie de la inclusión. Es por ésto que calculamos los MSD de los átomos de Cu en una región de corona esférica de un espesor de 0.8 nm y radio interno de 1.2 nm. Puede verse en la Figura \ref{C4:fg:FCCdiff_shell_comp} que, luego de un transitorio de unos 0.6 ns, las pendientes de los MSD son prácticamente iguales para la corona y la nanopartícula en su totalidad, y podemos usar las difusividades de la Tabla \ref{C4:tb:FCC_Diff_Fit_Restults}.
+Obtenemos entonces para T $ \geq 500$ K y t $ \geq 0.6 $ ns las difusividades que se muestran en las Tablas \ref{C4:tb:FCC_Diff_Fit_Restults} y \ref{C4:tb:B2_Diff_Fit_Restults}, usando la ecuación de Einstein $\langle r^{2}\rangle = 6Dt$.
 
-Las difusividades para T $ \geq 500$ K son ajustadas para tener correspondencia con la ecuación \ref{C4:eq:diff_Fit}, donde $k_{B}$ es la constante de Boltzmann, $\Delta E$ es la energía de activación para difusión, y $D_{0}$ da la escala de difusividad. La regresión resultante aparece en la Tabla \ref{C4:tb:FCC_Diff_VS_T_Fit_Restults} y son mostrados gráficamente en la Figura \ref{C4:fg:FCC_diff_vs_T}.
+Las difusividades son ajustadas para tener correspondencia con la ecuación \ref{C4:eq:diff_Fit}, donde $k_{B}$ es la constante de Boltzmann, $\Delta E$ es la energía de activación para difusión, y $D_{0}$ da la escala de difusividad. La regresión resultante aparece en la Tabla \ref{C4:tb:FCC_Diff_VS_T_Fit_Restults} y son mostrados gráficamente en la Figura \ref{C4:fg:FCC_diff_vs_T}. Hay que considerar que al ser tan bajos los valores obtenidos para el caso de CuZr-B2, esta regresión sólo se calcula para el caso Cu-FCC.
+
+Es de notar que si bien las difusividades para el caso de CuZr-B2 son mucho menores (la pendiente de los movimientos atómicos es cercana a cero), el desplazamiento inicial de los átomos durante el calentamiento a la temperatura de simulación (por ejemplo desde 300 K a 500 K) es mucho mayor. En las Figuras \ref{C4:fg:heating_FCC_B2} \subref{C4:fg:heating500_800_FCC} y \ref{C4:fg:heating_FCC_B2} \subref{C4:fg:heating500_800_B2} observamos esto claramente.
+
+Por último, como fue señalado en \cite{albe13}, el núcleo de las inclusiones se ve reducido porque los átomos más externos tienden a volverse amorfos. Este efecto se incrementa con la temperatura, como era de esperarse, cuando la difusión atómica es mayor.
 
 \begin{figure}[htp]
 \centering
 \subfloat[Bajas temperaturas]{
 	\includegraphics[width=10cm]{Cap_4/msd10_400_FCC.png}
-	\label{C4:fg:msd10_400}}
+	\label{C4:fg:msd10_400_FCC}}
 \\
 \subfloat[Altas temperaturas]{
 	\includegraphics[width=10cm]{Cap_4/msd500_800_FCC.png}
-	\label{C4:fg:msd500_800}}
+	\label{C4:fg:msd500_800_FCC}}
 \caption[MSD para inclusión de Cu FCC a diferentes temperaturas]{MSD para inclusión de Cu FCC a diferentes temperaturas}
-\label{C4:fg:msd_Cu}
+\label{C4:fg:msd_Cu_FCC}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=10cm]{Cap_4/FCCdiff_shell_comp.png}
+\caption[MSD de la corona esférica y la nanopartícula completa]{MSD de la corona esférica y para la nanopartícula completa (color más claro)}
+\label{C4:fg:FCCdiff_shell_comp}
 \end{figure}
 
 \begin{table}[htp]
-\caption{Resultados del ajuste de la difusividad}
+\caption{Resultados del ajuste de la difusividad para el caso Cu-FCC}
 \begin{center}
 \begin{tabular}{*{3}{c}}
 \hline
@@ -128,10 +141,36 @@ T [$K$] & D [$\frac{nm^{2}}{ps}$] & R$^{2}$ \\
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_4/FCCdiff_shell_comp.png}
-\caption[MSD de la corona esférica y la nanopartícula completa]{MSD de la corona esférica y para la nanopartícula completa (color más claro)}
-\label{C4:fg:FCCdiff_shell_comp}
+\subfloat[Bajas temperaturas]{
+	\includegraphics[width=10cm]{Cap_4/msd10_400_B2.png}
+	\label{C4:fg:msd10_400_B2}}
+\\
+\subfloat[Altas temperaturas]{
+	\includegraphics[width=10cm]{Cap_4/msd500_800_B2.png}
+	\label{C4:fg:msd500_800_B2}}
+\caption[MSD para inclusión de CuZr B2 a diferentes temperaturas]{MSD para inclusión de CuZr B2 a diferentes temperaturas}
+\label{C4:fg:msd_CuZr_B2}
 \end{figure}
+
+\begin{table}[htp]
+\caption{Resultados del ajuste de la difusividad para el caso CuZr-B2}
+\begin{center}
+\begin{tabular}{*{3}{c}}
+\hline
+T [$K$] & D [$\frac{nm^{2}}{ps}$] & R$^{2}$ \\
+\hline \hline
+500 & $2,104\cdot 10^{-7}$ & 0,0452 \\
+\hline
+600 & $7,094\cdot 10^{-8}$ & 0,0026 \\
+\hline
+700 & $2,122\cdot 10^{-7}$ & 0,0112 \\
+\hline
+800 & $5,712\cdot 10^{-6}$ & 0,7940 \\
+\hline
+\end{tabular}
+\end{center}
+\label{C4:tb:B2_Diff_Fit_Restults}
+\end{table}
 
 \begin{eqnarray}
 D = D_{0}\cdot \mathrm{e}^{\frac{-\Delta E}{k_{B} T}}
@@ -161,7 +200,18 @@ R$^{2}$ & 0.8399 \\
 \label{C4:tb:FCC_Diff_VS_T_Fit_Restults}
 \end{table}
 
-Como fue señalado en \cite{albe13}, el núcleo de las inclusiones se ve reducido porque los átomos más externos tienden a volverse amorfos. Este efecto se incrementa con la temperatura, como era de esperarse, cuando la difusión atómica es mayor.
+\begin{figure}[htp]
+\centering
+\subfloat[Nanopartícula Cu-FCC]{
+	\includegraphics[width=10cm]{Cap_4/heatingFCC_500_800.pdf}
+	\label{C4:fg:heating500_800_FCC}}
+\\
+\subfloat[Nanopartícula CuZr-B2]{
+	\includegraphics[width=10cm]{Cap_4/heatingB2_500_800.pdf}
+	\label{C4:fg:heating500_800_B2}}
+\caption[MSD para t $ \leq 4 $ ns. Ambas nanopartículas]{MSD para t $ \leq 4 $ ns. Ambas nanopartículas}
+\label{C4:fg:heating_FCC_B2}
+\end{figure}
 
 \subsection{Carga Uniaxial del BMG}
 
@@ -175,28 +225,28 @@ Bajo tracción (Figura \ref{C4:fg:fcc_vm_tension}), incluso si al parecer la def
 
 Como algunos poliedros de Voronoi son considerados ser estructuras más resistentes al esfuerzo cortante, particularmente las agrupaciones de icosaedros \cite{cheng08}, mostramos la evolución de la fracción de icosaedros en la muestra y la comparamos con la muestra de BMG original sin inclusiones y a 10 K. Podemos ver en la figura \ref{C4:fg:fcc_voro_10K} que las fracciones siguen el mismo comportamiento que en la muestra sin nanopartícula. Bajo tracción, la nucleación de un poro da origen a fluctuaciones. Vale la pena notar que estas fluctuaciones corresponden a una deformación más elevada como ya se había mencionado para la curva de esfuerzo-deformación.
 
-\begin{figure}[h!]
+\begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_4/vm_vs_strain_tension_MIN.png}
+\includegraphics[width=10cm]{Cap_4/stress_strain_tension_FCC_NoInc.png}
 \caption[vonMises vs deformación (tracción)]{Tensión de vonMises vs deformación para el BMG bajo esfuerzo uniaxial de tracción sin inclusión (línea punteada) y una inclusión (línea sólida)}
 \label{C4:fg:fcc_vm_tension}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_4/vm_vs_strain_compression_MIN.png}
+\includegraphics[width=10cm]{Cap_4/stress_strain_compression_FCC_NoInc.png}
 \caption[vonMises vs deformación (compresión)]{Tensión de vonMises vs deformación para el BMG bajo esfuerzo uniaxial de compresión sin inclusión (línea punteada) y una inclusión (línea sólida)}
 \label{C4:fg:fcc_vm_compression}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htp]
 \centering
 \includegraphics[width=14cm]{Cap_4/FCC_Tension_10K_LOWRES.png}
 \caption[Muestra bajo tracción a 10K]{Imágenes de la muestra bajo tracción a ciertas deformaciones a 10 K (la inclusión se señala en la primer imagen). El color representa la deformación cortante atómica.}
 \label{C4:fg:fcc_tension_bmg_10K}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[htp]
 \centering
 \includegraphics[width=14cm]{Cap_4/FCC_Compression_10K_LOWRES.png}
 \caption[Muestra bajo compresión a 10K]{Imágenes de la muestra bajo compresión a ciertas deformaciones a 10 K (la inclusión se señala en la primer imagen). El color representa la deformación cortante atómica.}
@@ -205,7 +255,7 @@ Como algunos poliedros de Voronoi son considerados ser estructuras más resisten
 
 \clearpage
 
-\begin{figure}[h!]
+\begin{figure}[htp]
 \centering
 \includegraphics[width=12cm]{Cap_4/FCC_voro_vs_strain_10K_B.png}
 \caption[Fracción de icosaedros a 10K]{Fracción de icosaedros bajo tracción y compresión a 10 K. La línea punteada representa la muestra original.}
