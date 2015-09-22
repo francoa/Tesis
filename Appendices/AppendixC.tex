@@ -15,8 +15,7 @@ el procesamiento rápido de datos y la modificación de archivos llamada \textit
 Los scripts de consola son programas que pueden ser ejecutados en terminales o consolas de comandos de sistemas operativos tipo UNIX.
 La programación de scripts de consola no presenta grandes ventajas, especialmente si se lo compara con algunos de los lenguajes de programación
 más actuales. Sin embargo, los comandos de consola UNIX pueden ser directamente utilizados en un shell script, lo cual permite la automatización
-de tareas que de otro modo serían repetitivas y engorrosas. Básicamente, el aprendizaje de la programación de scripts de consola va de la mano
-con el aprendizaje del uso del sistema operativo UNIX a través de la terminal. ??? REVISAR TODO EL PARRAFO
+de tareas que de otro modo serían repetitivas y engorrosas. En otras palabras, el aprendizaje de la programación de scripts de consola va de la mano con el aprendizaje del uso del sistema operativo UNIX.
 
 \subsection{PROGRAMACION BASICA}
 
@@ -28,7 +27,7 @@ Para comenzar, es preciso crear un archivo en el cual escribiremos el código. D
  chmod +x shellScriptFile
 \end{lstlisting}
 
-El comando \textit{echo} envía a la salida estándar lo que se le pasa por argumento. El argumento, en el caso de ejemplo, es la letra $e$.
+El comando \textit{echo} envía a la salida estándar lo que se le pasa por argumento. El argumento, en el caso del ejemplo, es la letra $e$.
 Al usar el símbolo $>$ se está redirigiendo la salida estándar a un archivo nuevo (que será creado automáticamente) llamado \textit{shellScriptFile}.
 Dicho archivo contendrá únicamente la letra $e$.
 
@@ -49,12 +48,12 @@ ejemplo el siguiente script:
 \end{lstlisting}
 
 Para indicar al sistema que se trata de un shell script, debemos incluir el identificador \textit{\#!}, seguido por la dirección del interpretador
-de comandos. \textit{Bash y sh} son las opciones más comúnes. 
+de comandos. \textit{Bash y sh} son las opciones más usuales. 
 
-La línea de código \textit{echo \$1} indicaría que se imprimirá en consola \textit{\$1}.
+La línea de código \textit{echo \$1} indicaría que se imprimirá en consola \textit{``\$1''}.
 Sin embargo cuando se ejecuta el script (comando de ejecución :\textit{./shellScriptFile}), lo único que resulta es una línea en blanco. 
 Esto es porque el símbolo \$ es
-un símbolo reservado. Con él estamos indicando que queremos el valor de la variable. Por ejemplo \textit{echo var} imprimirá en la pantalla
+un símbolo reservado. Este símbolo se utiliza para indicar que queremos el valor de la variable. Por ejemplo \textit{echo var} imprimirá en la pantalla
 el texto \textit{var}, mientras que \textit{echo \$var} imprimirá en la pantalla el valor almacenado en la variable llamada \textit{var}.
 
 ¿Qué significa entonces la variable 1? El símbolo \$ seguido por un número indica una variable que almacena los argumentos del script. Es decir, si
@@ -98,7 +97,7 @@ done
 
 La ubicación de los espacios parece caprichosa, pero es necesario que se dejen los espacios como se presentan aquí. Por ejemplo, el comando
 \textit{let}
-permite asignar un valor numérico a una variable. Si en vez de \textit{let cond=1} se hubiese escrito \textit{let cond = 1} el interpretador
+permite asignar un valor numérico a una variable. Si en vez de \textit{let cond=1} se hubiese escrito \textit{let cond = 1} (dejando espacios a ambos lados del signo igual) el interpretador
 hubiese arrojado error. Otro ejemplo se da en las expresiones de decisión condicional (\textit{if then else}) y  en las expresiones de terminación
 de bucles: si se hubiese escrito \textit{if [\$1 -le \$cond]} el interpretador hubiese arrojado error por no dejar espacios entre variables y
 corchetes.

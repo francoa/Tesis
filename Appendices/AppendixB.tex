@@ -44,7 +44,40 @@ make -j4
 
 Para esta sección hemos realizado un video explicativo. El mismo puede observarse \href{https://youtu.be/iGieWcpcQmQ}{aquí}.
 
-En el video se explican ... ???
+En este video se explican detalles sobre el manejo de ovito así como también se explican algunas de las herramientas de análisis utilizadas en la presente tesis. A continuación detallaremos algunas de las herramientas de análisis utilizadas. El uso de algunas de éstas puede observarse en el video explicativo. Para mayores detalles, referirse al \href{http://www.ovito.org/manual/particles.modifiers.html}{manual de Ovito}.
+
+\begin{itemize}
+ \item \textbf{Construct Surface Mesh}:
+\end{itemize}
+Este modificador construye una red de polyedros alrededor de las partículas. Dicha red es una representación de la superficie, tanto externa como interna, de la muestra. En el capítulo~\ref{C5} lo hemos utilizado para obtener la porosidad de la muestra. El parámetro más importante a configurar para este modificador es \textit{Probe sphere radius}. Este parámetro define el tamaño de polyedros que se utilizará para formar la red. Si le damos un valor muy bajo, el modificador podría tomar el espacio entre átomos vecinos como una superficie, llenandose la superficie de ruido. Con un valor muy alto se corre el riesgo de pasar por alto algún poro. En el video configuramos este parámetro con el valor 2,5.
+
+\begin{itemize}
+ \item \textbf{Atomic Strain}:
+\end{itemize}
+Este modificador calcula los tensores de deformación a nivel atómico, basado en la diferencia entre la configuración actual de la muestra y la configuración inicial. Ovito utiliza el procedimiento descripto en \cite{shimizu07} y \cite{Falk98} para el cálculo de los tensores. Los tensores de deformación se calculan localmente para cada partícula en función de los desplazamientos relativos de los átomos vecinos. El parámetro \textit{Cutoff radius} sirve para configurar la distancia a la cual los átomos dejan de ser considerados \textit{vecinos}. En el video configuramos este parámetro con el valor 5, además de utilizar otras configuraciones adicionales.
+
+\begin{itemize}
+ \item \textbf{Voronoi Analysis}:
+\end{itemize}
+Este modificador calcula la teselación de Voronoi de la muestra, tomando los átomos como centros de polyedros de Voronoi. La configuración utilizada en el video es la que se detalla en la tabla~\ref{AB:tbl:conf}. Tomamos esta configuración porque es la que nos ha dado los resultados más similares a otros resultados obtenidos previamente con voro++ \citep{Rycroft09}. Si bien ovito hace uso de voro++ para el cálculo de polyedros, valores diferentes en algunos parámetros, especialmente en los relacionados con el cutoff y el uso de los radios de las partículas, pueden resultar en variaciones en los resultados.
+
+\begin{table}[htp]
+\caption[Configuración del modificador de Voronoi.]{Configuración del modificador de Voronoi.}
+\begin{center}
+\begin{tabular}{c C{6cm}}
+\hline
+Parámetro & Valor \\ \hline \hline
+Compute Voronoi indices & Tildado \\ \hline
+Maximum edge count & 6 \\ \hline
+Edge length threshold & 0 \\ \hline
+Use cutoff & Destildado para muestras porosas, tildado para muestras sólidas \\ \hline
+Cutoff distance & 6 \\ \hline
+Use particle radii & Destildado \\ \hline
+Use only selected particles & Destildado \\ \hline
+\end{tabular}
+\end{center}
+\label{AB:tbl:conf}
+\end{table}
 
 \section{Automatización}
 \label{AB_3}
