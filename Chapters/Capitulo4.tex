@@ -6,28 +6,27 @@
 
 \lhead{Capítulo 4. \emph{PROPIEDADES MECANICAS DE UN BMG CON NANOPARTICULAS CRISTALINAS EMBEBIDAS}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
+Para controlar y por consiguiente mejorar la dinámica de la plasticidad, la composición de los vidrios metálicos ha sido modificada de diferentes maneras. Particularmente, la inclusión de nanopartículas cristalinas provee obstáculos a la propagación y crecimiento de SBs, que frecuentemente se nuclean tienen origen en la interfaz entre el BMG y la nanopartícula. Ésto se traduce en una deformación más reducida y homogénea en régimen plástico. Sin embargo, para asegurar efectos perdurables, las inclusiones deberían ser estables en el tiempo, es decir, no difundir en el material amorfo circundante perdiendo así la transición nítida entre cristal y amorfo.
+
+En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio con estructura B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
+
+Primeramente, en la sección \ref{S4_2}, se estudia la estabilidad de la inclusión de CuZr (B2), ya que no es posible generar en LAMMPS una red cristalina de estas características (sí es el caso para una red FCC). Luego, en la sección \ref{S4_3_1}, se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento. En la sección \ref{S4_3_2} se presentan curvas de esfuerzo-deformación para diferentes temperaturas y ambos casos de inclusión cristalina.
+
+Finalmente se discuten los resultados en las conclusiones, sección \ref{S4_4}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Introducción}
-\label{S4_1}
-
-Para controlar y por consiguiente mejorar la dinámica de la plasticidad, la composición de los vidrios metálicos ha sido modificada de diferentes maneras. Particularmente, la inclusión de nanopartículas cristalinas provee obstáculos a la propagación y crecimiento de SBs, que frecuentemente se nuclean tienen origen en la interfaz entre el BMG y la nanopartícula. Ésto se traduce en una deformación más reducida y homogénea en régimen plástico. Sin embargo, para asegurar efectos perdurables, las inclusiones deberían ser estables en el tiempo, es decir, no difundir en el material amorfo circundante perdiendo así la transición nítida entre cristal y amorfo.
-
-En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (FCC) y nanopartículas de cobre-circonio con estructura B2. Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
-
-En principio, se estudia la estabilidad de la inclusión de CuZr (B2), ya que no es generada automáticamente (ver \ref{S4_2}). Luego se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento.
-
 \section{Detalles de la Simulación}
-\label{S4_2}
+\label{S4_1}
 
 Analizamos inclusiones esféricas de cobre FCC. Una región de 2 nm de radio es eliminada de la muestra en una posición central, la cual fue luego llenada con la red cristalina correspondiente, es decir, una red cristalina FCC con una constante de red de 0.3615 nm. Luego de creados los átomos de Cu en la región esférica, la configuración fue minimizada, luego equilibrada a presión cero por algunos ps, luego calentada (o enfriada) para alcanzar la temperatura final deseada (\textit{T$_{f}$}) durante 4 ps y fue finalmente recocida y templada a \textit{T$_{f}$} por 1 ns.
 
 En esta sección nos centramos en la estabilidad de las nanopartículas a diferentes temperaturas, aunque mostraos algunos casos de sometimiento a tracción y compresión uniaxial. Una velocidad de deformación homogénea de 10$^{9}$/s es aplicada. La Difusividad en todos los casos se calcula ajustando los desplazamientos cuadráticos medios (en inglés Mean Squared Displacements o MSD), $\langle r^{2}\rangle$, obtenidos de LAMMPS.
 
 \section{Creación de un cristal de CuZr de estructura B2}
-\label{S4_3}
+\label{S4_2}
 
 Para incrustar estas partículas es necesario reemplazar átomos de la muestra original (estudiada en el capítulo \ref{C3}) por átomos ordenados del material buscado. LAMMPS permite el llenado directo de una región con estructura FCC, pero no así con estructura B2. Es por eso que es necesario  primero crear una pequeña muestra con la estructura buscada de donde tomar el grupo de átomos necesario (en este caso, una esfera) y colocarlo en una región del mismo tamaño en la muestra original.
 
@@ -78,10 +77,12 @@ Luego realizamos un recocido de 100 ps a 300 K utilizando el ensamble $NVE$ de u
 %After obtaining the initial-step configuration with this inclusion, we heat (or cool) the sample to \textit{T$_{f}$} and run an annealing for $1\,ns$, like we did with FCC-Copper inclusions.
 
 \section{Resultados}
+\label{S4_3}
 
 En esta sección analizamos la estabilidad de nanopartículas a diferentes temperaturas, hasta temperaturas cercanas a la transición vítrea. En una primer parte, se presentan los resultados de la estabilidad de la nanopartícula y la difusividad calculada. Para tener un mismo parámetro de comparación, se utilizar los resultados obtenidos para la inclusión de Cu-FCC. Se eligen con esa información el rango de temperaturas y la ventana de tiempo tenida en cuenta. Luego se presenta la respuesta de la muesta ante esfuerzos de carga uniaxiales tanto de tracción como de compresión.
 
 \subsection{Estabilidad de la Inclusión}
+\label{S4_3_1}
 
 La información obtenida de los MSD para los átomos de la inclusión se obtienen de simulaciones a diferentes temperaturas. Como podemos ver en la Figura \ref{C4:fg:msd_Cu_FCC} \subref{C4:fg:msd10_400_FCC}, para la nanopartícula de Cu-FCC, luego de un transitorio inicial los MSD se vuelven casi constantes, conduciendo a una difusividad cercana a cero, como es de esperar para una inclusión solida estable.
 
@@ -214,6 +215,7 @@ R$^{2}$ & 0.8399 \\
 \end{figure}
 
 \subsection{Carga Uniaxial del BMG}
+\label{S4_3_2}
 
 En esta sección, presentamos resultados sobre el sometimiento a esfuerzos uniaxiales del BMG que contiene una nanopartícula, como se describió anteriormente.
 
@@ -253,8 +255,6 @@ Como algunos poliedros de Voronoi son considerados ser estructuras más resisten
 \label{C4:fg:fcc_compression_bmg_10K}
 \end{figure}
 
-\clearpage
-
 \begin{figure}[htp]
 \centering
 \includegraphics[width=12cm]{Cap_4/FCC_voro_vs_strain_10K_B.png}
@@ -263,6 +263,7 @@ Como algunos poliedros de Voronoi son considerados ser estructuras más resisten
 \end{figure}
 
 \section{Resumen y Conclusiones}
+\label{S4_4}
 
 Estudiamos un BMG con una nanopartícula cristalina como inclusión. Consideramos un vidrio CuZr, y una nanopartícula de Cu pura con un radio de 2 nm. Ésto implica una fracción en volumen que varía desde 1.15\% a 10 K hasta 1.12\% a 800 K como resultado del aumento del volumen inicial de la muestra con la temperatura. Una situación similar fue explorada recientemente por Albe et al. \cite{albe13}. Aquí, nos centramos en los efectos de la temperatura, e inicialmente estudiamos la estabilidad debajo de los 400 K, indicando que la nanopartícula es bastante estable a esas temperaturas. A temperaturas mayores, la difusividad en sólo algunos ns trae consigo la pérdida de una interfaz nítida entre la nanopartícula y la matriz.
 
