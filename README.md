@@ -6,33 +6,43 @@ TAREAS (TODO):
 	- Más imágenes en general ¿?
 
 Pre-capítulo 1:
+
 	- (RELEVAR)
 
 Capítulo 1:
+
 	- Llenarlo a imagenes
 	- Completar
 
 Capítulo 2:
+
 	- (RELEVAR)
 
 Capítulo 3:
+
 	- Hacer cuentito (revisar todo).
 	- Se pueden agregar más imágenes
 
 Capítulo 4:
+
 	- (RELEVAR)
 
 Capítulo 5:
+
 	- Imágenes faltantes.
 
 Capítulo 6:
+
 	- (RELEVAR)
 
 Apéndice A:
-	- (RELEVAR)
+
+	- Listo para revisión
 
 Apéndice B:
-	- (RELEVAR)
+
+	- Listo para revisión
 
 Apéndice C:
-	- (RELEVAR)
+
+	- Listo para revisión
