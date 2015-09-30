@@ -107,7 +107,7 @@ y = A_{1}\cdot \mathrm{e}^{\frac{-T}{T_{0}}}
 \label{C3:eq:thermalFit}
 \end{eqnarray}
 
-donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente usada para fenómenos activados termicamente. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos los valores para los coeficientes de la Ecuación \ref{C3:eq:thermalFit} obtenidos de las curvas mostradas en las Figuras \ref{C3:fg:youngVsT}-\ref{C3:fg:peakVMises1218VsT}. Puede verse que las regresiones son razonables. El coeficiente de correlación ($R^2$) es mayor a 0.9 en todos los casos, haciendo razonable nuestra aproximación funcional simple. Por supuesto, un estudio más detallado incluyendo muchos más valores de temperatura (??? CAMBIAR ESTA PARTE CUANDO RECALCULEMOS PARA TODAS LAS T) es necesario para verdaderamente poner a prueba las aproximaciones.
+donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente usada para fenómenos activados termicamente. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos los valores para los coeficientes de la Ecuación \ref{C3:eq:thermalFit} obtenidos de las curvas mostradas en las Figuras \ref{C3:fg:youngVsT}-\ref{C3:fg:peakVMises1218VsT}. Puede verse que las regresiones son razonables. El coeficiente de correlación ($R^2$) es mayor a 0.9 en todos los casos, haciendo razonable nuestra aproximación funcional simple.
 	
 %where $A_{1}$ and $T_{0}$ are parameters. This functional form is often used for thermally activated phenomena. In Tables 2-3 we present the values for the coefficients of equation (1) obtained from the curves shown in Figures 3-6. It can be seen that the fits are reasonable. The correlation coefficient (R2) is greater than 0.9 in all cases, thus making our simple functional fit reasonable. Of course, further studies including many more temperature values are needed to truly test the fits. 
 
@@ -117,13 +117,13 @@ donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente 
 \begin{tabular}{*{4}{c}}
 \hline
 \textbf{Tracción} & Parámetros & Valor & $R^{2}$ \\ \hline \hline
-Peak von Mises stress & A$_{1}$ & 2.312 $\pm$ 0.055 & 0.989 \\
- & T$_{0}$ & 1059.6 $\pm$ 68.8 & \\ \hline
-von Mises stress ($\epsilon$=0.12) & A$_{1}$ & 2.23 $\pm$ 0.22 & 0.935 \\
- & T$_{0}$ & 509.4 $\pm$ 101.7 & \\ \hline
-Young Modulus & A$_{1}$ & 51.3 $\pm$ 2.6 & 0.928 \\
- & T$_{0}$ & 1419.5 $\pm$ 239.0 & \\ \hline
-Yield Stress & A & 0.0604 $\pm$ 0.004 & 0.952 \\
+Peak von Mises stress (nuevo) & A$_{1}$ & 2.29 $\pm$ 0.04 & 0.981 \\
+ & T$_{0}$ & 1068.14 $\pm$ 68.02 & \\ \hline
+von Mises stress ($\epsilon$=0.12) (nuevo) & A$_{1}$ & 2.21 $\pm$ 0.02 & 0.998 \\
+ & T$_{0}$ & 587.05 $\pm$ 13.45 & \\ \hline
+Young Modulus (nuevo) & A$_{1}$ & 49.42 $\pm$ 0.38 & 0.990 \\
+ & T$_{0}$ & 1924.38 $\pm$ 87.18 & \\ \hline
+Yield Stress (???) & A & 0.0604 $\pm$ 0.004 & 0.952 \\
  & B & -0.041 $\pm$ 0.005 & \\ \hline
 \end{tabular}
 \end{center}
@@ -138,11 +138,11 @@ Yield Stress & A & 0.0604 $\pm$ 0.004 & 0.952 \\
 \textbf{Compresión} & Parámetros & Valor & $R^{2}$ \\ \hline \hline
 Peak von Mises stress (nuevo) & A$_{1}$ & 3.68 $\pm$ 0.03 & 0.997 \\
  & T$_{0}$ & 1020.16 $\pm$ 25.88 & \\ \hline
-von Mises stress ($\epsilon$=0.18) & A$_{1}$ & 2.58 $\pm$ 0.22 & 0.915 \\
- & T$_{0}$ & 863.6 $\pm$ 166.6 & \\ \hline
+von Mises stress ($\epsilon$=0.18) (nuevo) & A$_{1}$ & 2.64 $\pm$ 0.08 & 0.972 \\
+ & T$_{0}$ & 824.98 $\pm$ 65.21 & \\ \hline
 Young Modulus (nuevo) & A$_{1}$ & 52.22 $\pm$ 0.53 & 0.985 \\
  & T$_{0}$ & 1757.38 $\pm$ 96.61 & \\ \hline
-Yield Stress & A & 0.123 $\pm$ 0.01 & 0.930 \\
+Yield Stress (???) & A & 0.123 $\pm$ 0.01 & 0.930 \\
  & B & -0.081 $\pm$ 0.013 & \\ \hline
 \end{tabular}
 \end{center}
@@ -155,22 +155,22 @@ Como es de esperarse, el módulo de elasticidad, la tensión máxima de von Mise
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_3/FitYoungBoth.png}
-\caption[Fit módulo de Young-temperatura.]{Fit módulo de Young-temperatura. COMPLETAR CON T Q FALTAN ???}
+\includegraphics[width=10cm]{Cap_3/young_T_both.eps}
+\caption[Fit módulo de Young-temperatura.]{Fit módulo de Young-temperatura.}
 \label{C3:fg:youngVsT}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_3/FitPeakBoth.png}
-\caption[Fit tension de von Mises máxima-temperatura.]{Fit tension de von Mises máxima-temperatura. COMPLETAR CON T Q FALTAN ???}
+\includegraphics[width=10cm]{Cap_3/peakstress_T_BOTH.eps}
+\caption[Fit tension de von Mises máxima-temperatura.]{Fit tension de von Mises máxima-temperatura.}
 \label{C3:fg:peakVMisesVsT}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_3/Fit1218.png}
-\caption[Fit tensión de von Mises-temperatura.]{Fit tensión de von Mises-temperatura. En tracción se utilizaron tensiones a deformaciones más bajas para evitar las fluctuaciones debidas a la nucleacion del poro. COMPLETAR CON T Q FALTAN ???}
+\includegraphics[width=10cm]{Cap_3/defstress_T_BOTH.eps}
+\caption[Fit tensión de von Mises-temperatura.]{Fit tensión de von Mises-temperatura. En tracción se utilizaron tensiones a deformaciones más bajas para evitar las fluctuaciones debidas a la nucleacion del poro.}
 \label{C3:fg:peakVMises1218VsT}
 \end{figure} 
 
