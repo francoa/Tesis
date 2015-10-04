@@ -6,6 +6,8 @@
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{listings}
+\usepackage{caption}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -164,6 +166,138 @@
 \caption{Temperatura}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=16cm]{Figures/10-HistogramaCoord_COMP.png}
+\caption{Histograma de numero de coordinacion a varios strains. 10K}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=16cm]{Figures/300-HistogramaCoord_COMP.png}
+\caption{Histograma de numero de coordinacion a varios strains. 300K}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=16cm]{Figures/600-HistogramaCoord_COMP.png}
+\caption{Histograma de numero de coordinacion a varios strains. 600K}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=16cm]{Figures/900-HistogramaCoord_COMP.png}
+\caption{Histograma de numero de coordinacion a varios strains. 900K}
+\end{figure}
+
+\begin{lstlisting}[caption=script para relajacion]
+ # 3d Uniaxial 
+ 
+read_restart tmp.restart.50000
+
+pair_style	eam/alloy 
+pair_coeff	* *  ZrCu_lammps.eam Cu Zr 
+
+compute cke all ke/atom
+compute cpe all pe/atom
+compute cstr all stress/atom pair
+compute ccoord all coord/atom 3.0
+
+thermo 100
+thermo_style custom step temp ke pe etotal press pxx pyy pzz pxy pxz pyz ly lx lz 
+thermo_modify	lost warn norm yes
+
+reset_timestep	0
+
+fix	INTEGRATE_FIX  all nve
+
+dump OUT1 all custom 2500 dump_All_relajacion_*.lammpstrj x y z c_ccoord c_cpe c_cke
+    vx vy vz id type c_cstr[1] c_cstr[2] c_cstr[3] c_cstr[4] c_cstr[5] c_cstr[6] 
+restart	        50000 tmp.restart.relajacion.* 
+thermo 100
+
+fix DEFORM_FIX   all deform 1 z erate 0.001
+timestep	0.002
+run 50000
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{Figures/300_Relax_KinEng-deformacion_COMP.png}
+\caption{Simulacion relajacion. 300K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{Figures/300_Relax_PotEng-deformacion_COMP.png}
+\caption{Simulacion relajacion. 300K. Energia potencial vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{Figures/300_Relax_Press_COMP.png}
+\caption{Simulacion relajacion. 300K. Press vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{Figures/300_Relax_PVM-e_COMP.png}
+\caption{Simulacion relajacion. 300K. Presion vonMises vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{Figures/300_Relax_Temp_COMP.png}
+\caption{Simulacion relajacion. 300K. Temperatura vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/10-KinEng-deformacion.png}
+\caption{10K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/10-Tensiones-deformacion.png}
+\caption{10K. Presiones vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/300-KinEng-deformacion.png}
+\caption{300K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/300-Tensiones-deformacion.png}
+\caption{300K. Presiones vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600-KinEng-deformacion.png}
+\caption{600K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600-Tensiones-deformacion.png}
+\caption{600K. Presiones vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900-KinEng-deformacion.png}
+\caption{900K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900-Tensiones-deformacion.png}
+\caption{900K. Presiones vs strain}
+\end{figure}
 
 %
 %	Traccion
@@ -345,6 +479,66 @@
 \caption{numero celdas de voronoi (parte 4/4, temperatura desconocida)}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600K_KinEnergy.png}
+\caption{600K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600K_PotEnergy.png}
+\caption{600K. Energia potencial vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600K_PressVonMises.png}
+\caption{600K. Presion von Mises vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600K_Temp.png}
+\caption{600K. Temperatura vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/600K_TensorPress.png}
+\caption{600K. Presiones vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900K_KinEnergy.png}
+\caption{900K. Energia cinetica vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900K_PotEnergy.png}
+\caption{900K. Energia potencial vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900K_PressVonMises.png}
+\caption{900K. Presion von Mises vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900K_Temp.png}
+\caption{900K. Temperatura vs strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/900K_TensorPress.png}
+\caption{900K. Presiones vs strain}
+\end{figure}
+
 %
 %	Ambas
 %
@@ -367,6 +561,99 @@
 \centering
 \includegraphics[width=8cm]{Figures/defstress_T_BOTH.eps}
 \caption{Von Mises a strains vs. Temperatura}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/Fit2_Tercios.png}
+\caption{Comparacion curva Johnsohn}
+\end{figure}
+
+
+\section{Porosidad}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/5_0strain.png}
+\caption{Porosidad 3\%. 0 strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/5_0strain_color.png}
+\caption{Porosidad 3\%. 0 strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/5_2strain_color.png}
+\caption{Porosidad 3\%. 2\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/5_14strain_color.png}
+\caption{Porosidad 3\%. 14\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/5_15strain_color.png}
+\caption{Porosidad 3\%. 15\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/9_0strain.png}
+\caption{Porosidad 6\%. 0 strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/9_0strain_color.png}
+\caption{Porosidad 6\%. 0 strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/9_2strain_color.png}
+\caption{Porosidad 6\%. 2\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/9_15strain_color.png}
+\caption{Porosidad 6\%. 15\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/18_0strain.png}
+\caption{Porosidad 12\%. 0 strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/18_0strain_color.png}
+\caption{Porosidad 12\%. 0 strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/18_2strain_color.png}
+\caption{Porosidad 12\%. 2\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/18_15strain_color.png}
+\caption{Porosidad 12\%. 15\% strain}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{Figures/18_20strain_color.png}
+\caption{Porosidad 12\%. 20\% strain}
 \end{figure}
 
 \end{document}
