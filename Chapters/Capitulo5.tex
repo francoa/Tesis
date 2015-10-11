@@ -93,7 +93,7 @@ acciones. Esta nueva muestra tiene 77888 átomos.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=10cm]{Cap_5/spheres2.png}
+  \includegraphics[width=10cm]{Cap_5/spheres.png}
   \caption[Nanopartículas esféricas de material]{Imágen de las nanopartículas esféricas de material.}
   \label{C5:fg:sintInicial}
 \end{figure}
@@ -117,18 +117,26 @@ de transición vítrea) durante unos pocos ps.
 \begin{figure}[h!]
   \centering
   \begin{tabular} {c}
-     \subfloat[Porosidad 3.3\% HACER ???]{
-	\includegraphics[width=7.3cm]{Cap_5/spheres3.png}} \\
-     \subfloat[Porosidad 5.8\% HACER ???]{
-	\includegraphics[width=7.3cm]{Cap_5/spheres3.png}} \\
+     \subfloat[Porosidad 3.3\%]{
+	\includegraphics[width=8cm]{Cap_5/3_0strain.png}} \\
+     \subfloat[Porosidad 5.8\%]{
+	\includegraphics[width=8cm]{Cap_5/6_0strain.png}} \\
      \subfloat[Porosidad 13.1\%]{
-	\includegraphics[width=7.3cm]{Cap_5/spheres3.png}}
+	\includegraphics[width=8cm]{Cap_5/13_0strain_pores.png}}
   \end{tabular}
-  \caption[Muestra sinterizada]{Imágenes de la muestra sinterizada.}
+  \caption[Red de poros de la muestra sinterizada]{Imágenes de la red de poros de la muestra sinterizada, para todas las porosidades realizadas.}
   \label{C5:fg:sint}
 \end{figure}
 
-Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%, veáse figura~\ref{C5:fg:sint}).
+\begin {figure}[h!]
+ \centering
+  \includegraphics[width=8cm]{Cap_5/spheres3.png}
+  \caption[Muestra sinterizada]{Imágen de la muestra sinterizada, porosidad 13.1\%.}
+  \label{C5:fg:sint2}
+\end {figure}
+
+
+Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%, veáse figuras~\ref{C5:fg:sint} y \ref{C5:fg:sint2}).
 Estas muestras estabilizadas fueron luego utilizadas
 para realizar carga uniaxial de compresión y tracción. Todas las coordenadas atómicas fueron recalculadas a cada paso, en relación con la
 velocidad de deformación requerida, la cual fue de $10^9 /s$, valor apropiado para experimentos de choque compresivo.
@@ -157,12 +165,11 @@ experimentos a altas velocidades de deformación, donde las deformaciones latera
   \label{C5:fg:svf}
 \end{figure}
 
-La figura~\ref{C5:fg:svf} muestra la evolución de la densidad en las muestras porosas. Para el caso de compresión, hemos agregado unas líneas a trazos
-que indican el punto en el que los poros se cierran completamente, es decir, la fracción de volumen sólido es igual a 1.
-Para cada porosidad, el valor de deformación $\epsilon$ correspondiente es: 3\% $\rightarrow$ 0.05, 6\% $\rightarrow$ 0.065, 13\% $\rightarrow$ 0.12.
-En algunas de las figuras de esta sección aparecerán estas líneas nuevamente, a fin de observar si este evento implica cambios en el comportamiento
-plástico. Para el caso de tracción, el uso de condiciones de borde periódicas evita que los poros se cierren incluso a altas
-deformaciones uniaxiales, dado que no hay deformaciones laterales.
+La figura~\ref{C5:fg:svf} muestra la evolución de la densidad en las muestras porosas:
+\begin{itemize}
+ \item Para el caso de compresión, hemos agregado unas líneas a trazos que indican el punto en el que los poros se cierran completamente, es decir, la fracción de volumen sólido es igual a 1. Para cada porosidad, el valor de deformación $\epsilon$ correspondiente es: 3\% $\rightarrow$ 0.05, 6\% $\rightarrow$ 0.065, 13\% $\rightarrow$ 0.12. En algunas de las figuras de esta sección aparecerán estas líneas nuevamente, a fin de observar si este evento implica cambios en el comportamiento plástico.
+ \item Para el caso de tracción, el uso de condiciones de borde periódicas evita que los poros se cierren incluso a altas deformaciones uniaxiales, dado que no hay deformaciones laterales.
+\end{itemize}
 
 \begin{figure}[h!]
   \centering
@@ -192,21 +199,33 @@ deformaciones uniaxiales, dado que no hay deformaciones laterales.
   \label{C5:fg:stress}
 \end{figure}
 
-La figura~\ref{C5:fg:pzz2} \subref{C5:fg:PzzComp} grafica la presión en el eje de carga versus deformación para esfuerzos de compresión. La figura~\ref{C5:fg:stress} \subref{C5:fg:stressComp},
+\begin{figure}[h!]
+  \centering
+  \begin{tabular} {c}
+     \subfloat[Compresión]{
+	\includegraphics[width=10cm]{Cap_5/temp_strain_comp_dash.eps}
+	\label{C5:fg:tempComp}}\\
+     \subfloat[Tracción]{
+	\includegraphics[width=10cm]{Cap_5/temp_strain_tens.eps}
+	\label{C5:fg:tempTens}}
+  \end{tabular}
+  \caption[Temperatura vs deformación.]{Temperatura vs deformación.}
+  \label{C5:fg:temp}
+\end{figure}
+
+La figura~\ref{C5:fg:PzzComp} grafica la presión en el eje de carga versus deformación para esfuerzos de compresión. La figura~\ref{C5:fg:stressComp},
 a su vez, grafica el esfuerzo de von Mises versus deformación para esfuerzos de compresión.
 Ambas gráficas nos indican que la presencia de porosidad promueve el inicio de la plasticidad. Los poros actúan como concentradores de tensión,
 facilitando la aparición de STZs y bandas de corte. Esta plasticidad temprana comienza a
 cerrar los poros, produciendo una curva donde la deformación $\epsilon$ aumenta mientras que la presión se mantiene baja.
 Cuando los poros se cierran, la presión aumenta más aceleradamente, como puede apreciarse en la porción de la curva posterior
 a la línea de trazos. Podemos también observar que el comportamiento de las muestras porosas luego de las líneas de trazos es
-muy similar al comportamiento de la muestra sin porosidad, validando el hecho de que a ese punto ya no hay más porosidad. Basándonos en la figura,
-podemos concluir que a mayor porosidad, se necesita menor esfuerzo para cerrar los poros (denotado por la altura de las líneas a trazos),
-pero esto ocurre a mayores deformaciones.
+muy similar al comportamiento de la muestra sin porosidad, validando el hecho de que a ese punto ya no hay más porosidad (esto también puede observarse en la gráfica de temperatura versus deformación, figura~\ref{C5:fg:tempComp}). Basándonos en la figura, podemos concluir que a mayor porosidad, se necesita menor esfuerzo para cerrar los poros (denotado por la altura de las líneas a trazos), pero esto ocurre a mayores deformaciones.
 
 En tracción las muestras se comportan diferentemente. Como ya se ha dicho los poros no se cierran en tracción, como sí lo hacían en compresión.
 Mediante el análisis de algunas imágenes de la muestra, como las que aparecen en la figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} o \ref{C5:fg:ss_tens_13},
 observamos que los poros crecen a una velocidad aproximadamente constante a medida que la deformación de la muestra aumenta. 
-Las figuras~\ref{C5:fg:pzz2} \subref{C5:fg:PzzTens} y \ref{C5:fg:stress} \subref{C5:fg:stressTens} también muestran lo que parece ser flujo plástico: particularmente a 13\% porosidad,
+Las figuras~\ref{C5:fg:PzzTens} y \ref{C5:fg:stressTens} también muestran lo que parece ser flujo plástico: particularmente a 13\% porosidad,
 pero similarmente a otras porosidades, luego de un cierto punto, la deformación aumenta mientras la presión se mantiene constante o
 incluso disminuye.
 
@@ -266,6 +285,19 @@ incluso disminuye.
 \begin{figure}[h!]
   \centering
   \begin{tabular}{c}
+    \subfloat[Porosidad 6\%, sin deformación]{\includegraphics[width=7cm]{Cap_5/porosidad_6_shearstrain04_0.png}}
+    \subfloat[Porosidad 6\%, deformación 5\%]{\includegraphics[width=7cm]{Cap_5/porosidad_6_shearstrain04_006.png}} \\
+    \subfloat[Porosidad 6\%, deformación 12\%]{\includegraphics[width=7cm]{Cap_5/porosidad_6_shearstrain04_012.png}}
+    \subfloat[Porosidad 6\%, deformación 12\%]{\includegraphics[width=7cm]{Cap_5/porosidad_6_shearstrain04_018.png}}
+  \end{tabular}
+  \caption[Selección de átomos con deformación cortante superior a 0.4 en la muestra con porosidad 6\% para compresión.]{Selección de átomos con deformación cortante superior a 0.4 en la muestra con porosidad 6\%. La selección fue hecha utilizando Ovito. (a) 0 deformación. (b) 6\% deformación por compresión. (c) 12\% deformación por compresión. (d) 18\% deformación por compresión.}
+  \label{C5:fg:secuenciadef}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \begin{tabular}{c}
     \subfloat[Porosidad 3\%, sin deformación ???]{\includegraphics[width=8cm]{Cap_5/13_0strain.png}} \\
     \subfloat[Porosidad 3\%, deformación 6\% ???]{\includegraphics[width=8cm]{Cap_5/13_6strain_tens.png}}
     \subfloat[Porosidad 3\%, deformación 20\% ???]{\includegraphics[width=8cm]{Cap_5/13_20strain_tens.png}}\\
@@ -307,7 +339,7 @@ caracterizar el ordenamiento local en vidrios metálicos amorfos, donde cada át
 completado por sus vecinos más cercanos. En \cite{arman10}, los átomos de tipo 3 son identificados como indicadores de plasticidad, por eso
 son de gran importancia.
 
-La figura~\ref{C5:fg:tip3} \subref{C5:fg:tip3Comp} presenta las curvas de polyedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
+La figura~\ref{C5:fg:tip3Comp} presenta las curvas de polyedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
 de los átomos tipo 3, la cual sucede luego de una fase constante. Se ha pensado en este fenómeno como un indicador del inicio de la plasticidad
 \citep{arman10}. Sin embargo, nuestras curvas muestran un resultado contrario a la intuición, ya que la plasticidad comienza antes en las muestras con menor
 porosidad de acuerdo a nuestro análisis. Esto podría ser considerado como un indicador de que hay otros factores o procesos en juego que afectan
@@ -316,11 +348,9 @@ los resultados.
 Las figuras~\ref{C5:fg:ss_comp_3}, \ref{C5:fg:ss_comp_6} y \ref{C5:fg:ss_comp_13} presentan la evolución de la deformación cortante en la muestra, para esfuerzos de compresión.
 Salta inmediatamente a la vista que los poros actúan como concentradores de tensiones, pero también representan un obstáculo para la
 propagación de bandas de corte \citep{wang10}. Las bandas de corte nuclean diagonalmente en el espacio entre poros, y la deformación atómica
-se acumula a lo largo de estas direcciones principales por el resto de la simulación, como puede observarse en la imágen de la muestra a 
-deformación 12\%. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como ha apreciado
-\cite{yuan14} y puede verse en la figura~\ref{C5:fg:pzz2} \subref{C5:fg:PzzComp}.
+se acumula a lo largo de estas direcciones principales por el resto de la simulación, como puede observarse particularmente bien en la figura~\ref{C5:fg:secuenciadef}. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como ha apreciado \cite{yuan14} y puede verse en la figura~\ref{C5:fg:PzzComp}.
 
-La figura~\ref{C5:fg:tip3} \subref{C5:fg:tip3Tens} muestra las curvas de poledros de Voronoi para esfuerzos de tracción. En esta imágen, los átomos de tipo 3
+La figura~\ref{C5:fg:tip3Tens} muestra las curvas de poledros de Voronoi para esfuerzos de tracción. En esta imágen, los átomos de tipo 3
 prácticamente no varían en las muestras con porosidad, lo que implicaría que no hay formación de STZs.
 Para la muestra no porosa, el número de átomos tipo 3 se vuelve aproximadamente constante luego de que se ha nucleado el poro. Esto
 nos llevó a pensar que, dada las condiciones de las muestras, se facilita el movimiento de los átomos alrededor de los poros, lo cual evita
