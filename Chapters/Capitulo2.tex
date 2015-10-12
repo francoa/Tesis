@@ -17,7 +17,7 @@ Las simulaciones en computadora han abierto la posibilidad a estudiar sistemas, 
 
 Con la llegada de computadoras más potentes, aparece una nueva opción a considerar entre teoría y experimentos: los experimentos simulados. El modelo sobre el cual se realiza esta simulación sigue siendo teórico, pero todos los cálculos son llevados a cabo por la computadora. Es muy importante por supuesto, definir las condiciones de simulación de tal manera que represente una situación físicamente posible, y no obtener resultados absurdos.
 
-Tanto el modelo como las condiciones de simulación y los elementos que componen el experimento simulado se encuentran en el marco de algún paquete de software que mediante algoritmos específicos resuelven el problema y nos entregan ciertos resultados. En este caso particular se hace uso de simulaciones de Dinámica Molecular (apropiadas para estudiar fenómenos en escala nano) mediante el paquete LAMMPS \citep{plimpton95}, que es de código abierto y gratuito.
+Tanto el modelo como las condiciones de simulación y los elementos que componen el experimento simulado se encuentran en el marco de algún paquete de software que mediante algoritmos específicos resuelven el problema y nos entregan ciertos resultados. En este caso particular se hace uso de simulaciones de Dinámica Molecular (apropiadas para estudiar fenómenos en escala nano) mediante el paquete LAMMPS \cite{plimpton95}, que es de código abierto y gratuito.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
@@ -26,7 +26,7 @@ Tanto el modelo como las condiciones de simulación y los elementos que componen
 \section{Introducción a MD}
 \label{S2_2}
 
-Las simulaciones de dinámica molecular (MD) son usadas frecuentemente para estudiar propiedades a escala nano \citep{allen87}. Las simulaciones de MD son una técnica muy poderosa que permite resolver, usando mecánica clásica, problemas con muchos cuerpos, dada una interacción entre átomos. Una ventaja de MD es que la deformación, el esfuerzo, la temperatura, la velocidad, etc. son todas conocidas en detalle \citep{allen87}. Con esta información un gran número de fenómenos pueden estudiarse, como cambios de fase, transferencia de calor, creación y movimiento de dislocaciones, defectos, etc.. MD es una herramienta muy versátil para el estudio de las propiedades de materiales, y hasta ha sido utilizada para predecir el comportamiento mecánico de materiales previamente a los experimentos, como en el caso de maclas de aluminio \citep{chen03}. Las simulaciones de MD reproducen el movimiento atómico y por lo tanto emplean pasos de tiempo de 1 fs \citep{allen87}.
+Las simulaciones de dinámica molecular (MD) son usadas frecuentemente para estudiar propiedades a escala nano \cite{allen87}. Las simulaciones de MD son una técnica muy poderosa que permite resolver, usando mecánica clásica, problemas con muchos cuerpos, dada una interacción entre átomos. Una ventaja de MD es que la deformación, el esfuerzo, la temperatura, la velocidad, etc. son todas conocidas en detalle \cite{allen87}. Con esta información un gran número de fenómenos pueden estudiarse, como cambios de fase, transferencia de calor, creación y movimiento de dislocaciones, defectos, etc.. MD es una herramienta muy versátil para el estudio de las propiedades de materiales, y hasta ha sido utilizada para predecir el comportamiento mecánico de materiales previamente a los experimentos, como en el caso de maclas de aluminio \cite{chen03}. Las simulaciones de MD reproducen el movimiento atómico y por lo tanto emplean pasos de tiempo de 1 fs \cite{allen87}.
 
 Las simulaciones de MD integran en el tiempo las ecuaciones de movimiento de Newton para un grupo de $N$ átomos, dadas por:
 
@@ -130,7 +130,7 @@ donde $r_{ij}$ es la distancia entre los átomos $i$ y $j$, $\phi_{\alpha\beta}$
 
 Al definir las funciones $\phi_{\alpha\beta}(r_{ij})$, $F_{\alpha}(\rho)$ y $\rho_{\beta} (r_{ij})$ se establece el modelo para un material en particular. En el caso de nuestras simulaciones, se tiene una aleación metálica de dos componentes, lo que implica definir siete funciones: tres funciones potenciales ($\phi_{\alpha\alpha}$, $\phi_{\alpha\beta}$, $\phi_{\beta\beta}$), dos funciones integradoras ($F_{\alpha}$, $F_{\beta}$) y dos funciones de contribución a la densidad de carga electrónica ($\rho_{\alpha}$, $\rho_{\beta}$).
 
-Las funciones se encuentran en forma tabular en un archivo de formato \textit{setfl} \citep{setfl} que es leído por lammps al indicarlo en el script de entrada. El archivo que utilizamos en nuestras simulaciones fue creado por H.W.Sheng \citep{cheng09}.
+Las funciones se encuentran en forma tabular en un archivo de formato \textit{setfl} \cite{setfl} que es leído por lammps al indicarlo en el script de entrada. El archivo que utilizamos en nuestras simulaciones fue creado por H.W.Sheng \cite{cheng09}.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
