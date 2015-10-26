@@ -1,0 +1,6 @@
+cd /media/Datos/Simulammps/Compression_CuZr/Simulacion_600K
+mpirun -n 8 lmp_openmpi < in600.txt > out600.out
+cd ../Simulacion_900K
+mpirun -n 8 lmp_openmpi < in900.txt > out900.out
+cd /media/Datos/Simulammps/Tension_CuZr/PBoundaries_900K
+mpirun -n 8 lmp_openmpi < PBoundaries_900K.in > PBoundaries_900K.out

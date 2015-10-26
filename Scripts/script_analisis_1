@@ -1,0 +1,28 @@
+mean(x) = m
+fit mean(x) '18StressValues_fit' using 1:2 via m
+SST = FIT_WSSR
+f1(x) = a1*exp(-x/b1)
+a1=2; b1=1000;
+fit f1(x) '18StressValues_fit' using 1:2 via a1, b1
+
+set xrange [0:900] 
+set yrange [0:4] 
+set key right top inside
+set xtics 0,100,900 nomirror font "Helvetica Bold,22"
+set ytics 0,0.5,4 nomirror font "Helvetica Bold,22"
+set mxtics 2
+set mytics 5 
+set xlabel "T [K]" font "Helvetica Bold,24"
+set ylabel "{/Symbol s} [GPa]" font "Helvetica Bold,24" offset 1.5,0
+set border linewidth 2
+set bmargin 3.5
+set lmargin 6.5
+set rmargin 2
+set tmargin 1
+set terminal postscript eps enhanced color linewidth 1.0 "Helvetica" 20 size 5,4
+set output "image.eps"
+plot "18StressValues" u 1:2 w p pt 4 ps 3 lc 7 title "Simulation", \
+        a1*exp(-x/b1) w l lc 1 lw 2 lt 1 title "Fit"
+
+SSRes = FIT_WSSR
+print ("%f", 1 - SSRes/SST)
