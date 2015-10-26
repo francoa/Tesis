@@ -1,28 +1,67 @@
-mean(x) = m
-fit mean(x) '18StressValues_fit' using 1:2 via m
-SST = FIT_WSSR
+### FIT DE DATOS
+
 f1(x) = a1*exp(-x/b1)
 a1=2; b1=1000;
 fit f1(x) '18StressValues_fit' using 1:2 via a1, b1
+SSRes = FIT_WSSR
 
+### CALCULO DE R CUADRADO
+
+mean(x) = m
+fit mean(x) '18StressValues_fit' using 1:2 via m
+SST = FIT_WSSR
+print ("%f", 1 - SSRes/SST)
+
+### GRAFICA PUBLICATION READY
+
+# Rango de la grafica
+#
 set xrange [0:900] 
 set yrange [0:4] 
+
+# Ubicacion de las leyendas
+#
 set key right top inside
+
+# Seteo de las tics en los ejes
+# - 0,100,900: de 0 a 900 (debe coincidir con el rango) ubicando tics cada 100
+# - nomirror: indica si se dibujan tambien los tics en el eje opuesto
+#
 set xtics 0,100,900 nomirror font "Helvetica Bold,22"
 set ytics 0,0.5,4 nomirror font "Helvetica Bold,22"
+
+# Seteo de las sub-lineas de division en los ejes
+# - mxtics 2: divide cada intervalo en el eje x en dos sub-intervalos
+#
 set mxtics 2
-set mytics 5 
+set mytics 5
+
+# Seteo de los nombres de los ejes
+#
 set xlabel "T [K]" font "Helvetica Bold,24"
 set ylabel "{/Symbol s} [GPa]" font "Helvetica Bold,24" offset 1.5,0
+
+# Ancho del borde
+#
 set border linewidth 2
+
+# Margenes de la grafica
+#
 set bmargin 3.5
 set lmargin 6.5
 set rmargin 2
 set tmargin 1
+
+# Configuracion de la imagen de salida
+#
 set terminal postscript eps enhanced color linewidth 1.0 "Helvetica" 20 size 5,4
 set output "image.eps"
+
+# Grafica
+# - uso: plot "nombre_archivo" using ($columna_eje_X):($columna_eje_Y)
+#			with lines/points title "leyenda"
+# - opciones de points : pt (point type), ps (point style), lc (color)
+# - opciones de lines : lc (color), lw (line width), lt (line type)
+#
 plot "18StressValues" u 1:2 w p pt 4 ps 3 lc 7 title "Simulation", \
         a1*exp(-x/b1) w l lc 1 lw 2 lt 1 title "Fit"
-
-SSRes = FIT_WSSR
-print ("%f", 1 - SSRes/SST)
