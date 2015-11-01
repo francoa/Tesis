@@ -1,0 +1,31 @@
+#!/bin/bash
+
+RUNPID="$(ps -e --sort -pid | grep simuStack | awk -v thisPid="$1" -f AwkFiles/notThisPid)"
+
+if [ -f stackPid ]
+then
+	FILEPID="$(cat stackPid | awk -f AwkFiles/extractPid)"
+fi
+
+if [ ! $RUNPID ];
+then
+#	echo "STACK NOT RUNNING"
+	exit 3
+fi
+
+if [ $RUNPID ] && [ ! -f stackPid ];
+then
+#	echo "STACK RUNNING BUT FILE DELETED"
+	echo $RUNPID > stackPid
+	exit 2
+fi
+
+if [ $RUNPID -eq $FILEPID ];
+then
+#	echo "STACK RUNNING"
+	exit 0
+else
+#	echo "STACK RUNNING BUT FILE CHANGED"
+	echo $RUNPID > stackPid
+	exit 1
+fi

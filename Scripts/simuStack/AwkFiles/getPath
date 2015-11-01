@@ -1,0 +1,6 @@
+BEGIN{
+	pat="#cd (.+)"
+}
+(NR==1)&&(match($0,pat,path)){
+	print path[1]
+}

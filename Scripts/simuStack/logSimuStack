@@ -1,0 +1,318 @@
+
+#################################################
+Lammps Stack Running...
+Tue Oct 14 16:58:51 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.in > 600k_cuzraluniaxial.out
+
+Timestamp (ASCII): Tue Oct 14 16:58:51 2014
+Timestamp: 1413316731
+#################################################
+
+#################################################
+Lammps Stack Running...
+Thu Oct 16 19:29:46 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.800000.in > 600k_cuzraluniaxial.restart.800000.out
+
+Timestamp (ASCII): Thu Oct 16 19:29:46 2014
+Timestamp: 1413498586
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Thu Oct 16 19:29:48 2014
+Timestamp: 1413498588
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_50K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.in > cuSphereDiffusion.out
+
+Timestamp (ASCII): Thu Oct 16 19:29:49 2014
+Timestamp: 1413498589
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+
+#################################################
+Lammps Stack Running...
+Thu Oct 16 19:47:41 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.800000.in > 600k_cuzraluniaxial.restart.800000.out
+
+Timestamp (ASCII): Thu Oct 16 19:47:41 2014
+Timestamp: 1413499661
+#################################################
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 13:08:51 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 8000001600000.out
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.800000.restart.1600000.in > 600k_cuzraluniaxial.restart.800000.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 13:08:51 2014
+Timestamp: 1413562131
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 13:08:53 2014
+Timestamp: 1413562133
+#################################################
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 13:20:04 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 600k_cuzraluniaxial.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 13:20:04 2014
+Timestamp: 1413562804
+#################################################
+(Up) Command completed with error code: 2
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 13:20:04 2014
+Timestamp: 1413562804
+#################################################
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 13:24:07 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 600k_cuzraluniaxial.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 13:24:07 2014
+Timestamp: 1413563047
+#################################################
+(Up) Command completed with error code: 2
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 13:24:07 2014
+Timestamp: 1413563047
+#################################################
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 13:35:58 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 600k_cuzraluniaxial.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 13:35:58 2014
+Timestamp: 1413563758
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 13:35:59 2014
+Timestamp: 1413563759
+#################################################
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 13:43:12 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 600k_cuzraluniaxial.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 13:43:12 2014
+Timestamp: 1413564192
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 13:43:13 2014
+Timestamp: 1413564193
+#################################################
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 13:47:23 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 600k_cuzraluniaxial.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 13:47:23 2014
+Timestamp: 1413564443
+#################################################
+(Up) Command completed with error code: 0
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 13:47:24 2014
+Timestamp: 1413564444
+#################################################
+(Up) Command completed with error code: 0
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_50K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.in > cuSphereDiffusion.out
+
+Timestamp (ASCII): Fri Oct 17 13:47:31 2014
+Timestamp: 1413564451
+#################################################
+(Up) Command completed with error code: 0
+#################################################
+
+
+#################################################
+Lammps Stack Running...
+Fri Oct 17 14:09:35 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/CuZrAl/traccion/vel_deformacion_0.0001/600k/
+mpirun -n 8 lmp_openmpi < 600k_cuzraluniaxial.restart.1600000.in > 600k_cuzraluniaxial.restart.1600000.out
+
+Timestamp (ASCII): Fri Oct 17 14:09:35 2014
+Timestamp: 1413565775
+#################################################
+(Up) Command completed with error code: 0
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 19:44:02 2014
+Timestamp: 1413585842
+#################################################
+(Up) Command completed with error code: 143
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_50K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.in > cuSphereDiffusion.out
+
+Timestamp (ASCII): Fri Oct 17 22:50:35 2014
+Timestamp: 1413597035
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Fri Oct 17 23:10:42 2014
+Timestamp: 1413598242
+#################################################
+(Up) Command completed with error code: 1
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_50K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.in > cuSphereDiffusion.out
+
+Timestamp (ASCII): Fri Oct 17 23:10:43 2014
+Timestamp: 1413598243
+#################################################
+
+#################################################
+Lammps Stack Running...
+Wed Oct 22 14:13:03 2014
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_50K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.280000.in > cuSphereDiffusion.restart.280000.out
+
+Timestamp (ASCII): Wed Oct 22 14:13:03 2014
+Timestamp: 1413997983
+#################################################
+(Up) Command completed with error code: 0
+#################################################
+
+#################################################
+COMMAND: 
+cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out
+
+Timestamp (ASCII): Wed Oct 22 22:56:08 2014
+Timestamp: 1414029368
+#################################################
+(Up) Command completed with error code: 0
+#################################################
+

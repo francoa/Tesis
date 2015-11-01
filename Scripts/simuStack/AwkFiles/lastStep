@@ -1,0 +1,13 @@
+BEGIN{
+	pat="tmp.restart.([0-9]+)"
+}
+match($NF,pat,step){steps[NR] = step[1]}
+END{
+	max=0
+	for(i in steps){
+		if(strtonum(steps[i]) > strtonum(max))
+			max=steps[i]
+	}
+	
+	print max
+}

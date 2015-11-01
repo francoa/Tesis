@@ -1,0 +1,6 @@
+BEGIN{
+	RS="#"
+}
+(NR>n+1)&&(match($0,"(.+)\n$",cmd)) {
+	print "#"cmd[1]
+}

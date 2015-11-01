@@ -1,0 +1,2 @@
+#cd /media/Datos/Simulammps/cuSphereDiffusion/cuSphereDiffusion_600K
+mpirun -n 8 lmp_openmpi < cuSphereDiffusion.restart.120000.in > cuSphereDiffusion.restart.120000.out

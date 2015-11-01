@@ -1,0 +1,40 @@
+BEGIN{
+
+	n_th=0;
+	
+	ops_N=0
+	n_ops=1000;
+
+	op="(#OP)"
+	n_op=1000
+	
+	run="(run)[ ]+([0-9]+)"
+	n_run=1000
+	
+	thermoinfo="#THERMO_INFO"
+	n_thinfo=1000;
+	
+	endthermoinfo="#END_THERMO_INFO"
+	n_endthinfo=1000;
+
+}
+(m=="match_op"||m=="all")&&match($0,op,str){n_op=NR; print str[1]; ops_N++}
+NR==n_op+1&&match($1,"fix"){print}
+NR==n_op+1&&match($1,"(#)",str){print str[1]}
+(m=="match_run"||m=="all")&&match($0,run,str){n_run=NR; print str[1]" "str[2]}
+(NR>n_op+1)&& !match($0,run,str){print}
+(m=="match_endthinfo"||m=="all")&&match($0,endthermoinfo,str){n_endthinfo=NR; print}
+(m=="match_thinfo"||m=="all")&&match($0,thermoinfo,str){n_thinfo=NR; print}
+(NR>n_thinfo)&&(NR<n_endthinfo){print; n_th++}
+(m=="match_nops")&&match($0,"#N_OPS"){n_ops=NR+1}
+(NR==n_ops){print}
+(m=="match_thindex")&&match($0,"#THINDEX"){n_th=NR+1}
+(NR==n_th){print}
+END{
+	if(m=="all"){
+		print "#N_OPS"
+		print ops_N
+		print "#THINDEX"
+		print n_th
+	}
+}

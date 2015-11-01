@@ -1,0 +1,6 @@
+BEGIN{
+	pat="< .+ > (.+[.]out)"
+}
+(NR==2)&&(match($0,pat,cmd)){
+	print cmd[1]
+}

@@ -1,0 +1,1 @@
+$1!=thisPid{print $1}
