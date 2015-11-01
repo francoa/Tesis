@@ -371,33 +371,116 @@ de los poros. Debe ser mencionado que la posición relativa entre átomos que se
 \clearpage
 
 \subsection{Cambios en las condiciones de relajación}
+\label{C5:relaj}
 
 En la sección \ref{S5_3}, se detalló el proceso utilizado para realizar el sinterizado de la muestra. Las velocidades utilizadas para el enfriamiento/calentamiento durante el proceso final de relajación de la muestra fueron de $6.5 \cdot 10^{14} K/s$. Inicialmente, se utilizó esta velocidad alta debido a las limitaciones computacionales. Sin embargo, finalmente también se pudo probar con una velocidad menor, más cercana a la velocidad de enfriamiento con la que fue creada la muestra de cobre-circonio original: $6.5 \cdot 10^{12} K/s$. La elección de esta velocidad no fue azarosa: debía disminuir lo suficiente con respecto a la velocidad anterior como para poder observar cambios en el comportamiento elastoplástico de la muestra, pero no demasiado como para permitir la cristalización del material.
 
-Lo primero que debe ser considerado es que si se cortan las iteraciones de calentamiento-presión en un punto determinado y luego se realiza la relajación con las dos velocidades previamente mencionadas, las porosidades finales serán distintas. De hecho, la muestra que con una velocidad de $6.5 \cdot 10^{14} K/s$ tenía 3\% de porosidad, con $6.5 \cdot 10^{12} K/s$ no posee porosidad. Por esta razón, esta muestra se excluye en la presente sección. 
+Lo primero que debe ser considerado es que si se cortan las iteraciones de calentamiento-presión en un punto determinado y luego se realizan dos relajaciones distintas con las dos velocidades previamente mencionadas, las porosidades finales serán distintas. De hecho, la muestra que con una velocidad de $6.5 \cdot 10^{14} K/s$ tenía 3\% de porosidad, con $6.5 \cdot 10^{12} K/s$ no posee porosidad. Por esta razón, esta muestra se excluye en la presente sección. En la tabla \ref{C5:tbl:porosityChange} se indican las porosidades resultantes para las dos velocidades de calentamiento/enfriamiento.
 
-IMAGENES: SVF, temperatura, vonMises, PZZ vs. strain. ???
+\begin{table}[htp]
+\caption[Porosidades resultantes a dos velocidades de calentamiento/enfriamiento distintas.]{Porosidades resultantes a dos velocidades de calentamiento/enfriamiento distintas.}
+\begin{center}
+\begin{tabular}{c C{5cm} C{5cm}}
+\hline
+\textbf{Extracción de muestras} & \textbf{Porosidad para velocidad $6.5 \cdot 10^{14} K/s$} & \textbf{Porosidad para velocidad $6.5 \cdot 10^{12} K/s$} \\ \hline
+\hline
+Primera extracción & 13.1\% & 13.5\% \\ \hline
+Segunda extracción & 5.8\% & 4.5\% \\ \hline
+Tercer extracción & 3.3\% & 0\% \\ \hline
+\end{tabular}
+\end{center}
+\label{C5:tbl:porosityChange}
+\end{table}
+
+\begin {figure}[H]
+ \centering
+ \begin{tabular}{c c}
+  \subfloat[Velocidad $6.5 \cdot 10^{14} K/s$]{\includegraphics[width=8cm]{Cap_5/porosidad6_vel14_strain0.png}} &
+  \subfloat[Velocidad $6.5 \cdot 10^{12} K/s$]{\includegraphics[width=8cm]{Cap_5/porosidad6_vel12_strain0.png}}
+ \end{tabular}
+  \caption[Estado inicial de las muestras, velocidad $10^{12} K/s$.]{Estado inicial de las muestras generadas con velocidades de enfriamiento/calentamiento diferentes, para el caso de porosidad 6\%.}
+  \label{C5:fg:vel12_strain0_6}
+\end {figure}
+
+\begin {figure}[H]
+ \centering
+  \begin{tabular}{c c}
+  \subfloat[Velocidad $6.5 \cdot 10^{14} K/s$]{\includegraphics[width=8cm]{Cap_5/porosidad13_vel14_strain0.png}} &
+  \subfloat[Velocidad $6.5 \cdot 10^{12} K/s$]{\includegraphics[width=8cm]{Cap_5/porosidad13_vel12_strain0.png}}
+ \end{tabular}
+  \caption[Estado inicial de las muestras, velocidad $10^{12} K/s$.]{Estado inicial de las muestras generadas con velocidades de enfriamiento/calentamiento diferentes, para el caso de porosidad 13\%.}
+  \label{C5:fg:vel12_strain0_13}
+\end {figure}
+
+Del análisis de las figuras \ref{C5:fg:vel12_strain0_6} y \ref{C5:fg:vel12_strain0_13}, y de la tabla \ref{C5:tbl:porosityChange}, concluimos que el cambio de velocidad no influye tanto en la porosidad final, sino más bien en la forma final de los poros en la muestra. Una menor velocidad implica que se requiere un tiempo mayor para lograr los cambios de temperatura deseados. Este tiempo adicional favorece el movimiento atómico y la difusión, resultando en disposiciones de menor energía. Esto puede observarse en las imágenes: para menores velocidades, el volumen de poros se concentra en un único poro que tiende a ser esférico, lo cual implica que hay menor superficie poro-material.
 
 \begin {figure}[h!]
  \centering
-  \includegraphics[width=10cm]{Cap_5/porosity_VM_strain_comp_vel12.eps}
-  \caption[Tensión de von Mises vs deformación, velocidad $10^{12} K/s$.]{Tensión de von Mises vs deformación por compresión. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
-  \label{C5:fg:sint2}
+   \begin{tabular}{c c}
+  \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_SVF_strain_vel12.eps}} &
+  \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_SVF_strain_vel12_trac.eps}}
+   \end{tabular}
+  \caption[SVF vs. deformación, velocidad $10^{12} K/s$.]{Fracción de volúmen sólido vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
+  \label{C5:fg:sint2_SVF}
 \end {figure}
 
 \begin {figure}[h!]
  \centering
-  \includegraphics[width=10cm]{Cap_5/porosity_tipe3_strain_comp_vel12.eps}
-  \caption[Polyedros de Voronoi tipo 3 vs deformación, velocidad $10^{12} K/s$.]{Polyedros de Voronoi tipo 3 vs deformación por compresión. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
-  \label{C5:fg:sint2}
+   \begin{tabular}{c c}
+ \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_PZZ_strain_comp_vel12.eps}} &
+  \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_PZZ_strain_trac_vel12.eps}}
+   \end{tabular}
+  \caption[Presión en eje de carga vs deformación, velocidad $10^{12} K/s$.]{Presión en eje de carga vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
+  \label{C5:fg:sint2_PZZ}
 \end {figure}
+
+\begin {figure}[h!]
+ \centering
+   \begin{tabular}{c c}
+ \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_VM_strain_comp_vel12.eps}} &
+  \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_VM_strain_trac_vel12.eps}}
+   \end{tabular}
+  \caption[Tensión de Von Mises vs deformación, velocidad $10^{12} K/s$.]{Tensión de Von Mises vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
+  \label{C5:fg:sint2_VM}
+\end {figure}
+
+Las figuras \ref{C5:fg:sint2_SVF}, \ref{C5:fg:sint2_PZZ} y \ref{C5:fg:sint2_VM} muestran, respectivamente, fracción de volúmen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para las dos velocidades estudidadas. Se observa que se obtienen comportamientos muy similares en ambos casos, exceptuando por un aumento en la tensión máxima soportada y en el módulo de elasticidad (ver figura \ref{C5:fg:sint2_VM} para Tracción). Esto hace pensar que el comportamiento mecánico es más dependiente del volúmen de porosidad que de la forma de los poros.
 
 \subsection{Realización de un nuevo sinterizado}
 
 Otro de los cambios que se plantearon en el proceso de sinterizado fue la ubicación de las partículas. Si bien los puntos que hicieron de centros de las partículas fueron escogidos al azar, dotando de generalidad a los resultados, las muestras de distintas porosidades fueron obtenidas a partir de la misma disposición de partículas. Simplemente se permitió realizar más iteraciones de calentamiento-presión para obtener las muestras de menor porosidad. Por ello en este apartado se estudia la infulencia de la ubicación y la cantidad de partículas en los resultados obtenidos.
 
-IMAGENES: SVF, temperatura, vonMises, PZZ vs. strain. ???
+\begin {figure}[h!]
+ \centering
+   \begin{tabular}{c c}
+  \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_2sintering_SVF_comp.eps}} &
+  \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_2sintering_SVF_trac.eps}}
+   \end{tabular}
+  \caption[SVF vs. deformación, dos sinterizados.]{Fracción de volúmen sólido vs deformación.}
+  \label{C5:fg:2sint_SVF}
+\end {figure}
 
+\begin {figure}[h!]
+ \centering
+   \begin{tabular}{c c}
+ \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_PZZ_strain_comp_2sintering.eps}} &
+  \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_PZZ_strain_trac_2sintering.eps}}
+   \end{tabular}
+  \caption[Presión en eje de carga vs deformación, dos sinterizados.]{Presión en eje de carga vs deformación.}
+  \label{C5:fg:2sint_PZZ}
+\end {figure}
+
+\begin {figure}[h!]
+ \centering
+   \begin{tabular}{c c}
+ \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_VM_strain_comp_2sintering.eps}} &
+  \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_VM_strain_trac_2sintering.eps}}
+   \end{tabular}
+  \caption[Tensión de Von Mises vs deformación, dos sinterizados.]{Tensión de Von Mises vs deformación.}
+  \label{C5:fg:2sint_VM}
+\end {figure}
+
+Las figuras \ref{C5:fg:2sint_SVF}, \ref{C5:fg:2sint_PZZ} y \ref{C5:fg:2sint_VM} muestran, respectivamente, fracción de volúmen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para los dos sinterizados realizados. Nuevamente obtenemos comportamientos muy similares, reforzando lo dicho en el apartado anterior (\ref{C5:relaj}) acerca de que el comportamiento mecánico es más dependiente del volúmen de porosidad que de la forma de los poros.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4

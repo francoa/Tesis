@@ -1,0 +1,161 @@
+########################################################################
+#                                                                      #
+#       INPUT SCRIPT PARA GENERAT UN BULK CRYSTAL DE CuZr (B2)         #
+#                                                                      #
+########################################################################
+
+########################################################################
+#                           Initialization                             #
+########################################################################
+# Periodic box. Metal Units.                                           #
+########################################################################
+echo both
+units   metal
+boundary  p p p #periodic
+
+atom_style  atomic
+neighbor  2.0 bin
+neigh_modify  every 1 delay 2 check yes
+
+########################################################################
+#                     Constants Definition                             #
+########################################################################
+# 1.  Define number of lattices to create                              #
+########################################################################
+variable nlatt equal 15
+
+########################################################################
+#                           Atom Definition                            #
+########################################################################
+# 1.  Define lattice for Cu (Vertices Atoms)                           #
+#     This is also the reference size for the simbox                   #
+# 2.  Create simulation box                                            #
+# 3.  Create Cu Atoms                                                  #
+# 4.  Define lattice for Zr (Body Centered Atoms)                      #
+# 5.  Create Zr Atoms                                                  #
+# Then define the masses. IMPORTANT: Order to respect! Cu->1, Zr->2    #
+# Lattice constant taken from:                                         #
+#     " Synthesis and Fundamental Properties of Cu-Based Bulk Glassy   #
+#       Alloys in Binary and Multi-component Systems"                  #
+#       Materials Transactions, Vol. 45, No. 4 (2004) pp. 1153 to 1162 #
+########################################################################
+lattice custom  3.50 a1 1.0 0.0 0.0 a2 0.0 1.0 0.0 a3 0.0 0.0 1.0 &
+                basis 0.0 0.0 0.0
+region REF block 0 ${nlatt} 0 ${nlatt} 0 ${nlatt} units lattice
+create_box 2 REF
+create_atoms 2 box
+
+lattice custom  3.50 a1 1.0 0.0 0.0 a2 0.0 1.0 0.0 a3 0.0 0.0 1.0 &
+                basis 0.5 0.5 0.5
+create_atoms 1 box
+
+mass 1 63.550
+mass 2 91.220
+
+########################################################################
+#                           Atomic Potentials                          #
+########################################################################
+pair_style  eam/alloy
+pair_coeff  * *  ZrCu_lammps.eam Cu Zr
+
+########################################################################
+#                   Relaxation and Minimization                        #
+########################################################################
+fix RELAX all box/relax iso 0.0 vmax 0.001
+minimize 1.0e-6 1.0e-8 500 5000
+unfix RELAX
+
+########################################################################
+#                       Initial Velocities                             #
+########################################################################
+# Initial temperature of 1100K                                         #
+# (B2 stable phase temperature between 988K~1200K) :                   #
+#       "Phase formation and mechanical properties of metastable       #
+#       Cu-Zr-based"                                                   #
+########################################################################
+variable T_high equal 1100.0
+variable T_low equal	300.0
+velocity all create ${T_high} 482748 dist gaussian
+
+########################################################################
+#                             Calculations                             #
+########################################################################
+# 1.  Coordination number                                              #
+# 2.  Potential energy/atom                                            #
+# 3.  Total potential energy (Even if auto calculated by lammps, this  #
+#     is necessary for variable manipulation in the end of this script #
+########################################################################
+compute ccoord all coord/atom 3.0
+compute eng all pe/atom 
+compute eatoms all reduce sum c_eng 
+# here I am assuming that R=3 A is in box units, not lattice units. 
+# The value 3 is just an initial guess and it should be verified at
+# different strains. 
+# Problem for uniaxial strain: neighbor shell no longer spherical but
+# search uses spherical shell.
+
+########################################################################
+#                     Thermodynamic Output                             #
+########################################################################
+thermo 100
+thermo_style custom step temp ke c_eatoms etotal press pxx pyy pzz pxy pxz pyz
+thermo_modify lost warn norm yes
+
+########################################################################
+#                             Equilibrate                              #
+########################################################################
+# Using nph might work better than npt in these cases far from equil.  #
+# Fix 3: It assumes that the initial pressure before the fix is        #
+#        ~0.1 GPa=1000 in metal units.                                 #
+########################################################################
+fix T_HOLD_1 all  temp/rescale 1 ${T_high} ${T_high} 1.0 1.0
+fix NPH_FIX all nph aniso 1000.0 0.0 0.30 drag 1.50
+run   100000
+unfix T_HOLD_1
+unfix NPH_FIX
+
+########################################################################
+#                     Simulation Parameters                            #
+########################################################################
+reset_timestep  0
+fix INTEGRATE_FIX all nph iso 0.0 0.0 0.30 drag 1.50
+dump OUT all custom 2500 dump_B2_Crystal.* x y z vx vy vz id type
+thermo 200
+restart 20000 tmp.restart.*
+variable t_step equal 0.001
+timestep  ${t_step}
+
+########################################################################
+#                       Annealing  for 150ps                           #
+########################################################################
+fix T_HOLD all temp/rescale 1 ${T_high} ${T_high} 1.0 1.0
+run 150000
+unfix T_HOLD
+
+########################################################################
+#                       Quenching  @Q_rateKps [K/ps]                   #
+########################################################################
+variable Q_rateKps equal 1
+variable Q_timeps equal "((v_T_high-v_T_low)/v_Q_rateKps)"
+variable Q_steps equal "v_Q_timeps/v_t_step"
+fix QUENCH all temp/rescale 1 ${T_high} ${T_low} 1.0 1.0
+run ${Q_steps}
+
+########################################################################
+#                   Variables for final processing                     #
+########################################################################
+variable natoms equal "count(all)" 
+variable teng equal "c_eatoms"
+variable length equal "lx"
+variable ecoh equal "v_teng/v_natoms"
+variable lattl equal "v_length/v_nlatt"
+
+########################################################################
+#                     Print useful information                         #
+########################################################################
+print "B2 CuZr Crystal of ${nlatt}x${nlatt}x${nlatt} lattices"
+print "Quenching rate [K/ps]: ${Q_rateKps}"
+print "Number of atoms = ${natoms}"
+print "Lattice constant [Angstroms] = ${lattl}"
+print "Total energy (eV) = ${teng}"
+print "Cohesive energy (eV) = ${ecoh}"

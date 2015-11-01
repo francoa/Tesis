@@ -17,8 +17,6 @@
 \section{Introducción}
 \label{S3_1}
 
-PONER MAS IMAGENES DE LA MUESTRA CON LAS TEMPERATURAS RESTANTES ???
-
 %Los materiales sólidos sin una estructura ordenada, es decir, amorfos, son llamados generalmente "vidrios". Algunos casos particulares de gran interés científico y tecnológico son los vidrios metálicos, que son aleaciones metálicas con propiedades mecánicas que sobrepasan en prestaciones a las aleaciones cristalinas más comunes (\cite{luborsky83}, \cite{greer95}). Se sabe que los metales forman fácilmente cristales cuando son enfriados (\cite{callister95}, \cite{smith96}). Sin embargo, usando una velocidad de enfriamiento suficientemente elevada y controlando la composición de la aleación, es posible obtener estructuras amorfas (\cite{liebermann93}), con la elasticidad de los polímeros y la resistencia de los metales (\cite{telford04}), teniendo también alta resistencia y moldeabilidad. Estas propiedades en su conjunto hacen posible la creación de partes de forma compleja y de alta resistencia, lo que además incrementa sus posibilidades de ser utilizados en aplicaciones industriales. Gracias a las propiedades citadas, estos materiales han sido de mucho interés como materiales estructurales en años recientes (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), incluyendo, por ejemplo, metales amorfos estructurales (\cite{lu04}), materiales biomédicos (\cite{zberg09}) o hasta incluso materiales aeroespaciales (\cite{peker93}), por nombrar algunos.
 
 %Solid materials without an ordered structure, i.e. amorphous, are generally called "glasses". Particular cases of great scientific and technological interest are metallic glasses, which are metallic alloys with mechanical properties that outperform the most common crystalline alloys (\cite{luborsky83}, \cite{greer95}). It is known that metals easily form crystals when cooled (\cite{callister95}, \cite{smith96}). However, using a sufficiently fast cooling rate and controlling the composition of the alloy it is possible to obtain amorphous structures (\cite{liebermann93}), with the elasticity of polymers and the resistance of metals (\cite{telford04}), also having high strength and moldability. All these properties enable the creation of parts with complex shapes and high resistance, which further increases their chances of industrial applications. Thanks to the above properties, these materials have received great interest as structural materials in recent years (\cite{chen74}, \cite{lowhaphandu99}, \cite{inoue00}, \cite{wang04}, \cite{ashby06}, \cite{zhang07}, \cite{schuh07}), including, for example, amorphous structural steels (\cite{lu04}), biomedical materials (\cite{zberg09}) or even aerospace materials (\cite{peker93}), to name a few.
@@ -37,14 +35,14 @@ PONER MAS IMAGENES DE LA MUESTRA CON LAS TEMPERATURAS RESTANTES ???
 
 %En esta sección presentamos simulaciones de nivel atómico (utilizando dinámica molecular) de un vidrio metálico CuZr sujeto a tracción y compresión, y analizamos sus respuestas como función de la temperatura.
 
-La ciencia de los materiales cuenta con muchos experimentos que, a lo largo de los años, se han utilizado para conocer las propiedades mecánicas, térmicas, eléctricas, etc., de los materiales. Las propiedades mecánicas son, tal vez, las más estudiadas, debido a que en la mayoría de las situaciones los materiales se encontrarán bajo solicitaciones mecánicas, es decir, bajo la acción de fuerzas externas. Algunos de los ensayos más usuales son el ensayo de tracción, de compresión, de flexión, de fatiga, de dureza, etc..  
+La ciencia de los materiales cuenta con muchos experimentos que, a lo largo de los años, se han utilizado para conocer las propiedades mecánicas, térmicas, eléctricas, etc., de los materiales. Las propiedades mecánicas son, probablemente, las más estudiadas, debido a que en la mayoría de las situaciones los materiales se encontrarán bajo solicitaciones mecánicas, es decir, bajo la acción de fuerzas externas. Algunos de los ensayos más usuales son el ensayo de tracción, de compresión, de flexión, de fatiga, de dureza, etc..  
 
 En este apartado se realizará un análisis del comportamiento mecánico de una muestra de vidrio metálico durante ensayos de tracción y compresión, a diferentes temperaturas. Primeramente, en la sección~\ref{S3_2}, se detallarán los parámetros de las simulaciones. Luego, en la sección~\ref{S3_3}, se mostrarán los resultados obtenidos a través de curvas y tablas para diferentes propiedades, tales como la curva esfuerzo-deformación, el módulo de Young, la tensión máxima de von Mises y la tensión de von Mises a una determinada deformación.
 Se incluirán imágenes de la muestra con una escala de color según la tensión de von Mises, para observar gráficamente la distribución de tensiones.
 
 \section{Detalles de las simulaciones}
 \label{S3_2}
-%In this paper, simulations were carried out using the LAMMPS software (\cite{plimpton95}), which is free and open source, has an excellent manual, and is computationally efficient in the simulation of systems with large numbers of atoms.
+%In this paper, simulations were carried out using the LAMMPS software (\cite{plimpton95}), which is free and open source, has an excellent manual, and is computationally efficient in the simulation of systems with large numbers of atoms. 
 
 Se utilizará, en el presente capítulo, la muestra de cobre-circonio descripta en la sección~\ref{S1_4}. Cada simulación diferirá de las restantes ya sea en el tipo de carga (tensión o compresión uniaxial) o en la temperatura de simulación, siendo constante la velocidad de deformación.
 
@@ -55,7 +53,7 @@ Usamos condiciones de borde periódicas en 3D, válidas para altas velocidades d
 %We use 3D periodic boundary conditions, suitable for high strain rates (\cite{bringa05}). All atomic coordinates are scaled every step, according to the desired strain rate, which in this case was 10$^{9}$ /s. Before starting mechanical strain simulations, we first perform energy minimization using conjugate gradient, and then use zero-pressure conditions and constant temperature to equilibrate the sample to the desired temperature T. Table 1 lists the volumes and initial sample densities for the different cases.
 
 \begin{table}[htp]
-\caption[Volúmenes y densidades iniciales.]{Volúmenes y densidades iniciales a diferentes temperaturas simuladas. COMPLETAR CON LAS TEMPERATURAS QUE FALTAN ???}
+\caption[Volúmenes y densidades iniciales.]{Volúmenes y densidades iniciales a diferentes temperaturas simuladas.}
 \begin{center}
 \begin{tabular}{*{3}{c}}
 \hline
@@ -117,14 +115,14 @@ donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente 
 \begin{tabular}{*{4}{c}}
 \hline
 \textbf{Tracción} & Parámetros & Valor & $R^{2}$ \\ \hline \hline
-Peak von Mises stress (nuevo) & A$_{1}$ & 2.29 $\pm$ 0.04 & 0.981 \\
+Peak von Mises stress & A$_{1}$ & 2.29 $\pm$ 0.04 & 0.981 \\
  & T$_{0}$ & 1068.14 $\pm$ 68.02 & \\ \hline
-von Mises stress ($\epsilon$=0.12) (nuevo) & A$_{1}$ & 2.21 $\pm$ 0.02 & 0.998 \\
+von Mises stress ($\epsilon$=0.12) & A$_{1}$ & 2.21 $\pm$ 0.02 & 0.998 \\
  & T$_{0}$ & 587.05 $\pm$ 13.45 & \\ \hline
-Young Modulus (nuevo) & A$_{1}$ & 49.42 $\pm$ 0.38 & 0.990 \\
+Young Modulus & A$_{1}$ & 49.42 $\pm$ 0.38 & 0.990 \\
  & T$_{0}$ & 1924.38 $\pm$ 87.18 & \\ \hline
-Yield Stress (???) & A & 0.0604 $\pm$ 0.004 & 0.952 \\
- & B & -0.041 $\pm$ 0.005 & \\ \hline
+Yield Stress & A & 0.060 $\pm$ 0.002 & 0.972 \\
+ & B & -0.037 $\pm$ 0.003 & \\ \hline
 \end{tabular}
 \end{center}
 \label{C3:tb:initPropsTen}
@@ -136,14 +134,14 @@ Yield Stress (???) & A & 0.0604 $\pm$ 0.004 & 0.952 \\
 \begin{tabular}{*{4}{c}}
 \hline
 \textbf{Compresión} & Parámetros & Valor & $R^{2}$ \\ \hline \hline
-Peak von Mises stress (nuevo) & A$_{1}$ & 3.68 $\pm$ 0.03 & 0.997 \\
+Peak von Mises stress & A$_{1}$ & 3.68 $\pm$ 0.03 & 0.997 \\
  & T$_{0}$ & 1020.16 $\pm$ 25.88 & \\ \hline
-von Mises stress ($\epsilon$=0.18) (nuevo) & A$_{1}$ & 2.64 $\pm$ 0.08 & 0.972 \\
+von Mises stress ($\epsilon$=0.18) & A$_{1}$ & 2.64 $\pm$ 0.08 & 0.972 \\
  & T$_{0}$ & 824.98 $\pm$ 65.21 & \\ \hline
-Young Modulus (nuevo) & A$_{1}$ & 52.22 $\pm$ 0.53 & 0.985 \\
+Young Modulus & A$_{1}$ & 52.22 $\pm$ 0.53 & 0.985 \\
  & T$_{0}$ & 1757.38 $\pm$ 96.61 & \\ \hline
-Yield Stress (???) & A & 0.123 $\pm$ 0.01 & 0.930 \\
- & B & -0.081 $\pm$ 0.013 & \\ \hline
+Yield Stress & A & 0.125 $\pm$ 0.002 & 0.985 \\
+ & B & -0.068 $\pm$ 0.003 & \\ \hline
 \end{tabular}
 \end{center}
 \label{C3:tb:initPropsComp}
