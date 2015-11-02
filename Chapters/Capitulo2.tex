@@ -54,7 +54,7 @@ Esto resulta extremadamente difícil dado el número enorme de configuraciones p
 
 donde $\tau_{obs}$ es el número de pasos de la simulación.
 
-Si bien estos dos promedios se definen de diferente manera, la \textbf{hipótesis egódica} nos dice que los dos son iguales. Definimos un sistema \textbf{ergódico} como un sistema para el cual, sobre un conjunto $V$ de $\Omega$, el Promedio de Tiempo\footnotemark{} de una función $\mathbf{\mathcal{A}}$ a lo largo de una trayectoria $\mathbf{\Gamma}(t)$ es igual al Promedio de Fase\footnotemark{} de $\mathbf{\mathcal{A}}$ en casi todas partes\footnotemark.
+Si bien estos dos promedios se definen de diferente manera, la \textbf{hipótesis ergódica} nos dice que los dos son iguales. Definimos un sistema \textbf{ergódico} como un sistema para el cual, sobre un conjunto $V$ de $\Omega$, el Promedio de Tiempo\footnotemark{} de una función $\mathbf{\mathcal{A}}$ a lo largo de una trayectoria $\mathbf{\Gamma}(t)$ es igual al Promedio de Fase\footnotemark{} de $\mathbf{\mathcal{A}}$ en casi todas partes\footnotemark.
 
 \footnotetext{$\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt = \bar{\mathbf{\mathcal{A}}}(P)$ se llama Promedio de Tiempo de $\mathbf{\mathcal{A}}$ a lo largo de la trayectoria que pasa por $P$}
 \footnotetext{El teorema de Birkhoff dice: Sea $V$ un subconjunto del Espacio de Fase $\Omega$ invariante bajo una trasformación $T:V\rightarrow{}V$ y que tiene un volumen generalizado finito. Sea  $\mathbf{\mathcal{A}}$ =  $\mathbf{\mathcal{A}}(P)$, una función de fase, definida para todos los puntos de $V$ e integrable sobre $V$. Entonces el límite $\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt$ existe para casi todos los puntos de $V$}
@@ -82,7 +82,7 @@ Existen diferentes ensambles, como por ejemplo:
 \section{Potenciales Interatómicos}
 \label{S2_3}
 
-El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciónes \ref{C2:eq:pot},\ref{C2:eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
+El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciones \ref{C2:eq:pot},\ref{C2:eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
 
 \begin{eqnarray}
 V(\mathbf{r}_{1},...,\mathbf{r}_{2})
@@ -159,7 +159,7 @@ Expandimos en primer lugar en serie de Taylor la posición para $t+\Delta{}t$ y 
 Sumando las expresiones \ref{C2:eq:VerletTaylor1} y \ref{C2:eq:VerletTaylor2} y restando $\mathbf{r}(t-\Delta{}t)$ en ambos miembros obtenemos:
 
 \begin{equation}
-\mathbf{r}(t+\Delta{}t) = 2\mathbf{t} - \mathbf{r}(t-\Delta{}t) + \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \mathcal{O}(t^{4})
+\mathbf{r}(t+\Delta{}t) = 2\mathbf{r}(t) - \mathbf{r}(t-\Delta{}t) + \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \mathcal{O}(t^{4})
 \label{C2:eq:VerletPos}
 \end{equation}
 
@@ -172,7 +172,7 @@ La aceleración es calculada mediante el potencial visto anteriormente como
 Una desventaja de este método es que las velocidades no se calculan directamente, y en general se obtienen de una aproximación por diferencias finitas según:
 
 \begin{equation}
-\mathbf{v}(t) = \frac{\mathbf{r}(t+\Delta{}t) - \mathbf{r}(t-\Delta{}t)}{2\Delta{}t}
+\mathbf{v}(t) = \frac{\mathbf{r}(t+\Delta{}t) - \mathbf{r}(t-\Delta{}t)}{2\Delta{}t} + \mathcal{O}(t^{2})
 \end{equation}
 
 con lo cual el error deja de ser de $\mathcal{O}(\Delta{}t^{4})$ para ser de $\mathcal{O}(\Delta{}t^{2})$. Otro problema es que para calcular las posiciones en un paso de tiempo, son necesarias las posiciones de dos pasos de tiempo atrás, por lo que el algoritmo requiere una inicialización de dos pasos. Esto último se resuelve en el método que se describe en el siguiente apartado.
@@ -196,14 +196,14 @@ La ecuación \ref{C2:eq:VelVerletTaylor2} puede reescribirse partiendo de la exp
 \label{C2:eq:tayloracc1} \\
 \mathbf{a}(t)+\mathbf{a}(t+\Delta{}t) = 2\mathbf{a}(t)+\frac{d\mathbf{a}(t)}{dt} \Delta{}t + \mathcal{O}(\Delta{}t^{2})
 \label{C2:eq:tayloracc2} \\
-\frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] = \mathbf{a}(t)\Delta{}t+\frac{1}{2}\frac{d\mathbf{a}(t)}{dt} \Delta{}t^{2} + \mathcal{O}(\Delta{}t^{2})
+\frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] = \mathbf{a}(t)\Delta{}t+\frac{1}{2}\frac{d\mathbf{a}(t)}{dt} \Delta{}t^{2} + \mathcal{O}(\Delta{}t^{3})
 \label{C2:eq:tayloracc3}
 \end{eqnarray}
 
 Introduciendo la Ecuación \ref{C2:eq:tayloracc3} en la Ecuación \ref{C2:eq:VelVerletTaylor2}, obtenemos:
 
 \begin{equation}
-\mathbf{v}(t+\Delta{}t) = \frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] + \mathcal{O}(\Delta{}t^{2})
+\mathbf{v}(t+\Delta{}t) = \frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] + \mathcal{O}(\Delta{}t^{3})
 \label{C2:eq:VelVerletTaylor3}
 \end{equation}
 

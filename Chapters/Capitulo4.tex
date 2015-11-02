@@ -8,9 +8,9 @@
 
 Al introucir nanopartículas a una matriz amorfa para mejorar las propiedades mecánicas (como se discute en la sección \ref{S1_3_3}) y asegurar efectos perdurables, las inclusiones deberían ser estables en el tiempo, es decir, no difundir en el material amorfo circundante perdiendo así la transición nítida entre cristal y amorfo.
 
-En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio con estructura B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
+En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio de fase B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
 
-Primeramente, en la sección \ref{S4_2}, se estudia la estabilidad de la inclusión de CuZr (B2), ya que no es posible generar en LAMMPS una red cristalina de estas características (sí es el caso para una red FCC). Luego, en la sección \ref{S4_3_1}, se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento. En la sección \ref{S4_3_2} se presentan curvas de esfuerzo-deformación para diferentes temperaturas y ambos casos de inclusión cristalina.
+Primeramente, en la sección \ref{S4_2}, se estudia la estabilidad de la inclusión de CuZr (B2), ya que no es necesario estabilizar la fase antes de incrustar los átomos en la muestra, y esto no es posible directamente en LAMMPS. Luego, en la sección \ref{S4_3_1}, se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento. En la sección \ref{S4_3_2} se presentan curvas de esfuerzo-deformación para diferentes temperaturas y ambos casos de inclusión cristalina.
 
 Finalmente se discuten los resultados en las conclusiones, sección \ref{S4_4}
 
@@ -25,10 +25,10 @@ Analizamos inclusiones esféricas de cobre FCC. Una región de 2 nm de radio es 
 
 En esta sección nos centramos en la estabilidad de las nanopartículas a diferentes temperaturas, aunque mostraos algunos casos de sometimiento a tracción y compresión uniaxial. Una velocidad de deformación homogénea de 10$^{9}$/s es aplicada. La Difusividad en todos los casos se calcula ajustando los desplazamientos cuadráticos medios (en inglés Mean Squared Displacements o MSD), $\langle r^{2}\rangle$, obtenidos de LAMMPS.
 
-\section{Creación de un cristal de CuZr de estructura B2}
+\section{Creación de un cristal de CuZr de fase B2}
 \label{S4_2}
 
-Para incrustar estas partículas es necesario reemplazar átomos de la muestra original (estudiada en el capítulo \ref{C3}) por átomos ordenados del material buscado. LAMMPS permite el llenado directo de una región con estructura FCC, pero no así con estructura B2. Es por eso que es necesario  primero crear una pequeña muestra con la estructura buscada de donde tomar el grupo de átomos necesario (en este caso, una esfera) y colocarlo en una región del mismo tamaño en la muestra original.
+Para incrustar estas partículas es necesario reemplazar átomos de la muestra original (estudiada en el capítulo \ref{C3}) por átomos ordenados del material buscado. LAMMPS permite el llenado directo de una región con estructura FCC, pero no así con fase B2. Es por eso que es necesario  primero crear una pequeña muestra con la estructura buscada de donde tomar el grupo de átomos necesario (en este caso, una esfera) y colocarlo en una región del mismo tamaño en la muestra original.
 
 Creamos para esto un cubo cristalino aislado de 15 celdas unitarias de ancho para verificar el procedimiento, con una constante de celda de 3.50 \AA{}, tomado según \cite{inoue04}. Es este paso se utilizan condiciones de borde periódicas en las tres direcciones. Se realiza un proceso de minimizado de energía y relajación a presión cero. Se crean las velocidades iniciales para lograr una temperatura de 1100 K (\textit{T$_{B2}$}), según \cite{pauly10}, quien indica una temperatura de fase B2 estable entre 988 K y 1200 K. 
 
@@ -67,7 +67,7 @@ Luego realizamos un recocido de 100 ps a 300 K utilizando el ensamble $NVE$ de u
 	\includegraphics[width=5cm]{Cap_4/B2_FreeBoundaries.png}
 	\label{C4:fg:B2Crystal}}
 \quad
-\subfloat[Energía de cohersión vs tiempo para el cristal de CuZr generado]{
+\subfloat[Energía de cohersión vs tiempo para el cristal de CuZr (B2) generado]{
 	\includegraphics[width=10cm]{Cap_4/B2CrystalTest_FreeBoundariesSphere.pdf}
 	\label{C4:fg:B2CrystalTest}}
 \caption{Formación del cristal CuZr (B2)}
