@@ -46,9 +46,9 @@ Se incluirán imágenes de la muestra con una escala de color según la tensión
 
 Se utilizará, en el presente capítulo, la muestra de cobre-circonio descripta en la sección~\ref{S1_4}. Cada simulación diferirá de las restantes ya sea en el tipo de carga (tensión o compresión uniaxial) o en la temperatura de simulación, siendo constante la velocidad de deformación.
 
-Se analizarán temperaturas de 10 (cercano al cero absoluto), 100, 200, 300, 400, 500, 600 y 900 K. Se incluye el caso de simulación a 900 K, sobre Tg (temperatura de transición vítrea, 696 K), para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) (\cite{daw84}) fue adoptado, que ya ha sido usado en otros estudios sobre BMGs (\cite{shimizu07}, \cite{cao09}, \cite{cheng08}, \cite{arman10}, \cite{cheng11}, \cite{wang12}).
+Se analizarán temperaturas de 10 (cercano al cero absoluto), 100, 200, 300, 400, 500, 600 y 900 K. Se incluye el caso de simulación a 900 K, sobre Tg (temperatura de transición vítrea, 696 K), para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) \citep{daw84} fue adoptado, que ya ha sido usado en otros estudios sobre BMGs \citep{shimizu07,cao09,cheng08,arman10,cheng11,wang12}.
 
-Usamos condiciones de borde periódicas en 3D, válidas para altas velocidades de deformación (\cite{bringa05}). Todas las coordenadas atómicas son escaladas a cada paso, de acuerdo con la velocidad de deformación deseada, que en este caso es de $10^9$ /s. Antes de iniciar las deformaciones mecánicas, se realiza primero una minimización de energía usando el gradiente conjugado, y luego usamos condiciones de presión cero y temperatura constante para equilibrar la muestra a la temperatura buscada T. La Tabla \ref{C3:tb:initprops} presenta los volúmenes y densidades iniciales para los diferentes casos.
+Usamos condiciones de borde periódicas en 3D, válidas para altas velocidades de deformación \citep{bringa05}. Todas las coordenadas atómicas son escaladas a cada paso, de acuerdo con la velocidad de deformación deseada, que en este caso es de $10^9$ /s. Antes de iniciar las deformaciones mecánicas, se realiza primero una minimización de energía usando el gradiente conjugado, y luego usamos condiciones de presión cero y temperatura constante para equilibrar la muestra a la temperatura buscada T. La Tabla \ref{C3:tb:initprops} presenta los volúmenes y densidades iniciales para los diferentes casos.
 
 %We use 3D periodic boundary conditions, suitable for high strain rates (\cite{bringa05}). All atomic coordinates are scaled every step, according to the desired strain rate, which in this case was 10$^{9}$ /s. Before starting mechanical strain simulations, we first perform energy minimization using conjugate gradient, and then use zero-pressure conditions and constant temperature to equilibrate the sample to the desired temperature T. Table 1 lists the volumes and initial sample densities for the different cases.
 
@@ -197,7 +197,7 @@ donde $\tau _{y}$ es la tensión de fluencia cortante. Observamos que la ecuaci�
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/Fit2_Tercios.png}
-\caption[Fit tensión de fluencia-temperatura.]{Fit tensión de fluencia-temperatura. Utilizamos los valores experimentales de $T_g$ y G (\cite{johnson05}) para normalizar nuestros resultados.}
+\caption[Fit tensión de fluencia-temperatura.]{Fit tensión de fluencia-temperatura. Utilizamos los valores experimentales de $T_g$ y G \citep{johnson05} para normalizar nuestros resultados.}
 \label{C3:fg:fitDosTercios}
 \end{figure}
 
@@ -205,7 +205,7 @@ La figura \ref{C3:fg:sampleTen} muestra la tensión de von Mises atómica para l
 
 %Figure 7 shows atomic von Mises stress for the complete sample in the case of tension at T=300K. Despite the evidence of plastic behavior in stress-strain curves, we do not observe evidence of shear bands.
 
-De acuerdo a un estudio en nanocables de vidrio metalico (\cite{xiao12}), la presencia de bandas de corte depende fuertemente de la velocidad de enfriamiento del vidrio. En este caso, para las velocidades de enfriamiento utilizadas en la creación de nuestra muestra, podría suceder que no se observen bandas de corte. Sin embargo, en secciones posteriores (\ref{S3_3_1}) se observarán trazos de bandas de corte al graficar la deformación atómica en lugar del esfuerzo atomico.
+De acuerdo a un estudio en nanocables de vidrio metalico \citep{xiao12}, la presencia de bandas de corte depende fuertemente de la velocidad de enfriamiento del vidrio. En este caso, para las velocidades de enfriamiento utilizadas en la creación de nuestra muestra, podría suceder que no se observen bandas de corte. Sin embargo, en secciones posteriores (sección~\ref{S3_3_1}) se observarán trazos de bandas de corte al graficar la deformación atómica en lugar del esfuerzo atomico.
 
 %According to a recent study in metallic glass nanowires (\cite{xiao12}), the presence of shear bands strongly depends on the quenching rate of the glass. In this case, for the quenching rates used in the creation of our sample, shear bands should not be observed, as shown in Figure 7.
 
