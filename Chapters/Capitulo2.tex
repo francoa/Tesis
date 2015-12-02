@@ -4,7 +4,7 @@
 
 \label{C2} % Change X to a consecutive number; for referencing this chapter elsewhere, use {ChapterX}
 
-\lhead{Capítulo 2. \emph{ASPECTOS TEORICOS BASICOS}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Capítulo 2. \emph{SIMULACIONES ATOMISTICAS}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
@@ -39,7 +39,7 @@ Las simulaciones de MD integran en el tiempo las ecuaciones de movimiento de New
 donde $m_{i}$ es la masa de cada átomo y $\mathbf{a_{i}}$ es su aceleración, dada por $\frac{d^{2}\mathbf{r_{i}}}{dt^{2}}$. De lo anterior se puede concluir lo siguiente:
 
 \begin{itemize}
- \item El resultado final de dos simulaciones de MD para iguales condiciones iniciales producen en teoría los mismos resultados, es decir, son determinísticas (los errores de redondeo propios del cálculo numérico hacen que las soluciones diverjan de todas maneras).
+ \item El resultado final de dos simulaciones de MD para iguales condiciones iniciales producen, en teoría, los mismos resultados, es decir, son deterministas (los errores de redondeo propios del cálculo numérico hacen que las soluciones diverjan de todas maneras).
  \item Si el número de átomos es pequeño, dos condiciones iniciales ligeramente distintas pueden llevar a soluciones muy diferentes.
  \item En sistemas con un gran número de átomos las soluciones para distintas condiciones iniciales deberían ser estadísticamente similares (los estados termodinámicos son comparables).
 \end{itemize}
@@ -91,13 +91,14 @@ Existen diferentes ensambles, como por ejemplo:
 \label{S2_3}
 
 El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciones \ref{C2:eq:pot},\ref{C2:eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
-
+\vspace{-0.3pt}
 \begin{align}
 & V(\mathbf{r}_{1},...,\mathbf{r}_{2})
 \label{C2:eq:pot}\\
 \mathbf{F}_{i} = & -\nabla_{\mathbf{r}_{i}}V(\mathbf{r}_{1},...,\mathbf{r}_{2})
 \label{C2:eq:potfza}
 \end{align}
+
 
 Existen numerosos potenciales utilizados actualmente, algunos más generales que otros y con diferente formulación. Para sistemas complejos, los potenciales se generan en forma tabular, y no se tiene una expresión analítica del mismo, debiendo usarse el que corresponda a nuestra composición y parámetros de simulación.
 
@@ -106,7 +107,7 @@ Se nombran dos ejemplos a continuación: el potencial \textit{Lennard-Jones} y e
 \subsection{Potencial Lennard-Jones}
 \label{SS2_3_1}
 
-El potencial Lennard-Jones es un modelo simple que describe la interacción entre dos 	átomos neutrales, y su expresión matemática se ve en la Ecuación \ref{eq:LJ}. El valor $\gamma$ es la profundidad del pozo de energía potencial, $r_{0}$ es la distancia a la cual el potencial es cero, $r_{m}$ es la distancia para la cual se obtiene el mínimo de energía potencial y $r$ es la distancia entre los átomos. A $r_{m}$, el potencial vale $-\gamma$.
+El potencial Lennard-Jones es un modelo simple que describe la interacción entre dos átomos neutrales, y su expresión matemática se ve en la \eref{eq:LJ}. El valor $\gamma$ es la profundidad del pozo de energía potencial, $r_{0}$ es la distancia a la cual el potencial es cero, $r_{m}$ es la distancia para la cual se obtiene el mínimo de energía potencial y $r$ es la distancia entre los átomos. A $r_{m}$, el potencial vale $-\gamma$.
 
 \begin{equation}
 V_{LJ}=4\gamma \left[ \left( \frac{r_{0}}{r} \right)^{12} - \left( \frac{r_{0}}{r} \right)^{6} \right] = 
@@ -114,7 +115,7 @@ V_{LJ}=4\gamma \left[ \left( \frac{r_{0}}{r} \right)^{12} - \left( \frac{r_{0}}{
 \label{eq:LJ}
 \end{equation}
 
-El término con $r^{-12}$ es un término de repulsión asociado a la repulsión de Pauli\footnotemark[4] y el término con $r^{-6}$ representa la atracción de largo alcance (fuerzas de van der Waals\footnotemark[5]). Podemos ver gráficamente el potencial en la Figura \ref{C2:fg:LJ}.
+El término con $r^{-12}$ es un término de repulsión asociado a la repulsión de Pauli\footnotemark[4] y el término con $r^{-6}$ representa la atracción de largo alcance (fuerzas de van der Waals\footnotemark[5]). Podemos ver gráficamente el potencial en la \fref{C2:fg:LJ}.
 
 \footnotetext[4]{Esta contribución repulsiva proviene del recubrimiento parcial entre orbitales atómicos}
 \footnotetext[5]{Las fuerzas de van der Waals están asociadas a la atracción interatómica debida a los momentos dipolares.}
@@ -129,7 +130,7 @@ El término con $r^{-12}$ es un término de repulsión asociado a la repulsión 
 \subsection{Modelo de Átomo Embebido}
 \label{SS2_3_2}
 
-En este método, la energía potencial es función de una suma de funciones de la separación entre un átomo y sus vecinos. La energía potencial de un átomo $i$ está dada por la Ecuación \ref{C2:eq:EAM}
+En este método, la energía potencial es función de una suma de funciones de la separación entre un átomo y sus vecinos. La energía potencial de un átomo $i$ está dada por la \eref{C2:eq:EAM}:
 
 \begin{equation}
 V_{i} = F_{\alpha}\left(\sum_{i\neq j} \rho_{\beta} (r_{ij}) \right) + \frac{1}{2} \sum_{i\neq j} \phi_{\alpha\beta}(r_{ij})
@@ -158,7 +159,7 @@ En este apartado describiremos los métodos \textbf{Verlet} (Sección \ref{S2_4_
 \label{S2_4_1}
 
 Expandimos en primer lugar en serie de Taylor la posición para $t+\Delta{}t$ y $t-\Delta{}t$:
-
+\vspace{-0.3pt}
 \begin{align}
 \mathbf{r}(t+\Delta{}t) & = \mathbf{r}(t)+\frac{d\mathbf{r}(t)}{dt} \Delta{}t + \frac{1}{2} \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \frac{1}{3!} \frac{d^{3}\mathbf{r}(t)}{dt^{3}} \Delta{}t^{3} + \mathcal{O}(\Delta{}t^{4})
 \label{C2:eq:VerletTaylor1} \\
@@ -173,7 +174,7 @@ Sumando las Ecuaciones \ref{C2:eq:VerletTaylor1} y \ref{C2:eq:VerletTaylor2} y r
 \label{C2:eq:VerletPos}
 \end{equation}
 
-La aceleración es calculada mediante el potencial visto anteriormente (Ecuación \ref{C2:eq:potfza}) como
+La aceleración es calculada mediante el potencial visto anteriormente (\eref{C2:eq:potfza}) como
 
 \begin{equation}
 \mathbf{a}(t) = \frac{d^{2}\mathbf{r}(t)}{dt^{2}} = -\frac{1}{m}\nabla{}V(\mathbf{r}(t))
@@ -191,7 +192,7 @@ con lo cual el error deja de ser de $\mathcal{O}(\Delta{}t^{4})$ para ser de $\m
 \label{S2_4_2}
 
 Partimos de la expansión en serie de Taylor de la posición y la velocidad en $t+\Delta{}t$:
-
+\vspace{-0.3pt}
 \begin{align}
 \mathbf{r}(t+\Delta{}t) & = \mathbf{r}(t)+\frac{d\mathbf{r}(t)}{dt} \Delta{}t + \frac{1}{2} \frac{d^{2}\mathbf{r}(t)}{dt^{2}} \Delta{}t^{2} + \mathcal{O}(\Delta{}t^{3})
 \label{C2:eq:VelVerletTaylor1} \\
@@ -199,8 +200,8 @@ Partimos de la expansión en serie de Taylor de la posición y la velocidad en $
 \label{C2:eq:VelVerletTaylor2}
 \end{align}
 
-La Ecuación \ref{C2:eq:VelVerletTaylor2} puede reescribirse partiendo de la expansión en serie de Taylor de la aceleración:
-
+La \eref{C2:eq:VelVerletTaylor2} puede reescribirse partiendo de la expansión en serie de Taylor de la aceleración:
+\vspace{-0.3pt}
 \begin{align}
 \mathbf{a}(t+\Delta{}t) & = \mathbf{a}(t)+\frac{d\mathbf{a}(t)}{dt} \Delta{}t + \mathcal{O}(\Delta{}t^{2})
 \label{C2:eq:tayloracc1} \\
@@ -210,7 +211,7 @@ La Ecuación \ref{C2:eq:VelVerletTaylor2} puede reescribirse partiendo de la exp
 \label{C2:eq:tayloracc3}
 \end{align}
 
-Introduciendo la Ecuación \ref{C2:eq:tayloracc3} en la Ecuación \ref{C2:eq:VelVerletTaylor2}, obtenemos:
+Introduciendo la \eref{C2:eq:tayloracc3} en la \eref{C2:eq:VelVerletTaylor2}, obtenemos:
 
 \begin{equation}
 \mathbf{v}(t+\Delta{}t) = \mathbf{v}(t)+\frac{1}{2}\Delta{}t\left[\mathbf{a}(t)+\mathbf{a}(t+\Delta{}t)\right] + \mathcal{O}(\Delta{}t^{3})
@@ -249,10 +250,10 @@ Si bien en las simulaciones básicas de MD se utiliza el ensamble microcanónico
 Existen diversos métodos para mantener estos parámetros estables:
 
 \begin{itemize}
-	\item \textbf{Estocásticos} Se obliga a una variable del sistema a seguir cierta distribución estadística.
-	\item \textbf{De acoplamiento fuerte} Se aplica una escala a una variable del sistema para llegar al valor exacto de la propiedad derivada.
-	\item \textbf{De acoplamiento débil} Se aplica una escala a una variable del sistema para establecer la tendencia de cambio hacia el valor deseado.
-	\item \textbf{De extensión de la dinámica del sistema} Se agregan grados de libertad adicionales.
+	\item \textbf{Estocásticos}: Se obliga a una variable del sistema a seguir cierta distribución estadística.
+	\item \textbf{De acoplamiento fuerte}: Se aplica una escala a una variable del sistema para llegar al valor exacto de la propiedad derivada.
+	\item \textbf{De acoplamiento débil}: Se aplica una escala a una variable del sistema para establecer la tendencia de cambio hacia el valor deseado.
+	\item \textbf{De extensión de la dinámica del sistema}: Se agregan grados de libertad adicionales.
 \end{itemize}
 
 Se explicará en el apartado siguiente un método usado en nuestras simulaciones para establecer la temperatura deseada mientras se simula con el ensamble NVE.
