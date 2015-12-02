@@ -122,7 +122,7 @@
 \newcommand{\eref}[1]{Ecuación~\ref{#1}}
 \newcommand{\cref}[1]{Capítulo~\ref{#1}}
 \newcommand{\sref}[1]{Sección~\ref{#1}}
-\newcommand{\aref}[1]{Anexo~\ref{#1}}
+\newcommand{\aref}[1]{Apéndice~\ref{#1}}
 \renewcommand{\topfraction}{0.85}
 \renewcommand{\bottomfraction}{.85}
 \renewcommand{\textfraction}{0.1}
