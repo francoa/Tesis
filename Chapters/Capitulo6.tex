@@ -12,11 +12,57 @@
 
 \section{Generales}
 
+Se realizaron simulaciones atomísticas del comportamiento mecánico de vidrios metálicos volumétricos (BMGs) bajo diferentes modos de carga y con diferentes modificaciones a su composición haciendo uso de simulaciones de dinámica molecular (MD). En el \cref{C3} se estudia una matriz amorfa de cobre-circonio ($Cu_{46}Zr_{54}$) bajo tensiones de tracción y compresión y se observan los efectos de la temperatura en los parámetros constitutivos asíi como en la respuesta mecánica. Luego, en el \cref{C4}, se estudia la estabilidad de nanopartículas cristalinas en la matriz amorfa previamente caracterizada y se comprara el comportamiento mecánico con el aquél del \cref{C3}. Por último, en el \cref{C5}, nos enfocamos en analizar el impacto sobre el comportamiento mecánico de una matriz porosa al graduar la porosidad a diferentes niveles.
 
-\subsection{ASD}
+El incremento de la temperatura de la muestra produce un decremento considerable del módulo elástico. Lo mismo se aplica a la tensión máxima de von Mises. Si bien los módulos elásticos a diferentes temperaturas son prácticamente iguales bajo tracción y compresión, las tensiones máximas son mucho mayores en compresión. Se obtuvieron ajustes razonablemente buenos con un decremento exponencial con la temperatura, típico de procesos activados termicamente.
+
+Si bien un indicio de banda de corte (SB) puede observarse en la \fref{C3:fg:SBs}, no se observaron SBs claramente definidas como las que vemos en la \fref{C1:fg:shearbands}, lo que es de esperarse dado que nuestra muestra fue generada con una velocidad de enfriamiento muy elevada. Al no contar con la presencia de SBs, la identificación del comienzo de la plasticidad es muy compleja. Si bien podemos observar zonas de transformación del esfuerzo de corte (STZs), para un correcto análisis de las mismas sería necesario realizar simulaciones de una duración mucho mayor a las actuales.
+
+A al hora de realizar cargas sobre la matriz con inclusiones cristalinas se aplicaron condiciones de frontera periódicas en tres dimensiones, y la ausencia de superficies libres deja sólo a la nanopartícula como probable concentrador de esfuerzos para promover la nucleación de STZs y así desencadenar las bandas de corte. En nuestras simulaciones no encontramos un efecto lo suficientemente importante como para originar bandas de corte en la frontera de la nanopartícula como sí podemos observar en otros trabajos \citep{albe13,brink15,adibi13,adibi14}. Las curvas de esfuerzo-deformación son claramente similares al caso sin nanopartícula, a excepción de un retardo en la nucleación de un poro bajo tracción para la muestra con una nanopartícula. El análisis de Voronoi no muestra diferencias significativas entre las muestras con y sin inclusión de nanopartícula.
+
+Los resultados de deformar la matriz original con el agregado de porosidad fueron comparables a aquellos encontrados en la literatura \citep{yuan14} para la compresión de muestras porosas de monocristales de cobre. Esto puede ser considerado como una validación del proceso de sinterizado utilizado para la preparación de las muestras.
+
+Con carga compresiva, los poros facilitan la plasticidad actuando como concentradores de tensiones, pero también retrasan la formación de zonas de transformación de tensión cortante (STZs) y su posible unión en una banda de corte (SB), para el material lejano a los poros. Los resultados también exhiben un endurecimiento de la muestra al cerrarse los poros, similarmente a lo que ocurre en el caso no poroso. Con carga de tracción y deformación puramente uniaxial, los poros no cierran y concentran flujo plástico alrededor de ellos, a su vez que también impiden la formación de STZs y bandas de corte.
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
 \section{Trabajos Futuros}
+
+- Elementos  Finitos.
+- Voronoi más particular.
+- Generar muestras a menor quenching rate.
+- Muestras porosas de mayor tamaño para lograr topologías diferentes.
+- Muestras de mayor tamaño con mayor número de nanopartículas.
+
+%% CAP 3
+
+%Atomistic simulations of bulk metallic glasses (BMGs) mechanical behavior under tension and compression were performed using molecular dynamics (MD) simulations. 
+
+%The increase of sample temperature produces a considerable decrease of the samples elastic modulus. The same applies to maximum von Mises stress. It is observed that the elastic modules are practically the same under tension or compression at different temperatures, but the maximum stress in compression is much higher. The behavior with temperature can be adjusted reasonably well with an exponential decay with temperature, typical of thermal activated phenomena.
+
+%No shear bands are observed, which is to be expected given that our glass was generated with very high quenching rates. Since no shear bands are observed in our simulations, the identification of plasticity is complex. Surely there are shear areas, "shear transformation zones" (STZ), composed of a few atoms that experience high shear stresses. The identification of these areas requires a very detailed observation of the sample, involving much longer simulations than those used here. An alternative to study plasticity is the examination of Voronoi polyhedra, which can help to identify these areas. Such studies are in progress.
+
+%In the future, using more powerful computational resources than available for this work, we plan to create samples with quenching rates orders of magnitude slower, with the aim to observe the possible formation of shear bands.
+
+%A detailed understanding of the influence of temperature, quenching rates, etc., in the mechanical properties of metallic glasses will allow obtaining necessary properties for their application in new technologies, including applications under extreme conditions, such as aerospace missions or materials in nuclear reactors. Studies like the one presented here will contribute to this understanding and accelerate novel material development. 
+
+%% CAP 4
+
+%Estudiamos un BMG con una nanopartícula cristalina como inclusión. Consideramos un vidrio CuZr, y una nanopartícula de Cu pura con un radio de 2 nm. Ésto implica una fracción en volumen que varía desde 1.15\% a 10 K hasta 1.12\% a 800 K como resultado del aumento del volumen inicial de la muestra con la temperatura. Una situación similar fue explorada recientemente por Albe et al. \citep{albe13}. Aquí, nos centramos en los efectos de la temperatura, e inicialmente estudiamos la estabilidad debajo de los 400 K, indicando que la nanopartícula es bastante estable a esas temperaturas. A temperaturas mayores, la difusividad en sólo algunos ns trae consigo la pérdida de una interfaz nítida entre la nanopartícula y la matriz.
+
+% En nuestras simulaciones, se aplicaron condiciones de frontera periódicas en tres dimensiones, y la ausencia de superficies libres deja sólo a la nanopartícula como probable concentrador de esfuerzo para promover la nucleación de STZs, y así desencadenar las bandas de corte, en la interfaz entre la matriz y la nanopartícula. Sin embargo, éste no fue el caso. Las curvas de esfuerzo-deformación son claramente similares al caso sin nanopartícula, a excepción de un retardo en la nucleación de un poro bajo tracción para la muestra con una nanopartícula.
+
+% El análisis de Voronoi no muestra diferencias significativas entre las muestras con y sin inclusión de nanopartícula. Un estudio futuro y más detallado es requerido para diferentes modos de carga y temperaturas. Estudios futuros también podrían repetir estos experimentos con inclusiones de CuZr con una estructura cristalina B2, como podemos encontrar en algunas experiencias \citep{wei14,kuo14}.
+
+%% CAP 5
+
+%Se realizaron simulaciones de Dinámica Molecular (MD) en una muestra porosa del vidrio metálico Cu$_{46}$ Zr$_{54}$, aplicando esfuerzos de compresión y tracción. Los resultados bajo deformación fueron comparables a aquellos encontrados en la literatura \citep{yuan14} para la compresión de muestras porosas de monocristales de cobre. Esto puede ser considerado como una validación del proceso de sinterizado utilizado para la preparación de las muestras.
+
+%Con carga compresiva, los poros facilitan la plasticidad actuando como concentradores de tensiones, pero también retrasan la formación de zonas de transformación de tensión cortante (STZs) y su posible unión en una banda de corte (SB), para el material lejano a los poros. Los resultados también exhiben un endurecimiento de la muestra al cerrarse los poros, similarmente a lo que ocurre en el caso no poroso.
+
+%Con carga de tracción y deformación puramente uniaxial, los poros no cierran y concentran flujo plástico alrededor de ellos, a su vez que también impiden la formación de STZs y bandas de corte.
+
+% Estudios futuros incluirán un análisis de Voronoi profundizado y la simulación de muestras más grandes con topologías de porosidad diferentes.
