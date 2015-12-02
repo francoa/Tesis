@@ -117,12 +117,12 @@
 \newtheorem{remark}[theorem]{Remark}
 \usepackage[centerlast,small,sc]{caption}
 \setlength{\captionmargin}{20pt}
-\newcommand{\fref}[1]{Figure~\ref{#1}}
-\newcommand{\tref}[1]{Table~\ref{#1}}
-\newcommand{\eref}[1]{Equation~\ref{#1}}
-\newcommand{\cref}[1]{Chapter~\ref{#1}}
-\newcommand{\sref}[1]{Section~\ref{#1}}
-\newcommand{\aref}[1]{Appendix~\ref{#1}}
+\newcommand{\fref}[1]{Figura~\ref{#1}}
+\newcommand{\tref}[1]{Tabla~\ref{#1}}
+\newcommand{\eref}[1]{Ecuación~\ref{#1}}
+\newcommand{\cref}[1]{Capítulo~\ref{#1}}
+\newcommand{\sref}[1]{Sección~\ref{#1}}
+\newcommand{\aref}[1]{Anexo~\ref{#1}}
 \renewcommand{\topfraction}{0.85}
 \renewcommand{\bottomfraction}{.85}
 \renewcommand{\textfraction}{0.1}
@@ -187,7 +187,7 @@
 
 \thesistitle{Simulaci\'on Atom\'istica de Metales Amorfos} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
-\supervisor{Ing. Claudio C. \textsc{Careglio} y\\ Dr. Eduardo M. \textsc{Bringa}} % You supervisor's name - this is used in the title page
+\supervisor{Ing. Claudio A. \textsc{Careglio} y\\ Dr. Eduardo M. \textsc{Bringa}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
@@ -378,7 +378,7 @@
     \cleardoublepage
 }\end{spacing}
 }
-\newcommand\listsymbolname{Abreviaciones}
+\newcommand\listsymbolname{Abreviaturas}
 \usepackage{longtable}
 \newcommand\listofsymbols[2]{
 \btypeout{\listsymbolname}

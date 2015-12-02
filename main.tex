@@ -25,7 +25,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[10pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
+\documentclass[10pt, twoside]{Thesis} % The default font size and one-sided printing (no margin offsets)
 
 \graphicspath{{Figures/}} % Specifies the directory where pictures are stored
 
@@ -37,12 +37,22 @@
 \usepackage{array}
 \usepackage{color}
 \usepackage{float}
+\usepackage[titletoc]{appendix}
+\usepackage{etoolbox}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
+\makeatletter
+\appto{\appendices}{\def\Hy@chapapp{Appendix}}
+\makeatother
+
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 \title{\ttitle} % Defines the thesis title - don't touch this
+
+\AtBeginDocument{%
+  \renewcommand\tablename{Tabla}
+}
 
 \begin{document}
 
@@ -99,7 +109,7 @@
 \end{flushright}
 \end{minipage}\\[3cm]
  
-\large \textit{Tesis presentada en cumplimiento de los requerimientos\\ para el grado de \degreename}\\[0.3cm] % University requirement text
+\large \textit{En cumplimiento de los requerimientos para el grado de\\\degreename}\\[0.3cm] % University requirement text
 \textit{en}\\[0.4cm]
 \facname\\\univname\\[2cm] % Research group name and department name
  
@@ -110,31 +120,6 @@
 \end{center}
 
 \end{titlepage}
-
-%----------------------------------------------------------------------------------------
-%	DECLARATION PAGE
-%	Your institution may give you a different text to place here
-%----------------------------------------------------------------------------------------
-
-%\Declaration{
-
-%\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
-
-%Nosotros, \authorx \hspace{2mm}y \authory, declaramos que esta tesis titulada, '\ttitle' y el trabajo presentado son nuestros. Confirmamos que:
-
-%\begin{itemize} 
-%\item[\tiny{$\blacksquare$}] \Large{PONER AQUI LOS ITEMS DE LA DECLARACION DE AUTORIA}
-%\\
-%\end{itemize}
- 
-%Firmas:\\
-%\rule[1em]{36em}{0.5pt} % This prints a line for the signature
- 
-%Fecha:\\
-%\rule[1em]{36em}{0.5pt} % This prints a line to write the date
-%}
-
-%\clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
@@ -158,6 +143,8 @@
 %	ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
 
+\cleardoublepage
+
 \addtotoc{Resumen} % Add the "Abstract" page entry to the Contents
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
@@ -165,22 +152,22 @@
 \Large{Los metales amorfos, es decir, sin estructura cristalina (también llamados vidrios metálicos);
 son cada vez más utilizados en la actualidad, mostrando un gran potencial como materiales avanzados para la ingeniería, debido a sus notables propiedades, entre las cuales destacan una alta dureza, moldeabilidad, resiliencia, resistencia mecánica y resistencia al desgaste. Todas estas propiedades permiten la obtención de partes resistentes con formas complejas que aumentan la posibilidad de usos industriales de estos materiales. Sin embargo, estas aplicaciones se ven restringidas por la heterogeneidad del régimen plástico.
 
-Para lograr una mejor comprensión del régimen plástico se puede proceder con dos enfoques principales: haciendo foco en el comportamiento a escala nanométrica o utilizando mecánica del continuo. Para el primer enfoque, las simulaciones con dinámica molecular (MD) son frecuentemente utilizadas. La dinámica molecular puede resolver problemas en los cuales interactúan muchos cuerpos (átomos), mediante la aplicación de un potencial interatómico. Así, este enfoque es útil para el estudio de propiedades a escala nanométrica, tales como la deformación, la tensión, la temperatura, entre otras.
+Para lograr una mejor comprensión del régimen plástico se puede proceder con dos enfoques principales: haciendo foco en el comportamiento a escala nanométrica ó a escala del continuo. En el primer enfoque, adoptado en este trabajo, las simulaciones con dinámica molecular (MD por sus siglas en inglés) son frecuentemente utilizadas. Esta última permite resolver problemas en los cuales interactúan muchos cuerpos (átomos) mediante la aplicación de un potencial interatómico; como así también estudiar propiedades a escala nanométrica, tales como la deformación, la tensión, la temperatura, entre otras.
 
-También podemos usar simulaciones de MD para identificar procesos plásticos en BMGs (Bulk Metalic Glasses, vidrios metálicos volumétricos). La plasticidad comienza con la formación de zonas de transformación de tensión cortante (STZ), las cuales se nuclean, formando bandas de corte a medida que la deformación aumenta. Las bandas de corte (SB) pueden provocar una fractura frágil en el material debido a la deformación heterogénea. De allí la importancia de prevenir o retrasar su propagación. En los metales cristalinos se procede de forma similar al obstaculizar la propagación de dislocaciones.
+También se pueden utilizar las simulaciones de MD para identificar procesos plásticos en materiales tales como los vidrios metálicos voluméticos o \textit{Bulk Metalic Glasses} (BMG). En este caso en particular, la plasticidad comienza con la formación de zonas de transformación de tensión de corte o \textit{Shear Transformation Zones} (STZ), las cuales se nuclean, formando bandas de corte a medida que la deformación aumenta. Las bandas de corte o \textit{Shear Bands} (SB) pueden conducir a una fractura frágil en el material debido a la deformación heterogénea. De allí la importancia de prevenir o retrasar su propagación.
 
-Para controlar y por consiguiente mejorar la dinámica de la plasticidad, la composición de los vidrios metálicos se modifica de diferentes maneras. Entre ellas, encontramos la inclusión de nanopartículas cristalinas y la inclusión de nanoporos. Ambas logran obstaculizar la propagación y crecimiento de SBs y se obtiene una deformación más reducida y homogénea en régimen plástico.
+Para controlar y por consiguiente mejorar la dinámica de la plasticidad, la composición de los vidrios metálicos se modifica de diferentes maneras. Entre ellas, encontramos la inclusión de nanopartículas cristalinas y la inclusión de nanoporos. Ambas logran obstaculizar la propagación y crecimiento de SBs, obteniéndose una deformación más reducida y homogénea en régimen plástico.
 
-En este trabajo se presentan diversos estudios y sus resultados. Por un lado, el estudio de una matriz amorfa bajo diferentes condiciones de carga y temperatura. Por otro lado, resultados para los dos casos de composición modificada nombrados anteriormente: agregado de inclusiones de cobre cristalino con estructura de cubo centrada en las caras (FCC) y el sinterizado de un vidrio metálico a partir de nanopartículas de BMG, lo cual resulta en muestras con cierta porosidad.
+En este trabajo se presentan experimentos numéricos respecto al comportamiento de vidrios metálicos. En una primera instancia, se analiza una matriz amorfa bajo diferentes condiciones de carga y temperatura. En una segunda instancia, se investigan los dos casos de composición modificada nombrados anteriormente: agregado de inclusiones para el caso particular de cobre cristalino con estructura de cubo centrada en las caras (FCC); y el sinterizado de un vidrio metálico a partir de nanopartículas de BMG, lo cual resulta en muestras con cierta porosidad.
 
 }
 }
-
-\clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
+
+\cleardoublepage
 
 \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
@@ -192,15 +179,15 @@ Agradecemos también a M. Falk, C. Maloney y A.M. Furlani por sus provechosos co
 
 Desde ya, a nuestras familias por el apoyo incondicional durante todo el camino recorrido en esta casa de estudios.
 
-Las simulaciones fueron financiadas por los proyectos de investigación "06/B235 Study of amorphous materials" y “B008 Study of possible improvements of the mechanical properties of metallic glasses”.
+Asimismo, se agradece a la Secretaría de Ciencia, Técnica y Postgrado (SeCTyP) de la Universidad Nacional de Cuyo por su apoyo económico a través de los proyectos ''06/B235 Estudio de Materiales Amorfos`` y ''B008 Estudio de Posibles Mejoras de las Propiedades Mecánicas de Vidrios Metálicos``.
 
 }
 }
-\clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
 %----------------------------------------------------------------------------------------
+\cleardoublepage
 
 \pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
 
@@ -224,29 +211,17 @@ Las simulaciones fueron financiadas por los proyectos de investigación "06/B235
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
-\textbf{BMG} & \textbf{B}ulk \textbf{M}etalic \textbf{G}lass \\
-\textbf{CSM} & \textbf{C}ooperative \textbf{S}hear \textbf{M}odel \\
-\textbf{EAM} & \textbf{E}mbedded \textbf{A}tom \textbf{M}ethod \\
-\textbf{SB} & \textbf{S}hear \textbf{B}and \\
-\textbf{ESB} & \textbf{E}mbryonic \textbf{S}hear \textbf{B}and \\
-\textbf{ESB} & \textbf{M}ature \textbf{S}hear \textbf{B}and \\
-\textbf{STZ} & \textbf{S}hear \textbf{T}ransformation \textbf{Z}one \\
-\textbf{SVF} & \textbf{S}olid \textbf{V}olume \textbf{F}raction \\
-\textbf{MD} & \textbf{M}olecular \textbf{D}ynamics \\
-\textbf{TEM} & \textbf{T}ransmission \textbf{E}lectron \textbf{M}icroscopy \\
-\textbf{SEM} & \textbf{S}canning \textbf{E}lectron \textbf{M}icroscopy \\
-%\textbf{OMG} & \textbf{O}h \textbf{M}y \textbf{G}od \\
-%\textbf{AKA} & \textbf{A}lso \textbf{K}nown \textbf{A}s \\
-%\textbf{AFAIK} & \textbf{A}s \textbf{F}ar \textbf{A}s \textbf{I} \textbf{K}now \\
-%\textbf{IMHO} & \textbf{I}n \textbf{M}y \textbf{H}umble \textbf{O}pinion \\
-%\textbf{ASAP} & \textbf{A}s \textbf{S}oon \textbf{A}s \textbf{P}ossible \\
-%\textbf{FMTYEWTK} & \textbf{F}ar \textbf{M}ore \textbf{T}han \textbf{Y}ou \textbf{E}ver \textbf{W}anted \textbf{T}o \textbf{K}now \\
-%\textbf{JTLYK} & \textbf{J}ust \textbf{T}o \textbf{L}et \textbf{Y}ou \textbf{K}now \\
-%\textbf{THX} & \textbf{T}hanks \\
-%\textbf{FA} & \textbf{F}ranco \textbf{A}rdiani \\
-%\textbf{AM} & \textbf{A}ndrés \textbf{M}anelli \\
-%\textbf{EMB} & \textbf{E}duardo \textbf{M}arcial \textbf{B}ringa \\
-%\textbf{CC} & \textbf{C}laudio \textbf{C}areglio \\
+\textbf{BMG} & Vidrios metálicos masivos (\textit{\textbf{B}ulk \textbf{M}etalic \textbf{G}lass}) \\
+\textbf{CSM} & Modelo de corte cooperativo (\textit{\textbf{C}ooperative \textbf{S}hear \textbf{M}odel}) \\
+\textbf{EAM} & Método de átomo embebido (\textit{\textbf{E}mbedded \textbf{A}tom \textbf{M}ethod}) \\
+\textbf{SB} & Banda de corte (\textit{\textbf{S}hear \textbf{B}and}) \\
+\textbf{ESB} & Banda de corte embrionaria (\textit{\textbf{E}mbryonic \textbf{S}hear \textbf{B}and}) \\
+\textbf{MSB} & Banda de corte madura (\textit{\textbf{M}ature \textbf{S}hear \textbf{B}and}) \\
+\textbf{STZ} & Zonas de tensión de corte (\textit{\textbf{S}hear \textbf{T}ransformation \textbf{Z}one}) \\
+\textbf{SVF} & Fracción de volúment sólido (\textit{\textbf{S}olid \textbf{V}olume \textbf{F}raction}) \\
+\textbf{MD} & Dinámica molecular (\textit{\textbf{M}olecular \textbf{D}ynamics}) \\
+\textbf{TEM} & Microscopía electrónica de transmisión (\textit{\textbf{T}ransmission \textbf{E}lectron \textbf{M}icroscopy}) \\
+\textbf{SEM} & Microscopía electrónica de barrido (\textit{\textbf{S}canning \textbf{E}lectron \textbf{M}icroscopy}) \\
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
 
@@ -259,49 +234,10 @@ Las simulaciones fueron financiadas por los proyectos de investigación "06/B235
 % compressive strain : deformación por compresión
 
 %----------------------------------------------------------------------------------------
-%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
-%----------------------------------------------------------------------------------------
-
-%\clearpage % Start a new page
-
-%\lhead{\emph{Physical Constants}} % Set the left side page header to "Physical Constants"
-
-%\listofconstants{lrcl} % Include a list of Physical Constants (a four column table)
-%{
-%Constante de Boltzmann & $k_{B}$ & $=$ & $1.380\ 65\ \times10^{-23}\ \mbox{J}\mbox{K}^{-\mbox{1}}$ \\
-% Constant Name & Symbol & = & Constant Value (with units) \\
-%}
-
-%----------------------------------------------------------------------------------------
-%	SYMBOLS
-%----------------------------------------------------------------------------------------
-
-%\clearpage % Start a new page
-
-%\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
-
-%\listofnomenclature{lll} % Include a list of Symbols (a three column table)
-%{
-
-%$E$ & módulo de Young & GPa \\
-%$G$ & módulo de corte & GPa \\
-%$R$ & coeficiente de correlación &  \\
-%$T$ & temperatura & K \\
-%$T_{g}$ & temperatura de transición vítrea & K \\
-% Symbol & Name & Unit \\
-
-%& & \\ % Gap to separate the Roman symbols from the Greek
-
-%$\epsilon$ & deformación ingenieril &  \\
-%$\sigma$ & tensión & GPa \\
-%$\sigma_{y}$ & tensión de fluencia & GPa \\
-%$\sigma_{VM}$ & tensión de von Mieses & GPa \\
-% Symbol & Name & Unit \\
-%}
-
-%----------------------------------------------------------------------------------------
 %	DEDICATION
 %----------------------------------------------------------------------------------------
+
+\cleardoublepage
 
 \setstretch{1.3} % Return the line spacing back to 1.3
 
@@ -322,11 +258,17 @@ Las simulaciones fueron financiadas por los proyectos de investigación "06/B235
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
+\cleardoublepage
 \input{Chapters/Capitulo1}
+\cleardoublepage
 \input{Chapters/Capitulo2} 
+\cleardoublepage
 \input{Chapters/Capitulo3}
+\cleardoublepage
 \input{Chapters/Capitulo4} 
+\cleardoublepage
 \input{Chapters/Capitulo5} 
+\cleardoublepage
 \input{Chapters/Capitulo6} 
 %\input{Chapters/Capitulo7} 
 
@@ -336,15 +278,20 @@ Las simulaciones fueron financiadas por los proyectos de investigación "06/B235
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
-\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+%\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
 
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
-
+\begin{appendices}
+\cleardoublepage
 \input{Appendices/AppendixA}
+\cleardoublepage
 \input{Appendices/AppendixB}
+\cleardoublepage
 \input{Appendices/AppendixC}
+\cleardoublepage
 \input{Appendices/AppendixD}
+\end{appendices}
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
@@ -354,6 +301,7 @@ Las simulaciones fueron financiadas por los proyectos de investigación "06/B235
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
 
+\cleardoublepage
 \label{Bibliography}
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
