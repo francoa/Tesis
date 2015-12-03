@@ -21,10 +21,10 @@ Para evitar la falla frágil es necesario controlar la deformación del material
 Se han estudiado varias formas de lograr eso, y una de ellas ha sido la de obtener muestras de vidrio metálico con porosidad 
 \citep{guan13,wang10,schuh07,liontas14}.
 
-En el presente capítulo, se estudiarán algunas características de los vidrios metálicos con porosidad. En la sección~\ref{S5_2} se explicará
+En el presente capítulo, se estudiarán algunas características de los vidrios metálicos con porosidad. En la \sref{S5_2} se explicará
 brevemente la fundamentación detrás del control de la deformación a través de la adición de poros.
-Luego, en la sección~\ref{S5_3}, se detallará el procedimiento utilizado para fabricar muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad
-(similar a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}). Finalmente, en la sección~\ref{S5_4},
+Luego, en la \sref{S5_3}, se detallará el procedimiento utilizado para fabricar muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad
+(similar a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}). Finalmente, en la \sref{S5_4},
 se presentarán resultados de simulaciones
 realizadas con dinámica molecular. Las simulaciones de la muestra sometida a esfuerzos uniaxiales nos permitirán analizar los polyedros
 de Voronoi, las tensiones y deformaciones atómicas, así como también la forma en que la porosidad inicial afecta la deformación resultante
@@ -73,7 +73,7 @@ una deformación más homogénea.
 \label{S5_3}
 
 Puesto que en el presente capítulo buscamos simular una muestra porosa, primero es necesario preparar dicha muestra. Para ello,
-trataremos de \textbf{sinterizar} partículas de material, monitoreando constantemente la fracción de volumen sólido (SVF
+trataremos de \textbf{sinterizar} partículas de material, monitorizando constantemente la fracción de volumen sólido (SVF
 por sus siglas en inglés), para así detener el proceso cuando se haya alcanzado la porosidad deseada.
 
 El sinterizado es un proceso durante el cual se aplica simultáneamente calor y presión a un polvo
@@ -81,27 +81,27 @@ del material para lograr una pieza maciza, fuerte y resistente. La temperatura d
 caso contrario la viscosidad disminuiría demasiado debido al derretimiento del material, imposibilitando la formación de la pieza.
 
 Para la simulación del sinterizado haremos uso, nuevamente, del software LAMPPS. Hemos tomado como punto de partida la misma muestra
-de cobre circonio utilizada con anterioridad (sección~\ref{S1_4}). Utilizamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}
+de cobre circonio utilizada con anterioridad (\sref{S1_4}). Utilizamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}
 para describir las interacciones entre los átomos y condiciones de frontera periódicas en las tres caras (apropiado para altas velocidades
 de deformación \citep{bringa05} y para simular BMGs de mayor tamaño).
 
 Primeramente tomamos la muestra original y la replicamos a modo de obtener una muestra aproximadamente cúbica, de 15 nm de lado. 
 Luego, seleccionamos puntos
 al azar dentro de la muestra para hacer de centro de las esferas (de 2.5 nm de radio), y removimos todo el material al exterior de dichas esferas,
-quedando preparadas las nanopartículas esféricas de material. La figura~\ref{C5:fg:sintInicial} muestra el resultado de estas
+quedando preparadas las nanopartículas esféricas de material. La \fref{C5:fg:sintInicial} muestra el resultado de estas
 acciones. Esta nueva muestra tiene 77888 átomos.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=10cm]{Cap_5/spheres.png}
-  \caption[Nanopartículas esféricas de material]{Imágen de las nanopartículas esféricas de material.}
+  \caption[Nanopartículas esféricas de material]{Imagen de las nanopartículas esféricas de material.}
   \label{C5:fg:sintInicial}
 \end{figure}
 
 El procedimiento para simular el sinterizado fue el siguiente:
 
 \begin{itemize}
- \item Relajación de la muestra a volúmen constante y temperatura constante de 650K (justo debajo de la temperatura
+ \item Relajación de la muestra a volumen constante y temperatura constante de 650K (justo debajo de la temperatura
 de transición vítrea) durante unos pocos ps.
  \item Aplicación de hasta 10 ps de presión compresiva (400 bar).
  \item Se repitieron los dos pasos anteriores hasta lograr las porosidades deseadas.
@@ -109,7 +109,7 @@ de transición vítrea) durante unos pocos ps.
  \begin{itemize}
   \item Temple a temperatura cero mediante una velocidad de enfriamiento de $6.5 \cdot 10^{14} K/s$.
   \item Disminución de la presión a cero.
-  \item Calentamiento a $6.5 \cdot 10^{14} K/s$ para llegar a la temperatura de simulacion (300K).
+  \item Calentamiento a $6.5 \cdot 10^{14} K/s$ para llegar a la temperatura de simulación (300K).
   \item Reducción de la presión a cero, manteniendo la temperatura constante.
  \end{itemize}
 \end{itemize}
@@ -131,12 +131,12 @@ de transición vítrea) durante unos pocos ps.
 \begin {figure}[h!]
  \centering
   \includegraphics[width=8cm]{Cap_5/spheres3.png}
-  \caption[Muestra sinterizada]{Imágen de la muestra sinterizada, porosidad 13.1\%.}
+  \caption[Muestra sinterizada]{Imagen de la muestra sinterizada, porosidad 13.1\%.}
   \label{C5:fg:sint2}
 \end {figure}
 
 
-Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%, veáse figuras~\ref{C5:fg:sint} y \ref{C5:fg:sint2}).
+Se prepararon muestras con distintas porosidades iniciales (3.3\%, 5.8\% y 13.1\%, véase Figuras~\ref{C5:fg:sint} y \ref{C5:fg:sint2}).
 Estas muestras estabilizadas fueron luego utilizadas
 para realizar carga uniaxial de compresión y tracción. Todas las coordenadas atómicas fueron recalculadas a cada paso, en relación con la
 velocidad de deformación requerida, la cual fue de $10^9 /s$, valor apropiado para experimentos de choque compresivo.
@@ -161,11 +161,11 @@ experimentos a altas velocidades de deformación, donde las deformaciones latera
 	\includegraphics[width=10cm]{Cap_5/SVF_strain_tens.eps}
 	\label{C5:fg:svfTens}}
   \end{tabular}
-  \caption[Fracción de volumen sólido (SVF) versus deformación.]{Fracción de volumen sólido (SVF) versus deformación. En (a), las líneas a trazos indican la deformaión a la cual los poros se cierran por completo}
+  \caption[Fracción de volumen sólido (SVF) versus deformación.]{Fracción de volumen sólido (SVF) versus deformación. En (a), las líneas a trazos indican la deformación a la cual los poros se cierran por completo}
   \label{C5:fg:svf}
 \end{figure}
 
-La figura~\ref{C5:fg:svf} muestra la evolución de la densidad en las muestras porosas:
+La \fref{C5:fg:svf} muestra la evolución de la densidad en las muestras porosas:
 \begin{itemize}
  \item Para el caso de compresión, hemos agregado unas líneas a trazos que indican el punto en el que los poros se cierran completamente, es decir, la fracción de volumen sólido es igual a 1. Para cada porosidad, el valor de deformación $\epsilon$ correspondiente es: 3\% $\rightarrow$ 0.05, 6\% $\rightarrow$ 0.065, 13\% $\rightarrow$ 0.12. En algunas de las figuras de esta sección aparecerán estas líneas nuevamente, a fin de observar si este evento implica cambios en el comportamiento plástico.
  \item Para el caso de tracción, el uso de condiciones de borde periódicas evita que los poros se cierren incluso a altas deformaciones uniaxiales, dado que no hay deformaciones laterales.
@@ -197,7 +197,7 @@ La figura~\ref{C5:fg:svf} muestra la evolución de la densidad en las muestras p
 	\includegraphics[width=10cm]{Cap_5/stress_strain_tens.eps}
 	\label{C5:fg:stressTens}}
   \end{tabular}
-  \caption[Tensión de von Mises vs deformación.]{Tensión de von Mises vs deformación.}
+  \caption[Tensión de Von Mises vs deformación.]{Tensión de Von Mises vs deformación.}
   \label{C5:fg:stress}
 \end{figure}
 
@@ -215,19 +215,19 @@ La figura~\ref{C5:fg:svf} muestra la evolución de la densidad en las muestras p
   \label{C5:fg:temp}
 \end{figure}
 
-La figura~\ref{C5:fg:PzzComp} grafica la presión en el eje de carga versus deformación para esfuerzos de compresión. La figura~\ref{C5:fg:stressComp},
-a su vez, grafica el esfuerzo de von Mises versus deformación para esfuerzos de compresión.
+La \fref{C5:fg:PzzComp} grafica la presión en el eje de carga versus deformación para esfuerzos de compresión. La \fref{C5:fg:stressComp},
+a su vez, grafica el esfuerzo de Von Mises versus deformación para esfuerzos de compresión.
 Ambas gráficas nos indican que la presencia de porosidad promueve el inicio de la plasticidad. Los poros actúan como concentradores de tensión,
 facilitando la aparición de STZs y bandas de corte. Esta plasticidad temprana comienza a
 cerrar los poros, produciendo una curva donde la deformación $\epsilon$ aumenta mientras que la presión se mantiene baja.
 Cuando los poros se cierran, la presión aumenta más aceleradamente, como puede apreciarse en la porción de la curva posterior
 a la línea de trazos. Podemos también observar que el comportamiento de las muestras porosas luego de las líneas de trazos es
-muy similar al comportamiento de la muestra sin porosidad, validando el hecho de que a ese punto ya no hay más porosidad (esto también puede observarse en la gráfica de temperatura versus deformación, figura~\ref{C5:fg:tempComp}). Basándonos en la figura, podemos concluir que a mayor porosidad, se necesita menor esfuerzo para cerrar los poros (denotado por la altura de las líneas a trazos), pero esto ocurre a mayores deformaciones.
+muy similar al comportamiento de la muestra sin porosidad, validando el hecho de que a ese punto ya no hay más porosidad (esto también puede observarse en la gráfica de temperatura versus deformación, \fref{C5:fg:tempComp}). Basándonos en la figura, podemos concluir que a mayor porosidad, se necesita menor esfuerzo para cerrar los poros (denotado por la altura de las líneas a trazos), pero esto ocurre a mayores deformaciones.
 
 En tracción las muestras se comportan diferentemente. Como ya se ha dicho los poros no se cierran en tracción, como sí lo hacían en compresión.
-Mediante el análisis de algunas imágenes de la muestra, como las que aparecen en la figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} o \ref{C5:fg:ss_tens_13},
+Mediante el análisis de algunas imágenes de la muestra, como las que aparecen en la Figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} o \ref{C5:fg:ss_tens_13},
 observamos que los poros crecen a una velocidad aproximadamente constante a medida que la deformación de la muestra aumenta. 
-Las figuras~\ref{C5:fg:PzzTens} y \ref{C5:fg:stressTens} también muestran lo que parece ser flujo plástico: particularmente a 13\% porosidad,
+Las Figuras~\ref{C5:fg:PzzTens} y \ref{C5:fg:stressTens} también muestran lo que parece ser flujo plástico: particularmente a 13\% porosidad,
 pero similarmente a otras porosidades, luego de un cierto punto, la deformación aumenta mientras la presión se mantiene constante o
 incluso disminuye.
 
@@ -284,27 +284,27 @@ incluso disminuye.
   \label{C5:fg:ss_comp_13}
 \end{figure}
 
-La figura~\ref{C5:fg:tip3} muestra curvas de polyedros de Voronoi versus deformación. El análisis por teselado de Voronoi es una técnica para
+La \fref{C5:fg:tip3} muestra curvas de polyedros de Voronoi versus deformación. El análisis por teselado de Voronoi es una técnica para
 caracterizar el ordenamiento local en vidrios metálicos amorfos, donde cada átomo es el centro de un polyedro de Voronoi,
 completado por sus vecinos más cercanos. En \cite{arman10}, los átomos de tipo 3 son identificados como indicadores de plasticidad, por eso
 son de gran importancia.
 
-La figura~\ref{C5:fg:tip3Comp} presenta las curvas de polyedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
+La \fref{C5:fg:tip3Comp} presenta las curvas de polyedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
 de los átomos tipo 3, la cual sucede luego de una fase constante. Se ha pensado en este fenómeno como un indicador del inicio de la plasticidad
 \citep{arman10}. Sin embargo, nuestras curvas muestran un resultado contrario a la intuición, ya que la plasticidad comienza antes en las muestras con menor
 porosidad de acuerdo a nuestro análisis. Esto podría ser considerado como un indicador de que hay otros factores o procesos en juego que afectan
 los resultados.
 
-Las figuras~\ref{C5:fg:ss_comp_3}, \ref{C5:fg:ss_comp_6} y \ref{C5:fg:ss_comp_13} presentan la evolución de la deformación cortante en la muestra, para esfuerzos de compresión.
+Las Figuras~\ref{C5:fg:ss_comp_3}, \ref{C5:fg:ss_comp_6} y \ref{C5:fg:ss_comp_13} presentan la evolución de la deformación cortante en la muestra, para esfuerzos de compresión.
 Salta inmediatamente a la vista que los poros actúan como concentradores de tensiones, pero también representan un obstáculo para la
 propagación de bandas de corte \citep{wang10}. Las bandas de corte nuclean diagonalmente en el espacio entre poros, y la deformación atómica
-se acumula a lo largo de estas direcciones principales por el resto de la simulación, como puede observarse particularmente bien en la figura~\ref{C5:fg:secuenciadef}. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como ha apreciado \cite{yuan14} y puede verse en la figura~\ref{C5:fg:PzzComp}.
+se acumula a lo largo de estas direcciones principales por el resto de la simulación, como puede observarse particularmente bien en la \fref{C5:fg:secuenciadef}. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como ha apreciado \cite{yuan14} y puede verse en la \fref{C5:fg:PzzComp}.
 
-La figura~\ref{C5:fg:tip3Tens} muestra las curvas de polyedros de Voronoi para esfuerzos de tracción. En esta imágen, los átomos de tipo 3
+La \fref{C5:fg:tip3Tens} muestra las curvas de polyedros de Voronoi para esfuerzos de tracción. En esta imagen, los átomos de tipo 3
 prácticamente no varían en las muestras con porosidad, lo que implicaría que no hay formación de STZs.
 Para la muestra no porosa, el número de átomos tipo 3 se vuelve aproximadamente constante luego de que se ha nucleado el poro. Esto
 nos llevó a pensar que, dada las condiciones de las muestras, se facilita el movimiento de los átomos alrededor de los poros, lo cual evita
-la formación de STZs fuera de los alrededores de los poros. Para apoyar esta idea, en las figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} y \ref{C5:fg:ss_tens_13} presentamos
+la formación de STZs fuera de los alrededores de los poros. Para apoyar esta idea, en las Figuras~\ref{C5:fg:ss_tens_3}, \ref{C5:fg:ss_tens_6} y \ref{C5:fg:ss_tens_13} presentamos
 la muestra coloreada con la deformación cortante. Es evidente que la deformación cortante se concentra principalmente alrededor
 de los poros. Debe ser mencionado que la posición relativa entre átomos que se encuentran lejanos de los poros se mantiene aproximadamente igual.
 
@@ -373,9 +373,9 @@ de los poros. Debe ser mencionado que la posición relativa entre átomos que se
 \subsection{Cambios en las condiciones de relajación}
 \label{C5:relaj}
 
-En la sección \ref{S5_3}, se detalló el proceso utilizado para realizar el sinterizado de la muestra. Las velocidades utilizadas para el enfriamiento/calentamiento durante el proceso final de relajación de la muestra fueron de $6.5 \cdot 10^{14} K/s$. Inicialmente, se utilizó esta velocidad alta debido a las limitaciones computacionales. Sin embargo, finalmente también se pudo probar con una velocidad menor, más cercana a la velocidad de enfriamiento con la que fue creada la muestra de cobre-circonio original: $6.5 \cdot 10^{12} K/s$. La elección de esta velocidad no fue azarosa: debía disminuir lo suficiente con respecto a la velocidad anterior como para poder observar cambios en el comportamiento elastoplástico de la muestra, pero no demasiado como para permitir la cristalización del material.
+En la \sref{S5_3}, se detalló el proceso utilizado para realizar el sinterizado de la muestra. Las velocidades utilizadas para el enfriamiento/calentamiento durante el proceso final de relajación de la muestra fueron de $6.5 \cdot 10^{14} K/s$. Inicialmente, se utilizó esta velocidad alta debido a las limitaciones computacionales. Sin embargo, finalmente también se pudo probar con una velocidad menor, más cercana a la velocidad de enfriamiento con la que fue creada la muestra de cobre-circonio original: $6.5 \cdot 10^{12} K/s$. La elección de esta velocidad no fue azarosa: debía disminuir lo suficiente con respecto a la velocidad anterior como para poder observar cambios en el comportamiento elastoplástico de la muestra, pero no demasiado como para permitir la cristalización del material.
 
-Lo primero que debe ser considerado es que si se cortan las iteraciones de calentamiento-presión en un punto determinado y luego se realizan dos relajaciones distintas con las dos velocidades previamente mencionadas, las porosidades finales serán distintas. De hecho, la muestra que con una velocidad de $6.5 \cdot 10^{14} K/s$ tenía 3\% de porosidad, con $6.5 \cdot 10^{12} K/s$ no posee porosidad. Por esta razón, esta muestra se excluye en la presente sección. En la tabla \ref{C5:tbl:porosityChange} se indican las porosidades resultantes para las dos velocidades de calentamiento/enfriamiento.
+Lo primero que debe ser considerado es que si se cortan las iteraciones de calentamiento-presión en un punto determinado y luego se realizan dos relajaciones distintas con las dos velocidades previamente mencionadas, las porosidades finales serán distintas. De hecho, la muestra que con una velocidad de $6.5 \cdot 10^{14} K/s$ tenía 3\% de porosidad, con $6.5 \cdot 10^{12} K/s$ no posee porosidad. Por esta razón, esta muestra se excluye en la presente sección. En la \tref{C5:tbl:porosityChange} se indican las porosidades resultantes para las dos velocidades de calentamiento/enfriamiento.
 
 \begin{table}[htp]
 \caption[Porosidades resultantes a dos velocidades de calentamiento/enfriamiento distintas.]{Porosidades resultantes a dos velocidades de calentamiento/enfriamiento distintas.}
@@ -412,7 +412,7 @@ Tercer extracción & 3.3\% & 0\% \\ \hline
   \label{C5:fg:vel12_strain0_13}
 \end {figure}
 
-Del análisis de las figuras \ref{C5:fg:vel12_strain0_6} y \ref{C5:fg:vel12_strain0_13}, y de la tabla \ref{C5:tbl:porosityChange}, concluimos que el cambio de velocidad no influye tanto en la porosidad final, sino más bien en la forma final de los poros en la muestra. Una menor velocidad implica que se requiere un tiempo mayor para lograr los cambios de temperatura deseados. Este tiempo adicional favorece el movimiento atómico y la difusión, resultando en disposiciones de menor energía. Esto puede observarse en las imágenes: para menores velocidades, el volumen de poros se concentra en un único poro que tiende a ser esférico, lo cual implica que hay menor superficie poro-material.
+Del análisis de las Figuras \ref{C5:fg:vel12_strain0_6} y \ref{C5:fg:vel12_strain0_13}, y de la \tref{C5:tbl:porosityChange}, concluimos que el cambio de velocidad no influye tanto en la porosidad final, sino más bien en la forma final de los poros en la muestra. Una menor velocidad implica que se requiere un tiempo mayor para lograr los cambios de temperatura deseados. Este tiempo adicional favorece el movimiento atómico y la difusión, resultando en disposiciones de menor energía. Esto puede observarse en las imágenes: para menores velocidades, el volumen de poros se concentra en un único poro que tiende a ser esférico, lo cual implica que hay menor superficie poro-material.
 
 \begin {figure}[h!]
  \centering
@@ -420,7 +420,7 @@ Del análisis de las figuras \ref{C5:fg:vel12_strain0_6} y \ref{C5:fg:vel12_stra
   \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_SVF_strain_vel12.eps}} &
   \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_SVF_strain_vel12_trac.eps}}
    \end{tabular}
-  \caption[SVF vs. deformación, velocidad $10^{12} K/s$.]{Fracción de volúmen sólido vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
+  \caption[SVF vs. deformación, velocidad $10^{12} K/s$.]{Fracción de volumen sólido vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
   \label{C5:fg:sint2_SVF}
 \end {figure}
 
@@ -444,11 +444,11 @@ Del análisis de las figuras \ref{C5:fg:vel12_strain0_6} y \ref{C5:fg:vel12_stra
   \label{C5:fg:sint2_VM}
 \end {figure}
 
-Las figuras \ref{C5:fg:sint2_SVF}, \ref{C5:fg:sint2_PZZ} y \ref{C5:fg:sint2_VM} muestran, respectivamente, fracción de volúmen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para las dos velocidades estudidadas. Se observa que se obtienen comportamientos muy similares en ambos casos, exceptuando por un aumento en la tensión máxima soportada y en el módulo de elasticidad (ver figura \ref{C5:fg:sint2_VM} para Tracción). Esto hace pensar que el comportamiento mecánico es más dependiente del volúmen de porosidad que de la forma de los poros.
+Las Figuras \ref{C5:fg:sint2_SVF}, \ref{C5:fg:sint2_PZZ} y \ref{C5:fg:sint2_VM} muestran, respectivamente, fracción de volumen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para las dos velocidades estudiadas. Se observa que se obtienen comportamientos muy similares en ambos casos, exceptuando por un aumento en la tensión máxima soportada y en el módulo de elasticidad (ver \fref{C5:fg:sint2_VM} para Tracción). Esto hace pensar que el comportamiento mecánico es más dependiente del volumen de porosidad que de la forma de los poros.
 
 \subsection{Realización de un nuevo sinterizado}
 
-Otro de los cambios que se plantearon en el proceso de sinterizado fue la ubicación de las partículas. Si bien los puntos que hicieron de centros de las partículas fueron escogidos al azar, dotando de generalidad a los resultados, las muestras de distintas porosidades fueron obtenidas a partir de la misma disposición de partículas. Simplemente se permitió realizar más iteraciones de calentamiento-presión para obtener las muestras de menor porosidad. Por ello en este apartado se estudia la infulencia de la ubicación y la cantidad de partículas en los resultados obtenidos.
+Otro de los cambios que se plantearon en el proceso de sinterizado fue la ubicación de las partículas. Si bien los puntos que hicieron de centros de las partículas fueron escogidos al azar, dotando de generalidad a los resultados, las muestras de distintas porosidades fueron obtenidas a partir de la misma disposición de partículas. Simplemente se permitió realizar más iteraciones de calentamiento-presión para obtener las muestras de menor porosidad. Por ello en este apartado se estudia la influencia de la ubicación y la cantidad de partículas en los resultados obtenidos.
 
 \begin {figure}[h!]
  \centering
@@ -456,7 +456,7 @@ Otro de los cambios que se plantearon en el proceso de sinterizado fue la ubicac
   \subfloat[Compresión]{\includegraphics[width=8cm]{Cap_5/porosity_2sintering_SVF_comp.eps}} &
   \subfloat[Tracción]{\includegraphics[width=8cm]{Cap_5/porosity_2sintering_SVF_trac.eps}}
    \end{tabular}
-  \caption[SVF vs. deformación, dos sinterizados.]{Fracción de volúmen sólido vs deformación.}
+  \caption[SVF vs. deformación, dos sinterizados.]{Fracción de volumen sólido vs deformación.}
   \label{C5:fg:2sint_SVF}
 \end {figure}
 
@@ -480,7 +480,7 @@ Otro de los cambios que se plantearon en el proceso de sinterizado fue la ubicac
   \label{C5:fg:2sint_VM}
 \end {figure}
 
-Las figuras \ref{C5:fg:2sint_SVF}, \ref{C5:fg:2sint_PZZ} y \ref{C5:fg:2sint_VM} muestran, respectivamente, fracción de volúmen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para los dos sinterizados realizados. Nuevamente obtenemos comportamientos muy similares, reforzando lo dicho en el apartado anterior (\ref{C5:relaj}) acerca de que el comportamiento mecánico es más dependiente del volúmen de porosidad que de la forma de los poros.
+Las Figuras \ref{C5:fg:2sint_SVF}, \ref{C5:fg:2sint_PZZ} y \ref{C5:fg:2sint_VM} muestran, respectivamente, fracción de volumen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para los dos sinterizados realizados. Nuevamente obtenemos comportamientos muy similares, reforzando lo dicho en el apartado anterior (\ref{C5:relaj}) acerca de que el comportamiento mecánico es más dependiente del volumen de porosidad que de la forma de los poros.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
