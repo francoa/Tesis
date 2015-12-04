@@ -6,7 +6,7 @@
 
 \lhead{Anexo B. \emph{OVITO}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
-Ciertas imágenes (por ejemplo la figura \ref{C5:fg:ss_comp_3}) fueron realizadas utilizando el software Ovito \citep{stukowski10}. En el presente apéndice explicaremos cómo obtener dichas imágenes y daremos recomendaciones para mejorar el uso del software. Como condición previa es necesario haber instalado y ejecutado LAMMPS (Apéndice \ref{AA}), ya que Ovito trabaja, entre otras cosas, con los archivos de salida de éste.
+Ciertas imágenes (por ejemplo la figura \ref{C5:fg:ss_comp_3}) fueron realizadas utilizando el software Ovito \citep{stukowski10}. En el presente apéndice explicaremos cómo obtener dichas imágenes y daremos recomendaciones para mejorar el uso del software. Como condición previa es necesario haber instalado y ejecutado LAMMPS (\aref{AA}), ya que Ovito trabaja, entre otras cosas, con los archivos de salida de éste.
 
 \section{Instalación}
 \label{AB_1}
@@ -93,7 +93,7 @@ En el \href{https://github.com/francoa/Tesis/tree/master/Resources}{sitio web} d
  plot 'Ovito_scriptDePrueba.out' using 1:3 with lines
 \end{lstlisting}
 
-Para armar el dataset presente en el sitio web, fue necesario adecuar los archivos de salida de LAMMPS para que éstos no tuvieran un tamaño tan grande. Se les quitó todos los campos calculados por LAMMPS excepto los campos de posición, id y tipo. Esto fue realizado mediante un script \textit{bash}, utilizando el comando \textit{awk}. Estos scripts serán explicados con mayor detalle en el apéndice \ref{AC}???.
+Para armar el dataset presente en el sitio web, fue necesario adecuar los archivos de salida de LAMMPS para que éstos no tuvieran un tamaño tan grande. Se les quitó todos los campos calculados por LAMMPS excepto los campos de posición, id y tipo. Esto fue realizado mediante un script \textit{bash}, utilizando el comando \textit{awk}. Estos scripts serán explicados con mayor detalle en el \aref{AC}.
 
 \begin{lstlisting}
 #!/bin/bash
