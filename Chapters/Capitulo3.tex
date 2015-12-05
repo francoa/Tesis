@@ -4,7 +4,7 @@
 
 \label{C3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Capítulo 3. \emph{CARACTERIZACION DE UN BMG BAJO DIFERENTES MODOS DE CARGA Y TEMPERATURAS}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Capítulo 3. \emph{CARACTERIZACION DE UN BMG}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
@@ -43,7 +43,7 @@ En este apartado se realizará un análisis del comportamiento mecánico de una 
 \label{S3_2}
 %In this paper, simulations were carried out using the LAMMPS software (\cite{plimpton95}), which is free and open source, has an excellent manual, and is computationally efficient in the simulation of systems with large numbers of atoms. 
 
-Se utilizará, en el presente capítulo, una muestra de cobre-circonio. La muestra Cu$_{46}$Zr$_{54}$ usada es prismática, con un total de alrededor de 160000 átomos, creada con una velocidad de enfriamiento de $10^{12}$ K/s, y ya ha sido descrita por \cite{arman10}. La temperatura experimental de transición vítrea (Tg) de este vidrio metálico es 696 K, y su módulo de cizalla experimental (G) es 30 GPa \citep{johnson05}. Podemos observarla en la \fref{C3:fg:sample}. Se debe aclarar que así como en los metales se habla de \textit{probetas} para los ensayos mecánicos, en las simulaciones de vidrios metálicos se habla de \textit{muestras}. Esto se debe al tamaño \textit{nano} del material utilizado para la simulación (el término muestra suele utilizarse para denominar una pequeña parte de una cantidad mayor de material).
+Se utilizará, en el presente capítulo, una muestra de cobre-circonio. La muestra Cu$_{46}$Zr$_{54}$ usada es prismática, con un total de alrededor de 160000 átomos, creada con una velocidad de enfriamiento de $10^{12}$ K/s, y ya ha sido descrita por \cite{arman10}. La temperatura experimental de transición vítrea ($T_g$) de este vidrio metálico es 696 K, y su módulo de cizalla experimental (G) es 30 GPa \citep{johnson05}. Podemos observarla en la \fref{C3:fg:sample}. Se debe aclarar que así como en los metales se habla de \textit{probetas} para los ensayos mecánicos, en las simulaciones de vidrios metálicos se habla de \textit{muestras}. Esto se debe al tamaño \textit{nano} del material utilizado para la simulación (el término muestra suele utilizarse para denominar una pequeña parte de una cantidad mayor de material).
 
 \begin{figure}
  \centering
@@ -54,7 +54,7 @@ Se utilizará, en el presente capítulo, una muestra de cobre-circonio. La muest
 
 Cada simulación diferirá de las restantes ya sea en el tipo de carga (tensión o compresión uniaxial) o en la temperatura de simulación, siendo constante la velocidad de deformación.
 
-Se analizarán temperaturas de 10 (cercano al cero absoluto), 100, 200, 300, 400, 500, 600 y 900 K. Se incluye el caso de simulación a 900 K, sobre Tg (temperatura de transición vítrea, 696 K), para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) \citep{daw84} fue adoptado, que ya ha sido usado en otros estudios sobre BMGs \citep{shimizu07,cao09,cheng08,arman10,cheng11,wang12}.
+Se analizarán temperaturas de 10 (cercano al cero absoluto), 100, 200, 300, 400, 500, 600 y 900 K. Se incluye el caso de simulación a 900 K, sobre $T_g$, para ver si el comportamiento mecánico es significativamente diferente. Para describir las interacciones entre átomos, un potencial de método de átomo embebido (EAM) \citep{daw84} fue adoptado, que ya ha sido usado en otros estudios sobre BMGs \citep{shimizu07,cao09,cheng08,arman10,cheng11,wang12}.
 
 En primer lugar se emplean condiciones de borde periódicas en 3D, válidas para altas velocidades de deformación \citep{bringa05}. Todas las coordenadas atómicas son escaladas a cada paso, de acuerdo con la velocidad de deformación deseada, que en este caso es de $10^9$ /s. Antes de iniciar las deformaciones mecánicas, se realiza primero una minimización de energía usando el gradiente conjugado, y luego usamos condiciones de presión cero y temperatura constante para equilibrar la muestra a la temperatura buscada T. La \tref{C3:tb:initprops} presenta los volúmenes y densidades iniciales para los diferentes casos.
 
@@ -83,9 +83,9 @@ Luego, se analiza la presencia de bandas de corte para las condiciones de borde 
 \subsection{Simulación de la muestra con condiciones de borde periódicas}
 \label{S3_3_1}
 
-En el texto que continúa, presentamos resultados para esfuerzos exclusivamente uniaxiales, los cuales son apropiadas para la comparación con resultados de experimentos a una velocidad de deformación muy elevada, en donde las deformaciones laterales pueden despreciarse. 
+En el texto que continúa, presentamos resultados para esfuerzos exclusivamente uniaxiales, los cuales son apropiados para la comparación con resultados de experimentos a una velocidad de deformación muy elevada, en donde las deformaciones laterales pueden despreciarse. 
 
-La \fref{C3:fg:sStrainTen} grafica tensión de Von Mises versus deformación a todas las temperaturas simuladas. Luego de la deformación puramente elástica existe un decremento en la tensión de Von Mises, lo que sugiere la presencia de plasticidad. En la \fref{C3:fg:sStrain} se provee una estimación del fin del régimen elástico para poder observar mejor este fenómeno. Además, dadas la grandes velocidades de deformación y las grandes deformaciones, se nuclea un poro en la muestra bajo tracción, como vemos en la \fref{C3:fg:voidSeq}, que lleva a grandes fluctuaciones de la tensión luego de aproximadamente 15\% de deformación para T=900K, y luego de deformaciones un poco superiores para el resto de temperaturas.
+La \fref{C3:fg:sStrainTen} grafica tensión de Von Mises versus deformación a todas las temperaturas simuladas. Luego de la deformación puramente elástica existe un decremento en la tensión de Von Mises, lo que sugiere la presencia de plasticidad. En la \fref{C3:fg:sStrain} se provee una estimación del fin del régimen elástico para poder observar mejor este fenómeno. Además, dadas la grandes velocidades de deformación y las grandes deformaciones, se nuclea un poro en la muestra bajo tracción, como vemos en la \fref{C3:fg:voidSeq}, lo cual produce grandes fluctuaciones de tensión luego de aproximadamente 15\% de deformación para T=900K, y luego de deformaciones un poco superiores para el resto de temperaturas.
 
 %Below we present results for purely uniaxial strain, which is appropriate for the comparison with results of experiments at very high strain rates, where lateral strains can be neglected.
 %Figure 1 (a) shows our results for von Mises stress versus strain at all the simulated temperatures. After the purely elastic deformation that occurs up to about 2\% strain, there is a decrease in von Mises tension, suggestive of plasticity. In addition, due to the high strain rates and large stress, there is a void nucleation in the sample under tension, as shown in Figure 2, which leads to large stress fluctuations after about 15\% strain.
@@ -98,14 +98,14 @@ La \fref{C3:fg:sStrainTen} grafica tensión de Von Mises versus deformación a t
 \subfloat[Compresión]{
 	\includegraphics[width=8cm]{Cap_3/Comp_stress_strain_curve.eps}
 	\label{C3:fg:sStrainComp}}
-\caption[Curvas de tensión-deformación a diferentes temperaturas.]{Curvas de tensión-deformación a diferentes temperaturas. Bajo tracción existen grandes fluctuaciones del esfuerzo que comienzan cuando se nuclea un poro a aproximadamente 15\% de deformación. Los círculos denotan una estimación del fin de la deformación elástica, calculada como el punto donde la curva se aleja un 20\% del comportamiento elástico ideal.}
+\caption[Curvas de tensión-deformación a diferentes temperaturas.]{Curvas de tensión-deformación a diferentes temperaturas. Bajo tracción existen grandes fluctuaciones del esfuerzo que comienzan cuando se nuclea un poro a aproximadamente 15\% de deformación. Los círculos sobre las curvas denotan una estimación del fin de la deformación elástica, calculada como el punto donde la curva se aleja un 20\% del comportamiento elástico ideal.}
 \label{C3:fg:sStrain}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/void_sequence.png}
-\caption[Nucleación de un poro bajo tracción a 900 K.]{Nucleación de un poro bajo tracción a 900 K. (a) $\epsilon$ = 0.137 (b) $\epsilon$ = 0.141 (c) $\epsilon$ = 0.145 (d) $\epsilon$ =0.149. Los colores representan la tensión de Von Mises, rojo siendo alta tensión y azul baja tensión. Una nucleación similar es observada a temperaturas más bajas.}
+\caption[Nucleación de un poro bajo tracción a 900 K.]{Nucleación de un poro bajo tracción a 900 K. (a) $\epsilon$ = 0.137 (b) $\epsilon$ = 0.141 (c) $\epsilon$ = 0.145 (d) $\epsilon$ =0.149. Los colores representan la tensión de Von Mises, rojo siendo alta tensión y azul baja tensión. Una nucleación similar es observada a temperaturas más bajas. ???}
 \label{C3:fg:voidSeq}
 \end{figure}
 
@@ -160,9 +160,9 @@ Yield Stress & A & 0.125 $\pm$ 0.002 & 0.985 \\
 \label{C3:tb:initPropsComp}
 \end{table}
 
-Como es de esperarse, el módulo de elasticidad, la tensión máxima de Von Mises y la tensión de fluencia, todos decrecen con el aumento de la temperatura. Obtenemos un comportamiento suave incluso cuando T supera a Tg, como puede verse en las Figuras \ref{C3:fg:youngVsT} a \ref{C3:fg:peakVMises1218VsT}.
+Como es de esperarse, el módulo de elasticidad, la tensión máxima de Von Mises y la tensión de fluencia, todos decrecen con el aumento de la temperatura. Obtenemos un comportamiento suave incluso cuando T supera a $T_g$, como puede verse en las Figuras \ref{C3:fg:youngVsT} a \ref{C3:fg:peakVMises1218VsT}.
 
-%As expected, the elastic modulus, peak von Mises stress and yield stress, all decrease with increasing temperature. We obtained a smooth behavior even when T is above Tg, as seen in Figures 3-6.
+%As expected, the elastic modulus, peak von Mises stress and yield stress, all decrease with increasing temperature. We obtained a smooth behavior even when T is above $T_g$, as seen in Figures 3-6.
 
 \begin{figure}[htp]
 \centering
@@ -187,10 +187,10 @@ Como es de esperarse, el módulo de elasticidad, la tensión máxima de Von Mise
 
 \cite{cheng11} buscó describir el comportamiento de una muestra sometida a esfuerzos cortantes puros al inicio de la plasticidad  como una función de algunas variables, incluyendo la temperatura, basándose en un CSM (modelo de corte cooperativo). Sus cálculos dieron una dependencia de la temperatura de la forma $(T/T_g)^{2/3}$. Tratamos de comparar este comportamiento con nuestros resultados. Simplificando la expresión en \cite{cheng11}, obtuvimos la siguiente expresión:
 
-%\cite{cheng11} attempted to describe the behavior of the onset of plasticity under pure shear, as a function of several variables, including temperature, based on a CSM (cooperative shear model). The resulting temperature dependence was (T/Tg)2/3, and we try to apply this behavior to our results. Simplifying the expression in \cite{cheng11}, we obtain the following expression:
+%\cite{cheng11} attempted to describe the behavior of the onset of plasticity under pure shear, as a function of several variables, including temperature, based on a CSM (cooperative shear model). The resulting temperature dependence was (T/$T_g$)2/3, and we try to apply this behavior to our results. Simplifying the expression in \cite{cheng11}, we obtain the following expression:
 
 \begin{eqnarray}
-\frac{\sigma{}_{y}}{G} = A+B\left( \frac{T}{Tg} \right)^{2/3}
+\frac{\sigma{}_{y}}{G} = A+B\left( \frac{T}{T_g} \right)^{2/3}
 \label{C3:eq:onsetPlast}
 \end{eqnarray}
 
@@ -199,7 +199,7 @@ donde $\sigma{}_{y}$ es la tensión de fluencia, mientras que A y B son parámet
 %where $\sigma{}_{y}$ is the yielding stress, while A and B are parameters of the fit. To obtain the yield stress in our simulations we assume that plasticity starts when the stress-strain curve departs 20\% from the linear elastic behavior extrapolated from very low strains (below $\epsilon$=1\%). In Tables 2-3 we present the values for the coefficients of equation (2) obtained for the curves shown in Figure 6. In this figure we compare the fittings for tension and compression with the result from \cite{johnson05}, who obtained, for experiments under pure shear deformation the following expression:
 
 \begin{eqnarray}
-\frac{\tau _{y}}{G} = 0.036-0.016\left( \frac{T}{Tg} \right)^{0.62}
+\frac{\tau _{y}}{G} = 0.036-0.016\left( \frac{T}{T_g} \right)^{0.62}
 \label{C3:eq:johnsonSamwer}
 \end{eqnarray}
 
@@ -278,7 +278,7 @@ Estas simulaciones son similares a aquellas realizadas sobre nanocables de vidri
 \subfloat[Compresión]{
 	\includegraphics[width=8cm]{Cap_3/300libresComp.png}
 	\label{C3:fg:libresComp}}
-\caption[Simulaciones a tracción y compresión usando condiciones de frontera libres.]{Simulaciones a tracción y compresión usando condiciones de frontera libres. En ambos casos $\epsilon$=0.20. En la muestra a tracción, T=900K, y T=300K a compresión. No se observa estricción en el caso a tracción, posiblemente debido a que la simulación se realizó a una temperatura superior a $T_g$.}
+\caption[Simulaciones a tracción y compresión usando condiciones de frontera libres.]{Simulaciones a tracción y compresión usando condiciones de frontera libres. En ambos casos $\epsilon$=0.20. En la muestra a tracción, T=900K, y T=300K a compresión. No se observa estricción en el caso a tracción, posiblemente debido a que la simulación se realizó a una temperatura superior a $T_g$. ???}
 \label{C3:fg:libres}
 \end{figure}
 
@@ -290,7 +290,7 @@ Estas simulaciones son similares a aquellas realizadas sobre nanocables de vidri
 \subfloat[Sección central de la muestra]{
 	\includegraphics[width=3cm]{Cap_3/crossb.png}
 	\label{C3:fg:crossMiddle}}
-\caption[Sección transversal a diferentes distancias sobre el eje z, para la simulación presentada en la \fref{C3:fg:libres}]{Sección transversal a diferentes distancias sobre el eje z, para la simulación presentada en la \fref{C3:fg:libres}. No se aprecia estricción, incluso a altas deformaciones.}
+\caption[Sección transversal a diferentes distancias sobre el eje z, para la simulación presentada en la \fref{C3:fg:libres}]{Sección transversal a diferentes distancias sobre el eje z, para la simulación presentada en la \fref{C3:fg:libres}. No se aprecia estricción, incluso a altas deformaciones. ???}
 \label{C3:fg:cross}
 \end{figure}
 

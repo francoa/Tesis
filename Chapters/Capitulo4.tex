@@ -4,11 +4,12 @@
 
 \label{C4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Capítulo 4. \emph{PROPIEDADES MECANICAS DE UN BMG CON NANOPARTICULAS CRISTALINAS EMBEBIDAS}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Capítulo 4. \emph{BMG CON NANOPARTICULAS CRISTALINAS EMBEBIDAS}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
+\section{Introducción}
 Al introducir nanopartículas a una matriz amorfa para mejorar las propiedades mecánicas (como se discute en el \cref{C1}) y asegurar efectos perdurables, las inclusiones deberían ser estables en el tiempo, es decir, no difundir en el material amorfo circundante perdiendo así la transición nítida entre cristal y amorfo.
 
-En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio de fase B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los polyedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
+En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio de fase B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los poliedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
 
 Primeramente, en la \sref{S4_2}, se estudia la estabilidad de la inclusión de CuZr (B2), ya que no es necesario estabilizar la fase antes de incrustar los átomos en la muestra, y esto no es posible directamente en LAMMPS. Luego, en la \sref{S4_3_1}, se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento. En la \sref{S4_3_2} se presentan curvas de esfuerzo-deformación para diferentes temperaturas y ambos casos de inclusión cristalina.
 
@@ -21,14 +22,14 @@ Primeramente, en la \sref{S4_2}, se estudia la estabilidad de la inclusión de C
 
 Analizamos inclusiones esféricas de cobre FCC. Una región de 2 nm de radio es eliminada de la muestra en una posición central, la cual fue luego llenada con la red cristalina correspondiente, es decir, una red cristalina FCC con una constante de red de 0.3615 nm. Luego de creados los átomos de Cu en la región esférica, la configuración fue minimizada, luego equilibrada a presión cero por algunos ps, luego calentada (o enfriada) para alcanzar la temperatura final deseada (\textit{T$_{f}$}) durante 4 ps y fue finalmente recocida y templada a \textit{T$_{f}$} por 1 ns.
 
-En esta sección nos centramos en la estabilidad de las nanopartículas a diferentes temperaturas, aunque mostraos algunos casos de sometimiento a tracción y compresión uniaxial. Una velocidad de deformación homogénea de 10$^{9}$/s es aplicada. La Difusividad en todos los casos se calcula ajustando los desplazamientos cuadráticos medios (en inglés Mean Squared Displacements o MSD), $\langle r^{2}\rangle$, obtenidos de LAMMPS.
+En esta sección nos centramos en la estabilidad de las nanopartículas a diferentes temperaturas, aunque mostramos algunos casos de sometimiento a tracción y compresión uniaxial. Una velocidad de deformación homogénea de 10$^{9}$/s es aplicada. La Difusividad en todos los casos se calcula ajustando los desplazamientos cuadráticos medios (en inglés \textit{Mean Squared Displacements} o MSD) $\langle r^{2}\rangle$, obtenidos de LAMMPS.
 
 \section{Creación de un cristal de CuZr de fase B2}
 \label{S4_2}
 
 Para incrustar estas partículas es necesario reemplazar átomos de la muestra original (estudiada en el \cref{C3}) por átomos ordenados del material buscado. LAMMPS permite el llenado directo de una región con estructura FCC, pero no así con fase B2. Es por eso que es necesario  primero crear una pequeña muestra con la estructura buscada de donde tomar el grupo de átomos necesario (en este caso, una esfera) y colocarlo en una región del mismo tamaño en la muestra original.
 
-Creamos para esto un cubo cristalino aislado de 15 celdas unitarias de ancho para verificar el procedimiento, con una constante de celda de 3.50 \AA{}, tomado según \cite{inoue04}. Es este paso se utilizan condiciones de borde periódicas en las tres direcciones. Se realiza un proceso de minimizado de energía y relajación a presión cero. Se crean las velocidades iniciales para lograr una temperatura de 1100 K (\textit{T$_{B2}$}), según \cite{pauly10}, quien indica una temperatura de fase B2 estable entre 988 K y 1200 K. 
+Creamos para esto un cubo cristalino aislado de 15 celdas unitarias de ancho para verificar el procedimiento, con una constante de celda de 3.50 \AA{}, tomado según \cite{inoue04}. En este paso se utilizan condiciones de borde periódicas en las tres direcciones. Se realiza un proceso de minimizado de energía y relajación a presión cero. Se crean las velocidades iniciales para lograr una temperatura de 1100 K (\textit{T$_{B2}$}), según \cite{pauly10}, quien indica una temperatura de fase B2 estable entre 988 K y 1200 K. 
 
 Se equilibra la muestra a presión cero y \textit{T$_{B2}$} en 100 ps, seguido de un recocido a \textit{T$_{B2}$} por 150 ps para ser enfriada rápidamente a 300 K a 10$^{12}$ K/s para igualar la velocidad de enfriamiento de la matriz. Los parámetros de la estructura obtenida se muestran en la \tref{C4:tb:b2CrystalParameters}.
 %We first create an isolated small cubic crystal of 15 lattices wide to verify the procedure with an initial lattice constant of 3.50 \AA{}, according to \cite{inoue04}. Periodic boundaries in all directions are used in this step. This crystal is then minimized and relaxed at zero pressure. Initial velocities are created for a temperature of 1100 K (\textit{T$_{B2}$}), according to \cite{pauly10} who indicates B2 stable phase temperature between 988 K and 1200 K.
@@ -77,7 +78,7 @@ Luego realizamos un recocido de 100 ps a 300 K utilizando el ensamble $NVE$ de u
 \section{Resultados}
 \label{S4_3}
 
-En esta sección analizamos la estabilidad de nanopartículas a diferentes temperaturas, hasta temperaturas cercanas a la transición vítrea. En una primer parte, se presentan los resultados de la estabilidad de la nanopartícula y la difusividad calculada. Para tener un mismo parámetro de comparación, se utilizar los resultados obtenidos para la inclusión de Cu-FCC. Se eligen con esa información el rango de temperaturas y la ventana de tiempo tenida en cuenta. Luego se presenta la respuesta de la muestra ante esfuerzos de carga uniaxiales tanto de tracción como de compresión.
+En esta sección analizamos la estabilidad de nanopartículas a diferentes temperaturas, hasta temperaturas cercanas a la transición vítrea. En una primer parte, se presentan los resultados de la estabilidad de la nanopartícula y la difusividad calculada. Para tener un mismo parámetro de comparación, se utilizan los resultados obtenidos para la inclusión de Cu-FCC. Se eligen con esa información el rango de temperaturas y la ventana de tiempo tenida en cuenta. Luego se presenta la respuesta de la muestra ante esfuerzos de carga uniaxiales tanto de tracción como de compresión.
 
 \subsection{Estabilidad de la Inclusión}
 \label{S4_3_1}

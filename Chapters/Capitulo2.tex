@@ -48,13 +48,13 @@ El estado termodinámico del sistema está definido por ciertos parámetros como
 
 Todas las configuraciones posibles que tienen diferente estado microscópico pero tienen idéntico estado macroscópico o termodinámico se denomina \textbf{ensamble estadístico}. En una simulación de MD, se aplican restricciones o condiciones externas, que determinan el tipo de ensamble, es decir, las sucesivos valores de velocidad y posición que obtenemos en cada paso de la simulación son configuraciones diferentes del mismo ensamble.
 
-Las propiedades termodinámicas se calculan como promedios de ciertas funciones que aplican sobre la configuración del sistema (un \textbf{observable} $\mathbf{\mathcal{A}}(p_{i},q_{i})$) sobre todas las configuraciones posibles.
+Las propiedades termodinámicas se calculan como promedios de ciertas funciones que aplican sobre la configuración del sistema (un \textbf{observable} $\mathbf{\mathcal{A}}(p_{i},q_{i})$) sobre todas las configuraciones posibles:
 
 \begin{equation}
 \langle \mathbf{\mathcal{A}} \rangle _{ens}
 \end{equation}
 
-Esto resulta extremadamente difícil dado el número enorme de configuraciones posibles. Otra forma de calcular el promedio de este observable, es considerar el promedio en el tiempo del mismo, es decir, considerando que los puntos $P_{i}$ de salida de la simulación forman una trayectoria $\mathbf{\Gamma}(t)$ en el espacio de fase, puede calcularse el promedio en el tiempo, como una función de $\mathbf{\Gamma}(t)$:
+Esto resulta extremadamente difícil dado el número enorme de configuraciones posibles. Otra forma de calcular el promedio de este observable es considerar el promedio en el tiempo del mismo. Dicho de otro modo, considerando que los puntos $P_{i}$ de salida de la simulación forman una trayectoria $\mathbf{\Gamma}(t)$ en el espacio de fase, puede calcularse el promedio en el tiempo, como una función de $\mathbf{\Gamma}(t)$:
 
 \begin{equation}
 \langle \mathbf{\mathcal{A}} \rangle _{t} = \frac{1}{\tau_{obs}} \sum_{\tau = 1}^{\tau_{obs}} \mathbf{\mathcal{A}}(\Gamma (t))
@@ -68,7 +68,7 @@ Si bien estos dos promedios se definen de diferente manera, la \textbf{hipótesi
 \footnotetext[2]{El teorema de Birkhoff dice: Sea $V$ un subconjunto del Espacio de Fase $\Omega$ invariante bajo una trasformación $T:V\rightarrow{}V$ y que tiene un volumen generalizado finito. Sea  $\mathbf{\mathcal{A}}$ =  $\mathbf{\mathcal{A}}(P)$, una función de fase, definida para todos los puntos de $V$ e integrable sobre $V$. Entonces el límite $\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt$ existe para casi todos los puntos de $V$}
 \footnotetext[3]{$\frac{1}{\mu{}(V)} \int_{V} \mathbf{\mathcal{A}}(p) dV$ se llama Promedio de Fase de $\mathbf{\mathcal{A}}$ sobre $V$ y es el promedio de la función $\mathbf{\mathcal{A}}$, calculado sobre el conjunto invariante $V$}
 
-Esto quiere decir que podemos calcular propiedades termodinámicas a partir del Promedio de Tiempo de la propiedad de interés, sin tener que calcular el promedio del ensamble. La idea es que con tiempos suficientemente grandes, el sistema pasa por un número de estados suficientemente grande para considerar estos dos promedios iguales.
+Esto quiere decir que podemos calcular propiedades termodinámicas a partir del Promedio de Tiempo de la propiedad de interés, sin tener que calcular el promedio del ensamble. La idea es que con tiempos suficientemente grandes, el sistema pasa por un número de estados suficientemente grande para considerar estos dos promedios iguales:
 
 \begin{equation}
 \langle \mathbf{\mathcal{A}} \rangle _{t} = \langle \mathbf{\mathcal{A}} \rangle _{ens}
@@ -90,7 +90,7 @@ Existen diferentes ensambles, como por ejemplo:
 \section{Potenciales Interatómicos}
 \label{S2_3}
 
-El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciones \ref{C2:eq:pot},\ref{C2:eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
+El grado de semejanza a la realidad que puede tener una simulación de MD depende (entre otros) de que las fuerzas interatómicas simuladas representen las presentes en el material real. Estas fuerzas son calculadas internamente como el gradiente de una \textit{función de energía potencial}, que depende de las posiciones atómicas (Ecuaciones \ref{C2:eq:pot} y \ref{C2:eq:potfza}). Hay que aclarar que esta función puede responder bien a determinadas condiciones o composiciones, pero no a otras: hay que estar seguro de que el potencial es representativo para las condiciones de nuestra simulación.
 \vspace{-0.3pt}
 \begin{align}
 & V(\mathbf{r}_{1},...,\mathbf{r}_{2})
@@ -98,7 +98,6 @@ El grado de semejanza a la realidad que puede tener una simulación de MD depend
 \mathbf{F}_{i} = & -\nabla_{\mathbf{r}_{i}}V(\mathbf{r}_{1},...,\mathbf{r}_{2})
 \label{C2:eq:potfza}
 \end{align}
-
 
 Existen numerosos potenciales utilizados actualmente, algunos más generales que otros y con diferente formulación. Para sistemas complejos, los potenciales se generan en forma tabular, y no se tiene una expresión analítica del mismo, debiendo usarse el que corresponda a nuestra composición y parámetros de simulación.
 
@@ -174,7 +173,7 @@ Sumando las Ecuaciones \ref{C2:eq:VerletTaylor1} y \ref{C2:eq:VerletTaylor2} y r
 \label{C2:eq:VerletPos}
 \end{equation}
 
-La aceleración es calculada mediante el potencial visto anteriormente (\eref{C2:eq:potfza}) como
+La aceleración es calculada mediante el potencial visto anteriormente (\eref{C2:eq:potfza}) como:
 
 \begin{equation}
 \mathbf{a}(t) = \frac{d^{2}\mathbf{r}(t)}{dt^{2}} = -\frac{1}{m}\nabla{}V(\mathbf{r}(t))

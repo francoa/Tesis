@@ -185,7 +185,7 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Simulaci\'on Atom\'istica de Metales Amorfos} % Your thesis title - this is used in the title and abstract
+\thesistitle{Simulaci\'on Atom\'istica de Metales Amorfos ???} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
 \supervisor{Ing. Claudio A. \textsc{Careglio} y\\ Dr. Eduardo M. \textsc{Bringa}} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   

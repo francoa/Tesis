@@ -4,15 +4,15 @@
 
 \label{C5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Capítulo 5. \emph{ESTUDIO DE LAS PROPIEDADES MECANICAS DE UN BMG POROSO SINTERIZADO (NANOVIDRIOS)}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Capítulo 5. \emph{BMG POROSO SINTERIZADO (NANOVIDRIOS)}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
 
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-% \section{Introducción}
-% \label{S5_1}
+\section{Introducción}
+\label{S5_1}
 
 En capítulos anteriores se ha explicado que las grandes deformaciones en vidrios metálicos se deben, normalmente,
 al colapso de zonas de transformación de tensión cortante (STZ) que dan lugar a una o varias bandas de corte (SB).
@@ -26,7 +26,7 @@ brevemente la fundamentación detrás del control de la deformación a través d
 Luego, en la \sref{S5_3}, se detallará el procedimiento utilizado para fabricar muestras de BMG Cu$_{46}$ Zr$_{54}$ con porosidad
 (similar a las muestras de ``nanovidrios'' en otros experimentos y simulaciones \citep{adibi13,albe13}). Finalmente, en la \sref{S5_4},
 se presentarán resultados de simulaciones
-realizadas con dinámica molecular. Las simulaciones de la muestra sometida a esfuerzos uniaxiales nos permitirán analizar los polyedros
+realizadas con dinámica molecular. Las simulaciones de la muestra sometida a esfuerzos uniaxiales nos permitirán analizar los poliedros
 de Voronoi, las tensiones y deformaciones atómicas, así como también la forma en que la porosidad inicial afecta la deformación resultante
 de la muestra.
 
@@ -39,7 +39,7 @@ de la muestra.
 
 En los metales cristalinos la deformación plástica está relacionada al concepto de dislocaciones. Las dislocaciones son imperfecciones lineales en
 la red cristalina \citep{askeland98}, que distorsionan la perfección de la red. El movimiento de las dislocaciones (proceso llamado
-\textit{deslizamiento}) es el que provoca la deformación plástica del material (véase figura~\ref{C5:fg:dislocaciones}).
+\textit{deslizamiento}) es el que provoca la deformación plástica del material (véase \fref{C5:fg:dislocaciones}).
 
 \begin{figure}[h!]
 \centering
@@ -81,7 +81,7 @@ del material para lograr una pieza maciza, fuerte y resistente. La temperatura d
 caso contrario la viscosidad disminuiría demasiado debido al derretimiento del material, imposibilitando la formación de la pieza.
 
 Para la simulación del sinterizado haremos uso, nuevamente, del software LAMPPS. Hemos tomado como punto de partida la misma muestra
-de cobre circonio utilizada con anterioridad (\sref{S1_4}). Utilizamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}
+de cobre circonio utilizada en capítulos anteriores. Utilizamos nuevamente el potencial EAM (método de átomo embebido) \citep{daw84}
 para describir las interacciones entre los átomos y condiciones de frontera periódicas en las tres caras (apropiado para altas velocidades
 de deformación \citep{bringa05} y para simular BMGs de mayor tamaño).
 
@@ -284,12 +284,12 @@ incluso disminuye.
   \label{C5:fg:ss_comp_13}
 \end{figure}
 
-La \fref{C5:fg:tip3} muestra curvas de polyedros de Voronoi versus deformación. El análisis por teselado de Voronoi es una técnica para
-caracterizar el ordenamiento local en vidrios metálicos amorfos, donde cada átomo es el centro de un polyedro de Voronoi,
+La \fref{C5:fg:tip3} muestra curvas de poliedros de Voronoi versus deformación. El análisis por teselado de Voronoi es una técnica para
+caracterizar el ordenamiento local en vidrios metálicos amorfos, donde cada átomo es el centro de un poliedro de Voronoi,
 completado por sus vecinos más cercanos. En \cite{arman10}, los átomos de tipo 3 son identificados como indicadores de plasticidad, por eso
 son de gran importancia.
 
-La \fref{C5:fg:tip3Comp} presenta las curvas de polyedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
+La \fref{C5:fg:tip3Comp} presenta las curvas de poliedros de Voronoi para esfuerzos de compresión. El gráfico muestra una caída en el número
 de los átomos tipo 3, la cual sucede luego de una fase constante. Se ha pensado en este fenómeno como un indicador del inicio de la plasticidad
 \citep{arman10}. Sin embargo, nuestras curvas muestran un resultado contrario a la intuición, ya que la plasticidad comienza antes en las muestras con menor
 porosidad de acuerdo a nuestro análisis. Esto podría ser considerado como un indicador de que hay otros factores o procesos en juego que afectan
@@ -300,7 +300,7 @@ Salta inmediatamente a la vista que los poros actúan como concentradores de ten
 propagación de bandas de corte \citep{wang10}. Las bandas de corte nuclean diagonalmente en el espacio entre poros, y la deformación atómica
 se acumula a lo largo de estas direcciones principales por el resto de la simulación, como puede observarse particularmente bien en la \fref{C5:fg:secuenciadef}. Un endurecimiento de la muestra ocurre algunos momentos previo al cierre total de los poros, tal y como ha apreciado \cite{yuan14} y puede verse en la \fref{C5:fg:PzzComp}.
 
-La \fref{C5:fg:tip3Tens} muestra las curvas de polyedros de Voronoi para esfuerzos de tracción. En esta imagen, los átomos de tipo 3
+La \fref{C5:fg:tip3Tens} muestra las curvas de poliedros de Voronoi para esfuerzos de tracción. En esta imagen, los átomos de tipo 3
 prácticamente no varían en las muestras con porosidad, lo que implicaría que no hay formación de STZs.
 Para la muestra no porosa, el número de átomos tipo 3 se vuelve aproximadamente constante luego de que se ha nucleado el poro. Esto
 nos llevó a pensar que, dada las condiciones de las muestras, se facilita el movimiento de los átomos alrededor de los poros, lo cual evita
@@ -482,6 +482,7 @@ Otro de los cambios que se plantearon en el proceso de sinterizado fue la ubicac
 
 Las Figuras \ref{C5:fg:2sint_SVF}, \ref{C5:fg:2sint_PZZ} y \ref{C5:fg:2sint_VM} muestran, respectivamente, fracción de volumen sólido, presión en el eje de carga y tensión de Von Mises versus deformación, para los dos sinterizados realizados. Nuevamente obtenemos comportamientos muy similares, reforzando lo dicho en el apartado anterior (\ref{C5:relaj}) acerca de que el comportamiento mecánico es más dependiente del volumen de porosidad que de la forma de los poros.
 
+IMAGENES DE LA MUESTRA CON LA FORMA DE LOS POROS ??? DISTINTA TENSION ULTIMA EN TRACCION ???
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
