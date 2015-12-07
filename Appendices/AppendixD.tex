@@ -47,7 +47,7 @@ Suele ser útil, por diversas cuestiones, realizar scripts que ejecuten tareas a
 En este script se indica que se deben ejecutar tres simulaciones en ubicaciones distintas de la computadora, una después de la otra. ¿Qué sucede si, por ejemplo, el script anterior está ejecutándose y algún usuario desea iniciar una nueva simulación? Pueden ocurrir dos cosas:
 
 \begin{itemize}
- \item que el usuario no esté enterado de que los recursos de la computadora estén siendo utilizados y que inicie una nueva simulación, lo cual hará que las dos instancias de lammps peleen por los recursos, provocando una pérdida de velocidad y, en casos extremos, la interrupción de una de las simulaciones.
+ \item que el usuario no esté enterado de que los recursos de la computadora estén siendo utilizados y que inicie una nueva simulación, lo cual hará que las dos instancias de LAMMPS peleen por los recursos, provocando una pérdida de velocidad y, en casos extremos, la interrupción de una de las simulaciones.
  \item que el usuario sepa de la simulación en curso (ya sea porque le hayan avisado o porque haya revisado manualmente el uso de recursos con un comando como \textit{``ps -e''}) y no inicie su nueva simulación.
 \end{itemize}
 
@@ -68,7 +68,7 @@ El código hace uso de tres scripts. Uno de ellos verifica que el estado del pro
 
 \section{Scripts de simulación}
 
-Para realizar las simulaciones de los capítulos \ref{C4} y \ref{C5} se realizó bastante trabajo en los scripts de LAMMPS, resultando en código más complejo que el introducido en el \aref{AA}.
+Para realizar las simulaciones de los Capítulos \ref{C4} y \ref{C5} se realizó bastante trabajo en los scripts de LAMMPS, resultando en código más complejo que el introducido en el \aref{AA}.
 
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -98,11 +98,11 @@ Para realizar las simulaciones de los capítulos \ref{C4} y \ref{C5} se realizó
   %title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
-El siguiente código es uno de los usados en el capítulo \ref{C4}. En este se genera un cristal de CuZr tipo B2.
+El siguiente código es uno de los usados en el \cref{C4}. En este se genera un cristal de CuZr tipo B2.
 
 \lstinputlisting{Scripts/script_simulacion_1}
 
-El siguiente código es uno de los usados en el capítulo \ref{C5}. En este se crean partículas esféricas de material y se sinterizan.
+El siguiente código es uno de los usados en el \cref{C5}. En este se crean partículas esféricas de material y se sinterizan.
 
 \lstinputlisting{Scripts/script_simulacion_2}
 
@@ -135,12 +135,12 @@ El siguiente código es uno de los usados en el capítulo \ref{C5}. En este se c
   %title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
-Los scripts de análisis de datos son los que más trabajo han recibido y, coincidentemente, los que más trabajo pueden ahorrar. Obtener gráficas \textit{``publication ready''}, realizar fits de datos, calcular polyedros de Voronoi son ejemplos de lo que se puede hacer a través de scripts.
+Los scripts de análisis de datos son los que más trabajo han recibido y, coincidentemente, los que más trabajo pueden ahorrar. Obtener gráficas \textit{``publication ready''}, realizar fits de datos, calcular poliedros de Voronoi son ejemplos de lo que se puede hacer a través de scripts.
 
 El siguiente código para Gnuplot realiza un fit de los datos en el archivo \textit{``18StressValues\_fit''}, calcula el valor R cuadrado del fit y obtiene un gráfico \textit{``publication ready''}:
 
 \lstinputlisting[language=Gnuplot]{Scripts/script_analisis_1}
 
-El siguiente código en Python para Ovito obtiene la deformación atómica promedio de cada tipo de polyedro de Voronoi:
+El siguiente código en Python para Ovito obtiene la deformación atómica promedio de cada tipo de poliedro de Voronoi:
 
 \lstinputlisting[language=Python]{Scripts/script_analisis_2.py}

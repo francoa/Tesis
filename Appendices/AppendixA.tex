@@ -20,7 +20,7 @@ Antes que nada, debemos reconocer el tipo de instalación con el que vamos a pro
 
 Las dos opciones más comunes son \textit{Makefile.mpi} y \textit{Makefile.serial}. Cualquiera de éstas opciones debería funcionar en la mayoría de las computadoras con sistemas operativos Linux. Para la primer opción, es necesario contar con MPI (Message Passing Interface). La primer opción es también la más recomendada, ya que con MPI podemos aprovechar la existencia de múltiples núcleos en nuestra computadora.
 
-Determinar el tipo de instalación nos es útil para saber si existe algún prerequisito de instalación. En este caso, optaremos por la instalación con MPI. Debemos preinstalar MPI para poder contar con el comando mpirun y con el compilador mpicxx (o mpicc o mpic++). Una opción es instalando \href{https://www.open-mpi.org/}{Open MPI}.
+Determinar el tipo de instalación nos es útil para saber si existe algún pre-requisito de instalación. En este caso, optaremos por la instalación con MPI. Debemos instalar MPI previamente, para poder contar con el comando mpirun y con el compilador mpicxx (o mpicc o mpic++). Una opción es instalando \href{https://www.open-mpi.org/}{Open MPI}.
 
 \subsection{Elegir los paquetes a instalar}
 \label{AA_1_2}
@@ -31,7 +31,7 @@ A continuación debemos elegir los paquetes a instalar. En la carpeta \textit{\{
  make ps
 \end{lstlisting}
 
-Esto nos dará una lista de los paquetes disponibles y si están incluidos o no en la instalación. Deberemos investigar y decidir qué paquetes nos conviene agregar a la instalación. Para el presente caso dejamos la configuración por default.
+Esto nos dará una lista de los paquetes disponibles y si están incluidos o no en la instalación. Deberemos investigar y decidir qué paquetes nos conviene agregar a la instalación. Para el presente caso dejamos la configuración por defecto.
 
 Para conocer otros comandos disponibles para esta etapa, ejecutar:
 
@@ -42,7 +42,7 @@ Para conocer otros comandos disponibles para esta etapa, ejecutar:
 \subsection{Adaptación del Makefile}
 \label{AA_1_3}
 
-Antes de la instalación, es necesario verificar que el Makefile elegido en la sección \ref{AA_1_1} está configurado correctamente. Abrimos el archivo y revisamos que no se esté incluyendo una librería FFT.
+Antes de la instalación, es necesario verificar que el Makefile elegido en la \sref{AA_1_1} está configurado correctamente. Abrimos el archivo y revisamos que no se esté incluyendo una librería FFT.
 
 Pueden realizarse varias modificaciones más. Para ello es necesario recurrir al \href{http://lammps.sandia.gov/doc/}{manual}.
 
@@ -75,7 +75,7 @@ En la \href{https://github.com/francoa/Tesis/tree/master/Resources}{página web 
   neigh_modify	every 1 delay 2 check yes
 \end{lstlisting}
 
-En la inicialización se setean parámetros que necesitan ser definidos antes de crear o importar los átomos. Del manual de LAMMPS, los comandos relevantes en esta etapa son \textit{units, dimension, newton, processors, boundary, atom\_style, atom\_modify}.
+En la inicialización se establece el valor de algunos parámetros que precisan ser definidos antes de crear o importar los átomos. Del manual de LAMMPS, los comandos relevantes en esta etapa son \textit{units, dimension, newton, processors, boundary, atom\_style, atom\_modify}.
 
 \begin{lstlisting}
 ##(2) Definicion de atomo
@@ -88,7 +88,7 @@ En la inicialización se setean parámetros que necesitan ser definidos antes de
 
 En esta etapa se cargan los átomos para la simulación. Del manual de LAMMPS, hay dos formas de definir átomos: importarlos de un archivo mediante el comando \textit{read\_data o read\_restart}, crear átomos en una estructura cristalina mediante los comandos \textit{lattice, region, create\_box, create\_atoms}.
 
-Luego de esta etapa, se setean el resto de parámetros necesarios para llevar a cabo la simulación: velocidades iniciales, potenciales utilizados, paso de tiempo, restricciones en temperatura, presión o volumen (fixes), archivos de salida, etc. 
+Luego de esta etapa, se establece el valor el resto de parámetros necesarios para llevar a cabo la simulación: velocidades iniciales, potenciales utilizados, paso de tiempo, restricciones en temperatura, presión o volumen (fixes), archivos de salida, etc. 
 
 Finalmente, el comando \textit{run} indica que debe realizarse la simulación.
 
@@ -98,7 +98,7 @@ Para ejecutar el script, debe utilizarse el siguiente comando:
 mpirun -np 8 lmp_mpi < Lammps_scriptDePrueba.txt 
 \end{lstlisting}
 
-Donde el número 8 debe ser reemplazado por el número de núcleos que se tengan en la computadora. El script en la página web de la Tesis sirve sólo a efectos informativos. Éste no podrá ser ejecutado ya que no hemos incluído los archivos de átomos y potenciales.
+Donde el número 8 debe ser reemplazado por el número de núcleos que se tengan en la computadora. El script en la página web de la Tesis sirve sólo a efectos informativos. Éste no podrá ser ejecutado ya que no hemos incluido los archivos de átomos y potenciales.
 
 \subsection{Configuración de los archivos de salida}
 \label{AA_2_1}

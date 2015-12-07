@@ -6,14 +6,14 @@
 
 \lhead{Anexo B. \emph{OVITO}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
-Ciertas imágenes (por ejemplo la figura \ref{C5:fg:ss_comp_3}) fueron realizadas utilizando el software Ovito \citep{stukowski10}. En el presente apéndice explicaremos cómo obtener dichas imágenes y daremos recomendaciones para mejorar el uso del software. Como condición previa es necesario haber instalado y ejecutado LAMMPS (\aref{AA}), ya que Ovito trabaja, entre otras cosas, con los archivos de salida de éste.
+Ciertas imágenes fueron realizadas utilizando el software Ovito \citep{stukowski10}. En el presente apéndice explicaremos cómo obtener dichas imágenes y daremos recomendaciones para mejorar el uso del software. Como condición previa es necesario haber instalado y ejecutado LAMMPS (\aref{AA}), ya que Ovito trabaja, entre otras cosas, con los archivos de salida de éste.
 
 \section{Instalación}
 \label{AB_1}
 
-Ovito es una software libre para la visualización. Es posible descargarlo para diversas plataformas en el \href{http://www.ovito.org/index.php/download}{sitio web}. Siendo usuarios linux, explicaremos únicamente para un sistema operativo tipo linux.
+Ovito es una software libre para la visualización. Es posible descargarlo para diversas plataformas en el \href{http://www.ovito.org/index.php/download}{sitio web}. Siendo usuarios Linux, explicaremos únicamente para un sistema operativo tipo Linux.
 
-La instalación de Ovito es considerablemente más sencilla que la de LAMMPS. Basta con descomprimir el archivo descargado y ejecutar \textit{bin/ovito}. Sin embargo puede ser útil copiar las carpetas \textit{bin}, \textit{lib} y \textit{share} a \textit{usr/local/} para poder acceder a los ejecutables a través de línea de comando sin tener que acceder a la carpeta descargada.
+La instalación de Ovito es considerablemente más sencilla que la de LAMMPS. Basta con descomprimir el archivo descargado y ejecutar \textit{bin/ovito}. Sin embargo puede ser útil copiar las carpetas \textit{bin}, \textit{lib} y \textit{share} a \textit{usr/local/} para poder acceder a los ejecutables a través de línea de comandos sin tener que acceder a la carpeta descargada.
 
 En ocasiones puede ser útil descargar el código fuente, puesto que podemos contar con actualizaciones del código de Ovito para las cuales tendríamos que esperar hasta que se presente la siguiente versión estable. Para ello, accedemos al \href{http://sourceforge.net/p/ovito/git/ci/master/tree/}{repositorio Git en Sourceforge.net}, descargamos el archivo y seguimos las \href{http://www.ovito.org/manual/development.build_linux.html}{instrucciones}.
 
@@ -42,27 +42,26 @@ make -j4
 \section{Análisis de archivos de LAMMPS}
 \label{AB_2}
 
-Para esta sección hemos realizado un video explicativo. El mismo puede observarse \href{https://youtu.be/iGieWcpcQmQ}{aquí}.
+Para esta sección hemos realizado un vídeo explicativo. El mismo puede observarse \href{https://youtu.be/iGieWcpcQmQ}{aquí}.
 
-En este video se explican detalles sobre el manejo de ovito así como también se explican algunas de las herramientas de análisis utilizadas en la presente tesis. A continuación detallaremos algunas de las herramientas de análisis utilizadas. El uso de algunas de éstas puede observarse en el video explicativo. Para mayores detalles, referirse al \href{http://www.ovito.org/manual/particles.modifiers.html}{manual de Ovito}.
+En este vídeo se explican detalles sobre el manejo de Ovito así como también se explican algunas de las herramientas de análisis utilizadas en la presente tesis. A continuación detallaremos algunas de las herramientas de análisis utilizadas. El uso de algunas de éstas puede observarse en el vídeo explicativo. Para mayores detalles, referirse al \href{http://www.ovito.org/manual/particles.modifiers.html}{manual de Ovito}.
 
 \begin{itemize}
  \item \textbf{Construct Surface Mesh}:
 \end{itemize}
-Este modificador construye una red de polyedros alrededor de las partículas. Dicha red es una representación de la superficie, tanto externa como interna, de la muestra. En el capítulo~\ref{C5} lo hemos utilizado para obtener la porosidad de la muestra. El parámetro más importante a configurar para este modificador es \textit{Probe sphere radius}. Este parámetro define el tamaño de polyedros que se utilizará para formar la red. Si le damos un valor muy bajo, el modificador podría tomar el espacio entre átomos vecinos como una superficie, llenandose la superficie de ruido. Con un valor muy alto se corre el riesgo de pasar por alto algún poro. En el video configuramos este parámetro con el valor 2,5.
+Este modificador construye una red de poliedros alrededor de las partículas. Dicha red es una representación de la superficie, tanto externa como interna, de la muestra. En el \cref{C5} lo hemos utilizado para obtener la porosidad de la muestra. El parámetro más importante a configurar para este modificador es \textit{Probe sphere radius}. Este parámetro define el tamaño de poliedros que se utilizará para formar la red. Si le damos un valor muy bajo, el modificador podría tomar el espacio entre átomos vecinos como una superficie, llenándose la superficie de ruido. Con un valor muy alto se corre el riesgo de pasar por alto algún poro. En el vídeo configuramos este parámetro con el valor 2,5.
 
 \begin{itemize}
  \item \textbf{Atomic Strain}:
 \end{itemize}
-Este modificador calcula los tensores de deformación a nivel atómico, basado en la diferencia entre la configuración actual de la muestra y la configuración inicial. Ovito utiliza el procedimiento descripto en \cite{shimizu07} y \cite{Falk98} para el cálculo de los tensores. Los tensores de deformación se calculan localmente para cada partícula en función de los desplazamientos relativos de los átomos vecinos. El parámetro \textit{Cutoff radius} sirve para configurar la distancia a la cual los átomos dejan de ser considerados \textit{vecinos}. En el video configuramos este parámetro con el valor 5, además de utilizar otras configuraciones adicionales.
+Este modificador calcula los tensores de deformación a nivel atómico, basado en la diferencia entre la configuración actual de la muestra y la configuración inicial. Ovito utiliza el procedimiento descripto en \cite{shimizu07} y \cite{Falk98} para el cálculo de los tensores. Los tensores de deformación se calculan localmente para cada partícula en función de los desplazamientos relativos de los átomos vecinos. El parámetro \textit{Cutoff radius} sirve para configurar la distancia a la cual los átomos dejan de ser considerados \textit{vecinos}. En el vídeo configuramos este parámetro con el valor 5, además de utilizar otras configuraciones adicionales.
 
 \begin{itemize}
  \item \textbf{Voronoi Analysis}:
 \end{itemize}
-Este modificador calcula la teselación de Voronoi de la muestra, tomando los átomos como centros de polyedros de Voronoi. La configuración utilizada en el video es la que se detalla en la tabla~\ref{AB:tbl:conf}. Tomamos esta configuración porque es la que nos ha dado los resultados más similares a otros resultados obtenidos previamente con voro++ \citep{Rycroft09}. Si bien ovito hace uso de voro++ para el cálculo de polyedros, valores diferentes en algunos parámetros, especialmente en los relacionados con el cutoff y el uso de los radios de las partículas, pueden resultar en variaciones en los resultados.
+Este modificador calcula la teselación de Voronoi de la muestra, tomando los átomos como centros de poliedros de Voronoi. La configuración utilizada en el vídeo es la que se detalla en la \tref{AB:tbl:conf}. Tomamos esta configuración porque es la que nos ha dado los resultados más similares a otros resultados obtenidos previamente con voro++ \citep{Rycroft09}. Si bien Ovito hace uso de voro++ para el cálculo de poliedros, valores diferentes en algunos parámetros, especialmente en los relacionados con el \textit{cutoff} y el uso de los radios de las partículas, pueden resultar en variaciones en los resultados.
 
 \begin{table}[htp]
-\caption[Configuración del modificador de Voronoi.]{Configuración del modificador de Voronoi.}
 \begin{center}
 \begin{tabular}{c C{6cm}}
 \hline
@@ -76,13 +75,14 @@ Use particle radii & Destildado \\ \hline
 Use only selected particles & Destildado \\ \hline
 \end{tabular}
 \end{center}
+\caption[Configuración del modificador de Voronoi]{Configuración del modificador de Voronoi.}
 \label{AB:tbl:conf}
 \end{table}
 
 \section{Automatización}
 \label{AB_3}
 
-Una herramienta poderosa para automatizar el cálculo es utilizar scripts. En la carpeta \textit{bin} de ovito hay un ejecutable (\textit{ovito}) y un script bash (\textit{\href{http://www.ovito.org/manual/python/introduction/running.html}{ovitos}}). Este último sirve para interpretar scripts escritos en lenguaje \textit{python}. 
+Una herramienta poderosa para automatizar el cálculo es utilizar scripts. En la carpeta \textit{bin} de Ovito hay un ejecutable (\textit{ovito}) y un script bash (\textit{\href{http://www.ovito.org/manual/python/introduction/running.html}{ovitos}}). Este último sirve para interpretar scripts escritos en lenguaje \textit{python}. 
 
 En el \href{https://github.com/francoa/Tesis/tree/master/Resources}{sitio web} de la Tesis es posible encontrar un script de ejemplo llamado \textit{Ovito\_scriptDePrueba.py}. El mismo importa archivos de una simulación de una muestra porosa presentes en la carpeta \textit{datasets}, y luego calcula la porosidad y el número de átomos con un \textit{atomic strain} superior a 0.2 a lo largo de la simulación. Estos cálculos se presentan en 2 columnas en un archivo de salida llamado \textit{Ovito\_scriptDePrueba.out}, el cual puede ser utilizado posteriormente para graficar con gnuplot.
 
