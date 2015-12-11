@@ -104,8 +104,14 @@ La \fref{C3:fg:sStrainTen} grafica tensión de Von Mises versus deformación a t
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=10cm]{Cap_3/void_sequence.png}
-\caption[Nucleación de un poro bajo tracción a 900 K.]{Nucleación de un poro bajo tracción a 900 K. (a) $\epsilon$ = 0.137 (b) $\epsilon$ = 0.141 (c) $\epsilon$ = 0.145 (d) $\epsilon$ =0.149. Los colores representan la tensión de Von Mises, rojo siendo alta tensión y azul baja tensión. Una nucleación similar es observada a temperaturas más bajas. ???}
+\begin{tabular}{C{10cm} c}
+\includegraphics[width=10cm]{Cap_3/Poro_900_90000light_100-400.png} & \\
+\includegraphics[width=10cm]{Cap_3/Poro_900_94000light_100-400.png} &  \multirow{3}{*}{\includegraphics[width=2cm]{Cap_3/scale.png}}\\
+\includegraphics[width=10cm]{Cap_3/Poro_900_96000light_100-400.png} & \\
+\includegraphics[width=10cm]{Cap_3/Poro_900_98000light_100-400.png} & \\
+\includegraphics[width=10cm]{Cap_3/Poro_900_100000light_100-400.png} & 
+\end{tabular}
+\caption[Nucleación de un poro bajo tracción a 900 K.]{Nucleación de un poro bajo tracción a 900 K. Los valores de deformación son, de arriba a abajo: $\epsilon$ = 0.140, $\epsilon$ = 0.144, $\epsilon$ = 0.146, $\epsilon$ =0.148 y $\epsilon$ =0.15. Una nucleación similar es observada a temperaturas más bajas.}
 \label{C3:fg:voidSeq}
 \end{figure}
 
@@ -113,10 +119,9 @@ Calculamos las propiedades mecánicas y proponemos la siguiente forma funcional 
 
 %We calculate mechanical properties, and propose the following simple functional form as an approximation for the thermal behavior:
 
-\begin{eqnarray}
+\begin{equation}\label{C3:eq:thermalFit}
 y = A_{1}\cdot \mathrm{e}^{\frac{-T}{T_{0}}}
-\label{C3:eq:thermalFit}
-\end{eqnarray}
+\end{equation}
 
 donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente usada para fenómenos activados térmicamente. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos los valores para los coeficientes de la \eref{C3:eq:thermalFit} obtenidos de las curvas mostradas en las Figuras \ref{C3:fg:youngVsT} a \ref{C3:fg:peakVMises1218VsT}. Puede verse que las regresiones son razonables. El coeficiente de correlación ($R^2$) es mayor a 0.9 en todos los casos, haciendo razonable nuestra aproximación funcional simple.
 	
@@ -189,19 +194,17 @@ Como es de esperarse, el módulo de elasticidad, la tensión máxima de Von Mise
 
 %\cite{cheng11} attempted to describe the behavior of the onset of plasticity under pure shear, as a function of several variables, including temperature, based on a CSM (cooperative shear model). The resulting temperature dependence was (T/$T_g$)2/3, and we try to apply this behavior to our results. Simplifying the expression in \cite{cheng11}, we obtain the following expression:
 
-\begin{eqnarray}
+\begin{equation}\label{C3:eq:onsetPlast}
 \frac{\sigma{}_{y}}{G} = A+B\left( \frac{T}{T_g} \right)^{2/3}
-\label{C3:eq:onsetPlast}
-\end{eqnarray}
+\end{equation}
 
 donde $\sigma{}_{y}$ es la tensión de fluencia, mientras que A y B son parámetros que se deben ajustar. Para obtener la tensión de fluencia en nuestras simulaciones utilizamos la siguiente regla: asumimos que la plasticidad comienza cuando la curva esfuerzo-deformación se aleja un 20\% del comportamiento elástico, el cual lo extrapolamos a partir de puntos obtenidos a deformaciones muy bajas (menores a $\epsilon$=1\%). En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos valores para los coeficientes de la \eref{C3:eq:onsetPlast} obtenidos para las curvas que se muestran en la \fref{C3:fg:fitDosTercios}. En esta figura comparamos las curvas ajustadas para tracción y compresión con el resultado de \cite{johnson05}, quien obtuvo, para  deformación cortante pura, la siguiente expresión:
 
 %where $\sigma{}_{y}$ is the yielding stress, while A and B are parameters of the fit. To obtain the yield stress in our simulations we assume that plasticity starts when the stress-strain curve departs 20\% from the linear elastic behavior extrapolated from very low strains (below $\epsilon$=1\%). In Tables 2-3 we present the values for the coefficients of equation (2) obtained for the curves shown in Figure 6. In this figure we compare the fittings for tension and compression with the result from \cite{johnson05}, who obtained, for experiments under pure shear deformation the following expression:
 
-\begin{eqnarray}
+\begin{equation}\label{C3:eq:johnsonSamwer}
 \frac{\tau _{y}}{G} = 0.036-0.016\left( \frac{T}{T_g} \right)^{0.62}
-\label{C3:eq:johnsonSamwer}
-\end{eqnarray}
+\end{equation}
 
 donde $\tau _{y}$ es la tensión de fluencia cortante. Observamos que la \eref{C3:eq:onsetPlast} puede aproximar relativamente bien tanto la tracción como la compresión uniaxial. Hay ciertas discrepancias con la aproximación experimental de la \eref{C3:eq:johnsonSamwer}, pero notamos que los coeficientes de la aproximación tienen grandes márgenes de error, y los datos muestran mucha dispersión. Por ejemplo, el exponente es 0.62 $\pm$ 0.2.
 	
