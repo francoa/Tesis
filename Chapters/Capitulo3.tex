@@ -251,51 +251,60 @@ La \fref{C3:fg:sampleComp} muestra que, de igual manera que en la muestra bajo t
 \label{C3:fg:sampleComp}
 \end{figure}
 
-Respecto a las bandas de corte, como se mencionó previamente, es posible observarlas graficando la deformación atómica de la muestra. Para esto se utiliza la herramienta Ovito, la cual utiliza el procedimiento descripto en \cite{shimizu07} para calcular la deformación atómica. La \fref{C3:fg:SBs} muestra el resultado.
+Respecto a las bandas de corte, como se mencionó previamente, es posible observarlas graficando la deformación atómica en vez de la tensión de Von Mises. Para esto se utiliza la herramienta Ovito, la cual utiliza el procedimiento descripto en \cite{shimizu07} para calcular la deformación atómica. La \fref{C3:fg:SBs} muestra el resultado.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/ShearBand.png}
-\caption[Corte de la muestra a $\epsilon$=14\%, bajo compresión uniaxial, a T=300 K.]{Corte de la muestra a $\epsilon$=14\%, bajo compresión uniaxial, a T=300 K. Los colores representan la deformación atómica. La visualización fue realizada con Ovito \citep{stukowski10}. Se eliminan los efectos de la deformación homogénea para poder apreciar mejor la deformación heterogénea producto de las bandas de corte.}
+\caption[Corte de la muestra a $\epsilon$=14\%, bajo compresión uniaxial, a T=300 K.]{Corte de la muestra a $\epsilon$=14\%, bajo compresión uniaxial, a T=300 K. La visualización fue realizada con Ovito \citep{stukowski10}. Se eliminan los efectos de la deformación homogénea para poder apreciar mejor la deformación heterogénea producto de las bandas de corte.}
 \label{C3:fg:SBs}
 \end{figure}
 
-Es posible apreciar que las bandas de corte se forman con una dirección predominantemente diagonal, a prácticamente $45º$ con respecto a la dirección de aplicación de la fuerza. Las bandas de corte representan deformación heterogénea, lo cual puede llevar a la falla frágil del material. Esto es algo importante a tener en cuenta ya que puede reducir considerablemente la vida útil del material. En capítulos subsiguientes trataremos algunos métodos para retardar la propagación de bandas de corte.
+Es posible apreciar que hay bandas de corte incipientes que se forman con una dirección predominantemente diagonal, a prácticamente $45º$ con respecto a la dirección de aplicación de la fuerza. Las bandas de corte representan deformación heterogénea, lo cual puede llevar a la falla frágil del material. Esto es algo importante a tener en cuenta ya que puede reducir considerablemente la vida útil del material. En capítulos subsiguientes trataremos algunos métodos para retardar la propagación de bandas de corte.
 
 \subsection{Simulación de la muestra con condiciones de frontera libres.}
 \label{S3_3_2}
 
-Para investigar la influencia de las condiciones de borde, se realizaron simulaciones con condiciones de frontera laterales libres, como se muestra en la \fref{C3:fg:libres}. Bajo tracción, \fref{C3:fg:libresTen}, hay una pequeña disminución de la sección transversal de la muestra, como era de esperar. Esto puede ser observado con mayor detalle en la \fref{C3:fg:cross}. También podemos observar que la forma de la sección transversal cambia de rectangular a elíptica, debido a un efecto de minimización de la energía de superficie.
+Para investigar la influencia de las condiciones de borde, se realizaron simulaciones con condiciones de frontera laterales libres. Estas simulaciones son similares a aquellas realizadas sobre nanocables de vidrio metálico en \cite{xiao12}.
+
+Bajo tracción, \fref{C3:fg:libresTen}, hay una pequeña disminución de la sección transversal de la muestra, como era de esperar. Esto puede ser observado con mayor detalle en la \fref{C3:fg:cross}. También podemos observar que la forma de la sección transversal cambia de rectangular a elíptica, debido a un efecto de minimización de la energía de superficie. Bajo compresión, \fref{C3:fg:libresComp}, se observa pandeo.
 
 %To verify that the absence of shear bands is not due to periodic conditions during deformation, simulations were carried out with free lateral boundary conditions, as shown in Figure 10. Under tension there is a slight decrease in the cross section of the sample, as expected. This is shown in Figure 11. We can also observe that the shape of the cross section has changed from rectangular to elliptical, due to surface energy minimization.
 
-Estas simulaciones son similares a aquellas realizadas sobre nanocables de vidrio metálico en \cite{xiao12}. Bajo compresión, \fref{C3:fg:libresComp}, se observa pandeo. En ninguno de los casos se observan bandas de corte al graficar la tensión de Von Mises.
+\begin{figure}[htp]
+\centering
+\includegraphics[width=12cm]{Cap_3/Pseudo_Free_Boundaries_ShearStrain_0_035_300K_20strain.png}
+\caption[Simulación a tracción usando condiciones de frontera libres]{Simulación a tracción usando condiciones de frontera libres. $\epsilon$=0.20, T=300K.}
+\label{C3:fg:libresTen}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\subfloat[Sección próxima al extremo, $\epsilon$=0.]{
+	\includegraphics[width=3cm]{Cap_3/Pseudo_Free_Boundaries_0strain_transversal.png}
+	\label{C3:fg:crossExtreme0}}
+\subfloat[Sección próxima al extremo, $\epsilon$=0.20.]{
+	\includegraphics[width=3cm]{Cap_3/Pseudo_Free_Boundaries_20strain_transversal_esquina.png}
+	\label{C3:fg:crossExtreme020}}
+\subfloat[Sección central de la muestra, $\epsilon$=0.20.]{
+	\includegraphics[width=3cm]{Cap_3/Pseudo_Free_Boundaries_20strain_transversal_centro.png}
+	\label{C3:fg:crossMiddle020}}
+\caption[Sección transversal a diferentes distancias sobre el eje z usando condiciones de frontera libres]{Sección transversal a diferentes distancias sobre el eje z, para la simulación presentada en la \fref{C3:fg:libresTen}. No se aprecia estricción, incluso a altas deformaciones.}
+\label{C3:fg:cross}
+\end{figure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=12cm]{Cap_3/Pseudo_Free_Boundaries_ShearStrain_005_046_300K_15strain.png}
+\caption[Simulación a compresión usando condiciones de frontera libres]{Simulación a compresión usando condiciones de frontera libres. $\epsilon$=0.15, T=300K.}
+\label{C3:fg:libresComp}
+\end{figure}
+
+En el caso de tracción la formación de bandas de corte es más evidente que en la simulación con condiciones de frontera periódicas (\fref{C3:fg:SBs}). Existen dos bandas de corte principales, las cuales se orientan a $45º$ con respecto a la dirección de aplicación de la fuerza. También se observa que las SB se encuentran en un punto en común, lo cual hace pensar que algún defecto de superficie puede haber sido el catalizador de la deformación heterogénea. En el caso de compresión la máxima deformación se da en las zonas de mayor curvatura debido al pandeo de la muestra. La deformación es superior en el lado que se encuentra comprimido, como bien puede observarse en la \fref{C3:fg:libresComp}.
 
 %These simulations are similar to those of metallic glass nanowires seen in \cite{xiao12}. Under compression, buckling is observed. In both cases there is a lack of shear bands, as expected with the cooling rates used in our samples.
 
-\begin{figure}[htp]
-\centering
-\subfloat[Tracción]{
-	\includegraphics[width=8cm]{Cap_3/900libresTen.png}
-	\label{C3:fg:libresTen}}
-\subfloat[Compresión]{
-	\includegraphics[width=8cm]{Cap_3/300libresComp.png}
-	\label{C3:fg:libresComp}}
-\caption[Simulaciones a tracción y compresión usando condiciones de frontera libres]{Simulaciones a tracción y compresión usando condiciones de frontera libres. En ambos casos $\epsilon$=0.20. En la muestra a tracción, T=900K, y T=300K a compresión. No se observa estricción en el caso a tracción, posiblemente debido a que la simulación se realizó a una temperatura superior a $T_g$. ???}
-\label{C3:fg:libres}
-\end{figure}
 
-\begin{figure}[htp]
-\centering
-\subfloat[Sección próxima al extremo]{
-	\includegraphics[width=3cm]{Cap_3/crossa.png}
-	\label{C3:fg:crossExtreme}}
-\subfloat[Sección central de la muestra]{
-	\includegraphics[width=3cm]{Cap_3/crossb.png}
-	\label{C3:fg:crossMiddle}}
-\caption[Sección transversal a diferentes distancias sobre el eje z usando condiciones de frontera libres]{Sección transversal a diferentes distancias sobre el eje z, para la simulación presentada en la \fref{C3:fg:libres}. No se aprecia estricción, incluso a altas deformaciones. ???}
-\label{C3:fg:cross}
-\end{figure}
 
 %\section{Conclusiones}
 
