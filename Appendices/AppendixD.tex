@@ -39,6 +39,7 @@
 \lhead{Anexo D. \emph{SCRIPTS}} % Change X to a consecutive letter; this is for the header on each page - perhaps a shortened title
 
 \section{Scripts de secuenciación de tareas}
+\label{AD_Sec}
 
 Suele ser útil, por diversas cuestiones, realizar scripts que ejecuten tareas automáticamente. Ya sea debido a la falta de tiempo o la falta de conexión remota, es más eficiente comenzar varias simulaciones de una sóla vez que comenzar varias veces una simulación. Por ello nos hemos servido de scripts que realizan la tarea de comenzar simulaciones por nosotros. Un ejemplo de estos scripts es el siguiente:
 
@@ -67,6 +68,7 @@ El código hace uso de tres scripts. Uno de ellos verifica que el estado del pro
 \lstinputlisting[language=bash]{Scripts/simuStack/Scripts/updateRestart}
 
 \section{Scripts de simulación}
+\label{AD_Sim}
 
 Para realizar las simulaciones de los Capítulos \ref{C4} y \ref{C5} se realizó bastante trabajo en los scripts de LAMMPS, resultando en código más complejo que el introducido en el \aref{AA}.
 
@@ -106,8 +108,8 @@ El siguiente código es uno de los usados en el \cref{C5}. En este se crean part
 
 \lstinputlisting{Scripts/script_simulacion_2}
 
-\section{Scripts de análisis de datos}
-
+\section{Scripts de análisis de datos y generación de gráficas}
+\label{AD_Pub}
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   %basicstyle=\footnotesize,        % the size of the fonts that are used for the code
@@ -144,3 +146,11 @@ El siguiente código para Gnuplot realiza un fit de los datos en el archivo \tex
 El siguiente código en Python para Ovito obtiene la deformación atómica promedio de cada tipo de poliedro de Voronoi:
 
 \lstinputlisting[language=Python]{Scripts/script_analisis_2.py}
+
+El siguiente código en Python se utilizó para generar gráficas de tensión-deformación:
+
+\lstinputlisting[language=Python]{Scripts/plot_stress_strain.py}
+
+El siguiente código en Python se utilizó para unir dos grupos de átomos y generar una nueva muestra:
+
+\lstinputlisting[language=Python]{Scripts/mix.py}

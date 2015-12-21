@@ -281,3 +281,92 @@ T_{\tau} - T_{\tau{}-1} &= (\lambda{}^{2}-1)T_{\tau{}-1}\\
 \end{align}
 
 donde $T_{\tau{}-1}$ es la temperatura del paso de tiempo $\tau{}-1$ ya calculado y $T_{\tau}$ es la nueva temperatura.
+
+\section{Scripting para pre y post-procesamiento}
+
+Para facilitar el procesamiento de datos, se desarrollaron diversos programas que de alguna manera asisten en las etapas presentes en un estudio atomístico. Podemos diferenciar por ejemplo:
+
+\begin{itemize}
+ \item Pre-procesamiento de la muestra
+ \item Preparación del script de simulación en LAMMPS
+ \item Secuenciación de tareas
+ \item Generación de gráficas de calidad de publicación
+ \item Análisis de Voronoi
+\end{itemize}
+
+Se explicará cada uno de estos puntos, y un detalle del código escrito puede encontrarse en el \aref{AD}.
+
+\subsection{Pre-procesamiento de la muestra}
+
+Como ejemplo de pre-procesamiento, se indica parte del código utilizado para colocar una esfera cristalina obtenida de un cristal prismático, dentro de una muestra de vidrio metálico.
+
+\begin{enumerate}
+ \item Extraer la cabecera de los archivos para que los mismos  comiencen con los datos de interés
+ \item Extraer los identificadores de las partículas contenidas en la región esférica deseada \\
+ \begin{lstlisting}
+ awk -f extract_sphere_from_BMG Cu_Zr_160K.dat > SPHERE_IDS
+  \end{lstlisting}
+  siendo \lstinline[language=bash]|extract_sphere_from_BMG|:\\  
+ \lstinputlisting[language=bash]{Scripts/extract_sphere_from_BMG}
+ \item Extraer átomos de una esfera del mismo tamaño, del cristal prismático \\
+  \begin{lstlisting}
+ awk -f extract_sphere_from_B2_crystal CuZrB2Crystal.dat > SPHERE_ATOMS
+  \end{lstlisting}
+  siendo \lstinline[language=bash]|extract_sphere_from_B2_crystal|:\\  
+  \lstinputlisting[language=bash]{Scripts/extract_sphere_from_B2_crystal}
+  \item Reemplazar los átomos extraídos de la muestra original con los átomos del cristal \\
+  \begin{lstlisting}
+   python mix.py > NEW_ATOMS
+  \end{lstlisting}
+  (el detalle de \lstinline[language=bash]|mix.py| puede encontrarse en el \aref{AD} \sref{AD_Pub})
+  %siendo \lstinline[language=bash]|mix.py|: \\
+  %\lstinputlisting[language=Python]{Scripts/mix.py}
+  \item Unir la muestra original sin los átomos de la región esférica extraida con los nuevos átomos \\  
+  \begin{lstlisting}
+   cat BMG_DATA_SPHERE_CUT > BMG_WITH_INCLUSION
+   cat NEW_ATOMS >> BMG_WITH_INCLUSION
+  \end{lstlisting}
+  \item Agregar la cabecera correspondiente
+\end{enumerate}
+
+
+\subsection{Preparación del script de simulación en LAMMPS}
+
+En cada simulación se deben indicar los diferentes parámetros que describen el experimento. Una lista no exhaustiva es presentada a continuación:
+
+\begin{itemize}
+ \item Unidades utilizadas
+ \item Condiciones de borde (periódicas, no-periódicas)
+ \item Tipo de átomo (indica los campos a leer y escribir en archivos)
+ \item Átomos iniciales (lectura del archivo de la muestra)
+ \item Masas de los diferentes átomos
+ \item Datos de salida globales
+ \item Datos de salida particulares
+ \item Temperatura inicial
+ \item Ensamble estadístico utilizado
+ \item Paso de tiempo de cada paso de simulación
+ \item Deformaciones aplicadas
+\end{itemize}
+
+Para los siete primeros puntos puede consultarse el \aref{AA}, donde se presenta de manera general los scripts de simulación y sus comandos. Ejemplos de la declaración de los cuatro últimos se pueden encontrar en el \aref{AD} \sref{AD_Sim}. Siempre se encuentra disponible el \href{http://lammps.sandia.gov/doc/Manual.html}{manual} de LAMMPS para ver en detalle la utilización de cada uno de los comandos.
+
+\subsection{Secuenciación de tareas}
+
+Al tener diversos casos de simulación (diferentes temperaturas, diferentes modos de carga, etc) se presenta la posibilidad de escribir códigos que permitan llevar adelante una cola de simulaciones programadas para no intervenir manualmente al finalizar cada una de ellas. Se desarrolla entonces un pequeño programa encargado de:
+
+\begin{itemize}
+ \item Iniciar automáticamente una simulación al agregar el comando de la misma en un archivo de texto
+ \item Reiniciar una simulación que se ha interrumpido
+ \item Escribir a un archivo \textit{log} el detalle de operaciones realizado
+ \item Asignar nombres relevantes a los archivos de salida generados (según el último paso de tiempo)
+\end{itemize}
+
+El detalle de este código puede encontrarse en el \aref{AD} \sref{AD_Sec}.
+
+\subsection{Generación de gráficas de calidad de publicación}
+
+Como la presentación de resultados es una parte importante de todo toda investigación, se le dio importancia a la obtención de gráficos de buena calidad (\textit{publication ready} como se suele decir en inglés). Diversas herramientas fueron utilizadas, como \href{http://www.originlab.com}{Origin}, \href{https://www.r-project.org/}{R}, \href{http://www.gnuplot.info/}{Gnuplot} y \href{https://www.python.org/}{Python}. En el \aref{AD} \sref{AD_Pub} encontramos algunos ejemplos.
+
+\subsection{Análisis de Voronoi}
+
+Mediante Ovito \citep{stukowski10} pueden escribiste scripts en Python que automaticen diferentes análisis en un modo secuencial o \textit{pipeline}. En este trabajo se ha usado particularmente para estudiar la distribución de poliedros de Voronoi en las muestras a lo largo de la simulación. En el \aref{AB} se da una pequeña introducción a la utilización y en el \aref{AD} \sref{AD_Pub} se muestra un ejemplo completo.
