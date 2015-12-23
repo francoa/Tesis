@@ -41,6 +41,7 @@
 \usepackage{etoolbox}
 \usepackage{multirow}
 \usepackage{placeins}
+\usepackage{pdfpages}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -313,5 +314,17 @@ Asimismo, se agradece a la Secretaría de Ciencia, Técnica y Postgrado (SeCTyP)
 \bibliographystyle{apalike} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 
 \bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+
+\clearpage
+
+\setboolean{@twoside}{false}
+
+\includepdf[pages={-}, offset=75 -75]{PDF/PANACM2015.pdf}
+
+\includepdf[pages={-}, offset=75 -75]{PDF/Salta2012.pdf}
+
+\includepdf[pages={-}, offset=75 -75]{PDF/Poster_Salta2012_Tens.pdf}
+
+\includepdf[pages={-}, offset=75 -75]{PDF/Poster_Salta2012_Comp.pdf}
 
 \end{document}  

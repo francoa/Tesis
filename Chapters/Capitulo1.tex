@@ -304,9 +304,11 @@ Los efectos del cambio en la composición son estudiados por \cite{Zheng12}, don
 \section{Alcances de este trabajo}
 \label{S1_3}
 
-En este trabajo nos avocaremos al estudio del régimen elasto-plástico de vidrios metálicos sometidos a esfuerzos de tracción y compresión, el análisis de parámetros constitutivos y modificaciones estructurales que impacten en su comportamiento mecánico.
+En este trabajo nos avocaremos al estudio del régimen elasto-plástico con grandes deformaciones de vidrios metálicos sometidos a esfuerzos de tracción y compresión, el análisis de parámetros constitutivos y modificaciones estructurales que impacten en su comportamiento mecánico, como así también la influencia de la temperatura.
 
 Nos centraremos en una muestra de cobre-circonio (\CuZr) para la cual se emplea un potencial interatómico descrito correctamente \citep{daw84} y utilizado ampliamente en la literatura \citep{shimizu07,cao09,cheng09,arman10,cheng11,wang12}. Los ensayos realizados presentan un sentido y velocidad de deformación constante, es decir, no se realizan ensayos de carga cíclicos. En el caso general, se aplican condiciones de borde periódicas a la muestra en tres dimensiones y adicionalmente se realizan ensayos con condiciones de borde libres para comparaciones específicas.
+
+Además se analiza la respuesta mecánica de vidrios metálicos con inclusiones de nanopartículas como así también con nanoporos.
 
 Por último, los estudios aquí presentados son realizados mediante experimentos numéricos a escala nanométrica.
 
@@ -321,9 +323,9 @@ Por último, los estudios aquí presentados son realizados mediante experimentos
 A continuación se detallan los objetivos de este trabajo de investigación:
 
 \begin{itemize}
- \item Investigar el comportamiento en régimen elasto-plástico de un metal amorfo binario a diferentes temperaturas.
+ \item Investigar el comportamiento en régimen elasto-plástico en grandes deformaciones de un metal amorfo binario a diferentes temperaturas.
  \begin{itemize}
-  \item Analizar los esfuerzos y deformaciones en régimen plástico.
+  \item Analizar los esfuerzos y deformaciones en régimen elasto-plástico.
   \item Estudiar el comportamiento frente a la temperatura de diferentes parámetros.
   \item Estudiar el comportamiento de las bandas de corte y buscar posibles soluciones para evitar o retardar la falla frágil.
  \end{itemize}
@@ -369,10 +371,10 @@ El presente trabajo se divide en cinco capítulos y cuatro apéndices. Una prese
 
 En particular el \cref{C2} presenta los fundamentos teóricos de las simulaciones de MD, gracias a las cuales se pueden realizar nuestros ensayos computacionales. Se muestran algunos algoritmos utilizados internamente por LAMMPS y las ecuaciones que describen las interacciones atómicas de nuestra muestra.
 
-El \cref{C3} detalla los resultados obtenidos al simular una muestra de \CuZr bajo diferentes modos de carga y temperaturas. Se obtienen curvas de esfuerzo-deformación, tendencias de módulo de Young y tensión máxima contra temperatura, entre otros.
+El \cref{C3} detalla los resultados obtenidos al simular una muestra de \CuZr bajo diferentes modos de carga y temperaturas. Se obtienen curvas de esfuerzo-deformación, módulo de Young y tensión máxima contra temperatura, entre otros.
 
-En el \cref{C4} se analiza la estabilidad de nanopartículas cristalinas embebidas en la matriz amorfa original. Se realizan cálculos de difusividad del cristal en la matriz y se compara el comportamiento mecánico de la muestra con este agregado frente a las respuestas originales.
+En el \cref{C4} se analiza la estabilidad de nanopartículas cristalinas embebidas en la matriz amorfa original. Se realizan cálculos de difusividad del cristal en la matriz y se compara el comportamiento mecánico de la muestra con este agregado frente a las respuestas sin nanopartículas cristalinas embebidas.
 
-En el \cref{C5} se estudia la mecánica de deformación y de cierre de los poros en una matriz de porosidad variable, así como la respuesta mecánica de la muestra en su totalidad frente a la matriz amorfa original. 
+En el \cref{C5} se estudia la mecánica de deformación y de cierre de los poros en una matriz de porosidad variable, así como la respuesta mecánica de la muestra en su totalidad frente a la matriz amorfa sin nanoporos. 
 
 El \aref{AA} contiene los lineamientos generales para la compilación y utilización del software de simulación elegido (LAMMPS). En el \aref{AB} se describe el modo de uso del software de visualización Ovito. En el \aref{AC} se da una pequeña introducción a técnicas de \textit{scripting} para pre y post procesamiento de datos de salida. Finalmente, en el \aref{AD} se presentan algunos de estos scripts y otros scripts de automatización de tareas.
