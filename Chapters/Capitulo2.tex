@@ -36,12 +36,12 @@ Las simulaciones de MD integran en el tiempo las ecuaciones de movimiento de New
 \mathbf{F_{i}} = m_{i}\mathbf{a_{i}}
 \end{equation}
 
-donde $m_{i}$ es la masa de cada átomo y $\mathbf{a_{i}}$ es su aceleración, dada por $\frac{d^{2}\mathbf{r_{i}}}{dt^{2}}$. De lo anterior se puede concluir lo siguiente:
+\cambio{donde $m_{i}$ es la masa de cada átomo y $\mathbf{a_{i}}$ es su aceleración, dada por $\frac{d^{2}\mathbf{r_{i}}}{dt^{2}}$. De lo anterior se puede concluir lo siguiente:}
 
 \begin{itemize}
- \item El resultado final de dos simulaciones de MD para iguales condiciones iniciales producen, en teoría, los mismos resultados, es decir, son deterministas (los errores de redondeo propios del cálculo numérico hacen que las soluciones diverjan de todas maneras).
- \item Si el número de átomos es pequeño, dos condiciones iniciales ligeramente distintas pueden llevar a soluciones muy diferentes.
- \item En sistemas con un gran número de átomos las soluciones para distintas condiciones iniciales deberían ser estadísticamente similares (los estados termodinámicos son comparables).
+ \item \cambio{El resultado final de dos simulaciones de MD para iguales condiciones iniciales producen, en teoría, los mismos resultados, es decir, son deterministas (los errores de redondeo propios del cálculo numérico hacen que las soluciones diverjan de todas maneras).}
+ \item \cambio{Si el número de átomos es pequeño, dos condiciones iniciales ligeramente distintas pueden llevar a soluciones muy diferentes.}
+ \item \cambio{En sistemas con un gran número de átomos las soluciones para distintas condiciones iniciales deberían ser estadísticamente similares (los estados termodinámicos son comparables).}
 \end{itemize}
 
 El estado termodinámico del sistema está definido por ciertos parámetros como la temperatura, la presión, el número de partículas, etc. El estado microscópico del sistema queda definido por las posiciones $p_{i}$ y los momentos atómicos $q_{i}$ y lo llamamos \textbf{espacio de fase}. Las posiciones y los momentos son considerados coordenadas de un espacio $6N$-dimensional ($\Omega$), en el que un punto cualquiera se denomina $P$ y describe el estado del sistema. 

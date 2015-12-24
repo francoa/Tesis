@@ -42,6 +42,8 @@
 \usepackage{multirow}
 \usepackage{placeins}
 \usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage{soulutf8}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -54,6 +56,19 @@
 \title{\ttitle} % Defines the thesis title - don't touch this
 
 \renewcommand{\thesubfigure}{\Alph{subfigure}}
+
+%% HIGHLIGHT
+\newcommand{\cambio}[1]{#1}
+
+\newtoggle{highlight}
+\toggletrue{highlight}
+%\togglefalse{highlight}
+\iftoggle{highlight}{%
+  \renewcommand{\cambio}[1]{\hl{#1}}
+}{  
+  \renewcommand{\cambio}[1]{#1}
+}
+%% -- HIGHLIGHT
 
 \AtBeginDocument{%
   \renewcommand\tablename{Tabla}
@@ -73,6 +88,7 @@
 \pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
 
 % PDF meta-data
 \hypersetup{pdftitle={\ttitle}}
