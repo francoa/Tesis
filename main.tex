@@ -70,6 +70,21 @@
 }
 %% -- HIGHLIGHT
 
+%% HIGHLIGHT 2
+\newcommand{\hlc}[2][yellow]{ {\sethlcolor{#1} \hl{#2}} }
+
+\newcommand{\cambioGrande}[1]{}
+
+\newtoggle{highlight2}
+\toggletrue{highlight2}
+%\togglefalse{highlight2}
+\iftoggle{highlight2}{%
+  \renewcommand{\cambioGrande}[1]{\hlc[red]{#1}}
+}{
+  \renewcommand{\cambioGrande}[1]{}
+}
+%% -- HIGHLIGHT 2
+
 \AtBeginDocument{%
   \renewcommand\tablename{Tabla}
 }
