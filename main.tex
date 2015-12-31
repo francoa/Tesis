@@ -61,8 +61,8 @@
 \newcommand{\cambio}[1]{#1}
 
 \newtoggle{highlight}
-\toggletrue{highlight}
-%\togglefalse{highlight}
+%\toggletrue{highlight}
+\togglefalse{highlight}
 \iftoggle{highlight}{%
   \renewcommand{\cambio}[1]{\hl{#1}}
 }{  
@@ -76,8 +76,8 @@
 \newcommand{\cambioGrande}[1]{}
 
 \newtoggle{highlight2}
-\toggletrue{highlight2}
-%\togglefalse{highlight2}
+%\toggletrue{highlight2}
+\togglefalse{highlight2}
 \iftoggle{highlight2}{%
   \renewcommand{\cambioGrande}[1]{\hlc[red]{#1}}
 }{
@@ -140,8 +140,11 @@
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 \begin{flushright} \large
-\emph{Supervisores:} \\
-{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\emph{Director:} \\
+{Ing. Claudio A. \textsc{Careglio}}\\
+\emph{Co-Director:} \\
+{Dr. Eduardo M. \textsc{Bringa}}
+%{\supname}% Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
 \end{minipage}\\[3cm]
  
