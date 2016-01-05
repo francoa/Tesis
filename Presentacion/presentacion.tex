@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
-\usepackage[english]{babel}
+\usepackage[spanish]{babel}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{epstopdf}
 \usepackage{tikz}
@@ -21,9 +21,10 @@
 %\setbeamerfont{footline}{series=\bfseries}
 \setbeameroption{show notes}
 
-\title[Study of Sintered BMG]{Atomistic Study of the Mechanical Properites of a Sintered Bulk Metallic Glass (Nanoglass)}
-\author[Ardiani (francoamg@gmail.com)]{Franco Ardiani$^a$ (francoamg@gmail.com), Andr\'es A. Manelli$^a$, Carlos J. Ruestes$^{b,c}$, Claudio A. Careglio$^{a}$ and Eduardo M. Bringa$^{b,c}$}
-\institute[UNCUYO]{$^a$Facultad de Ingenier\'ia, Universidad Nacional de Cuyo\\$^b$FCEN, Universidad Nacional de Cuyo\\$^c$CONICET}
+\title[Estudio de un Metal Amorfo]{Estudio Termo - Mec\'anico de un Metal Amorfo}
+\subtitle{Simulaciones Atom\'isticas}
+\author[Ardiani, Manelli]{Franco Ardiani, Andr\'es A. Manelli}
+\institute[UNCUYO]{Facultad de Ingenier\'ia, Universidad Nacional de Cuyo}
 \date{\today}
 
 
@@ -33,36 +34,76 @@
 % Slide de titulo y contenidos
 %%%
 
-\begingroup
-\makeatletter
-\makeatother
-\begin{frame}[plain]
-    \maketitle
-    \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
-        \tiny{Acknowledgements:\\ We thank support from SeCTyP-UNCuyo grant B008. EMB and CJR also thank support from PICT-PRH 0092.}
-    \end{textblock*}
-    \begin{textblock*}{1.5cm}(10.5cm,6.3cm) % {block width} (coords)
-        \includegraphics[width=1.5cm]{Presentacion_PANACM_Franco/fing.png}
-    \end{textblock*}
-    \begin{textblock*}{2cm}(0.5cm,5.8cm) % {block width} (coords)
-        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/uncuyo.jpg}
-    \end{textblock*}
-    \begin{textblock*}{2cm}(0.7cm,6.8cm) % {block width} (coords)
-        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/logofcen3.png}
-    \end{textblock*}
-\end{frame}
-\endgroup
+
+\maketitle
+%\begingroup
+%\makeatletter
+%\makeatother
+%\begin{frame}[plain]
+%    \maketitle
+%    \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
+%        \tiny{Acknowledgements:\\ We thank support from SeCTyP-UNCuyo grant B008. EMB and CJR also thank support from PICT-PRH 0092.}
+%    \end{textblock*}
+%    \begin{textblock*}{1.5cm}(10.5cm,6.3cm) % {block width} (coords)
+%        \includegraphics[width=1.5cm]{Presentacion_PANACM_Franco/fing.png}
+%    \end{textblock*}
+%    \begin{textblock*}{2cm}(0.5cm,5.8cm) % {block width} (coords)
+%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/uncuyo.jpg}
+%    \end{textblock*}
+%    \begin{textblock*}{2cm}(0.7cm,6.8cm) % {block width} (coords)
+%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/logofcen3.png}
+%    \end{textblock*}
+%\end{frame}
+%\endgroup
 
 \begin{frame}
    \frametitle{Contents}
    \tableofcontents[currentsection,sectionstyle=show,subsectionstyle=show/shaded/hide]
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		INTRODUCCION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introducci\'on}
+\subsection{Introducci\'on}
+
+\begin{frame}
+ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		CAP 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[Caracterizaci\'on]{Caracterizaci\'on de un BMG}
+\subsection{Caracterizaci\'on de un BMG}
+
+\begin{frame}
+ 
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		CAP 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[BMG con nanopart\'iculas]{BMG con nanopart\'iculas embebidas}
+\subsection{BMG con nanopart\'iculas embebidas}
+
+\begin{frame}
+ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		CAP 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[BMG poroso]{BMG poroso sinterizado}
+\subsection{BMG poroso sinterizado}
 %%%
 % Introduccion
 %%%
-
-\section{Introduction}
 
 \begin{frame}
     \frametitle{Introduction}
@@ -92,8 +133,6 @@
 % Detalles de la simulacion
 %%%
 
-\section{Simulation details}
-
 \begin{frame}
     \frametitle{Simulation details}
     \vspace{0.2cm}
@@ -105,24 +144,22 @@
         \end{itemize}
         \item EAM (Embedded Atom Method; Daw, 1984) alloy potential adopted (Cheng, 2008).
     \end{itemize}
-    \begin{textblock*}{12cm}(0.5cm,6.5cm) % {block width} (coords)
-        \small{Arman B., Luo S.-N., Germann T.C. and Cağin T., \textit{Phys. Rev. B.}, \textbf{81}, 144201 (2010).\\
+    \begin{textblock*}{12cm}(0.5cm,7.5cm) % {block width} (coords)
+        \scriptsize{Arman B., Luo S.-N., Germann T.C. and Cağin T., \textit{Phys. Rev. B.}, \textbf{81}, 144201 (2010).\\
         Daw M. and Baskes M.I., \textit{Phys. Rev. B.}, \textbf{29}:6443-6453 (1984).\\
         Cheng Y.Q., Sheng H.W. and Ma E., \textit{Phys. Rev. B.}, \textbf{78}, 014207 (2008) https://sites.google.com/site/eampotentials/}
     \end{textblock*}
 \end{frame}
 
 \note{
-    \begin{textblock*}{10.6cm}(1.8cm,5cm) 
-        \begin{itemize}
-            \item EAM: the total energy $E_i$ of an atom $i$ is given by this equation, where F is the embedding energy which is a function of the atomic electron density $\rho$, $\phi$ is a pair potential interaction, and $\alpha$ and $\beta$ are the element types of atoms I and J. The multi-body nature of the EAM potential is a result of the embedding energy term. Both summations in the formula are over all neighbors J of atom I within the cutoff distance.
-        \end{itemize}
+    \begin{textblock*}{12cm}(0.5cm,6.5cm) 
+      EAM: the total energy $E_i$ of an atom $i$ is given by this equation, where F is the embedding energy which is a function of the atomic electron density $\rho$, $\phi$ is a pair potential interaction, and $\alpha$ and $\beta$ are the element types of atoms I and J. The multi-body nature of the EAM potential is a result of the embedding energy term. Both summations in the formula are over all neighbors J of atom I within the cutoff distance.
     \end{textblock*}
-    \begin{exampleblock}{EAM}
+    \begin{block}{EAM}
         \[
             E_i=F_{\alpha} \left ( \sum \limits_{i\neq j} \rho _{\beta} (r_{ij}) \right ) + \frac{1}{2} \sum \limits_{i\neq j} \phi _{\alpha \beta} (r_{ij})
         \]
-    \end{exampleblock}
+    \end{block}
 }
 
 %\note{
@@ -141,8 +178,6 @@
 %%%
 % Preparacion de la muestra
 %%%
-
-\section{Porous sample preparation}
 
 \begin{frame}
     \frametitle{Porous sample preparation}
@@ -166,8 +201,6 @@
 %%%
 % Resultados
 %%%
-
-\section{Results}
 
 \begin{frame}
     \frametitle{Results}
@@ -340,8 +373,6 @@
 % Conclusiones
 %%%
 
-\section{Conclusions}
-
 \begin{frame}
     \frametitle{Conclusions}
     \vspace{0.5cm}
@@ -351,8 +382,8 @@
         \item Under tension: pores do not close and they concentrate plastic flow around them, also impeding formation of STZ and SBs.
         \item Results under strain were somewhat comparable to the ones by Yuan et al. (2014), where a single crystal sample with voids was studied.
     \end{itemize}
-    \begin{textblock*}{12cm}(1cm,8.2cm) % {block width} (coords)
-        \small{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
+    \begin{textblock*}{12cm}(1cm,8.8cm) % {block width} (coords)
+        \scriptsize{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
     \end{textblock*}
 \end{frame}
 
@@ -380,28 +411,52 @@
     \end{textblock*}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		APENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Trabajo computacional}
+\subsection{Trabajo computacional}
+
+\begin{frame}
+ 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		CONCLUSIONES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusiones}
+\subsection{Conclusiones}
+
+\begin{frame}
+ 
+\end{frame}
+
 %%%
 % Slide de titulo
 %%%
 
-\begingroup
-\makeatletter
-\makeatother
-\begin{frame}[plain]
-    \maketitle
-    \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
-        \tiny{Acknowledgements:\\ We thank support from SeCTyP-UNCuyo grant B008. EMB and CJR also thank support from PICT-PRH 0092.}
-    \end{textblock*}
-    \begin{textblock*}{1.5cm}(10.5cm,6.3cm) % {block width} (coords)
-        \includegraphics[width=1.5cm]{Presentacion_PANACM_Franco/fing.png}
-    \end{textblock*}
-    \begin{textblock*}{2cm}(0.5cm,5.8cm) % {block width} (coords)
-        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/uncuyo.jpg}
-    \end{textblock*}
-    \begin{textblock*}{2cm}(0.7cm,6.8cm) % {block width} (coords)
-        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/logofcen3.png}
-    \end{textblock*}
-\end{frame}
-\endgroup
+\maketitle
+
+%\begingroup
+%\makeatletter
+%\makeatother
+%\begin{frame}[plain]
+%    \maketitle
+%    \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
+%        \tiny{Acknowledgements:\\ We thank support from SeCTyP-UNCuyo grant B008. EMB and CJR also thank support from PICT-PRH 0092.}
+%    \end{textblock*}
+%    \begin{textblock*}{1.5cm}(10.5cm,6.3cm) % {block width} (coords)
+%        \includegraphics[width=1.5cm]{Presentacion_PANACM_Franco/fing.png}
+%    \end{textblock*}
+%    \begin{textblock*}{2cm}(0.5cm,5.8cm) % {block width} (coords)
+%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/uncuyo.jpg}
+%    \end{textblock*}
+%    \begin{textblock*}{2cm}(0.7cm,6.8cm) % {block width} (coords)
+%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/logofcen3.png}
+%    \end{textblock*}
+%\end{frame}
+%\endgroup
 
 \end{document}

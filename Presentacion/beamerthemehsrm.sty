@@ -174,7 +174,7 @@
 	\AddToShipoutPictureFG*{\includegraphics[width=\paperwidth]{background.pdf}}
 	\begin{minipage}[b][\paperheight]{\textwidth}
 	\vspace*{5mm}
-	\includegraphics[height=14mm]{./logo}\par
+	\includegraphics[height=14mm]{logo.png}\par
 	\vspace*{5mm}
 	\ifx\insertsubtitle\@empty%
 	\else%
@@ -224,7 +224,7 @@
 \setbeamercolor{background canvas}{bg=hsrmWarmGreyDark}
 \begin{frame}[plain]
 \centering
-\vfill\usebeamerfont{section title}\textcolor{white}{\insertsectionHEAD}\vfill
+\vfill\usebeamerfont{section title}\textcolor{white}{\insertsection}\vfill
 \end{frame}
 \endgroup
 }
@@ -248,7 +248,7 @@
 {%
 \begin{beamercolorbox}[wd=\textwidth,ht=3ex,dp=1.5ex,leftskip=0.3cm,rightskip=0.3cm]{structure}%
 \hfill\usebeamerfont{page number in head/foot}%
-\insertframenumber%
+\insertframenumber/\inserttotalframenumber%
 \end{beamercolorbox}%
 }
 
