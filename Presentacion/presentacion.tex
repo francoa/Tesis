@@ -10,15 +10,8 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes}
  
-%\usetheme{Madrid}
-%\usetheme{CambridgeUS}
 \usetheme[noflama]{hsrm} 
 
-%\usefonttheme{professionalfonts}
-%\usefonttheme{serif}
-
-%\setbeamercolor{footline}{fg=blue}
-%\setbeamerfont{footline}{series=\bfseries}
 \setbeameroption{show notes}
 
 \title[Estudio de un Metal Amorfo]{Estudio Termo - Mec\'anico de un Metal Amorfo}
@@ -27,6 +20,7 @@
 \institute[UNCUYO]{Facultad de Ingenier\'ia, Universidad Nacional de Cuyo}
 \date{\today}
 
+\addtobeamertemplate{frametitle}{\vskip-0.14ex}{} % junta frametitle con la barra de contenidos
 
 \begin{document}
 
@@ -34,30 +28,10 @@
 % Slide de titulo y contenidos
 %%%
 
-
 \maketitle
-%\begingroup
-%\makeatletter
-%\makeatother
-%\begin{frame}[plain]
-%    \maketitle
-%    \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
-%        \tiny{Acknowledgements:\\ We thank support from SeCTyP-UNCuyo grant B008. EMB and CJR also thank support from PICT-PRH 0092.}
-%    \end{textblock*}
-%    \begin{textblock*}{1.5cm}(10.5cm,6.3cm) % {block width} (coords)
-%        \includegraphics[width=1.5cm]{Presentacion_PANACM_Franco/fing.png}
-%    \end{textblock*}
-%    \begin{textblock*}{2cm}(0.5cm,5.8cm) % {block width} (coords)
-%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/uncuyo.jpg}
-%    \end{textblock*}
-%    \begin{textblock*}{2cm}(0.7cm,6.8cm) % {block width} (coords)
-%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/logofcen3.png}
-%    \end{textblock*}
-%\end{frame}
-%\endgroup
 
 \begin{frame}
-   \frametitle{Contents}
+   \frametitle{Contenidos}
    \tableofcontents[currentsection,sectionstyle=show,subsectionstyle=show/shaded/hide]
 \end{frame}
 
@@ -65,8 +39,8 @@
 %		INTRODUCCION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Introducci\'on}
-\subsection{Introducci\'on}
+\section[Introducci\'on]{Introducci\'on}
+%\subsection{Introducci\'on}
 
 \begin{frame}
  
@@ -77,7 +51,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Caracterizaci\'on]{Caracterizaci\'on de un BMG}
-\subsection{Caracterizaci\'on de un BMG}
+%\subsection{Caracterizaci\'on de un BMG}
 
 \begin{frame}
  
@@ -89,7 +63,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[BMG con nanopart\'iculas]{BMG con nanopart\'iculas embebidas}
-\subsection{BMG con nanopart\'iculas embebidas}
+%\subsection{BMG con nanopart\'iculas embebidas}
 
 \begin{frame}
  
@@ -100,7 +74,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[BMG poroso]{BMG poroso sinterizado}
-\subsection{BMG poroso sinterizado}
+%\subsection{BMG poroso sinterizado}
 %%%
 % Introduccion
 %%%
@@ -161,19 +135,6 @@
         \]
     \end{block}
 }
-
-%\note{
-%    \begin{textblock*}{10.6cm}(1.8cm,5cm) 
-%        \begin{itemize}
-%            \item EAM: the potential energy of an atom, $i$, is given by this equation, where $r_{ij}$ is the distance between atoms $i$ and $j$, $\phi_{\alpha\beta}$ is a pair-wise potential function, $\rho_\beta$ is the contribution to the electron charge density from atom $j$ of type $\beta$ at the location of atom $i$, and $F$ is an embedding function that represents the energy required to place atom $i$ of type $\alpha$ into the electron cloud.
-%        \end{itemize}
-%    \end{textblock*}
-%    \begin{exampleblock}{EAM}
-%        \[
-%            E_i=F_{\alpha} \left ( \sum \limits_{i\neq j} \rho _{\beta} (r_{ij}) \right ) + \frac{1}{2} \sum \limits_{i\neq j} \phi _{\alpha \beta} (r_{ij})
-%        \]
-%    \end{exampleblock}
-%}
 
 %%%
 % Preparacion de la muestra
@@ -416,7 +377,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Trabajo computacional}
-\subsection{Trabajo computacional}
+%\subsection{Trabajo computacional}
 
 \begin{frame}
  
@@ -427,7 +388,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusiones}
-\subsection{Conclusiones}
+%\subsection{Conclusiones}
 
 \begin{frame}
  
@@ -438,25 +399,5 @@
 %%%
 
 \maketitle
-
-%\begingroup
-%\makeatletter
-%\makeatother
-%\begin{frame}[plain]
-%    \maketitle
-%    \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
-%        \tiny{Acknowledgements:\\ We thank support from SeCTyP-UNCuyo grant B008. EMB and CJR also thank support from PICT-PRH 0092.}
-%    \end{textblock*}
-%    \begin{textblock*}{1.5cm}(10.5cm,6.3cm) % {block width} (coords)
-%        \includegraphics[width=1.5cm]{Presentacion_PANACM_Franco/fing.png}
-%    \end{textblock*}
-%    \begin{textblock*}{2cm}(0.5cm,5.8cm) % {block width} (coords)
-%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/uncuyo.jpg}
-%    \end{textblock*}
-%    \begin{textblock*}{2cm}(0.7cm,6.8cm) % {block width} (coords)
-%        \includegraphics[width=2cm]{Presentacion_PANACM_Franco/logofcen3.png}
-%    \end{textblock*}
-%\end{frame}
-%\endgroup
 
 \end{document}
