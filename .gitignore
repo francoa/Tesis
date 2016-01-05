@@ -22,3 +22,6 @@ titlesec.sty
 */*.*~
 Figures/*/*-eps-converted-to.pdf
 *-eps-converted-to.pdf
+*.mp4
+*.snm
+*.nav
