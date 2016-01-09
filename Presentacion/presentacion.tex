@@ -7,6 +7,8 @@
 \usepackage[spanish]{babel}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{epstopdf}
+\usepackage{subfig}
+\usepackage{array}
 \usepackage{tikz}
 \usetikzlibrary{shapes}
  
@@ -54,7 +56,113 @@
 %\subsection{Caracterizaci\'on de un BMG}
 
 \begin{frame}
- 
+    \frametitle{Introducci\'on}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item Vidrios met\'alicos: Aleaciones con estructura amorfa. Se obtienen con altas velocidades de enfriamiento. Resistencia mec\'anica, elasticidad y dureza.
+        \item Objetivo: Entender el comportamiento mec\'anico a altas velocidades de deformaci\'on.
+        \item Din\'amica molecular (MD): Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Detalles de la simulaci\'on}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item LAMMPS: Open Source (lammps.sandia.gov).
+        \item Muestra: Cu$_{46}$Zr$_{54}$
+        \begin{itemize}
+	  \item 160k \'atomos.
+	  \item Velocidad de enfriamiento de 10$^{12}$K/s (Arman et al., 2010).
+        \end{itemize}
+	\item Velocidad de deformaci\'on: 10$^9$/s (Arman et al., 2010).
+	\item Potencial EAM (embedded atom method) (Daw,1984).
+	\item Condiciones de borde peri\'odicas.
+    \end{itemize}
+    \begin{textblock*}{12cm}(0.5cm,7.5cm) % {block width} (coords)
+        \scriptsize{Arman B., Luo S.-N., Germann T.C. and Cağin T., \textit{Phys. Rev. B.}, \textbf{81}, 144201 (2010).\\
+        Daw M. and Baskes M.I., \textit{Phys. Rev. B.}, \textbf{29}:6443-6453 (1984).}
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Resultados bajo condiciones peri\'odicas}
+    \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
+      \begin{figure}[htp]
+	\centering
+	\subfloat[Tracci\'on]{
+	\includegraphics[width=6.3cm]{Presentacion_Mecom_2012/Tens_stress_strain_curve.eps}}
+	\subfloat[Compresi\'on]{
+	\includegraphics[width=6.3cm]{Presentacion_Mecom_2012/Comp_stress_strain_curve.eps}}
+      \end{figure}
+    \end{textblock*}
+    \begin{textblock*}{6cm}(3.5cm,8cm) 
+    \centering
+      Tg=696 K\\
+      (Glass transition temperature)
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Resultados de las aproximaciones}
+ \begin{textblock*}{6cm}(1cm,1.5cm) 
+    
+    \begin{table}[htp]
+    \begin{center}
+    \begin{tabular}{c c}
+    \hline
+    \textbf{Tracci\'on} & $R^{2}$ \\ \hline \hline
+    Peak Von Mises stress &  0.981 \\ \hline
+    Von Mises stress ($\epsilon=0.12$) & 0.998 \\ \hline
+    Young Modulus & 0.990 \\ \hline
+    Yield Stress &  0.972 \\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
+
+    \begin{table}[htp]
+    \begin{center}
+    \begin{tabular}{*{4}{c}}
+    \hline
+    \textbf{Compresi\'on} & $R^{2}$ \\ \hline \hline
+    Peak Von Mises stress & 0.997 \\ \hline
+    Von Mises stress ($\epsilon=0.18$) & 0.972 \\ \hline
+    Young Modulus & 0.985 \\ \hline
+    Yield Stress & 0.985 \\ \hline
+    \end{tabular}
+    \end{center}
+    \end{table}
+ \end{textblock*}
+  \begin{textblock*}{4.7cm}(8cm,2cm)
+  \centering
+   Para el c\'alculo de propiedades mec\'anicas, suponemos un comportamiento activado t\'ermicamente.
+    $y=A_1^{(-T/T_0)}$
+  \end{textblock*}
+  \begin{textblock*}{4.7cm}(8cm,6cm)
+  \centering
+   El coeficiente de correlaci\'on es mayor a 0.9 en todos los casos, lo cual demuestra que la ecuaci\'on propuesta es razonable.
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Gr\'aficos de las aproximaciones}
+ \begin{textblock*}{10cm}(1.5cm,1cm)
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{Presentacion_Mecom_2012/young_T_both.eps}
+    \includegraphics[width=5cm]{Presentacion_Mecom_2012/peakstress_T_BOTH.eps}
+  \end{figure} 
+ \end{textblock*}
+ \begin{textblock*}{5cm}(1.5cm,4.9cm)
+   \begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{Presentacion_Mecom_2012/defstress_T_BOTH.eps}
+  \end{figure} 
+ \end{textblock*}
+ \begin{textblock*}{5cm}(6.8cm,6.7cm)
+  \centering
+   Disminuci\'on de los valores con el aumento de temperatura.
+  \end{textblock*}
 \end{frame}
 
 
