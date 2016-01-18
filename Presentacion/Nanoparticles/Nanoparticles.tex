@@ -23,16 +23,56 @@
 	      \includegraphics[width=5cm]{../Figures/Presentacion/nanoglass_example.png}
 	      \label{P:fg:B2CrystalTest}}
     \end{tabular}
-    \caption{BMGs con composición modificada}
     \label{P:fg:B2CuZr_Formation}
   \end{figure} 
 \end{frame}
 
 \begin{frame}
-Se estudia:
+\frametitle{Objetivos del estudio}
+\vspace{0.5cm}
  \begin{itemize}
   \item Estabilidad térmica de las nanopartículas (difusión del material cristalino en la matriz amorfa).
   \item Impacto en el comportamiento mecánico de la muestra (cambios en curvas tensión-deformación)
   \item Distribución de la tensión de corte en la muestra.
  \end{itemize}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Detalles de la simulación}
+ \vspace{0.5cm}
+ \begin{itemize}
+  \item Muestra original ya caracterizada: Cu$_{46}$Zr$_{54}$ - 160k átomos
+  \item Condiciones de bordes periódicas en las tres dimensiones
+  \item Nanopartículas: Esferas de 2 nm de radio de composición (a) Cu-FCC y (b) CuZr-B2
+  \item La constante de red del cobre se establece en 0.3615 nm
+  \item La estructura CuZr-B2 se genera ad-hoc para la simulación y da como resultado una constante de 0.3283 nm
+  \item Velocidad de deformación de 10$^{9}$/s
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Resultados}
+ \framesubtitle{Difusividad vs Temperatura}
+ \vspace{0.5cm}
+ \begin{figure}[htp]
+    \centering
+    \begin{tabular}{c}
+      \subfloat[Bajas Temperaturas]{
+	      \includegraphics[width=5cm]{../Figures/Cap_4/msd10_400_FCC.png}}
+    \quad
+      \subfloat[Altas Temperaturas]{
+	      \includegraphics[width=5cm]{../Figures/Cap_4/msd500_800_FCC.png}}
+    \end{tabular}
+  \end{figure} 
+\end{frame}
+
+\begin{frame}
+ \frametitle{Resultados}
+ \framesubtitle{Difusividad vs Temperatura}
+ \vspace{0.5cm}
+ \begin{figure}
+   \centering
+   \includegraphics[width=7cm]{../Figures/Cap_4/FCCDiff_vs_temp_fit.png}
+  \end{figure}
+\end{frame}
+
