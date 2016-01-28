@@ -3,18 +3,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Introducci\'on]{Introducci\'on}
-%\subsection{Introducci\'on}
+\subsection{Vidrios Met\'alicos}
+
+\tikzstyle{every picture}+=[remember picture]
 
 \begin{frame}
-\frametitle{Vidrios Met\'alicos}
+\frametitle{Vidrios Met\'alicos (Metal Amorfo)}
 
-\begin{itemize}
- \item Metal de estructura amorfa
- \item Basado en Cu, Ni, Fe, Au, Zr, Be, La, Pd, Ti
- \item Puede estar combinado en baja proporci\'on con no metales como Bo, Si y P
- \item Combina propiedades de las cer\'amicas y de los metales
- \item Sus propiedades sobresalientes los hacen candidatos para aplicaciones modernas y de alta tecnolog\'ia
-\end{itemize}
+\tikzstyle{na} = [baseline=-.5ex]
+
+\centering
+\tikz[baseline]{\node[fill=gray!20,anchor=base] (t1){Vidrio};} \tikz[baseline]{\node[fill=gray!20,anchor=base] (t2){Met\'alico};}
+
+\vspace{0.2cm}
+
+\begin{columns}
+  \begin{column}{0.48\paperwidth}
+    \tikz[na]{\node[coordinate] (n1){};}
+    \centering
+    \begin{block}{Vidrio}
+      \centering Estructura amorfa
+      
+      \vspace{0.2cm}
+      \includegraphics[width=3cm]{../Figures/Cap_1/500px-Silica.png}
+    \end{block}
+  \end{column}
+  \begin{column}{0.48\paperwidth}
+    \tikz[na]{\node[coordinate] (n2) {};}
+    \centering
+    \begin{block}{Met\'alico}
+      \centering Aleaci\'on met\'alica:\\
+      Cu, Ni, Fe, Au, Zr, Be, La, Pd, Ti\\
+      
+      \vspace{0.2cm}
+      Aunque tambi\'en puede contener no metales en baja concentraci\'on
+    \end{block}
+  \end{column}
+\end{columns}
+
+\begin{tikzpicture}[overlay]
+        \path[->] (t1) edge [bend right] (n1);
+        \path[->] (t2) edge [bend left] (n2);
+\end{tikzpicture}
+
+% \item Sus propiedades sobresalientes los hacen candidatos para aplicaciones modernas y de alta tecnolog\'ia. Material avanzado
 \end{frame}
 
 \definecolor{goodTitle}{HTML}{4D9A63}
@@ -53,8 +85,13 @@
   \defaultBlocks%
 }
 
+
 \begin{frame}
-\frametitle{Propiedades de los Vidrios Met\'alicos}
+\frametitle{Propiedades}
+\begin{block}{¿Por qu\'e atrae el inter\'es de investigadores?}
+ Combina propiedades de cer\'amicas y de metales a escala nanom\'etrica, resultando en un material de propiedades \'unicas
+\end{block}
+
 \begin{overprint}
  
 \ventaja{1}{Ausencia de efectos adversos debidos a fronteras de granos}
