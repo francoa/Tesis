@@ -3,16 +3,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Caracterizaci\'on]{Caracterizaci\'on de un BMG}
-%\subsection{Caracterizaci\'on de un BMG}
+\subsection{Caracterizaci\'on de un BMG}
 
 \begin{frame}
     \frametitle{Introducci\'on}
     \vspace{0.2cm}
-    \begin{itemize}
-        \item Vidrios met\'alicos: Aleaciones con estructura amorfa. Se obtienen con altas velocidades de enfriamiento. Resistencia mec\'anica, elasticidad y dureza.
-        \item Objetivo: Entender el comportamiento mec\'anico a altas velocidades de deformaci\'on.
-        \item Din\'amica molecular (MD): Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial.
-    \end{itemize}
+    \begin{block}{Objetivo}
+     Entender el comportamiento mec\'anico a altas velocidades de deformaci\'on
+    \end{block}
+    \begin{block}{Din\'amica molecular (MD)}
+    Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial
+    \end{block}
 \end{frame}
 
 \begin{frame}
@@ -114,3 +115,58 @@
    Disminuci\'on de los valores con el aumento de temperatura.
   \end{textblock*}
 \end{frame}
+
+\begin{frame}
+ \frametitle{Formaci\'on del void}
+ \begin{figure}
+    \centering
+    \begin{tabular}{C{5cm} c}
+      \includegraphics[width=5cm]{Cap_3/Poro_900_94000light_100-400.png} &  \multirow{3}{*}{\includegraphics[width=1.2cm]{Cap_3/scale.png}}\\
+      \includegraphics[width=5cm]{Cap_3/Poro_900_96000light_100-400.png} & \\
+      \includegraphics[width=5cm]{Cap_3/Poro_900_98000light_100-400.png} & \\
+    \end{tabular}
+    \label{C3:fg:voidSeq}
+  \end{figure}
+  \begin{textblock*}{2cm}(1cm,3cm)
+      $\epsilon=14.4\%$
+  \end{textblock*}
+  \begin{textblock*}{2cm}(1cm,5.5cm)
+    $\epsilon=14.6\%$
+  \end{textblock*}
+  \begin{textblock*}{2cm}(1cm,8cm)
+    $\epsilon=14.8\%$
+  \end{textblock*}
+  \begin{textblock*}{4cm}(8.5cm,2.5cm)
+    Temperatura 900K
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Comportamiento pl\'astico}
+ \begin{textblock*}{7cm}(0.5cm,1.4cm)
+  \begin{figure}[htp]
+      \centering
+      \includegraphics[width=7cm]{Presentacion_Mecom_2012/Fit2_Tercios.png}
+  \end{figure}
+ \end{textblock*}
+ \begin{textblock*}{4.5cm}(8cm,2.5cm)
+      Expresi\'on adaptada de Cheng et al. (2011) :\\
+	$\sigma_y/G =A+B(T/T_g)^{2/3}$
+  \end{textblock*}
+  \begin{textblock*}{4.5cm}(8cm,4.5cm)
+      Valores normalizados mediante:
+      \begin{itemize}
+       \item $T_g=696K$
+       \item $G=30GPa$
+      \end{itemize}
+      (Johnson y Samwer, 2005)
+  \end{textblock*}
+  \begin{textblock*}{5cm}(2cm,6.5cm)
+    \scriptsize{Esfuerzo de fluencia vs. temperatura}
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
+    \scriptsize{Cheng Y.Q. and Ma E.. Acta Mater., 59, 1800-1807 (2011).\\
+    Johnson W.L., Samwer K.. Phys. Rev. Lett., 95, 195501 (2005).}
+  \end{textblock*}
+\end{frame}
+

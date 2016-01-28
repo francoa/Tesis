@@ -25,7 +25,7 @@
       \centering Estructura amorfa
       
       \vspace{0.2cm}
-      \includegraphics[width=3cm]{../Figures/Cap_1/500px-Silica.png}
+      \includegraphics[width=3cm]{Cap_1/500px-Silica.png}
     \end{block}
   \end{column}
   \begin{column}{0.48\paperwidth}
@@ -81,7 +81,7 @@
     \begin{block}<#1>{Desventaja}%
     #2
     \end{block}%
-   }
+  }
   \defaultBlocks%
 }
 
@@ -91,48 +91,114 @@
 \begin{block}{¿Por qu\'e atrae el inter\'es de investigadores?}
  Combina propiedades de cer\'amicas y de metales a escala nanom\'etrica, resultando en un material de propiedades \'unicas
 \end{block}
-
-\begin{overprint}
  
-\ventaja{1}{Ausencia de efectos adversos debidos a fronteras de granos}
-\desventaja{1}{Alto costo y grandes limitaciones de fabricaci\'on}
-    
-\ventaja{2}{Alta dureza. Resistencia al desgaste y la abrasi\'on. Gran resistencia mec\'anica y menor rigidez que las aleaciones cristalinas. Alta resiliencia}
-\desventaja{2}{Gran p\'erdida de ductilidad ante la aparici\'on de bandas de corte. El recocido lo vuelve fr\'agil}
+\ventaja{1}{{\begin{itemize}
+             \item Alta dureza
+             \item Resistencia al desgaste y la abrasi\'on
+             \item Gran resistencia mec\'anica
+             \item Alta resiliencia
+            \end{itemize}
+            }}
 
-\ventaja{3}{Resistencia a la corrosi\'on debido a la falta de bordes de grano}
-\ventaja{3}{Algunos MG son biocompatibles}
-
-\end{overprint}
 \end{frame}
 
 \begin{frame}
- \frametitle{Algunas aplicaciones de Vidrios Met\'alicos}
+\frametitle{Propiedades} 
+
+\ventaja{1}{{\begin{itemize}
+             \item Ausencia de efectos adversos debidos a fronteras de granos (resistencia a la corrosi\'on)
+            \end{itemize}
+            }}
+\desventaja{1}{{\begin{itemize}
+		\item Alto costo y grandes limitaciones de fabricaci\'on
+		\item Gran p\'erdida de ductilidad ante la aparici\'on de bandas de corte
+	      \end{itemize}
+	      }}
+            
+\end{frame}
+
+\begin{frame}
+ \frametitle{Producci\'on}
+ 
+ \begin{block}{}
+    \textit{Te\'oricamente, todo l\'iquido podr\'ia convertirse en vidrio a velocidades de enfriamiento suficientemente altas y temperaturas suficientemente bajas evitando el proceso de cristalizaci\'on} \cite{turnbull61}
+ \end{block}
+ 
+ %Las t\'ecnicas de fabricaci\'on act\'uan sobre la composici\'on, el volumen y la velocidad de enfriamiento
+ \begin{columns}
+  \begin{column}{5cm}
+    \begin{figure}
+      \includegraphics[width=4cm]{Cap_1/melt_spinning_B.png}
+      \caption{Proceso de \textit{Melt Spinnning}}
+    \end{figure} 
+  \end{column}
+  \begin{column}{0.5\paperwidth}
+   \begin{alertblock}{Espesor}
+      El espesor es un limitante. Los vidrios met\'alicos volum\'etricos, o \textit{Bulk Metallic Glasses} en ingl\'es, tienen una secci\'on transversal de por lo menos algunos mil\'imetros
+   \end{alertblock}
+  \end{column}
+ \end{columns}
+ 
+\end{frame}
+
+
+\begin{frame}
+ \frametitle{Aplicaciones}
+ \centering
+ Se trata de un material avanzado de ingenier\'ia
+ 
  
  \begin{figure}
  \centering
  \begin{tabularx}{\textwidth}{ccc}
  \only<1>{
  \subfloat[Filo est\'andar]{
-    \includegraphics[width=3cm]{../Figures/Cap_1/blade.png}}
+    \includegraphics[width=3cm]{Cap_1/blade.png}}
   &
   \subfloat[Filo de BMG]{
-    \includegraphics[width=3cm]{../Figures/Cap_1/BMG-blade.png}}
+    \includegraphics[width=3cm]{Cap_1/BMG-blade.png}}
   &
   \subfloat[Joyer\'ia]{
-    \includegraphics[width=3cm]{../Figures/Cap_1/seamaster.png}}
+    \includegraphics[width=3cm]{Cap_1/seamaster.png}}
   }
   \only<2>{
   \subfloat[Deportes]{
-    \includegraphics[width=3cm]{../Figures/Cap_1/golf.png}}
+    \includegraphics[width=3cm]{Cap_1/golf.png}}
   &
   \subfloat[MEMS]{
-    \includegraphics[width=3cm]{../Figures/Cap_1/MEMS_A.jpeg}}
+    \includegraphics[width=3cm]{Cap_1/MEMS_A.jpeg}}
   &
   \subfloat[MEMS]{
-    \includegraphics[width=3cm]{../Figures/Cap_1/MEMS_B.jpeg}}
+    \includegraphics[width=3cm]{Cap_1/MEMS_B.jpeg}}
     }
  \end{tabularx}
 \end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Mec\'anica de deformaci\'on}
+ \begin{block}{Bandas de corte}
+ Concentraci\'on de deformaci\'on en bandas estrechas, llamadas \textbf{bandas de corte}.
+ El crecimiento de estas bandas puede causar la fractura fr\'agil del material \cite{schuh07}.
+ \end{block}
+ \begin{figure}
+ \centering
+ \includegraphics[width=5cm]{Cap_1/shearbands.png}
+ \caption{Muestra de BMG bajo tracci\'on uniaxial. Adaptado de \cite{albe13}}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Objetivos}
+\begin{itemize}
+ \item Investigar el comportamiento en r\'egimen elasto-pl\'astico en grandes deformaciones de un metal amorfo binario a diferentes temperaturas
+ \begin{itemize}
+  \item Estudiar el comportamiento de las \textbf{bandas de corte} y buscar posibles soluciones para evitar o retardar la falla fr\'agil
+ \end{itemize}
+ \item Investigar los efectos de cambios en la composici\'on sobre las propiedades mec\'anicas
+ \begin{itemize}
+  \item Generar muestras modificadas: porosidad variable e inclusiones cristalinas
+ \end{itemize}
+\end{itemize}
 \end{frame}
 
