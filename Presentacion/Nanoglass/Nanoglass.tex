@@ -3,87 +3,48 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[BMG poroso]{BMG poroso sinterizado}
-%\subsection{BMG poroso sinterizado}
+\subsection{BMG poroso sinterizado}
 %%%
 % Introduccion
 %%%
 
 \begin{frame}
-    \frametitle{Introduction}
+    \frametitle{Introducci\'on}
     \vspace{0.2cm}
-    \begin{itemize}
-        \item Metallic Glass: amorphous metal (without crystalline order).
-        \item Has advantages over crystalline metals, like elasticity combined with high resistance, strength and moldability.
-        \item Plasticity in these materials occurs by nucleation of shear transformation zones which grow into shear bands.
-        \item Shear bands may lead to brittle failure (heterogeneous deformation): importance of \textbf{preventing their propagation}.
-        \item A more homogeneous deformation may be achieved by adding \textbf{porosity}.
-    \end{itemize} 
-\end{frame}
-
-\note{
-    \begin{textblock*}{11.5cm}(0.5cm,2.5cm) 
-        \begin{itemize}
-            \item Example applications for MGs: amorphous structural steels, biomedical materials, aerospace materials, etc.
-            \item Production of MGs: techniques which include high quenching rates, low volumes and composition control.
-            \item STZs and SBs: STZs are small zones of intense shearing strain, consisting of a few atoms. A SB contains more atoms and has a different aspect ratio.
-            \item Porosity to evitate the propagation of SBs: related to the way of preventing dislocation motion in metals.
-            \item MD (Molecular Dynamics): solves problems with many atoms, interacting through an interatomic potential or force field.
-        \end{itemize} 
-    \end{textblock*}
- }
-
-%%%
-% Detalles de la simulacion
-%%%
-
-\begin{frame}
-    \frametitle{Simulation details}
-    \vspace{0.2cm}
-    \begin{itemize}
-        \item Software: Lammps (lammps.sandia.gov) for simulation, Ovito (www.ovito.org) and Gnuplot for analysis.
-        \item Sample: based on Cu$_{46}$ Zr$_{54}$ described by Arman et al. (2010).
-        \begin{itemize}
-            \item Cooling rate 10$^{12}$ K/s.
-        \end{itemize}
-        \item EAM (Embedded Atom Method; Daw, 1984) alloy potential adopted (Cheng, 2008).
-    \end{itemize}
-    \begin{textblock*}{12cm}(0.5cm,7.5cm) % {block width} (coords)
-        \scriptsize{Arman B., Luo S.-N., Germann T.C. and Cağin T., \textit{Phys. Rev. B.}, \textbf{81}, 144201 (2010).\\
-        Daw M. and Baskes M.I., \textit{Phys. Rev. B.}, \textbf{29}:6443-6453 (1984).\\
-        Cheng Y.Q., Sheng H.W. and Ma E., \textit{Phys. Rev. B.}, \textbf{78}, 014207 (2008) https://sites.google.com/site/eampotentials/}
-    \end{textblock*}
-\end{frame}
-
-\note{
-    \begin{textblock*}{12cm}(0.5cm,6.5cm) 
-      EAM: the total energy $E_i$ of an atom $i$ is given by this equation, where F is the embedding energy which is a function of the atomic electron density $\rho$, $\phi$ is a pair potential interaction, and $\alpha$ and $\beta$ are the element types of atoms I and J. The multi-body nature of the EAM potential is a result of the embedding energy term. Both summations in the formula are over all neighbors J of atom I within the cutoff distance.
-    \end{textblock*}
-    \begin{block}{EAM}
-        \[
-            E_i=F_{\alpha} \left ( \sum \limits_{i\neq j} \rho _{\beta} (r_{ij}) \right ) + \frac{1}{2} \sum \limits_{i\neq j} \phi _{\alpha \beta} (r_{ij})
-        \]
+%    \begin{itemize}
+%        \item Metallic Glass: amorphous metal (without crystalline order).
+%        \item Has advantages over crystalline metals, like elasticity combined with high resistance, strength and moldability.
+%        \item Plasticity in these materials occurs by nucleation of shear transformation zones which grow into shear bands.
+%        \item Shear bands may lead to brittle failure (heterogeneous deformation): importance of \textbf{preventing their propagation}.
+%        \item A more homogeneous deformation may be achieved by adding \textbf{porosity}.
+%    \end{itemize} 
+    \begin{block}{Problem\'atica}
+      Las bandas de corte pueden ocasionar la falla fr\'agil del material (deformaci\'on heterog\'enea)
     \end{block}
-}
+    \begin{block}{Posible soluci\'on}
+     Una deformaci\'on m\'as homog\'enea puede lograrse al agregar porosidad\\
+     Similar al bloqueo del deslizamiento en metales cristalinos
+    \end{block}
+\end{frame}
 
 %%%
 % Preparacion de la muestra
 %%%
 
 \begin{frame}
-    \frametitle{Porous sample preparation}
-    \framesubtitle{Procedure}
+    \frametitle{Preparaci\'on de la muestra porosa}
     \vspace{0cm}
     \begin{enumerate}
-        \item Random placement of 2.5 nm radius spheres.
-        \item Relaxation @ 650K (constant volume, few ps). 
-        \item Up to 10 ps of compressive pressure (400 bar).
-        \item Repeat two previous steps.
-        \item Further relaxation: cooling to zero T, barostat to zero pressure, heating to simulation temperature and, barostat to zero pressure (5 ps, constant T)
+        \item Ubicaci\'on aleatoria de part\'iculas de 2.5 nm de radio.
+        \item Relajaci\'on @ 650K (volumen constante, pocos ps). 
+        \item Hasta 10 ps de compresi\'on (400 bar).
+        \item Se repiten los dos pasos anteriores.
+        \item M\'as relajaci\'on: enfriado a temperatura 0, bar\'ostato a presi\'on 0, calentado hasta temperatura de simulaci\'on y bar\'ostato a presi\'on 0 (5 ps, temperatura constante)
         \begin{textblock*}{3cm}(2.5cm,6.5cm) % {block width} (coords)
-            \includegraphics[width=3cm]{Presentacion_PANACM_Franco/spheres2.png}
+            \includegraphics[width=3cm]{Cap_5/spheres2.png}
         \end{textblock*}
         \begin{textblock*}{3cm}(7cm,6.5cm) % {block width} (coords)
-            \includegraphics[width=3cm]{Presentacion_PANACM_Franco/spheres3.png}
+            \includegraphics[width=3cm]{Cap_5/spheres3.png}
         \end{textblock*}
     \end{enumerate}
 \end{frame}
@@ -93,135 +54,145 @@
 %%%
 
 \begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Samples and loading}
-    \vspace{1cm}
+    \frametitle{Detalles de la simulaci\'on}
+    \vspace{0cm}
     \begin{itemize}
-        \item Took samples of different initial porosities (3.3\%, 5.8\% and 13.1\%).
-        \item Loading at a strain rate of 10$^9/s$, appropiate for shock compression experiments.
-        \item Purely uniaxial strain.
-        \item Periodic boundary conditions.
+        \item Se crearon muestras con distintos niveles de porosidad (3.3\%, 5.8\% y 13.1\%).
+        \item Velocidad de deformaci\'on 10$^9/s$, deformaci\'on puramente uniaxial.
+        \item Condiciones de borde peri\'odicas.
     \end{itemize}
+    \begin{textblock*}{12cm}(0.5cm,5cm)
+      \begin{figure}[htp]
+	\includegraphics[width=4cm]{Cap_5/3_0strain.png}
+	\includegraphics[width=4cm]{Cap_5/6_0strain.png}
+	\includegraphics[width=4cm]{Cap_5/13_0strain_pores.png}
+      \end{figure}
+    \end{textblock*}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Compression}
-    \begin{textblock*}{7.5cm}(0.3cm,2cm) % {block width} (coords)
-        \includegraphics[width=7.5cm]{Presentacion_PANACM_Franco/Pzz_strain_comp_dash.eps}
+ \frametitle{Resultados}
+ \begin{textblock*}{12cm}(0.5cm,1.5cm)
+  \begin{figure}[htp]
+      \includegraphics[width=6cm]{Cap_5/SVF_strain_comp_dash.eps}
+      \includegraphics[width=6cm]{Cap_5/SVF_strain_tens.eps}
+  \end{figure}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(0.8cm,7cm)
+  \centering
+  \scriptsize{Compresi\'on}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(6.8cm,7cm)
+  \centering
+  \scriptsize{Tracci\'on}
+ \end{textblock*}
+  \begin{textblock*}{\textwidth}(1cm,7.7cm)
+  \centering
+  Fracci\'on de volumen s\'olido vs deformaci\'on.\\
+  El uso de condiciones peri\'odicas evita el cierre de poros en tracci\'on.
+ \end{textblock*}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Resultados (compresi\'on)}
+    \begin{textblock*}{7cm}(5.5cm,2cm) % {block width} (coords)
+        \includegraphics[width=7cm]{Presentacion_PANACM_Franco/Pzz_strain_comp_dash.eps}
     \end{textblock*}
-    \begin{textblock*}{4.2cm}(0.6cm,6.75cm) % {block width} (coords)
+    \begin{textblock*}{4.2cm}(5.8cm,6.4cm) % {block width} (coords)
         \begin{tikzpicture}
             \draw[thick] (0,0) rectangle (5cm,1.2cm);
         \end{tikzpicture}
     \end{textblock*}
-    \begin{textblock*}{5cm}(7.86cm,2.5cm) % {block width} (coords)
-        After pore closure, curves are similar to the one for no porosity. There is significant hardening after pore closure.
+    \begin{textblock*}{5cm}(0.6cm,2.2cm) % {block width} (coords)
+        Los poros act\'uan como concentradores de tensi\'on, promoviendo la plasticidad. %Previo al colapso de los poros, la deformaci\'on aumenta, manteniendo bajos niveles de tensi\'on.
     \end{textblock*}
-    \begin{textblock*}{5cm}(7.86cm,5.8cm) % {block width} (coords)
-        Before pore closure, strain increases while maintaining low stress levels.\\
-        Porosity produces shear concentration, and pores start to collapse.
+    \begin{textblock*}{4.5cm}(0.6cm,5cm) % {block width} (coords)
+        Luego del colapso de los poros hay un endurecimiento significativo. %Indicar que todas las curvas son iguales
+    \end{textblock*}
+    \begin{textblock*}{12cm}(0.6cm,8.5cm) % {block width} (coords)
+        A mayor porosidad $\rightarrow$ menor esfuerzo para cerrar los poros
     \end{textblock*}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Compression}
-    \begin{textblock*}{6.5cm}(0.4cm,2cm) % {block width} (coords)
-        \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_0strain.png}
-        \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_5strain_comp.png}
-        \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_12strain_comp.png}
+    \frametitle{Resultados (compresi\'on)}
+    \begin{textblock*}{7cm}(5.5cm,2cm)
+        \includegraphics[width=7cm]{Presentacion_PANACM_Franco/tipe3_strain_comp.eps}
     \end{textblock*}
-    \begin{textblock*}{11cm}(1.2cm,6.4cm) % {block width} (coords)
+    \begin{textblock*}{4.8cm}(0.5cm,2.2cm)
+        La ca\'ida en el n\'umero de \'atomos de Tipo 3 luego de una etapa constante ha sido considerada como un indicador del inicio de la plasticidad (Arman, 2010).
+    \end{textblock*}
+    \begin{textblock*}{4.8cm}(0.5cm,6.5cm)
+        El resultado es contra-intuitivo.\\%Hay plasticidad pero los poliedros de Voronoi pr\'acticamente no cambian.\\
+        Posible que hayan otros procesos involucrados.
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Resultados (compresi\'on)}
+    \begin{textblock*}{12cm}(0.4cm,1.7cm)
+        \includegraphics[width=4cm]{Cap_5/13_0strain.png}
+        \includegraphics[width=4cm]{Cap_5/13_5strain_comp.png}
+        \includegraphics[width=4cm]{Cap_5/13_12strain_comp.png}\\
+    \end{textblock*}
+    \begin{textblock*}{12cm}(0.4cm,5.4cm)
+     \centering
+        \includegraphics[width=4cm]{Cap_5/escala.png}
+    \end{textblock*}
+    \begin{textblock*}{12cm}(0.5cm,6.2cm)
         \centering
-        \tiny{Shear strain coloring for a thin slice of the 13\% porosity sample. Strains are 0, 5 and 12\%\\Blue correspondes to shear strain lower than 10\%, and red to shear strain greater than 30\%}
+        \scriptsize{Porosidad 13\%. $\epsilon=$ 0, 5 y 12\%, respectivamente.}
     \end{textblock*}
-    \begin{textblock*}{11cm}(1cm,7.1cm) % {block width} (coords)
-        Pores act as stress concentrators.\\
-        They also impede incipient shear band formation.\\
-        Accumulation of strain along diagonal directions, as in incipient shear banding.
+    \begin{textblock*}{11cm}(1cm,7.1cm)
+      \centering
+        %Los poros act\'uan como concentradores de tensiones.\\
+        Los poros impiden la propagaci\'on de bandas de corte.\\
+        Bandas de corte nuclean diagonalmente en el espacio entre poros.
     \end{textblock*}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Compression}
-    \begin{textblock*}{7.5cm}(0.3cm,2cm) % {block width} (coords)
-        \includegraphics[width=7.5cm]{Presentacion_PANACM_Franco/tipe3_strain_comp.eps}
-    \end{textblock*}
-    \begin{textblock*}{5cm}(7.9cm,2.5cm) % {block width} (coords)
-        The fall in the number of Type 3 atoms after a constant stage has been thought to be an indicator of the onset of plasticity (Arman, 2010).
-    \end{textblock*}
-    \begin{textblock*}{5cm}(8cm,5.8cm) % {block width} (coords)
-        Counter-intuitive result.\\
-        Here we do have plasticity but there is almost no change in Voronoi polyhedra.\\
-        Other processes involved?
-    \end{textblock*}
-\end{frame}
-
-\note{
-    \begin{textblock*}{6.5cm}(2.5cm,2.5cm) % {block width} (coords)
-        \includegraphics[width=6.5cm]{Presentacion_PANACM_Franco/SVF_strain_comp_dash.eps}
-    \end{textblock*}
-    \begin{textblock*}{3cm}(9.2cm,3cm) % {block width} (coords)
-        Solid volume fraction versus strain.
-    \end{textblock*}
-    \begin{textblock*}{9cm}(2.8cm,7.9cm) % {block width} (coords)
-        The dashed lines show when pores totally close. The values are: \\
-        $3\% \rightarrow 0.05, 6\% \rightarrow 0.065, 13\% \rightarrow 0.12$
-    \end{textblock*}
-}
-
-\note{
-    \begin{textblock*}{6.5cm}(2.5cm,2.5cm) % {block width} (coords)
-        \includegraphics[width=6.5cm]{Presentacion_PANACM_Franco/stress_strain_comp_dash.eps}
-    \end{textblock*}
-    \begin{textblock*}{3cm}(9.2cm,3cm) % {block width} (coords)
-        Von Mises stress versus strain.
-    \end{textblock*}
-    \begin{textblock*}{9cm}(2.8cm,8.2cm) % {block width} (coords)
-
-    \end{textblock*}
-}
-
-\begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Tension}
-    \begin{textblock*}{7.5cm}(0.3cm,2cm) % {block width} (coords)
-        \includegraphics[width=7.5cm]{Presentacion_PANACM_Franco/Pzz_strain_tens.eps}
+    \frametitle{Resultados (tracci\'on)}
+    \begin{textblock*}{7cm}(0.4cm,2cm) % {block width} (coords)
+        \includegraphics[width=7cm]{Cap_5/Pzz_strain_tens.eps}
     \end{textblock*}
     \begin{textblock*}{4cm}(8cm,2.2cm) % {block width} (coords)
-        \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_20strain_tens.png}\\
+        \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_20strain_tens_2.png}\\
         \centering
-        \tiny{Shear strain coloring of the 13\% porosity sample’s slice at 20\% strain.}
+        \scriptsize{Deformaci\'on at\'omica.\\Porosidad 13\%, deformaci\'on 20\%.}
     \end{textblock*}
     \begin{textblock*}{11.5cm}(0.5cm,7.8cm) % {block width} (coords)
-        Plastic flow.\\
-        The use of periodic boundary conditions precludes the closing of the voids (there is no necking).
+	\centering
+        Flujo pl\'astico.\\
+        El uso de condiciones de borde peri\'odicas evita el cierre de poros (no hay estricci\'on).
     \end{textblock*}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Tension}
-    \begin{textblock*}{6.5cm}(0.4cm,2cm) % {block width} (coords)
+    \frametitle{Resultados (tracci\'on)}
+    \begin{textblock*}{12cm}(0.4cm,2cm) % {block width} (coords)
         \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_0strain.png}
         \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_6strain_tens.png}
         \includegraphics[width=4cm]{Presentacion_PANACM_Franco/13_20strain_tens_2.png}
     \end{textblock*}
-    \begin{textblock*}{11cm}(1cm,7cm) % {block width} (coords)
-        \centering
-        \tiny{Shear strain coloring of a thin slice of the 13\% porosity sample. Strains are 0, 6 and 20\%\\Blue correspondes to shear strain lower than 10\%, and red to shear strain greater than 30\%}
+    \begin{textblock*}{12cm}(0.4cm,6.9cm)
+     \centering
+        \includegraphics[width=4cm]{Cap_5/escala.png}
     \end{textblock*}
-    \begin{textblock*}{11.5cm}(1cm,8cm) % {block width} (coords)
-        Shear strain is mostly concentrated around the pores.
+    \begin{textblock*}{12cm}(0.5cm,7.7cm)
+        \centering
+        \scriptsize{Porosidad 13\%. $\epsilon=$ 0, 6 y 20\%, respectivamente.}
+    \end{textblock*}
+    \begin{textblock*}{11.5cm}(1cm,8.5cm) % {block width} (coords)
+    \centering
+	La deformaci\'on cortante se concentra principalmente alrededor de los poros.
 %            \item Relative position between atoms remains almost the same.
     \end{textblock*}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Results}
-    \framesubtitle{Tension}
+    \frametitle{Resultados (tracci\'on)}
     \begin{textblock*}{7.5cm}(0.3cm,2cm) % {block width} (coords)
         \includegraphics[width=7.5cm]{Presentacion_PANACM_Franco/tipe3_strain_tens.eps}
     \end{textblock*}
@@ -231,72 +202,61 @@
         \end{tikzpicture}
     \end{textblock*}
     \begin{textblock*}{5cm}(8cm,3cm) % {block width} (coords)
-        Constant after void nucleation.
+        Constante luego de la nucleaci\'on del void.
     \end{textblock*}
     \begin{textblock*}{12cm}(0.4cm,7.9cm) % {block width} (coords)
-        There is significant motion of atoms around pores, preventing the formation of STZs other than the ones around the pores.
+    \centering
+	Se facilita el movimiento de \'atomos alrededor de los poros.\\
+	Esto evita la formaci\'on de STZ fuera de los alrededores de los poros.
     \end{textblock*}
 \end{frame}
-
-\note{
-    \begin{textblock*}{6.5cm}(2.5cm,2.5cm) % {block width} (coords)
-        \includegraphics[width=6.5cm]{Presentacion_PANACM_Franco/SVF_strain_tens.eps}
-    \end{textblock*}
-    \begin{textblock*}{3cm}(9.2cm,3cm) % {block width} (coords)
-        Solid volume fraction versus strain.
-    \end{textblock*}
-}
-
-\note{
-    \begin{textblock*}{6.5cm}(2.5cm,2.5cm) % {block width} (coords)
-        \includegraphics[width=6.5cm]{Presentacion_PANACM_Franco/stress_strain_tens.eps}
-    \end{textblock*}
-    \begin{textblock*}{3cm}(9.2cm,3cm) % {block width} (coords)
-        Von Mises stress versus strain.
-    \end{textblock*}
-    \begin{textblock*}{9cm}(2.8cm,8.2cm) % {block width} (coords)
-
-    \end{textblock*}
-}
 
 %%%
 % Conclusiones
 %%%
 
+%\begin{frame}
+    %\frametitle{Conclusions}
+    %\vspace{0.5cm}
+    %\begin{itemize}
+        %\item Sintering process leads to glass with taylored porosity values.
+        %\item Under compression: pores act as stress concentrators but also delay nucleation of SBs. After closure, there is hardening.
+        %\item Under tension: pores do not close and they concentrate plastic flow around them, also impeding formation of STZ and SBs.
+        %\item Results under strain were somewhat comparable to the ones by Yuan et al. (2014), where a single crystal sample with voids was studied.
+    %\end{itemize}
+    %\begin{textblock*}{12cm}(1cm,8.8cm) % {block width} (coords)
+        %\scriptsize{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
+    %\end{textblock*}
+%\end{frame}
+
+%\begin{frame}
+    %\begin{textblock*}{5cm}(2cm,3.2cm) % {block width} (coords)
+        %\includegraphics[width=5cm]{Presentacion_PANACM_Franco/stress_strain_comp_dash.eps}
+    %\end{textblock*}
+    %\begin{textblock*}{3cm}(7cm,3cm) % {block width} (coords)
+        %\includegraphics[width=5cm]{Presentacion_PANACM_Franco/Yuan_VM.png}
+    %\end{textblock*}
+    %\begin{textblock*}{12cm}(1cm,8.2cm) % {block width} (coords)
+        %\small{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
+    %\end{textblock*}
+%\end{frame}
+
+%\begin{frame}
+    %\begin{textblock*}{5cm}(2cm,3.2cm) % {block width} (coords)
+        %\includegraphics[width=5cm]{Presentacion_PANACM_Franco/SVF_strain_comp_dash.eps}
+    %\end{textblock*}
+    %\begin{textblock*}{3cm}(7cm,3cm) % {block width} (coords)
+        %\includegraphics[width=5cm]{Presentacion_PANACM_Franco/Yuan_SVF.png}
+    %\end{textblock*}
+    %\begin{textblock*}{12cm}(1cm,8.2cm) % {block width} (coords)
+        %\small{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
+    %\end{textblock*}
+%\end{frame}
+
 \begin{frame}
-    \frametitle{Conclusions}
-    \vspace{0.5cm}
-    \begin{itemize}
-        \item Sintering process leads to glass with taylored porosity values.
-        \item Under compression: pores act as stress concentrators but also delay nucleation of SBs. After closure, there is hardening.
-        \item Under tension: pores do not close and they concentrate plastic flow around them, also impeding formation of STZ and SBs.
-        \item Results under strain were somewhat comparable to the ones by Yuan et al. (2014), where a single crystal sample with voids was studied.
-    \end{itemize}
-    \begin{textblock*}{12cm}(1cm,8.8cm) % {block width} (coords)
-        \scriptsize{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
-    \end{textblock*}
+ \frametitle{Influencia velocidad de enfriamiento}
 \end{frame}
 
-\note{
-    \begin{textblock*}{5cm}(2cm,3.2cm) % {block width} (coords)
-        \includegraphics[width=5cm]{Presentacion_PANACM_Franco/stress_strain_comp_dash.eps}
-    \end{textblock*}
-    \begin{textblock*}{3cm}(7cm,3cm) % {block width} (coords)
-        \includegraphics[width=5cm]{Presentacion_PANACM_Franco/Yuan_VM.png}
-    \end{textblock*}
-    \begin{textblock*}{12cm}(1cm,8.2cm) % {block width} (coords)
-        \small{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
-    \end{textblock*}
-}
-
-\note{
-    \begin{textblock*}{5cm}(2cm,3.2cm) % {block width} (coords)
-        \includegraphics[width=5cm]{Presentacion_PANACM_Franco/SVF_strain_comp_dash.eps}
-    \end{textblock*}
-    \begin{textblock*}{3cm}(7cm,3cm) % {block width} (coords)
-        \includegraphics[width=5cm]{Presentacion_PANACM_Franco/Yuan_SVF.png}
-    \end{textblock*}
-    \begin{textblock*}{12cm}(1cm,8.2cm) % {block width} (coords)
-        \small{Yuan F. and Wu X., \textit{AIP ADVANCES}, \textbf{4}, 127109 (2014).}
-    \end{textblock*}
-}
+\begin{frame}
+ \frametitle{Influencia ubicaci\'on de poros}
+\end{frame}
