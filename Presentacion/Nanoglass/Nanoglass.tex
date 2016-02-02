@@ -19,11 +19,11 @@
 %        \item A more homogeneous deformation may be achieved by adding \textbf{porosity}.
 %    \end{itemize} 
     \begin{block}{Problem\'atica}
-      Las bandas de corte pueden ocasionar la falla fr\'agil del material (deformaci\'on heterog\'enea)
+      Las bandas de corte pueden ocasionar la falla fr\'agil del material (deformaci\'on heterog\'enea).
     \end{block}
     \begin{block}{Posible soluci\'on}
-     Una deformaci\'on m\'as homog\'enea puede lograrse al agregar porosidad\\
-     Similar al bloqueo del deslizamiento en metales cristalinos
+     Una deformaci\'on m\'as homog\'enea puede lograrse al agregar porosidad.\\
+     Similar al bloqueo del deslizamiento en metales cristalinos.
     \end{block}
 \end{frame}
 
@@ -46,6 +46,12 @@
         \begin{textblock*}{3cm}(7cm,6.5cm) % {block width} (coords)
             \includegraphics[width=3cm]{Cap_5/spheres3.png}
         \end{textblock*}
+        \begin{textblock*}{3cm}(3.8cm,9.1cm)
+         \scriptsize{Previo al sinterizado}
+        \end{textblock*}
+        \begin{textblock*}{3cm}(7.9cm,8.8cm)
+         \scriptsize{Posterior al sinterizado}         
+        \end{textblock*}
     \end{enumerate}
 \end{frame}
 
@@ -67,6 +73,15 @@
 	\includegraphics[width=4cm]{Cap_5/6_0strain.png}
 	\includegraphics[width=4cm]{Cap_5/13_0strain_pores.png}
       \end{figure}
+    \end{textblock*}
+    \begin{textblock*}{2cm}(2.1cm,8.7cm)
+      \scriptsize{3.3\%}
+    \end{textblock*}
+    \begin{textblock*}{2cm}(6.1cm,8.7cm)
+      \scriptsize{5.8\%}
+    \end{textblock*}
+    \begin{textblock*}{2cm}(10.05cm,8.7cm)
+      \scriptsize{13.1\%}
     \end{textblock*}
 \end{frame}
 
@@ -255,8 +270,114 @@
 
 \begin{frame}
  \frametitle{Influencia velocidad de enfriamiento}
+ Se modifica la velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{14} K/s$ a $6.5 \cdot 10^{12} K/s$
+
+ \only<1>{
+ \begin{textblock*}{6cm}(0.5cm,3cm)
+  \centering
+  \includegraphics[width=6cm]{Cap_5/porosidad13_vel14_strain0.png}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(0.5cm,7.1cm)
+  \centering
+  \scriptsize{$6.5 \cdot 10^{14} K/s$, porosidad 13.1\%}
+ \end{textblock*}   
+
+ \begin{textblock*}{6cm}(6.5cm,3cm)
+  \centering
+  \includegraphics[width=6cm]{Cap_5/porosidad13_vel12_strain0.png}
+ \end{textblock*}   
+ \begin{textblock*}{6cm}(6.5cm,7.1cm)
+  \centering
+  \scriptsize{$6.5 \cdot 10^{12} K/s$, porosidad 13.5\%}
+ \end{textblock*}   
+ 
+ 
+ \begin{textblock*}{10cm}(1.2cm,8cm)
+  \centering
+  Cambia la forma de los poros (disposiciones de menor energía).
+ \end{textblock*}
+
+    %\caption[Comparación de muestras con velocidades de enfriamiento/calentamiento distintas (porosidad 13\%)]{Estado inicial de las muestras generadas con velocidades de enfriamiento/calentamiento diferentes, para el caso de porosidad 13\%.}
+}
+ 
+ \only<2>{
+ \begin{textblock*}{12cm}(0cm,2.6cm)
+    \begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{Cap_5/porosity_VM_strain_comp_vel12.eps}
+    \includegraphics[width=6cm]{Cap_5/porosity_VM_strain_trac_vel12.eps}
+    %\caption[Tensión de Von Mises vs deformación, velocidades $10^{12} K/s$ y $10^{14} K/s$]{Tensión de Von Mises vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
+    \end{figure}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(1cm,7.1cm)
+  \centering
+  \scriptsize{Compresión}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(5cm,7.1cm)
+  \centering
+  \scriptsize{Tracción}
+ \end{textblock*}
+ \begin{textblock*}{12cm}(1cm,8.2cm)
+ Aumenta $\sigma$ máxima soportada y módulo de elasticidad.\\
+ Luego de 7.5\% es dependiente del SVF. 
+ \end{textblock*}
+ 
+}
+
 \end{frame}
 
 \begin{frame}
  \frametitle{Influencia ubicaci\'on de poros}
+ 
+  Se realiza un segundo sinterizado con una distribución de partículas diferente
+
+ \only<1>{
+ \begin{textblock*}{6cm}(0.5cm,3cm)
+  \centering
+  \includegraphics[width=6cm]{Cap_5/PrimerSintering_13_0strain.png}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(0.5cm,7.25cm)
+  \centering
+  \scriptsize{Primer sinterizado, porosidad 13\%}
+ \end{textblock*}   
+
+ \begin{textblock*}{6cm}(6.5cm,3cm)
+  \centering
+  \includegraphics[width=6cm]{Cap_5/SegundoSintering_13_0strain.png}
+ \end{textblock*}   
+ \begin{textblock*}{6cm}(6.5cm,7.25cm)
+  \centering
+  \scriptsize{Segundo sinterizado, porosidad 13\%}
+ \end{textblock*}   
+ 
+ 
+ \begin{textblock*}{10cm}(1.2cm,8cm)
+  \centering
+  La distribución de poros es aleatoria.
+ \end{textblock*}
+
+    %\caption[Comparación de muestras con velocidades de enfriamiento/calentamiento distintas (porosidad 13\%)]{Estado inicial de las muestras generadas con velocidades de enfriamiento/calentamiento diferentes, para el caso de porosidad 13\%.}
+}
+ 
+ \only<2>{
+ \begin{textblock*}{12cm}(0.3cm,2.6cm)
+    \begin{figure}[htp]
+    \centering
+    \includegraphics[width=6cm]{Cap_5/porosity_PZZ_strain_comp_2sintering.eps}
+    \includegraphics[width=6cm]{Cap_5/porosity_PZZ_strain_trac_2sintering.eps}
+    %\caption[Tensión de Von Mises vs deformación, velocidades $10^{12} K/s$ y $10^{14} K/s$]{Tensión de Von Mises vs deformación. Velocidad de enfriamiento/calentamiento de $6.5 \cdot 10^{12} K/s$}
+    \end{figure}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(1.9cm,7.1cm)
+  \centering
+  \scriptsize{Compresión}
+ \end{textblock*}
+ \begin{textblock*}{6cm}(5.3cm,7.1cm)
+  \centering
+  \scriptsize{Tracción}
+ \end{textblock*}
+ \begin{textblock*}{12cm}(0.5cm,8.2cm)
+ Comportamiento dependiente del SVF y no de la ubicación de los poros. 
+ \end{textblock*}
+ }
 \end{frame}
