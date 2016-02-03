@@ -11,6 +11,7 @@
     \begin{block}{Objetivo}
      Entender el comportamiento mec\'anico a altas velocidades de deformaci\'on
     \end{block}
+    \vspace{1cm}
     \begin{block}{Din\'amica molecular (MD)}
     Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial
     \end{block}
@@ -20,7 +21,7 @@
     \frametitle{Detalles de la simulaci\'on}
     \vspace{0.1cm}
     \begin{itemize}
-        \item Software: LAMMPS (lammps.sandia.gov) para simulaci\'on, Ovito (www.ovito.org) y Gnuplot para an\'alisis
+        \item Software: LAMMPS (lammps.sandia.gov) para simulaci\'on, Ovito (www.ovito.org) para visualizaci\'on, Gnuplot/Shell/Python para an\'alisis
         \item Muestra: Cu$_{46}$Zr$_{54}$, descripta por Arman et al., 2010.
         \begin{itemize}
 	  \item 160k \'atomos.
@@ -29,7 +30,7 @@
 	\item Velocidad de deformaci\'on: 10$^9$/s.
 	\item Potencial EAM (embedded atom method; Daw,1984) ''alloy'' (Cheng, 2008).
     \end{itemize}
-    \begin{textblock*}{12cm}(0.5cm,7.5cm) % {block width} (coords)
+    \begin{textblock*}{12cm}(0.5cm,8cm) % {block width} (coords)
         \scriptsize{Arman B., Luo S.-N., Germann T.C. and Cağin T., \textit{Phys. Rev. B.}, \textbf{81}, 144201 (2010).\\
         Daw M. and Baskes M.I., \textit{Phys. Rev. B.}, \textbf{29}:6443-6453 (1984).\\
         Cheng Y.Q., Sheng H.W. and Ma E., \textit{Phys. Rev. B.}, \textbf{78}, 014207 (2008) https://sites.google.com/site/eampotentials/}
@@ -159,14 +160,14 @@
        \item $T_g=696K$
        \item $G=30GPa$
       \end{itemize}
-      (Johnson y Samwer, 2005)
+      \footnotesize{(Johnson y Samwer, 2005)}
   \end{textblock*}
   \begin{textblock*}{5cm}(2cm,6.5cm)
     \scriptsize{Esfuerzo de fluencia vs. temperatura}
   \end{textblock*}
   \begin{textblock*}{12cm}(0.5cm,8.5cm) % {block width} (coords)
-    \scriptsize{Cheng Y.Q. and Ma E.. Acta Mater., 59, 1800-1807 (2011).\\
-    Johnson W.L., Samwer K.. Phys. Rev. Lett., 95, 195501 (2005).}
+    \scriptsize{Cheng Y.Q. and Ma E., \textit{Acta Mater.}, \textbf{59}, 1800-1807 (2011).\\
+    Johnson W.L., Samwer K., \textit{Phys. Rev. Lett.}, \textbf{95}, 195501 (2005).}
   \end{textblock*}
 \end{frame}
 
@@ -252,14 +253,17 @@
   \end{textblock*}
   }
   
-  \begin{textblock*}{6cm}(0.2cm,6.5cm)
+  \begin{textblock*}{7cm}(0cm,6.5cm)
    \centering
-   Hay cambio de la secci\'on transversal en tracci\'on.\\
-   Son similares a las de nanoalambres de vidrios met\'alicos vistas en Xiao et al. (2012).\\
+   \small{Existe un cambio de la secci\'on transversal en tracci\'on.}
+  \end{textblock*}
+  \begin{textblock*}{9cm}(0cm,7.7cm)
+   \centering
+   \small{Son similares a las de nanoalambres de vidrios met\'alicos vistas en Xiao et al. (2012).\\}
   \end{textblock*}
   
   \only<1>{
-  \begin{textblock*}{3cm}(6cm,5.5cm)
+  \begin{textblock*}{3cm}(8.5cm,5.5cm)
     \begin{figure}[htp]
 	\includegraphics[width=1.3cm]{Cap_3/Pseudo_Free_Boundaries_0strain_transversal.png}
 	\includegraphics[width=1.3cm]{Cap_3/Pseudo_Free_Boundaries_20strain_transversal_esquina.png}
@@ -268,28 +272,27 @@
   }
   
   \only<2>{
-  \begin{textblock*}{2cm}(8.7cm,1.8cm)
+  \begin{textblock*}{2cm}(9.7cm,2cm)
     \begin{figure}[htp]
 	\includegraphics[width=2cm]{Presentacion_Mecom_2012/XiaoNanowire.png}
     \end{figure}
   \end{textblock*}
   
-  \begin{textblock*}{6cm}(6cm,8.2cm)
-    \centering
-    \scriptsize{Xiao Q., Sheng H.W. and Shi Y.. MRS Communications, 2, 13-16 (2012)}
+  \begin{textblock*}{12cm}(0.5cm,9cm)
+    \scriptsize{Xiao Q., Sheng H.W. and Shi Y., \textit{MRS Commun.}, \textbf{2}, 13-16 (2012)}
   \end{textblock*}
 
-  \begin{textblock*}{2cm}(6.7cm,3.1cm)
+  \begin{textblock*}{2cm}(7.7cm,3.1cm)
     \centering
     \scriptsize{$1.7\cdot10^{12}K/s$}
   \end{textblock*}
   
-  \begin{textblock*}{2cm}(6.7cm,4.9cm)
+  \begin{textblock*}{2cm}(7.7cm,4.9cm)
     \centering
     \scriptsize{$1.7\cdot10^{11}K/s$}
   \end{textblock*}
   
-  \begin{textblock*}{2cm}(6.7cm,6.8cm)
+  \begin{textblock*}{2cm}(7.7cm,6.8cm)
     \centering
     \scriptsize{$1.7\cdot10^{10}K/s$}
   \end{textblock*}

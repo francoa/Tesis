@@ -8,38 +8,45 @@
 \begin{frame}
   \frametitle{Introducci\'on}
   \begin{itemize}
-   \item La plasticidad es dominada por STZs que crecen y colapsan en SBs las cuales conducen a una falla fr\'agil del material.
-   \item Para homogeneizar el r\'egimen pl\'astico y evitar esto, la composici\'on se modifica de diferentes maneras
+   \item Para homogeneizar el r\'egimen pl\'astico y evitar la falla fr\'agil del material, la composici\'on se modifica de diferentes maneras
   \end{itemize}
-  \vspace{-1cm}
-  \begin{figure}[htp]
-    \centering
-    \begin{tabular}{c}
-      \subfloat[Nano part\'iculas \cite{Albe13}]{
-	      \includegraphics[width=5cm]{Presentacion/nanoparticles_example.png}
-	      \label{P:fg:B2Crystal}}
-    \quad
-      \subfloat[Nano vidrios \cite{Adibi13}]{
-	      \includegraphics[width=5cm]{Presentacion/nanoglass_example.png}
-	      \label{P:fg:B2CrystalTest}}
-    \end{tabular}
-    \label{P:fg:B2CuZr_Formation}
-  \end{figure} 
+  \begin{textblock*}{12.6cm}(-0.1cm, 3cm)  
+    \begin{figure}[htp]
+      \centering
+      \begin{tabular}{c}
+	\subfloat[Nanopart\'iculas (Albe et al, 2013)]{
+		\includegraphics[width=5.7cm]{Presentacion/nanoparticles_example.png}
+		\label{P:fg:B2Crystal}}
+	\hspace{0.5cm}
+	\subfloat[Nanovidrios (Adibi et al, 2013)]{
+		\includegraphics[width=6cm]{Presentacion/nanoglass_example.png}
+		\label{P:fg:B2CrystalTest}}
+      \end{tabular}
+    \end{figure}
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.5cm,8.5cm)
+  \scriptsize{Albe, K., Ritter, Y., and Şopu, D., \textit{Mech. Mater.}, \textbf{67}, 94–103 (2013). \\
+  Adibi, S., Sha, Z., Branicio, P., Joshi, S., Liu, Z., and Zhang, Y., \textit{Appl. Phys. Lett.}, \textbf{103}, 211905 (2013).\\
+  }
+  \end{textblock*}
 \end{frame}
 
 \begin{frame}
 \frametitle{Objetivos del estudio}
 \vspace{0.5cm}
+ \vspace{0.5cm}
  \begin{itemize}
   \item Estabilidad t\'ermica de las nanopart\'iculas (difusi\'on del material cristalino en la matriz amorfa).
+  \vspace{0.5cm}
   \item Impacto en el comportamiento mec\'anico de la muestra (cambios en curvas tensi\'on-deformaci\'on)
+  \vspace{0.5cm}
   \item Distribuci\'on de la tensi\'on de corte en la muestra.
  \end{itemize}
 \end{frame}
 
 \begin{frame}
  \frametitle{Detalles de la simulaci\'on}
- \vspace{0.5cm}
+ \vspace{0.3cm}
  \begin{itemize}
   \item Muestra original ya caracterizada: Cu$_{46}$Zr$_{54}$ - 160k \'atomos
   \item Condiciones de bordes peri\'odicas en las tres dimensiones
@@ -50,47 +57,48 @@
  \end{itemize}
 \end{frame}
 
+% \begin{frame}
+%  \frametitle{Preparaci\'on de cristal CuZr-B2}
+%   \begin{itemize}
+%     \item Cubo cristalino aislado de 15 celdas unitarias de ancho
+%     \item Constante de celda de 3.50 \AA{} \cite{inoue04}
+%     \item PBC en las tres dimensiones
+%     \item Minimizado de energ\'ia y relajaci\'on a presi\'on cero.
+%     \item T$_{i}$ = 1100 K \cite{pauly10} (988 K $\leq$ T$_{B2}$ $\leq$ 1200 K)
+%     \item Se equilibra a P = 0 y T = T$_{B2}$ en 100 ps
+%     \item Recocido a T = T$_{B2}$ por 150 ps
+%     \item Enfriado r\'apido a 10$^{12}$ K/s hasta 300 K
+%   \end{itemize}
+% \end{frame}
+% \begin{frame}
+%   \frametitle{Preparaci\'on de cristal CuZr-B2}
+%   \begin{textblock*}{12cm}(0cm,3cm)
+%     \begin{table}[htp]
+%     \begin{center}
+%     \begin{tabular}{*{2}{c}}
+%     \hline
+%     Velocidad de enfriamiento [K/s] & 10$^{12}$ \\
+%     \hline
+%     N\'umero de \'atomos & 6750 \\
+%     \hline
+%     Constante de celda [\AA] & 3.283 \\
+%     \hline
+%     Energ\'ia total (eV) & -34012.8 \\
+%     \hline
+%     Energ\'ia de cohesi\'on (eV) & -5.04 \\
+%     \hline
+%     \end{tabular}
+%     \end{center}
+%     \end{table}
+%   \end{textblock*}
+%   
+%   \begin{textblock*}{12cm}(0cm,7cm) 
+%     \centering
+%       Par\'ametros obtenidos para el cristal CuZr (B2)
+%   \end{textblock*}
+% \end{frame}
 \begin{frame}
- \frametitle{Preparaci\'on de cristal CuZr-B2}
- \only<1>{
-  \begin{itemize}
-    \item Cubo cristalino aislado de 15 celdas unitarias de ancho
-    \item Constante de celda de 3.50 \AA{} \cite{inoue04}
-    \item PBC en las tres dimensiones
-    \item Minimizado de energ\'ia y relajaci\'on a presi\'on cero.
-    \item T$_{i}$ = 1100 K \cite{pauly10} (988 K $\leq$ T$_{B2}$ $\leq$ 1200 K)
-    \item Se equilibra a P = 0 y T = T$_{B2}$ en 100 ps
-    \item Recocido a T = T$_{B2}$ por 150 ps
-    \item Enfriado r\'apido a 10$^{12}$ K/s hasta 300 K
-  \end{itemize}
-  }
-  \only<2>{
-  \begin{textblock*}{12cm}(0cm,3cm)
-    \begin{table}[htp]
-    \begin{center}
-    \begin{tabular}{*{2}{c}}
-    \hline
-    Velocidad de enfriamiento [K/s] & 10$^{12}$ \\
-    \hline
-    N\'umero de \'atomos & 6750 \\
-    \hline
-    Constante de celda [\AA] & 3.283 \\
-    \hline
-    Energ\'ia total (eV) & -34012.8 \\
-    \hline
-    Energ\'ia de cohesi\'on (eV) & -5.04 \\
-    \hline
-    \end{tabular}
-    \end{center}
-    \end{table}
-  \end{textblock*}
-  
-  \begin{textblock*}{12cm}(0cm,7cm) 
-    \centering
-      Par\'ametros obtenidos para el cristal CuZr (B2)
-  \end{textblock*}
-  }
-  \only<3>{
+  \frametitle{Preparaci\'on de cristal CuZr-B2}
     \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
       \begin{figure}[htp]
 	\centering
@@ -104,20 +112,19 @@
     \centering
       Verificaci\'on del cristal CuZr-B2
   \end{textblock*}
-  }
 \end{frame}
 
-\begin{frame}
- \frametitle{Vista de la muestra preparada}
- 
- \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
-     \begin{figure}[htp]
-	\centering
-	\includegraphics[height=6cm]{Cap_4/NP_CloseUp_FCC.png}
-      \end{figure}
-  \end{textblock*}
- 
-\end{frame}
+% \begin{frame}
+%  \frametitle{Vista de la muestra preparada}
+%  
+%  \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
+%      \begin{figure}[htp]
+% 	\centering
+% 	\includegraphics[height=6cm]{Cap_4/NP_CloseUp_FCC.png}
+%       \end{figure}
+%   \end{textblock*}
+%  
+% \end{frame}
 
 \begin{frame}
  \frametitle{Resultados}
@@ -164,13 +171,14 @@
     \includegraphics[width=6.3cm]{Cap_4/FCCDiff_vs_temp_fit.png}
    \end{figure}
   \end{textblock*}
-  \begin{textblock*}{10cm}(1.5cm,8cm) 
+  \begin{textblock*}{12cm}(0.2cm,8.5cm) 
     \centering
     Difusividad en funci\'on de la temperatura para el caso Cu-FCC
   \end{textblock*}
   
   \begin{textblock*}{6cm}(6.5cm,3cm)
-    Modelo usado para la regresi\'on: \\
+    Modelo usado: \\
+    \vspace{0.5cm}
     $D = D_{0}\cdot \mathrm{e}^{\frac{-\Delta E}{k_{B} T}}$\\
     \vspace{0.5cm}
     Resultados de la regresi\'on:
@@ -192,7 +200,6 @@
 
 \begin{frame}
  \frametitle{Carga uniaxial del BMG}
- \only<1>{
   \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
       \begin{figure}[htp]
 	\centering
@@ -202,12 +209,13 @@
 	\includegraphics[width=6.3cm]{Cap_4/stress_strain_compression_FCC_NoInc.png}}
       \end{figure}
     \end{textblock*}
-    \begin{textblock*}{12cm}(0.5cm,8.5cm) 
+    \begin{textblock*}{12cm}(0.5cm,8.2cm) 
     \centering
       Tensi\'on de Von Mises vs deformaci\'on para el BMG sin inclusi\'on (l\'inea punteada) y una inclusi\'on de Cu-FCC (l\'inea s\'olida)
     \end{textblock*}
-   }
-   \only<2>{
+\end{frame}
+\begin{frame}
+  \frametitle{Carga uniaxial del BMG}
     \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
       \begin{figure}[htp]
 	\centering
@@ -217,11 +225,73 @@
 	\includegraphics[width=6.3cm]{Cap_4/stress_strain_compression_B2_NoInc.png}}
       \end{figure}
     \end{textblock*}
-    \begin{textblock*}{12cm}(0.5cm,8.5cm) 
+    \begin{textblock*}{12cm}(0.5cm,8.2cm) 
     \centering
       Tensi\'on de Von Mises vs deformaci\'on para el BMG sin inclusi\'on (l\'inea punteada) y una inclusi\'on de CuZr-B2 (l\'inea s\'olida)
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cortes de la muestra}
+  \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
+    \begin{figure}[htp]
+     \centering
+     \includegraphics[height=6cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereTension_10K_Snapshots.png}
+    \end{figure}
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.5cm,8.5cm) 
+    \centering
+      \small{Inclusi\'on de Cu-FCC bajo tracci\'on a 10K según deformaci\'on cortante. De izquierda a derecha: $\epsilon$ = 16.66 \%, 16.68 \% y 16.70 \%.}
+    \end{textblock*}
+    
+   \only<2>{
+    \begin{textblock*}{10cm}(6cm,2cm)
+      \begin{figure}[htp]
+	\includegraphics[width=3cm]{Presentacion/nanoparticles_macla.png}
+    \end{figure}
     \end{textblock*}
    }
 \end{frame}
 
+\begin{frame}
+  \frametitle{Cortes de la muestra}
+  \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
+    \begin{figure}[htp]
+     \centering
+     \includegraphics[height=6cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereCompression_10K_Snapshots.png}
+    \end{figure}
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.5cm,8.5cm) 
+    \centering
+      \small{Inclusi\'on de Cu-FCC bajo compresi\'on a 10K según deformaci\'on cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cortes de la muestra}
+  \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
+    \begin{figure}[htp]
+     \centering
+     \includegraphics[height=6cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereTension_10K_Snapshots.png}
+    \end{figure}
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.5cm,8.5cm) 
+    \centering
+      \small{Inclusión de CuZr-B2 bajo tracción a 10K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.66 \%, 16.68 \% y 16.70 \%.}
+    \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cortes de la muestra}
+  \begin{textblock*}{12.6cm}(-0.08cm,1.5cm) 
+    \begin{figure}[htp]
+     \centering
+     \includegraphics[height=6cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereCompression_10K_Snapshots.png}
+    \end{figure}
+  \end{textblock*}
+  \begin{textblock*}{12cm}(0.5cm,8.5cm) 
+    \centering
+      \small{Inclusión de CuZr-B2 bajo compresión a 10K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}
+    \end{textblock*}
+\end{frame}
 
