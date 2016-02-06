@@ -216,7 +216,7 @@ En este trabajo se presentan experimentos numéricos respecto al comportamiento 
 
 Agradecemos también a M. Falk, C. Maloney y A.M. Furlani por sus provechosos comentarios y al Dr S. Luo del Laboratorio Nacional de Los Alamos por habernos facilitado la muestra de vidrio metálico y las tablas de interacción atómica con la que hemos realizado nuestras simulaciones.
 
-Desde ya, a nuestras familias por el apoyo incondicional durante todo el camino recorrido en esta casa de estudios.
+Desde ya, a nuestras familias por el apoyo incondicional durante todo el camino recorrido en esta Casa de Estudios.
 
 Asimismo, se agradece a la Secretaría de Ciencia, Técnica y Postgrado (SeCTyP) de la Universidad Nacional de Cuyo por su apoyo económico a través de los proyectos ''06/B235 Estudio de Materiales Amorfos`` y ''B008 Estudio de Posibles Mejoras de las Propiedades Mecánicas de Vidrios Metálicos``.
 
@@ -250,17 +250,22 @@ Asimismo, se agradece a la Secretaría de Ciencia, Técnica y Postgrado (SeCTyP)
 \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
 \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
 {
-\textbf{BMG} & Vidrios metálicos masivos (\textit{\textbf{B}ulk \textbf{M}etalic \textbf{G}lass}) \\
+\textbf{BMG} & Vidrio metálico masivo (\textit{\textbf{B}ulk \textbf{M}etalic \textbf{G}lass}) \\
 \textbf{CSM} & Modelo de corte cooperativo (\textit{\textbf{C}ooperative \textbf{S}hear \textbf{M}odel}) \\
 \textbf{EAM} & Método de átomo embebido (\textit{\textbf{E}mbedded \textbf{A}tom \textbf{M}ethod}) \\
-\textbf{SB} & Banda de corte (\textit{\textbf{S}hear \textbf{B}and}) \\
 \textbf{ESB} & Banda de corte embrionaria (\textit{\textbf{E}mbryonic \textbf{S}hear \textbf{B}and}) \\
+\textbf{FCC} & Cúbico centrado en las caras (\textit{\textbf{F}ace-\textbf{C}entered \textbf{C}ubic})\\
+\textbf{FFT} & Transformada rápida de Fourier (\textit{\textbf{F}ast \textbf{F}ourier \textbf{T}ransform})\\
+\textbf{MD} & Dinámica molecular (\textit{\textbf{M}olecular \textbf{D}ynamics}) \\
+\textbf{MG} & Vidrio metálico (\textit{\textbf{M}etalic \textbf{G}lass}) \\
+\textbf{MPI} & Interfaz de comunicación de mensajes (\textit{\textbf{M}essage \textbf{P}assing \textbf{I}nterface})\\
 \textbf{MSB} & Banda de corte madura (\textit{\textbf{M}ature \textbf{S}hear \textbf{B}and}) \\
+\textbf{MSD} & Desplazamientos cuadráticos medios (\textit{\textbf{M}ean \textbf{S}quared \textbf{D}isplacements})\\
+\textbf{SB} & Banda de corte (\textit{\textbf{S}hear \textbf{B}and}) \\
+\textbf{SEM} & Microscopía electrónica de barrido (\textit{\textbf{S}canning \textbf{E}lectron \textbf{M}icroscopy}) \\
 \textbf{STZ} & Zonas de tensión de corte (\textit{\textbf{S}hear \textbf{T}ransformation \textbf{Z}one}) \\
 \textbf{SVF} & Fracción de volúment sólido (\textit{\textbf{S}olid \textbf{V}olume \textbf{F}raction}) \\
-\textbf{MD} & Dinámica molecular (\textit{\textbf{M}olecular \textbf{D}ynamics}) \\
 \textbf{TEM} & Microscopía electrónica de transmisión (\textit{\textbf{T}ransmission \textbf{E}lectron \textbf{M}icroscopy}) \\
-\textbf{SEM} & Microscopía electrónica de barrido (\textit{\textbf{S}canning \textbf{E}lectron \textbf{M}icroscopy}) \\
 %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
 }
 
@@ -276,15 +281,15 @@ Asimismo, se agradece a la Secretaría de Ciencia, Técnica y Postgrado (SeCTyP)
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-\cleardoublepage
+%\cleardoublepage
 
-\setstretch{1.3} % Return the line spacing back to 1.3
+%\setstretch{1.3} % Return the line spacing back to 1.3
 
-\pagestyle{empty} % Page style needs to be empty for this page
+%\pagestyle{empty} % Page style needs to be empty for this page
 
-\dedicatory{\Large{DEDICATORIA ???}\ldots} % Dedication text
+%\dedicatory{\Large{DEDICATORIA ???}\ldots} % Dedication text
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -353,12 +358,14 @@ Asimismo, se agradece a la Secretaría de Ciencia, Técnica y Postgrado (SeCTyP)
 
 \setboolean{@twoside}{false}
 
-\includepdf[pages={-}, offset=75 -75]{PDF/PANACM2015.pdf}
-
 \includepdf[pages={-}, offset=75 -75]{PDF/Salta2012.pdf}
 
 \includepdf[pages={-}, offset=75 -75]{PDF/Poster_Salta2012_Tens.pdf}
 
 \includepdf[pages={-}, offset=75 -75]{PDF/Poster_Salta2012_Comp.pdf}
+
+\includepdf[pages={11-21}, offset=75 -75]{PDF/PANACM2015.pdf}
+
+\includepdf[pages={1-10}, offset=75 -75]{PDF/PANACM2015.pdf}
 
 \end{document}  
