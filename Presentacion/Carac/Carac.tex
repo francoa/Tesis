@@ -9,12 +9,19 @@
     \frametitle{Introducci\'on}
     \vspace{0.2cm}
     \begin{block}{Objetivo}
-     Entender el comportamiento mec\'anico a altas velocidades de deformaci\'on
+     Entender el comportamiento mec\'anico a altas velocidades de deformaci\'on y distintas temperaturas
     \end{block}
     \vspace{1cm}
-    \begin{block}{Din\'amica molecular (MD)}
-    Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial
-    \end{block}
+    \begin{itemize}
+     \item T = 10, 100, 200, 300, 400, 500, 600, 900 K
+     \item Condiciones de frontera periódicas en general
+     \item Modos de carga: Uniaxial de tracción/compresión
+    \end{itemize}
+
+    %\vspace{1cm}
+    %\begin{block}{Din\'amica molecular (MD)}
+    %Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial
+    %\end{block}
 \end{frame}
 
 \begin{frame}
@@ -64,10 +71,10 @@
     \begin{tabular}{c c}
     \hline
     \textbf{Tracci\'on} & $R^{2}$ \\ \hline \hline
-    Peak Von Mises stress &  0.981 \\ \hline
-    Von Mises stress ($\epsilon=0.12$) & 0.998 \\ \hline
-    Young Modulus & 0.990 \\ \hline
-    Yield Stress &  0.972 \\ \hline
+    $\sigma_{max}$ &  0.981 \\ \hline
+    $\sigma$ ($\epsilon=0.12$) & 0.998 \\ \hline
+    $E$ & 0.990 \\ \hline
+    $\sigma_{y}$ &  0.972 \\ \hline
     \end{tabular}
     \end{center}
     \end{table}
@@ -77,10 +84,10 @@
     \begin{tabular}{*{4}{c}}
     \hline
     \textbf{Compresi\'on} & $R^{2}$ \\ \hline \hline
-    Peak Von Mises stress & 0.997 \\ \hline
-    Von Mises stress ($\epsilon=0.18$) & 0.972 \\ \hline
-    Young Modulus & 0.985 \\ \hline
-    Yield Stress & 0.985 \\ \hline
+    $\sigma_{max}$ & 0.997 \\ \hline
+    $\sigma$ ($\epsilon=0.18$) & 0.972 \\ \hline
+    $E$ & 0.985 \\ \hline
+    $\sigma_{y}$ & 0.985 \\ \hline
     \end{tabular}
     \end{center}
     \end{table}
@@ -88,8 +95,11 @@
   \begin{textblock*}{4.8cm}(7.7cm,2cm)
   \centering
    Para el c\'alculo de propiedades mec\'anicas, suponemos un comportamiento activado t\'ermicamente.
+   \end{textblock*}
+   \begin{textblock*}{4.8cm}(7.7cm,5cm)
+   \centering
     $y=A_1^{(-T/T_0)}$
-  \end{textblock*}
+    \end{textblock*}
   \begin{textblock*}{4.8cm}(7.7cm,6cm)
   \centering
    El coeficiente de correlaci\'on es mayor a 0.9 en todos los casos, lo cual demuestra que la ecuaci\'on propuesta es razonable.
@@ -98,17 +108,17 @@
 
 \begin{frame}
  \frametitle{Gr\'aficos de las aproximaciones}
- \begin{textblock*}{10cm}(1.5cm,1cm)
+ \begin{textblock*}{10cm}(1.2cm,1.3cm)
  \begin{figure}[htp]
     \centering
-    \includegraphics[width=5cm]{Presentacion_Mecom_2012/young_T_both.eps}
-    \includegraphics[width=5cm]{Presentacion_Mecom_2012/peakstress_T_BOTH.eps}
+    \includegraphics[width=4.5cm]{Presentacion_Mecom_2012/young_T_both.eps}
+    \includegraphics[width=4.5cm]{Presentacion_Mecom_2012/peakstress_T_BOTH.eps}
   \end{figure} 
  \end{textblock*}
  \begin{textblock*}{5cm}(1.5cm,4.9cm)
    \begin{figure}[htp]
     \centering
-    \includegraphics[width=5cm]{Presentacion_Mecom_2012/defstress_T_BOTH.eps}
+    \includegraphics[width=4.5cm]{Presentacion_Mecom_2012/defstress_T_BOTH.eps}
   \end{figure} 
  \end{textblock*}
  \begin{textblock*}{5cm}(6.8cm,6.7cm)
