@@ -9,9 +9,9 @@
 \section{Introducción}
 Al introducir nanopartículas a una matriz amorfa para mejorar las propiedades mecánicas (como se discute en el \cref{C1}) y asegurar efectos perdurables, las inclusiones deberían ser estables en el tiempo, es decir, no difundir en el material amorfo circundante perdiendo así la transición nítida entre cristal y amorfo.
 
-En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio de fase B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzo de tracción uniaxial, analizamos los poliedros de Voronoi y la distribución de esfuerzo y deformación cortante para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
+En este apartado se analizan dos tipos de inclusiones cristalinas: nanopartículas de cobre cristalino con estructura de cubo centrada en las caras (Cu-FCC) y nanopartículas de cobre-circonio de fase B2 (CuZr-B2). Aunque no nos enfocamos en los efectos del tamaño de las inclusiones como otros estudios, se analiza la estabilidad de las nanopartículas a diferentes temperaturas. Durante la deformación mecánica de la muestra de un BMG con inclusiones bajo esfuerzos uniaxiales de tracción y compresión, analizamos las curvas tensión-deformación, los poliedros de Voronoi y la distribución de deformación atómica para estudiar el papel de la inclusión en las propiedades mecánicas de este material compuesto.
 
-Primeramente, en la \sref{S4_1_1}, se estudia la estabilidad de la inclusión de CuZr (B2), ya que es necesario estabilizar la fase antes de incrustar los átomos en la muestra, y esto no es posible directamente en LAMMPS. Luego, en la \sref{S4_2_1}, se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento. En la \sref{S4_2_2} se presentan curvas de esfuerzo-deformación para diferentes temperaturas y ambos casos de inclusión cristalina.
+Primeramente, en la \sref{S4_1_1}, se estudia la estabilidad de la inclusión de CuZr (B2), ya que es necesario estabilizar la fase antes de incrustar los átomos en la muestra, y esto no es posible directamente en LAMMPS. Luego, en la \sref{S4_2_1}, se muestran curvas de desplazamientos cuadráticos medios en función del tiempo para ambos sistemas, lo que da una idea de la estabilidad de la partícula en la matriz. Se presentan resultados tabulares de difusividad así como regresiones basadas en estos datos para mostrar la tendencia de comportamiento. En la \sref{S4_2_2} se presentan curvas de tensión-deformación para diferentes temperaturas y ambos casos de inclusión cristalina.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1
@@ -20,7 +20,7 @@ Primeramente, en la \sref{S4_1_1}, se estudia la estabilidad de la inclusión de
 \section{Detalles de la Simulación}
 \label{S4_1}
 
-En las simulaciones de este capítulo analizamos inclusiones esféricas de cobre FCC (Cu-FCC) y cobre-circonio de fase B2 (CuZr-B2). Para ello, una región de 2 nm de radio es eliminada de la muestra en una posición central, la cual fue luego llenada con la red cristalina correspondiente. Para el caso Cu-FCC una red cristalina FCC con una constante de red de 0.3615 nm y para el caso CuZr-B2 una red cristalina estabilizada previamente (ver detalle en \sref{S4_1_1}. En ambos casos luego de generada la nanopartícula correspondiente, la configuración fue minimizada, equilibrada a presión, luego calentada (o enfriada) para alcanzar la temperatura final deseada (\textit{T$_{f}$}) durante 4 ps y finalmente recocida y templada a \textit{T$_{f}$} por 1 ns.
+En las simulaciones de este capítulo analizamos inclusiones esféricas de cobre FCC (Cu-FCC) y cobre-circonio de fase B2 (CuZr-B2). Para ello, una región de 2 nm de radio es eliminada de la muestra en una posición central, la cual fue luego llenada con la red cristalina correspondiente. Para el caso Cu-FCC una red cristalina FCC con una constante de red de 0.3615 nm y para el caso CuZr-B2 una red cristalina estabilizada previamente (ver detalle en \sref{S4_1_1}). En ambos casos luego de generada la nanopartícula correspondiente, la configuración fue minimizada, equilibrada a presión cero, luego calentada (o enfriada) para alcanzar la temperatura final deseada (\textit{T$_{f}$}) durante 4 ps y finalmente recocida y templada a \textit{T$_{f}$} por 1 ns.
 
 En este capítulo nos centramos en la estabilidad de las nanopartículas a diferentes temperaturas, aunque se muestran algunos casos de muestras a tracción y compresión uniaxial. Una velocidad de deformación homogénea de 10$^{9}$/s es aplicada. La difusividad en todos los casos se calcula ajustando los desplazamientos cuadráticos medios (en inglés \textit{Mean Squared Displacements} o MSD) $\langle r^{2}\rangle$, obtenidos de las simulaciones con LAMMPS.
 
@@ -264,7 +264,7 @@ Como algunos poliedros de Voronoi son considerados más resistentes a la tensió
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereTension_10K_Snapshots.png}
-\caption[Inclusión de Cu-FCC bajo tracción a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo tracción a 10K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.66 \%, 16.68 \% y 16.70 \%.}}
+\caption[Inclusión de Cu-FCC bajo tracción a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo tracción a 10K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.66 \%, 16.68 \% y 16.70 \%.}}
 \label{C4:fg:snapshot_ten_FCC_10K}
 \end{figure}
 
@@ -285,49 +285,49 @@ Como algunos poliedros de Voronoi son considerados más resistentes a la tensió
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereTension_200K_Snapshots.png}
-\caption[Inclusión de Cu-FCC bajo tracción a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo tracción a 200K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.46 \%, 16.48 \% y 16.50 \%.}}
+\caption[Inclusión de Cu-FCC bajo tracción a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo tracción a 200K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.46 \%, 16.48 \% y 16.50 \%.}}
 \label{C4:fg:snapshot_ten_FCC_200K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereTension_400K_Snapshots.png}
-\caption[Inclusión de Cu-FCC bajo tracción a 400K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo tracción a 400K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.62 \%, 16.64 \% y 16.66 \%.}}
+\caption[Inclusión de Cu-FCC bajo tracción a 400K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo tracción a 400K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.62 \%, 16.64 \% y 16.66 \%.}}
 \label{C4:fg:snapshot_ten_FCC_400K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereCompression_10K_Snapshots.png}
-\caption[Inclusión de Cu-FCC bajo compresión a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo compresión a 10K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
+\caption[Inclusión de Cu-FCC bajo compresión a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo compresión a 10K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
 \label{C4:fg:snapshot_comp_FCC_10K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereCompression_200K_Snapshots.png}
-\caption[Inclusión de Cu-FCC bajo compresión a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo compresión a 200K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
+\caption[Inclusión de Cu-FCC bajo compresión a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo compresión a 200K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
 \label{C4:fg:snapshot_comp_FCC_200K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/cuSphereCompression_300K_Snapshots.png}
-\caption[Inclusión de Cu-FCC bajo compresión a 300K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo compresión a 300K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
+\caption[Inclusión de Cu-FCC bajo compresión a 300K]{\cambio{Coloreado de una sección de la muestra con inclusión de Cu-FCC bajo compresión a 300K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
 \label{C4:fg:snapshot_comp_FCC_300K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereTension_10K_Snapshots.png}
-\caption[Inclusión de CuZr-B2 bajo tracción a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo tracción a 10K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.66 \%, 16.68 \% y 16.70 \%.}}
+\caption[Inclusión de CuZr-B2 bajo tracción a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo tracción a 10K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.66 \%, 16.68 \% y 16.70 \%.}}
 \label{C4:fg:snapshot_ten_B2_10K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereTension_200K_Snapshots.png}
-\caption[Inclusión de CuZr-B2 bajo tracción a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo tracción a 200K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.56 \%, 16.58 \% y 16.60 \%.}}
+\caption[Inclusión de CuZr-B2 bajo tracción a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo tracción a 200K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.56 \%, 16.58 \% y 16.60 \%.}}
 \label{C4:fg:snapshot_ten_B2_200K}
 \end{figure}
 
@@ -343,21 +343,21 @@ Como algunos poliedros de Voronoi son considerados más resistentes a la tensió
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereTension_400K_Snapshots.png}
-\caption[Inclusión de CuZr-B2 bajo tracción a 400K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo tracción a 400K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.58 \%, 16.60 \% y 16.62 \%.}}
+\caption[Inclusión de CuZr-B2 bajo tracción a 400K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo tracción a 400K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.58 \%, 16.60 \% y 16.62 \%.}}
 \label{C4:fg:snapshot_ten_B2_400K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereCompression_10K_Snapshots.png}
-\caption[Inclusión de CuZr-B2 bajo compresión a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo compresión a 10K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
+\caption[Inclusión de CuZr-B2 bajo compresión a 10K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo compresión a 10K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
 \label{C4:fg:snapshot_comp_B2_10K}
 \end{figure}
 
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereCompression_200K_Snapshots.png}
-\caption[Inclusión de CuZr-B2 bajo compresión a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo compresión a 200K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
+\caption[Inclusión de CuZr-B2 bajo compresión a 200K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo compresión a 200K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
 \label{C4:fg:snapshot_comp_B2_200K}
 \end{figure}
 
@@ -371,7 +371,7 @@ Como algunos poliedros de Voronoi son considerados más resistentes a la tensió
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{../ResumenImagenes/Figures/NanoParticles/Snapshots/B2SphereCompression_400K_Snapshots.png}
-\caption[Inclusión de CuZr-B2 bajo compresión a 400K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo compresión a 400K según deformación cortante. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
+\caption[Inclusión de CuZr-B2 bajo compresión a 400K]{\cambio{Coloreado de una sección de la muestra con inclusión de CuZr-B2 bajo compresión a 400K según deformación atómica. De izquierda a derecha: $\epsilon$ = 16.74 \%, 16.86 \% y 16.92 \%.}}
 \label{C4:fg:snapshot_comp_B2_400K}
 \end{figure}
 
