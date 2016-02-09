@@ -57,18 +57,12 @@ Las propiedades termodinámicas se calculan como promedios de ciertas funciones 
 Esto resulta extremadamente difícil dado el número enorme de configuraciones posibles. Otra forma de calcular el promedio de este observable es considerar el promedio en el tiempo del mismo. Dicho de otro modo, considerando que los puntos $P_{i}$ de salida de la simulación forman una trayectoria $\mathbf{\Gamma}(t)$ en el espacio de fase, puede calcularse el promedio en el tiempo, como una función de $\mathbf{\Gamma}(t)$:
 
 \begin{equation}
-\langle \mathbf{\mathcal{A}} \rangle _{t} = \frac{1}{\tau_{obs}} \sum_{\tau = 1}^{\tau_{obs}} \mathbf{\mathcal{A}}(\Gamma (t))
+\langle \mathbf{\mathcal{A}} \rangle _{t} = \frac{1}{\tau_{obs}} \sum_{\tau = 1}^{\tau_{obs}} \mathbf{\mathcal{A}}(\Gamma (\tau))
 \end{equation}
 
 donde $\tau$ representa un paso de simulación y $\tau_{obs}$ es el número total de pasos.
 
-Si bien estos dos promedios se definen de diferente manera, la \textbf{hipótesis ergódica} nos dice que los dos son iguales. Definimos un sistema \textbf{ergódico} como un sistema para el cual, sobre un conjunto $V$ de $\Omega$, el Promedio de Tiempo\footnotemark[1] de una función $\mathbf{\mathcal{A}}$ a lo largo de una trayectoria $\mathbf{\Gamma}(t)$ es igual al Promedio de Fase\footnotemark[2] de $\mathbf{\mathcal{A}}$ en casi todas partes\footnotemark[3].
-
-\footnotetext[1]{$\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt = \bar{\mathbf{\mathcal{A}}}(P)$ se llama Promedio de Tiempo de $\mathbf{\mathcal{A}}$ a lo largo de la trayectoria que pasa por $P$}
-\footnotetext[2]{El teorema de Birkhoff dice: Sea $V$ un subconjunto del Espacio de Fase $\Omega$ invariante bajo una trasformación $T:V\rightarrow{}V$ y que tiene un volumen generalizado finito. Sea  $\mathbf{\mathcal{A}}$ =  $\mathbf{\mathcal{A}}(P)$, una función de fase, definida para todos los puntos de $V$ e integrable sobre $V$. Entonces el límite $\lim_{t\to\infty} \int_{0}^{t} \mathbf{\mathcal{A}}(P,T) dt$ existe para casi todos los puntos de $V$}
-\footnotetext[3]{$\frac{1}{\mu{}(V)} \int_{V} \mathbf{\mathcal{A}}(p) dV$ se llama Promedio de Fase de $\mathbf{\mathcal{A}}$ sobre $V$ y es el promedio de la función $\mathbf{\mathcal{A}}$, calculado sobre el conjunto invariante $V$}
-
-Esto quiere decir que podemos calcular propiedades termodinámicas a partir del Promedio de Tiempo de la propiedad de interés, sin tener que calcular el promedio del ensamble. La idea es que con tiempos suficientemente grandes, el sistema pasa por un número de estados suficientemente grande para considerar estos dos promedios iguales:
+Si bien estos dos promedios se definen de diferente manera, la \textbf{hipótesis ergódica} nos dice que los dos son iguales. Esto quiere decir que podemos calcular propiedades termodinámicas a partir del Promedio de Tiempo de la propiedad de interés, sin tener que calcular el promedio del ensamble. La idea es que con tiempos suficientemente grandes, el sistema pasa por un número de estados suficientemente grande para considerar estos dos promedios iguales:
 
 \begin{equation}
 \langle \mathbf{\mathcal{A}} \rangle _{t} = \langle \mathbf{\mathcal{A}} \rangle _{ens}
