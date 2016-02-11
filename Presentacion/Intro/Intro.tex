@@ -22,7 +22,7 @@
     \tikz[na]{\node[coordinate] (n1){};}
     \centering
     \begin{block}{Vidrio}
-      \centering Estructura amorfa (\scriptsize{Sílice - SiO$_{2}$}\normalsize{)}
+      \centering Sólido con estructura amorfa (\scriptsize{Sílice - SiO$_{2}$}\normalsize{)}
       
       \vspace{0.2cm}
       \includegraphics[width=3cm]{Cap_1/500px-Silica.png}
@@ -106,7 +106,7 @@
 \frametitle{Propiedades} 
 
 \ventaja{1}{{\begin{itemize}
-             \item Ausencia de efectos adversos debidos a fronteras de granos (resistencia a la corrosi\'on)
+             \item La ausencia de bordes de granos le otorga una gran resistencia a la corrosi\'on
             \end{itemize}
             }}
 \desventaja{1}{{\begin{itemize}
@@ -121,7 +121,7 @@
  \frametitle{Fabricación}
  \vspace{-0.15cm}
  \begin{block}{}
-    \textit{Te\'oricamente, todo l\'iquido podr\'ia convertirse en vidrio a velocidades de enfriamiento suficientemente altas y temperaturas suficientemente bajas evitando el proceso de cristalizaci\'on} (Turnbull et al, 1961)
+    \textit{Te\'oricamente, todo l\'iquido podr\'ia convertirse en vidrio a velocidades de enfriamiento suficientemente altas y temperaturas suficientemente bajas evitando el proceso de cristalizaci\'on} (Turnbull \textit{et al}, 1961)
  \end{block}
  
  %Las t\'ecnicas de fabricaci\'on act\'uan sobre la composici\'on, el volumen y la velocidad de enfriamiento
@@ -137,13 +137,14 @@
     \end{column}
     \begin{column}{6cm}
     \begin{alertblock}{Espesor}
-	Los vidrios met\'alicos volum\'etricos, o \textit{Bulk Metallic Glasses} en ingl\'es, tienen una secci\'on transversal de por lo menos algunos mil\'imetros.
+	Los vidrios met\'alicos volum\'etricos, o \textit{Bulk Metallic Glasses} en ingl\'es, tienen una secci\'on transversal considerable.
     \end{alertblock}
     \end{column}
   \end{columns}
  \end{textblock*}
- \begin{textblock*}{12.6cm}(0.5cm,9.2cm)
-  \scriptsize{Turnbull, D. and Cohen, M., \textit{J. Chem. Phys.}, \textbf{34(1)}, 120-125 (1961)}
+ \begin{textblock*}{12.6cm}(0.5cm,8.8cm)
+  \scriptsize{Turnbull, D. and Cohen, M., \textit{J. Chem. Phys.}, \textbf{34(1)}, 120-125 (1961)}\\
+  \scriptsize{Suryanarayana, C. and Inoue, A., \textit{Bulk Metallic Glasses}, CRC Press, (2011)}
   \end{textblock*}
 \end{frame}
 
@@ -152,7 +153,7 @@
  \begin{textblock*}{11.8cm}(0.5cm,1.8cm)
   \begin{block}{Bandas de corte}
   Concentraci\'on de deformaci\'on en bandas estrechas, llamadas \textbf{bandas de corte}.
-  El crecimiento de estas bandas puede causar la fractura fr\'agil del material (Schuh et al, 2007).
+  El crecimiento de estas bandas puede causar la fractura fr\'agil del material (Schuh \textit{et al}, 2007).
   \end{block}
  \end{textblock*}
  \vspace{-0.7cm}
@@ -164,7 +165,7 @@
  \end{textblock*}
 \begin{textblock*}{\textwidth}(1cm,8.2cm)
  \centering
- \scriptsize{Muestra de BMG bajo tracci\'on uniaxial. Adaptado de Albe et al, 2013}
+ \scriptsize{Muestra de BMG bajo tracci\'on uniaxial. Adaptado de Albe \textit{et al}, 2013}
 \end{textblock*}
 
  \begin{textblock*}{12.6cm}(0.5cm,8.9cm)
@@ -198,29 +199,48 @@
     \subfloat[MEMS]{
       \includegraphics[height=3cm]{Cap_1/MEMS_B.jpeg}}
     }
-    \only<3>{
+  \end{tabularx}
+  \end{figure}
+  \end{textblock*}
+  \only<3>{
+    \begin{textblock*}{12.6cm}(0cm,3cm)
+  \begin{figure}
+  \centering
+  \begin{tabularx}{\textwidth}{ccc}
      \subfloat[Filo est\'andar]{
       \includegraphics[height=3cm]{Cap_1/blade.png}}
       &
-      \hspace{1cm}
+      \hspace{0.5cm}
       \subfloat[Filo de BMG]{
 	\includegraphics[height=3cm]{Cap_1/BMG-blade.png}}
-    }
+      &
+      \hspace{0.5cm}
+      \subfloat[]{
+	\includegraphics[height=3cm]{Presentacion/blades.png}}
   \end{tabularx}
   \end{figure}
- \end{textblock*}
+  \end{textblock*}
+  }
+  
+  \begin{textblock*}{12.6cm}(0.5cm,7.6cm)
+  \begin{flushleft}
+	\scriptsize{Kakiuchi, H. \textit{et al}., \textit{Mater. Trans.}, \textbf{42}, 678 (2001)}\\         
+	\scriptsize{Schroers, J. \textit{et al}., \textit{Mater. Sci. Eng. A.}, \textbf{898}, 449-451 (2007)}\\
+	\scriptsize{J. A. Horton1 and D. E. Parsell, University of Mississippi Medical Center}
+  \end{flushleft}
+  \end{textblock*}
 \end{frame}
 
 \begin{frame}
  \frametitle{Objetivos}
  \vspace{0.5cm}
 \begin{itemize}
- \item Investigar el comportamiento en r\'egimen elasto-pl\'astico en grandes deformaciones de un metal amorfo binario a diferentes temperaturas
+ \item Investigar el comportamiento en r\'egimen elasto-pl\'astico en grandes deformaciones de un metal amorfo binario a diferentes temperaturas.
  \begin{itemize}
   \item Tensión-deformación, parámetros constitutivos, dependencia con la temperatura.
  \end{itemize}
  \vspace{0.3cm}
- \item Investigar los efectos de cambios en la composici\'on sobre las propiedades mec\'anicas
+ \item Investigar los efectos de cambios estructurales sobre las propiedades mec\'anicas y de qué manera esto ayuda a controlar las bandas de corte.
  \begin{itemize}
   \item Generar muestras modificadas: porosidad variable e inclusiones cristalinas
  \end{itemize}
@@ -231,16 +251,19 @@
  \frametitle{Metodología}
  \begin{figure}
   \centering
-  \includegraphics[width=10cm]{Presentacion/multiescala.png}
+  \includegraphics[width=9cm]{Presentacion/multiescala.png}
  \end{figure}
-
+  \begin{textblock*}{12.6cm}(0.5cm,8.8cm)
+    \scriptsize{NASA, \textit{Modeling Materials: Design for Planetary Entry, Electric Aircraft, and Beyond}}\\
+    \scriptsize{The George Washington University}
+  \end{textblock*}
 \end{frame}
 
 \begin{frame}
  \frametitle{Metodología}
  %\vspace{0.5cm}
  \begin{block}{Simulaciones Din\'amica Molecular (MD)}
-  Resuelve ecuaciones de Newton para un sistema de N mol\'eculas que interact\'uan seg\'un una funci\'on potencial
+  Resuelve ecuaciones de Newton para un sistema de N átomos que interact\'uan seg\'un una funci\'on potencial
  \end{block}
  \begin{textblock*}{12cm}(1.1cm,4.9cm)
   Proceso de simulación:
@@ -249,8 +272,8 @@
    \item Preparación del script de simulación para LAMMPS.
    \item Secuenciación de tareas.
    \item Ejecución de LAMMPS.
-   \item Generación de gráficas ''publication-ready''.
    \item Análisis: visual, atómico, termodinámico.
+   \item Generación de gráficas ''publication-ready''.
   \end{enumerate}
  \end{textblock*}
 \end{frame}
