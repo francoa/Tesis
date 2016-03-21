@@ -85,10 +85,7 @@ Luego, se analiza la presencia de bandas de corte para las condiciones de borde 
 
 En el texto que continúa, presentamos resultados para esfuerzos exclusivamente uniaxiales, los cuales son apropiados para la comparación con resultados de experimentos a una velocidad de deformación muy elevada, en donde las deformaciones laterales pueden despreciarse. 
 
-La \fref{C3:fg:sStrainTen} \cambio{grafica tensión de Von Mises versus deformación a todas las temperaturas simuladas. Luego de la deformación puramente elástica existe un decremento en la tensión de Von Mises, lo que sugiere la presencia de plasticidad. En la} \fref{C3:fg:sStrain} \cambio{se provee una estimación del fin del régimen elástico para poder observar mejor este fenómeno. Además, dadas la grandes velocidades de deformación y las grandes deformaciones, se nuclea un poro en la muestra bajo tracción, como vemos en la} \fref{C3:fg:voidSeq}, lo cual produce grandes fluctuaciones de tensión luego de aproximadamente 15\% de deformación para $T=900K$, y luego de deformaciones un poco superiores para el resto de temperaturas.
-
-%Below we present results for purely uniaxial strain, which is appropriate for the comparison with results of experiments at very high strain rates, where lateral strains can be neglected.
-%Figure 1 (a) shows our results for von Mises stress versus strain at all the simulated temperatures. After the purely elastic deformation that occurs up to about 2\% strain, there is a decrease in von Mises tension, suggestive of plasticity. In addition, due to the high strain rates and large stress, there is a void nucleation in the sample under tension, as shown in Figure 2, which leads to large stress fluctuations after about 15\% strain.
+La \fref{C3:fg:sStrain} grafica tensión de Von Mises versus deformación a todas las temperaturas simuladas. Luego de la deformación puramente elástica existe un decremento en la tensión de Von Mises, lo que sugiere la presencia de plasticidad. En los vidrios metálicos es difícil definir el inicio de la plasticidad, ya que no se observa una marcada fluencia como ocurre en algunos metales cristalinos. Por ello, adoptamos el siguiente criterio: asumimos que la plasticidad comienza cuando la curva esfuerzo-deformación se aleja un 20\% del comportamiento elástico, el cual lo extrapolamos a partir de puntos obtenidos a deformaciones muy bajas (menores a $\epsilon$=1\%). Este criterio será utilizado posteriormente para obtener la tensión de fluencia. Dicha tensión se muestra en la \fref{C3:fg:sStrain} como un círculo sobre la curva.
 
 \begin{figure}[htp]
 \centering
@@ -101,6 +98,11 @@ La \fref{C3:fg:sStrainTen} \cambio{grafica tensión de Von Mises versus deformac
 \caption[Curvas de tensión-deformación a diferentes temperaturas]{Curvas de tensión-deformación a diferentes temperaturas. Bajo tracción existen grandes fluctuaciones del esfuerzo que comienzan cuando se nuclea un poro a aproximadamente 15\% de deformación. Los círculos sobre las curvas denotan una estimación del fin de la deformación elástica, calculada como el punto donde la curva se aleja un 20\% del comportamiento elástico ideal.}
 \label{C3:fg:sStrain}
 \end{figure}
+
+En la \fref{C3:fg:sStrainTen} notamos que, dadas la grandes velocidades de deformación y las grandes deformaciones, se nuclea un poro en la muestra bajo tracción, como vemos en la \fref{C3:fg:voidSeq}, lo cual produce grandes fluctuaciones de tensión luego de aproximadamente 15\% de deformación para $T=900K$, y luego de deformaciones un poco superiores para el resto de temperaturas. Cuando deformamos el vidrio metálico mediante compresión uniaxial podemos observar un comportamiento similar de las curvas esfuerzo-deformación mostradas en la \fref{C3:fg:sStrainComp} con respecto a las curvas de tracción, siempre a deformaciones menores al 15\%. Luego del 15\% deformación las curvas de compresión tienen una forma suave debido a que no hay nucleación de poros.
+
+%Below we present results for purely uniaxial strain, which is appropriate for the comparison with results of experiments at very high strain rates, where lateral strains can be neglected.
+%Figure 1 (a) shows our results for von Mises stress versus strain at all the simulated temperatures. After the purely elastic deformation that occurs up to about 2\% strain, there is a decrease in von Mises tension, suggestive of plasticity. In addition, due to the high strain rates and large stress, there is a void nucleation in the sample under tension, as shown in Figure 2, which leads to large stress fluctuations after about 15\% strain.
 
 \begin{figure}[htp]
 \centering
@@ -123,7 +125,7 @@ Calculamos las propiedades mecánicas y proponemos la siguiente forma funcional 
 y = A_{1}\cdot \mathrm{e}^{\frac{-T}{T_{0}}}
 \end{equation}
 
-donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente usada para fenómenos activados térmicamente. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos los valores para los coeficientes de la \eref{C3:eq:thermalFit} obtenidos de las curvas mostradas en las Figuras \ref{C3:fg:youngVsT} a \ref{C3:fg:peakVMises1218VsT}. Para obtener el módulo de Young, se realizó una regresión lineal con los primeros 40 pasos de cada simulación. Puede verse que las regresiones son razonables. El coeficiente de correlación ($R^2$) es mayor a 0.9 en todos los casos, haciendo razonable nuestra aproximación funcional simple.
+donde $A_{1}$ y $T_{0}$ son parámetros. Esta forma funcional es frecuentemente usada para fenómenos activados térmicamente, y aquí se utiliza para aproximar el comportamiento de la tensión máxima de Von Mises, la tensión de Von Mises a una deformación determinada y el módulo de Young. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos los valores para los coeficientes de la \eref{C3:eq:thermalFit} obtenidos de las curvas mostradas en las Figuras \ref{C3:fg:youngVsT} a \ref{C3:fg:peakVMises1218VsT}. La tensión de fluencia (\fref{C3:fg:fitDosTercios}) se aproxima mediante una forma funcional distinta presentada posteriormente. Para obtener el módulo de Young, se realizó una regresión lineal con los primeros 40 pasos de cada simulación. Puede verse que las regresiones son razonables. El coeficiente de correlación ($R^2$) es mayor a 0.9 en todos los casos, haciendo razonable nuestra aproximación funcional simple.
 	
 %where $A_{1}$ and $T_{0}$ are parameters. This functional form is often used for thermally activated phenomena. In Tables 2-3 we present the values for the coefficients of equation (1) obtained from the curves shown in Figures 3-6. It can be seen that the fits are reasonable. The correlation coefficient (R2) is greater than 0.9 in all cases, thus making our simple functional fit reasonable. Of course, further studies including many more temperature values are needed to truly test the fits. 
 
@@ -190,7 +192,7 @@ Como es de esperarse, el módulo de elasticidad, la tensión máxima de Von Mise
 \label{C3:fg:peakVMises1218VsT}
 \end{figure} 
 
-\cite{cheng11} buscó describir el comportamiento de una muestra sometida a esfuerzos cortantes puros al inicio de la plasticidad  como una función de algunas variables, incluyendo la temperatura, basándose en un CSM (modelo de corte cooperativo). Sus cálculos dieron una dependencia de la temperatura de la forma $(T/T_g)^{2/3}$. Tratamos de comparar este comportamiento con nuestros resultados. Simplificando la expresión en \cite{cheng11}, obtuvimos la siguiente expresión:
+\cite{cheng11} buscaron describir el comportamiento de una muestra sometida a esfuerzos cortantes puros al inicio de la plasticidad  como una función de algunas variables, incluyendo la temperatura, basándose en un CSM (modelo de corte cooperativo). Sus cálculos dieron una dependencia de la temperatura de la forma $(T/T_g)^{2/3}$. Tratamos de comparar este comportamiento con nuestros resultados. Simplificando la expresión en \cite{cheng11}, obtuvimos la siguiente expresión:
 
 %\cite{cheng11} attempted to describe the behavior of the onset of plasticity under pure shear, as a function of several variables, including temperature, based on a CSM (cooperative shear model). The resulting temperature dependence was (T/$T_g$)2/3, and we try to apply this behavior to our results. Simplifying the expression in \cite{cheng11}, we obtain the following expression:
 
@@ -198,7 +200,7 @@ Como es de esperarse, el módulo de elasticidad, la tensión máxima de Von Mise
 \frac{\sigma{}_{y}}{G} = A+B\left( \frac{T}{T_g} \right)^{2/3}
 \end{equation}
 
-donde $\sigma{}_{y}$ es la tensión de fluencia, mientras que A y B son parámetros que se deben ajustar. Para obtener la tensión de fluencia en nuestras simulaciones utilizamos la siguiente regla: asumimos que la plasticidad comienza cuando la curva esfuerzo-deformación se aleja un 20\% del comportamiento elástico, el cual lo extrapolamos a partir de puntos obtenidos a deformaciones muy bajas (menores a $\epsilon$=1\%). En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos valores para los coeficientes de la \eref{C3:eq:onsetPlast} obtenidos para las curvas que se muestran en la \fref{C3:fg:fitDosTercios}. En esta figura comparamos las curvas ajustadas para tracción y compresión con el resultado de \cite{johnson05}, quien obtuvo, para  deformación cortante pura, la siguiente expresión:
+donde $\sigma{}_{y}$ es la tensión de fluencia, mientras que A y B son parámetros que se deben ajustar. En las Tablas \ref{C3:tb:initPropsTen} y \ref{C3:tb:initPropsComp} presentamos valores para los coeficientes de la \eref{C3:eq:onsetPlast} obtenidos para las curvas que se muestran en la \fref{C3:fg:fitDosTercios}. En esta figura comparamos las curvas ajustadas para tracción y compresión con el resultado de \cite{johnson05}, quien obtuvo, para deformación cortante pura, la siguiente expresión:
 
 %where $\sigma{}_{y}$ is the yielding stress, while A and B are parameters of the fit. To obtain the yield stress in our simulations we assume that plasticity starts when the stress-strain curve departs 20\% from the linear elastic behavior extrapolated from very low strains (below $\epsilon$=1\%). In Tables 2-3 we present the values for the coefficients of equation (2) obtained for the curves shown in Figure 6. In this figure we compare the fittings for tension and compression with the result from \cite{johnson05}, who obtained, for experiments under pure shear deformation the following expression:
 
@@ -206,7 +208,7 @@ donde $\sigma{}_{y}$ es la tensión de fluencia, mientras que A y B son parámet
 \frac{\tau _{y}}{G} = 0.036-0.016\left( \frac{T}{T_g} \right)^{0.62}
 \end{equation}
 
-donde $\tau _{y}$ es la tensión de fluencia cortante. Observamos que la \eref{C3:eq:onsetPlast} puede aproximar relativamente bien tanto la tracción como la compresión uniaxial. Hay ciertas discrepancias con la aproximación experimental de la \eref{C3:eq:johnsonSamwer}, pero notamos que los coeficientes de la aproximación tienen grandes márgenes de error, y los datos muestran mucha dispersión. Por ejemplo, el exponente es 0.62 $\pm$ 0.2.
+donde $\tau _{y}$ es la tensión de fluencia cortante. Observamos que la \eref{C3:eq:onsetPlast} puede aproximar relativamente bien tanto la tracción como la compresión uniaxial. Hay ciertas discrepancias con la aproximación experimental de la \eref{C3:eq:johnsonSamwer}, pero notamos que los coeficientes de la aproximación tienen grandes márgenes de error, y los datos muestran mucha dispersión. Por ejemplo, el exponente es 0.62 $\pm$ 0.2. Además, el modelo utilizado no considera los distintos tipos de carga, pero se observa que hay una clara asimetría entre tracción y compresión.
 	
 %where $\tau _{y}$ is the shear yield strength .We observe that equation (2) fits both uniaxial tension and compression quite well. There are discrepancies with the experimental fit from equation (3), but we note that the coefficients in that fit had large error bars, and data showed large dispersion. For instance, the exponent was 0.62 $\pm$ 0.2.
 
@@ -217,13 +219,9 @@ donde $\tau _{y}$ es la tensión de fluencia cortante. Observamos que la \eref{C
 \label{C3:fg:fitDosTercios}
 \end{figure}
 
-La \fref{C3:fg:sampleTen} muestra la tensión de Von Mises a nivel atómico para la muestra completa (tracción a $T=300K$). A pesar de la evidencia de comportamiento plástico en las curvas esfuerzo-deformación, no observamos evidencia de bandas de corte.
+La \fref{C3:fg:sampleTen} muestra la tensión de Von Mises a nivel atómico para la muestra completa (tracción a $T=300K$). A pesar de la evidencia de comportamiento plástico en las curvas esfuerzo-deformación, no observamos evidencia de bandas de corte. De igual manera, en la \fref{C3:fg:sampleComp} (compresión a $T=300K$) no se observan bandas de corte. 
 
 %Figure 7 shows atomic von Mises stress for the complete sample in the case of tension at T=300K. Despite the evidence of plastic behavior in stress-strain curves, we do not observe evidence of shear bands.
-
-De acuerdo a un estudio en nanocables de vidrio metálico \citep{xiao12}, la presencia de bandas de corte depende fuertemente de la velocidad de enfriamiento del vidrio. En este caso, para las velocidades de enfriamiento utilizadas en la creación de nuestra muestra, podría suceder que no se observen bandas de corte. Sin embargo, más adelante en esta sección se observarán posibles bandas de corte incipientes al graficar la deformación atómica en lugar de la tensión de Von Mises.
-
-%According to a recent study in metallic glass nanowires (\cite{xiao12}), the presence of shear bands strongly depends on the quenching rate of the glass. In this case, for the quenching rates used in the creation of our sample, shear bands should not be observed, as shown in Figure 7.
 
 \begin{figure}[htp]
 \centering
@@ -232,18 +230,6 @@ De acuerdo a un estudio en nanocables de vidrio metálico \citep{xiao12}, la pre
 \label{C3:fg:sampleTen}
 \end{figure}
 
-Cuando deformamos el vidrio metálico mediante compresión uniaxial podemos observar un comportamiento similar de las curvas esfuerzo-deformación mostradas en la \fref{C3:fg:sStrainComp} con respecto a las curvas de tracción mostradas en la \fref{C3:fg:sStrainTen}, siempre a deformaciones menores al 15\%. Luego del 15\% deformación las curvas de compresión tienen una forma suave debido a que no hay nucleación de poros.
-
-%When the metallic glass deforms under uniaxial compression we can observe a similar behavior in the stress-strain curves shown in Figure 1 (b) to the curves corresponding to tension in Figure 1 (a), for strains below 15\%. However, since there is no void nucleation above 15\%, the behavior of the curves is smooth even at very high strains.
-
-Las Figuras \ref{C3:fg:youngVsT} a \ref{C3:fg:fitDosTercios} muestran las mismas aproximaciones que las usadas para tracción. Las aproximaciones también son razonables, incluso con una ecuación de aproximación simple como la mostrada en la \eref{C3:eq:thermalFit}.
-
-%Figures 3-6 show the same type of fit that the one used for tension, and there is also a reasonable adjustment, even with the simple functional form shown in equation (1).
-
-La \fref{C3:fg:sampleComp} muestra que, de igual manera que en la muestra bajo tracción, no se observan bandas de corte.
-
-%Figure 8 shows that, similarly to the sample under tension, no shear bands are observed, as expected given the high quenching rate of the glass used here.
-
 \begin{figure}[htp]
 \centering
 \includegraphics[width=10cm]{Cap_3/All_300K_6pstrain_sacale100-400_Comp.png}
@@ -251,7 +237,18 @@ La \fref{C3:fg:sampleComp} muestra que, de igual manera que en la muestra bajo t
 \label{C3:fg:sampleComp}
 \end{figure}
 
-Respecto a las bandas de corte, como se mencionó previamente, es posible observarlas graficando la deformación atómica en vez de la tensión de Von Mises. Para esto se utiliza la herramienta Ovito, la cual utiliza el procedimiento descripto en \cite{shimizu07} para calcular la deformación atómica. La \fref{C3:fg:SBs} muestra el resultado.
+De acuerdo a un estudio en nanocables de vidrio metálico \citep{xiao12}, la presencia de bandas de corte depende fuertemente de la velocidad de enfriamiento del vidrio. En este caso, para las velocidades de enfriamiento utilizadas en la creación de nuestra muestra, podría suceder que no se observen bandas de corte. 
+
+Sin embargo, es posible observar bandas de corte graficando la deformación atómica en vez de la tensión de Von Mises. Para esto se utiliza la herramienta Ovito, la cual utiliza el procedimiento descripto en \cite{shimizu07} para calcular la deformación atómica. La \fref{C3:fg:SBs} muestra el resultado.
+
+%According to a recent study in metallic glass nanowires (\cite{xiao12}), the presence of shear bands strongly depends on the quenching rate of the glass. In this case, for the quenching rates used in the creation of our sample, shear bands should not be observed, as shown in Figure 7.
+
+
+%When the metallic glass deforms under uniaxial compression we can observe a similar behavior in the stress-strain curves shown in Figure 1 (b) to the curves corresponding to tension in Figure 1 (a), for strains below 15\%. However, since there is no void nucleation above 15\%, the behavior of the curves is smooth even at very high strains.
+
+%Figures 3-6 show the same type of fit that the one used for tension, and there is also a reasonable adjustment, even with the simple functional form shown in equation (1).
+
+%Figure 8 shows that, similarly to the sample under tension, no shear bands are observed, as expected given the high quenching rate of the glass used here.
 
 \begin{figure}[htp]
 \centering
